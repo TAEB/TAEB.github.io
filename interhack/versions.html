@@ -11,7 +11,7 @@
    <hr />
   </div>
   <div id="content">
-   <h3><a href="https://github.com/taeb/interhack">1.x</a>
+   <h3><a href="https://github.com/TAEB/Interhack">1.x</a>
    </h3>
    <p>The 1.x series of Interhack is the original version. I like to think of 1.x as a prototype that far outlived its deserved lifespan.</p>
    <p>As soon as I got the basic filter &#40;stdin to NAO, NAO to monitor&#41; working, I knew I could implement a helluva lot. I just hacked on it without thinking hard about the implications.</p>
@@ -27,20 +27,20 @@
    <p>Despite all these negatives, I still very much like 1.x.</p>
    <p>1.x is currently the trunk because 2.x is not yet ready.</p>
    <hr />
-   <h3><a href="https://github.com/taeb/interhack2">2.x</a>
+   <h3><a href="https://github.com/TAEB/Interhack2">2.x</a>
    </h3>
    <p>2.x is a complete rewrite using <a href="http://moose.perl.org">Moose</a>, a modern object system.</p>
    <p>One of the design decisions was that the core should remain completely free from new features. You should be able to use Interhack with no plugins and it should be exactly like telnetting in and playing normally.</p>
    <p>The central concept for plugins is the idea of hooks. Interhack provides many small methods &#40;such as toserver, which sends a keystroke to the server; or check_input, which validates input -- always returns &#39;valid&#39; in the core&#41;. Plugins &#39;wrap&#39; these small methods to do whatever they like. For example, they Keystrokes plugin wraps the toserver method and increments an internal counter for each character in the text.</p>
    <p>2.x lacks many of the plugins of 1.x, but it does have some new awesomeness that was impossible in 1.x.</p>
    <ul>
-    <li><a href="https://github.com/taeb/interhack2/blob/master/lib/Interhack/Plugin/InGame/Macros.pm">Macros</a> &#40;as a plugin!&#41;</li>
-    <li><a href="https://github.com/taeb/interhack2/blob/master/lib/Interhack/Plugin/InGame/ConfirmDirection.pm">ConfirmDirection</a> &#40;makes sure you only type in a valid direction at &#39;In what direction?&#39; so you don&#39;t finger of death yourself &#40;hi Stevie&#41;</li>
-    <li><a href="https://github.com/taeb/interhack2/blob/master/lib/Interhack/Plugin/InGame/Foodless.pm">Foodless</a> &#40;helps you maintain the foodless conduct by making you confirm every &#39;e&#39; command -- easy to disable for the rest of the game, in case you don&#39;t care about foodless&#41;</li>
-    <li><a href="https://github.com/taeb/interhack2/blob/master/lib/Interhack/Plugin/InGame/PasteDetection.pm">PasteDetection</a> &#40;if it thinks you&#39;re pasting text, it&#39;ll force you to press tab to go through with the paste -- a feature borrowed from irssi&#41;</li>
+    <li><a href="https://github.com/TAEB/Interhack2/blob/master/lib/Interhack/Plugin/InGame/Macros.pm">Macros</a> &#40;as a plugin!&#41;</li>
+    <li><a href="https://github.com/TAEB/Interhack2/blob/master/lib/Interhack/Plugin/InGame/ConfirmDirection.pm">ConfirmDirection</a> &#40;makes sure you only type in a valid direction at &#39;In what direction?&#39; so you don&#39;t finger of death yourself &#40;hi Stevie&#41;</li>
+    <li><a href="https://github.com/TAEB/Interhack2/blob/master/lib/Interhack/Plugin/InGame/Foodless.pm">Foodless</a> &#40;helps you maintain the foodless conduct by making you confirm every &#39;e&#39; command -- easy to disable for the rest of the game, in case you don&#39;t care about foodless&#41;</li>
+    <li><a href="https://github.com/TAEB/Interhack2/blob/master/lib/Interhack/Plugin/InGame/PasteDetection.pm">PasteDetection</a> &#40;if it thinks you&#39;re pasting text, it&#39;ll force you to press tab to go through with the paste -- a feature borrowed from irssi&#41;</li>
    </ul>
    <hr />
-   <h3><a href="https://github.com/taeb/interhack0">0.x</a>
+   <h3><a href="https://github.com/TAEB/Interhack0">0.x</a>
    </h3>
    <p>0.x is a minimal implementation that developers can toy with. It was written &#40;in only a few minutes&#41; after 2.x was started.</p>
    <p>It&#39;s a useful starting off point if you just want to toy with it. Being so small, it should easily fit into your head. It&#39;s only 70 lines.</p>
