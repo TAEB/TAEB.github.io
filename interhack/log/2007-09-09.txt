@@ -1,0 +1,193 @@
+[00:16:52] -!- Young-P [n=shot5tim@12.43.23.89] has joined #interhack
+[00:16:55] < Young-P> anyone here got paypals?if you do msg me and lets make some $.
+[00:17:11] -!- Young-P was kicked from #interhack by doy [doy]
+[00:18:44] <@Eidolos> hah
+[00:18:51] < arcanehl> that was mean
+[00:19:38] <@doy> (:
+[00:47:03] -!- stumbly_ [i=wlngnut@dialup-4.246.45.62.Dial1.SanJose1.Level3.net] has joined #interhack
+[00:52:50] <@Eidolos> doy: ni
+[00:52:51] <@Eidolos> ce
+[01:05:38] -!- stumbly [i=wlngnut@dialup-4.246.45.107.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[01:36:28] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[01:45:05] <@doy> Eidolos: http://tozt.jjaro.net/code/luancurses/darcs/test/rl.lua
+[01:45:11] -!- stumbly_ [i=wlngnut@dialup-4.246.45.62.Dial1.SanJose1.Level3.net] has quit [Read error: 104 (Connection reset by peer)]
+[01:45:14] -!- stumbly_ [i=wlngnut@dialup-4.246.45.62.Dial1.SanJose1.Level3.net] has joined #interhack
+[03:03:47] -!- stubblyhead [n=mike@00112f4c4ba4.click-network.com] has joined #interhack
+[03:03:52] <@Eidolos> hi :)
+[03:03:57] <@Eidolos> what's up?
+[03:03:58] < stubblyhead> hi there.
+[03:05:11] < stubblyhead> i'm particularly interested in the priceid functionality, but when i picked up something in a store, it didn't do anythnig.
+[03:05:18] <@Eidolos> ok
+[03:05:23] <@Eidolos> the problem is either
+[03:05:26] <@Eidolos> 1) you have no config
+[03:05:37] <@Eidolos> or 2) your term doesn't display dark gray (which Terminal.app suffers from)
+[03:05:54] <@Eidolos> by default IH tries to do as little as possible unless you tell it to do more
+[03:06:02] < stubblyhead> i think it is the former, i was looking around in the ones provided with the trunk.
+[03:06:12]  * Eidolos nods
+[03:06:15] < stubblyhead> and just now copied a modified one to ./config
+[03:06:25] < stubblyhead> let's try again and see what happens.
+[03:06:30] <@doy> doy-config, toft-config, eido-config in order from least complicated to most complicated
+[03:06:43] < stubblyhead> oh, i presume that if i want to make changes I need to quit and restart?
+[03:06:45] <@Eidolos> the most correct place is ~/.interhack/config
+[03:06:48] <@Eidolos> yep
+[03:06:58] <@Eidolos> IH 2 (a branch at the moment) fixes a lot of these issues
+[03:07:05] < stubblyhead> yah, that's where it is.
+[03:07:23] <@Eidolos> though maybe we want to make magic be the default so people don't necessarily have to bother with setting up config
+[03:07:24] <@doy> speaking of ih2...
+[03:07:25] <@doy> (:
+[03:07:29] <@Eidolos> play zendo!
+[03:07:34] <@doy> d:
+[03:07:37] <@doy> i'm busy!
+[03:07:50] <@Eidolos> pfft, you're _coding_ ;)
+[03:08:28] < stubblyhead> hrm, still no dice.  do i need to include a particular line to use that?
+[03:08:42] <@Eidolos> if you copied one of ours it should be doing something
+[03:08:45] <@doy> i've learned that when i get in the coding mood that i should take as much advantage of it as possible
+[03:08:50] <@doy> because it goes away
+[03:08:51] <@Eidolos> doy: hehe. yes!
+[03:08:56] <@doy> and then i'm completely unproductive
+[03:08:57] <@doy> (:
+[03:08:59] < stubblyhead> yes, i modified and copied toft-config.
+[03:09:16] <@Eidolos> ok
+[03:09:18] <@Eidolos> hit ctrl-e
+[03:09:21] <@Eidolos> does that write Elbereth?
+[03:09:23] <@Eidolos> (in game)
+[03:09:32] < stubblyhead> Unavailable command '^E'.
+[03:09:53] <@Eidolos> ok
+[03:09:59] <@Eidolos> so it's not the dark gray issue
+[03:10:07] <@Eidolos> doy: I'd like to point out the results of wc -l *-config ;)
+[03:10:13] < stubblyhead> yeah, i saw the special command for editing your .nethackrc file.
+[03:10:25] <@doy> Eidolos: yeah, i have so much stuff to disable!
+[03:10:25] <@Eidolos> oh
+[03:10:26] <@doy> (:
+[03:10:53]  * Eidolos thinks
+[03:11:26] <@Eidolos> stubblyhead: run this for me
+[03:11:54] <@Eidolos> perl -le 'system("cat $ENV{HOME/.interhack/config | wc")'
+[03:11:57] <@Eidolos> sorry no
+[03:12:00] <@Eidolos> perl -le 'system("cat $ENV{HOME}/.interhack/config | wc")'
+[03:12:09] <@Eidolos> perhaps it's just not finding your config
+[03:12:26] <@Eidolos> (which would happen if the HOME env var isn't set)
+[03:12:30] < stubblyhead> hm, ok.
+[03:12:33] <@Eidolos> what kind of system are you running?
+[03:12:51] <@Eidolos> cygwin? some kind of linux?
+[03:12:53] < stubblyhead> ubuntu
+[03:12:56] <@Eidolos> ok
+[03:13:00] <@Eidolos> freaky
+[03:13:11] <@Eidolos> what did that command print out?
+[03:13:18] <@Eidolos> if it printed out all 0s or an error then that's the problem
+[03:13:29] < stubblyhead> ahh, no such file or directory....
+[03:13:38] <@Eidolos> hee ok
+[03:14:26] <@Eidolos> you want to put the config in
+[03:14:29] < stubblyhead> wel that's very strange, because I just ran printenv, and HOME is listed as /home/mike, which is correct.
+[03:14:37] <@Eidolos> /home/mike/.interhack/config
+[03:14:42] <@doy> is interhack spelled correctly?
+[03:14:48] <@doy> ls ~/.interhack
+[03:14:52] <@doy> or other things
+[03:14:58] <@doy> check for spelling errors in the existing files
+[03:15:07] <@doy> also
+[03:15:20] < stubblyhead> yep, that's all correct, i got it straight from darcs
+[03:15:31] <@Eidolos> hrm
+[03:15:34] <@doy> perl -e 'print $ENV{HOME} . "\n"'
+[03:15:37] <@doy> try that
+[03:15:43] <@doy> to make sure perl is configured correctly
+[03:15:46] <@doy> and can see env vars
+[03:15:58] < stubblyhead> ahh, well there's your problem right there.
+[03:16:14] < stubblyhead> it's in my interhack directory, not .interhack
+[03:16:22] <@doy> heh
+[03:16:24] <@Eidolos> right
+[03:16:33] <@Eidolos> it has to be in .interhack in your home dir
+[03:18:20] < stubblyhead> wtf..  Can't locate Net/OSCAR.pm in @INC.  worked fine a minute ago, what'd i do?
+[03:19:48] <@Eidolos> :)
+[03:19:50] <@Eidolos> a plugin has that dep
+[03:19:55] <@Eidolos> that's a good sign
+[03:19:59] <@Eidolos> ok
+[03:20:06] <@Eidolos> you probably don't want that plugin, no one else does :(
+[03:20:07] <@Eidolos> so
+[03:20:08] < stubblyhead> ahh, ok.  so is that net::oscar?
+[03:20:14] <@Eidolos> in your config
+[03:20:17] < stubblyhead> oh, ok.
+[03:20:36] <@Eidolos> exclude "hiveminder";
+[03:20:44] <@Eidolos> in the plugin section, where the other exlucdes are
+[03:21:46] < stubblyhead> ok.
+[03:22:01] < stubblyhead> what does hiveminder do?
+[03:22:15] <@Eidolos> it's for interacting with my bot for work :)
+[03:22:23] <@Eidolos> http://interhack.us/plugins.html lists each plugin and a short summary of what they do
+[03:25:17] < stubblyhead> logged me in automatically ok.
+[03:25:35] <@Eidolos> great :)
+[03:26:57] < stubblyhead> ^E writes elbereth, but doesn't say that I've done so.
+[03:27:31]  * Eidolos nods
+[03:27:57] < stubblyhead> ok, so that's by design then.  um, still not getting any prompt to automatically rename stuff in shops.
+[03:28:34] <@Eidolos> might be your burdened
+[03:28:44] < stubblyhead> i am infact.
+[03:29:23] < stubblyhead> did offer to autoadjust the lamp i picked up.
+[03:30:16] < stubblyhead> brb
+[03:35:22] -!- stumbly [i=wlngnut@dialup-4.246.45.119.Dial1.SanJose1.Level3.net] has joined #interhack
+[03:36:13] < stubblyhead> ok, back
+[03:36:22] <@Eidolos> :)
+[03:36:31] <@Eidolos> I will try to do some Interhack dev tonight
+[03:36:35] <@Eidolos> maybe!
+[03:37:07] < stubblyhead> i have priceid-buy.pl in my plugins directory, and my config includes *
+[03:37:56] <@Eidolos> not sure what's wrong, but you must be in Interhack's dir when you run it
+[03:38:19] < stubblyhead> i am, i'm in ~/interhack when i do perl interhack.pl
+[03:38:33] <@Eidolos> ok
+[03:38:40] <@Eidolos> the plugins directory might be called plugin
+[03:38:41] <@Eidolos> shrug
+[03:38:44] <@Eidolos> oh
+[03:38:58] <@Eidolos> try it again without being burdened? that may be screwing up the regular expression
+[03:39:04] < stubblyhead> hm, ok.
+[03:39:40] < stubblyhead> yep, that did it.
+[03:39:52] <@Eidolos> whew
+[03:39:59] <@Eidolos> I'll see about getting that fixed
+[03:43:14] < stubblyhead> strange how things like that crop up.
+[03:43:28] <@Eidolos> the message is slightly different if you're burdened
+[03:43:52] < stubblyhead> is there a plan to use price when trying to sell?
+[03:44:08] <@Eidolos> that's a lot harder
+[03:44:17] <@Eidolos> with buying all the information you need is in one message
+[03:45:34] < stubblyhead> ah, i see.  i guess only the pricing logic is simpler.
+[03:45:51] < stubblyhead> oh, does it account for having a hawaiian shirt on/being a tourist?
+[03:46:11] <@Eidolos> I believe so
+[03:49:13] < stubblyhead> thanks for the help, i really appreciate it.
+[03:56:16] -!- stubblyhead [n=mike@00112f4c4ba4.click-network.com] has left #interhack []
+[03:57:38] -!- stumbly_ [i=wlngnut@dialup-4.246.45.62.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[05:30:24] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[05:37:44] -!- stumbly_ [i=wlngnut@dialup-4.246.45.27.Dial1.SanJose1.Level3.net] has joined #interhack
+[05:49:20] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[05:52:22] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has joined #interhack
+[05:57:14] -!- stumbly [i=wlngnut@dialup-4.246.45.119.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[06:00:21] -!- stumbly [n=wlngnut@dialup-4.246.45.48.Dial1.SanJose1.Level3.net] has joined #interhack
+[06:14:10] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[06:15:45] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[06:19:09] -!- stumbly_ [i=wlngnut@dialup-4.246.45.27.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[06:37:17] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[06:37:46] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[06:43:07] -!- stumbly [n=wlngnut@dialup-4.246.45.48.Dial1.SanJose1.Level3.net] has left #interhack ["Jumps down a hole."]
+[09:27:19] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[09:28:14] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[10:45:50] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[10:46:35] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[11:39:23] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[11:39:55] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[12:02:25] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[12:05:59] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[12:29:44] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[12:37:02] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[12:57:26] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[13:01:22] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[13:25:41] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[13:26:22] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[13:49:40] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[13:51:22] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[14:17:22] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[14:18:06] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[14:40:07] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[14:41:25] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[15:03:07] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Success]
+[15:05:56] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[15:27:16] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[15:30:57] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[15:54:45] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[16:00:17] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[16:24:19] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[16:32:37] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[16:49:23] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Connection timed out]
+[16:58:33] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[17:00:24] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Client Quit]

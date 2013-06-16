@@ -1,0 +1,182 @@
+[00:22:52] < alexbobp> Hey, everybody, Greydar created a forum for roguelike discussion.  Go join it.  http://dark-hell.de/forums/
+[00:40:44] -!- alexbobp is now known as alexbobp_sleeps
+--- Log closed Tue Jul 31 01:10:57 2007
+[01:11:01] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[01:11:01] -!- Irssi: #interhack: Total of 10 nicks [2 ops, 0 halfops, 0 voices, 8 normal]
+[01:12:24] -!- Irssi: Join to #interhack was synced in 85 secs
+[01:21:35] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[02:15:54] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[03:44:14] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[06:31:25] -!- jilles_ is now known as jilles
+[07:58:44] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[08:07:56] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[08:43:20] -!- alexbobp_sleeps [n=alex@adsl-68-92-149-37.dsl.austtx.swbell.net] has quit ["Leaving."]
+[10:42:11] -!- ekiMbo is now known as ekiM
+[11:57:02] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 104 (Connection reset by peer)]
+[11:57:06] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[12:00:22] -!- You're now known as Eidolos
+[12:03:09] -!- Tokrok_ [n=Tokrok@p57B07554.dip.t-dialin.net] has joined #interhack
+[12:03:29] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[12:05:50] -!- Tokrok_ [n=Tokrok@p57B07554.dip.t-dialin.net] has quit ["Trillian (http://www.ceruleanstudios.com"]
+[12:07:09] -!- Tokrok_ [n=Tokrok@p57B07554.dip.t-dialin.net] has joined #interhack
+[12:18:48] -!- SybotCB [n=Sybot@r171h55.dixie-net.com] has joined #interhack
+[12:18:58] < SybotCB> !help
+[12:19:06] < Eidolos> er. hi guys
+[12:19:14] < SybotCB> hi
+[12:20:00] -!- SybotCB [n=Sybot@r171h55.dixie-net.com] has left #interhack []
+[12:28:04] < alexbobp> Hi
+[12:28:12] < alexbobp> I like the auto-Elbereth feature
+[12:28:22] < alexbobp> Does "ElberethEl" still exercise wisdom?
+[12:30:01] < alexbobp> If so, could the autoElbereth feature be made to engrave "ElberethEl" the first time, and then do the next ten letters each successive time?
+[12:30:49] < Eidolos> heh, that'd be handyy
+[12:31:00] < Eidolos> I'll look into it
+[12:31:09] <@doy> i don't think it does
+[12:31:17] <@doy> but it might be worth having as an option
+[12:34:15] < alexbobp> Why does interhack like to name the scrolls?
+[12:34:26] < Eidolos> because of a bug:)
+[12:34:51] <@doy> (an exploitable nethack bug, not an interhack bug)
+[12:36:07] < alexbobp> what's the bug?
+[12:36:27] < alexbobp> Do I need to know how to exploit it, or will interhack do that automatically?
+[12:39:58] <@doy> named scrolls can be written with 100% accuracy no matter what they are or whether you actually know them
+[12:40:09] < alexbobp> wow.
+[12:40:23] < alexbobp> I though it would make scrolls with the same BCU status stack more readily or something, but that's even better.
+[12:40:45] < alexbobp> And that's convenient, since I'm a barbarian with a magic marker!
+[12:40:55] <@doy> it's not directly useful if you don't know what the scrolls are, but it increases your chances of writing unknown scrolls a bit
+[12:41:01] <@doy> if you name all the scrolls you find
+[12:41:21] <@doy> just because you might find a random scroll and no be able to id it, but it might be the one you're looking for
+[12:47:14] < ekiM> you're pretty likely to have found identify, magic mapping, teleport, EA, EW... by the castle
+[12:47:15] < ekiM> for example
+[12:50:20] < alexbobp> can identified scrolls be written with 100% accuracy?
+[12:51:10] <@doy> yes
+[12:51:17] <@doy> that's not a bug
+[12:58:25] < alexbobp> Is the gray ooze corpse poisonous, or does it give poison resistance?
+[12:58:58] < alexbobp> Interhack says Fire, Cold, Poison all 7%
+[12:59:43] < alexbobp> never mind, Rodney told me
+[13:02:21] < arcanehl> that should be from eating
+[13:05:05] < Eidolos> if it's poisonous it'll say "Poisonous"
+[13:05:57] < alexbobp> okay.
+[13:14:25] -!- Tokrok_ [n=Tokrok@p57B07554.dip.t-dialin.net] has left #interhack []
+[13:22:30] < alexbobp> Is it a good idea to eat a chameleon corpse?
+[13:23:44] < Eidolos> not really
+[13:57:28] < alexbobp> Why does interhack put !oil on all the potions?
+[13:57:59] <@doy> because if you can apply a potion, then it's automatically identified as oil
+[13:58:08] <@doy> if applying does nothing, then it's not oil
+[13:58:19] < alexbobp> ah.
+[13:59:11] < alexbobp> that's a flaw they could solve easily by making all potions applyable with the message "you spill the potion" or something like that
+[13:59:16] < alexbobp> or even have effects for spilling them.
+[14:08:12] < ekiM> what and spilling oil makes it light?
+[15:03:52] < alexbobp> So, "ac rapist"
+[15:03:55] < alexbobp> very funny
+[15:28:07] -!- GreyKnight [n=chatzill@86.112.205.202] has joined #interhack
+[15:30:01] < Eidolos> yo
+[15:31:53] < GreyKnight> hi-go
+[15:31:55] < GreyKnight> er
+[15:31:59] < GreyKnight> *hi-ho
+[15:32:02] < GreyKnight> That worked well.
+[15:32:20] < GreyKnight> So it's a man-in-the-middle colouring layer, that answers my question.
+[15:32:30] <@doy> not just coloring
+[15:32:58] < arcanehl> it's the latest device to advance Eidolos' rampant cheating
+[15:33:00] <@doy> it has things like command automation, confirmation requests, etc
+[15:33:12] < GreyKnight> oh, I didn't read carefully enough
+[15:33:17] < Eidolos> and keylogging
+[15:33:26] < arcanehl> that is neat
+[15:33:32] < GreyKnight> that's a bit cooler, then :-)
+[15:33:36] < arcanehl> how many games do you have keylogged?
+[15:33:37] < ekiM> so don't do your bank details while playing
+[15:33:47] <@doy> price iding a shop takes about 20 seconds now
+[15:33:54] <@doy> castle drawbridge takes about 5
+[15:34:11] < Eidolos> arcanehl: logged a bunch, have I think eight of my ascensions
+[15:34:17] < arcanehl> hmmm
+[15:35:10] < alexbobp> how do you price id a shop in 20 seconds with it?
+[15:35:17] < alexbobp> I want in on this!
+[15:35:23] < Eidolos> when you pick up an item in a shop
+[15:35:28] < alexbobp> It hasn't IDed any items for me, except telling me a lot of things are not oil.
+[15:35:37] < Eidolos> it'll say "press tab to send the string.."
+[15:35:43] < alexbobp> I'll play some more, see if I see that then
+[15:37:00] <@doy> price id is only implemented for scrolls, potions, spellbooks, wands, and rings
+[15:37:07] < arcanehl> so..
+[15:37:12] < arcanehl> basically everything useful?
+[15:37:21] <@doy> exactly
+[15:37:33] < alexbobp> I'll try again then.
+[15:37:39] < alexbobp> Maybe I missed it
+[15:37:47] < arcanehl> weapon enchantments would be nice
+[15:38:42] < GreyKnight> "A diamond ring. (not oil)"
+[15:38:52] <@doy> but there are also things like requiring additional confirmation before attacking peacefuls (useful for vikeys) and requiring confirmation to continue when things like stoning or drowning are about to happen
+[15:39:23] < Eidolos> and if you press escape on a wish prompt it'll ask for additional confirmation
+[15:39:45] < GreyKnight> "Whoa, whoa, what?!?"
+[15:40:02] < alexbobp> For example: it gives me a nice big warning when my health is low.
+[15:40:12] <@doy> look through the screenshots directory
+[15:40:16] <@doy> lots of examples
+[15:40:18] < alexbobp> Which is good, because my irl int is about 4, so I don't actually watch my health.,
+[15:41:01] < Eidolos> we do need more screeenshots :)
+[15:41:01] < arcanehl> it's more useful for devnull IMO
+[15:41:07] <@doy> this is true
+[15:41:08] < arcanehl> NAO at least has hpmon
+[15:41:15] <@doy> nao has broken hpmon
+[15:41:18] < Eidolos> devnull menucolors, hiyaa
+[15:41:23] < arcanehl> better than devnull
+[15:41:33] < Eidolos> not necessarily!
+[15:41:53] < Eidolos> sometimes your HP is white even if not at 100%, which is a bug
+[15:42:09] < Eidolos> so you may glance at it and think you're ok.. yes this is a bit of a stretch..
+[15:42:09] < alexbobp> shall I make some screenshots?
+[15:42:14] < arcanehl> yes, it is
+[15:42:20] < Eidolos> sure, send them to me at sartak@gmail.com
+[15:42:28] < Eidolos> png please :)
+[15:42:30] <@doy> autoadjust is also pretty nice
+[15:42:31] < arcanehl> it works more than often enough to be useful
+[15:42:38] < alexbobp> what features need screenshots?
+[15:42:45] <@doy> pick up items and it will prompt you to move them to specific inventory slots
+[15:42:45] < Eidolos> and just yourconsole, not your entire screen (hold alt when pressing print screen)
+[15:42:48] < Eidolos> hmm
+[15:42:58] < Eidolos> dunno
+[15:43:24] <@doy> editing your nao config file locally
+[15:43:56] < GreyKnight> Now that *is* good. I can't stand virus.
+[15:44:19] < Eidolos> it's.. ALL good!
+[15:44:45] <@doy> http://darcs.katron.org/~sartak/interhack/trunk/screenshots/view.png
+[15:44:46] <@doy> this
+[15:44:47] <@doy> (:
+[15:45:09] < alexbobp> Too bad my webserver is down because I'm an idiot and run it on Windows
+[15:45:15] < alexbobp> or I could just send you the pictures that way
+[15:46:00] < Eidolos> heh
+[15:46:26] < alexbobp> Eidolos: one big email at the end of the day, or an email for each screenshot I take?
+[15:46:38] < alexbobp> never mind, you use gmail.  So sequential should work.
+[15:47:04] < Eidolos> any way yis finee
+[15:47:16] < Eidolos> let me kno wwhen you've sent the firstso I ican say "no ur doin it wronnnggggg"
+[15:47:20] < Eidolos> ;0
+[15:47:53] < GreyKnight> http://www.greyfire.org/picture_library/wrong2.jpg
+[15:49:15] < alexbobp> My favorite ydiw picture is the one with the electric razor on the wrist.
+[15:49:39] <@doy> i like the one with the razr phone
+[15:50:53] < alexbobp> Eidolos: my pictures are from putty on Windows (they make me use Windows at work, it's not my fault!), so if that doesn't fit into your schema, feel free to cutpaste the terminal part into termcast.
+[15:51:02] < alexbobp> And hope noone notices it's in a Windows font...
+[15:52:02] < alexbobp> I had to take a screenshot to see "If you can read this, you have pretty quick eyes!"
+[15:52:44] < Eidolos> oh, it's fine
+[15:52:55] < Eidolos> just as long as it's just whatever terminal app you have
+[15:54:27] < alexbobp> I just found out it can view other levels!
+[15:54:33] < alexbobp> What other memory features are there?
+[15:54:55] < Eidolos> hm
+[15:55:00] < Eidolos> don't know
+[15:55:05] <@doy> intrinsics
+[15:55:06] < GreyKnight> Ooo, sneaky!
+[15:56:23] < alexbobp> http://encyclopediadramatica.com/images/4/46/Doingitwrong.jpg
+[16:14:43] < alexbobp> What does it mean when a potion has two prices in the autoname?
+[16:14:58] < alexbobp> Doy drops a potion called dark green 150/200.
+[16:15:20] <@doy> you can't always uniquely identify potions based on buying price
+[16:15:29] <@doy> because there are other surcharges involved
+[16:15:40] <@doy> read up on the price id spoiler if you're interested
+[16:20:11] -!- alexbobp [n=aponebsh@64.20.229.14] has quit [Read error: 104 (Connection reset by peer)]
+[17:34:57] -!- GreyKnight [n=chatzill@86.112.205.202] has quit ["night"]
+[20:46:38] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:48:05] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[20:48:06] -!- ekiMbo is now known as ekiM
+[21:09:22] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[21:09:22] -!- Irssi: #interhack: Total of 8 nicks [2 ops, 0 halfops, 0 voices, 6 normal]
+[21:09:23] -!- mode/#interhack [+o Eidolos] by ChanServ
+[21:10:40] -!- Irssi: Join to #interhack was synced in 79 secs
+[21:12:59] -!- alexbobp [n=alex@adsl-68-92-149-37.dsl.austtx.swbell.net] has joined #interhack
+[23:20:12] < arcanehl> Eidolos: I bet its from when you setup the jqdb
+[23:20:27] < arcanehl> you attempted to get sendmail working
+[23:20:44] < arcanehl> well, congrats, it's improperly configured and you got blacklisted
+[23:56:38] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit ["I can kick stuff off a planet"]
+[23:56:53] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[23:58:43] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Client Quit]
+[23:58:55] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack

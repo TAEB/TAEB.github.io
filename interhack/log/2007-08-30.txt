@@ -1,0 +1,7 @@
+[02:30:03] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[06:26:51] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[15:45:14] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[18:03:02] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[19:01:20] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[21:36:11] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[23:38:47] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]

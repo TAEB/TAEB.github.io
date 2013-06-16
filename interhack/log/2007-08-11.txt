@@ -1,0 +1,354 @@
+[00:14:32] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[00:24:30] <@toft> Eidolos: nice
+[00:24:37] <@Eidolos> \o/
+[00:24:55] <@toft> i have 10 total ascensions
+[00:24:59] <@Eidolos> ok
+[00:25:36] <@toft> i'm actually in lexington right now
+[00:25:41] <@Eidolos> mass?
+[00:25:43] <@toft> yeah
+[00:25:45] <@Eidolos> cool
+[00:25:46] <@toft> visiting these family friends
+[00:25:58] <@toft> notmuch chance of escaping though really
+[00:26:02] <@toft> its for my dad's birthday
+[00:26:12] <@Eidolos> you should be able to update the site now.. I'm happy with how it is internally
+[00:26:19] <@Eidolos> /home/sartak/www/code/interhack/site
+[00:26:24] <@Eidolos> oh well :)
+[00:26:29] <@toft> in darcs/
+[00:26:30] <@toft> ?
+[00:26:43] <@Eidolos> it's a bunch of Perl scripts
+[00:26:53] <@Eidolos> T::D
+[00:27:03] <@toft> i mean is that address a darcs repo
+[00:27:04] <@Eidolos> update a script, then `make`
+[00:27:05] <@Eidolos> oh
+[00:27:11] <@Eidolos> it is
+[00:27:19] <@toft> so that's how i make changes. ok :)
+[00:27:28] <@Eidolos> but you'll need to run make on the box to push the changes to the site
+[00:27:36] <@toft> ah, ok
+[00:27:37] <@Eidolos> I'll see about adding a post-commit hook
+[00:27:50] <@toft> nah not worth it probably
+[00:27:55] <@Eidolos> probably really easy!
+[00:28:15] <@toft> but i mean do we want changes to immediately be reflected?
+[00:28:19] <@toft> s/we/you/
+[00:28:31] <@Eidolos> oh
+[00:28:37]  * Eidolos shrugs
+[00:29:08] <@toft> wow lotta writing you did :)
+[00:29:25] <@Eidolos> well that's all I've done since I got home from work :)
+[00:29:43] <@Eidolos> ~700 lines
+[00:29:51] <@toft> ah
+[00:30:02] <@toft> pretty awesome :)
+[00:30:09] <@toft> plugins page is neat
+[00:30:21] <@Eidolos> internally or externally? 8)
+[00:30:26] <@toft> internally
+[00:30:32] <@Eidolos> ya
+[00:30:39] <@toft> i hope to start hacking on 2.0 next week
+[00:30:46] <@Eidolos> check out the FAQ too
+[00:30:48] <@toft> ok
+[00:30:52] <@Eidolos> even cooler imo
+[00:30:54] <@toft> oh i saw that yeah
+[00:31:06] <@toft> i dunno the structure but its very well written :")
+[00:31:49] <@Eidolos> hehe
+[00:32:25] <@toft> btw did you see ssh authentication forwarding?
+[00:32:44] <@Eidolos> saw you guys talking about it
+[00:33:13] <@toft> its worth doing if currently you have more than one box with private keys
+[00:33:21] <@toft> and you have a primary box
+[00:33:33] <@Eidolos> yeah, probably :) I generally don't hop so much though
+[00:34:03] <@toft> its super easy to set up; here's the link if you want http://www.ibm.com/developerworks/linux/library/l-keyc3/
+[00:34:24] <@Eidolos> ForwardAgent Yes
+[00:34:26] <@Eidolos> okie :)
+[00:35:30] <@toft> in a nutshell, it lets me passwordlessly jump from my laptop to mookmo, and passwordlessly jump from there to any other shell without having a privkey on mookmo itself
+[00:35:40] <@Eidolos> \o/
+[00:35:42] <@Eidolos> that is cool
+[00:35:52] <@Eidolos> I didn't realize you didn't need the priv key on mookmo
+[00:36:16] <@toft> the point is so you only have to keep your privkey in one secure place
+[00:36:21]  * Eidolos nods
+[00:36:32] <@Eidolos> that is exactly what I want. thanks! :)
+[00:36:49] <@toft> :)
+[00:37:20] <@Eidolos> hmm, oh well, it'll probably require some time :)
+[00:37:58] <@toft> shrug, it just means making sure all youro shells have your main pubkey and deleting all other privkeys from shells
+[00:38:11] <@toft> and of course adding that line to your config :D
+[00:38:51] <@Eidolos> anyway, back to interhack!
+[00:39:02] <@Eidolos> what else do we want on the website :)
+[00:39:35] <@toft> trac!
+[00:39:42] <@toft> well maybe not yet
+[00:39:56] <@Eidolos> >_>
+[00:39:57] <@Eidolos> maybe RT
+[00:40:02] <@Eidolos> since like, that's what I get paid for
+[00:40:06] <@toft> hahah
+[00:40:23] <@Eidolos> and I've installed it a few times
+[00:40:28] <@toft> do you legitimately think RT > trac?
+[00:40:35] <@toft> i've never used RT so i can't sayh
+[00:40:42] <@Eidolos> I haven't used either much
+[00:40:45] <@toft> i just know that trac really kicks serious ass
+[00:41:05] <@Eidolos> RT is more just a pure ticketing system
+[00:41:13] <@Eidolos> Trac is a hybrid scm-view + ticketing system + wiki
+[00:41:32] <@Eidolos> so if you're in it just for the ticketing (which a lot of people are.. I recently learned how much money we make a year.. wow.. :)) RT is probably the way to go
+[00:41:55] <@toft> oh i see
+[00:42:13] <@toft> trac's strength is  in its ticketing/scm-view integration imo
+[00:42:22] <@toft> the wiki is a nice add-on too
+[00:42:25] <@Eidolos> yeah
+[00:42:53] <@toft> rt is probably less of a hulking beast
+[00:43:08] <@Eidolos> I dunno about that
+[00:43:22] <@Eidolos> RT has 47000 lines of libraries, 27000 of templates
+[00:43:33] <@toft> yeah just saw that on your wobsite
+[00:43:45] <@toft> so you guys get all tha tmoney from support and installs i guess..?
+[00:43:52] <@Eidolos> yep
+[00:43:57] <@toft> cool
+[00:44:03] <@toft> who does the suppot?
+[00:44:09] <@toft> this keyboard sucks
+[00:44:16] <@Eidolos> same guys who do the coding :)
+[00:44:23] <@toft> cool
+[00:44:25] <@Eidolos> I haven't done any support yet, but I am starting to actually work on RT
+[00:44:30] <@toft> scary :)
+[00:44:34] <@toft> that's a lot of libraries to learn
+[00:44:35] <@Eidolos> yes, it is intimidating
+[00:44:55] <@Eidolos> I think I'll write ih 0.0 now
+[00:45:01] <@toft> hehe ok
+[00:45:19] <@toft> what happened to your scheme blog btw? i havent checked it in a long time since i forgotits address
+[00:45:25] <@Eidolos> :)
+[00:45:26] <@Eidolos> nothing
+[00:45:30] <@toft> hehe
+[00:45:49] <@Eidolos> I'll try to get back to it once my Interhack craze dies down a little
+[00:46:03] <@toft> shrug, no pressu
+[00:46:15] <@toft> re
+[01:04:32] <@Eidolos> print {$socket} "\xFF\xFB\x18\xFF\xFA\x18\x0xterm-color\xFF\xF0\xFF\xFC\x20\xFF\xFC\x23\xFF\xFC\x27\xFF\xFE\x3\xFF\xFB\x1\xFF\xFD\x5\xFF\xFB\x21\xFF\xFB\x1F\xFF\xFA\x1F\x0\x50\x0\x18\xFF\xF0";
+[01:04:33] <@Eidolos> \o/
+[01:07:27] <@Eidolos> well, 0.0 is done
+[01:07:30] <@Eidolos> that was easy
+[01:07:34] <@toft> lol
+[01:22:54] <@Eidolos> cool. force_tab_to_eat_when_satiated done :)
+[01:24:08] <@Eidolos> http://interhack.us/branches/2.0/lib/Interhack/Plugin/Satiated.pm
+[02:04:07] <@Eidolos>  yay
+[02:04:15] <@Eidolos> got extended commands working, after tracking down a nice bug :)
+[02:04:21] <@Eidolos> (though it wasn't a bug in existing code)
+[02:10:37] <@Eidolos> good night :)
+[02:14:26] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[02:19:51] -!- Eidolos changed the topic of #interhack to: http://interhack.us | Termcast: telnet noway.ratry.ru 37331
+[03:44:15] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[05:08:28] <@doy> i've got 37
+[06:58:42] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:58:27] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[11:49:19] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has left #interhack []
+[12:56:40] <@Eidolos> ooh
+[12:56:47] <@Eidolos> I may try to get Slash'EM like level colors :D
+[12:56:51] <@Eidolos> (dark gray corridors, etc)
+[13:12:03] <@Eidolos> yes!
+[13:12:09] <@Eidolos> 2.x has Eidocolors
+[13:13:27] <@Eidolos> just as configurable too
+[13:13:45] <@Eidolos> (using hashes, which not only means far fewer variables, but it's also introspectable)
+[13:16:23] <@Eidolos> I think I might just say your config is a plugin
+[13:19:10] <@Eidolos> probably quicker amortized, since it's a tight loop for all the recolorings, where 1.x had a sub call for each recolor
+[14:01:53] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[14:28:01] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:22:07] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[15:22:16] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:22:32] -!- ekiMbo is now known as ekiM
+[17:16:09] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[17:22:22] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[17:22:29] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[17:23:09] -!- ekiMbo is now known as ekiM
+[17:50:25] <@Eidolos> made it so when you push changes to the site, it'll auto-make :)
+[17:50:44] <@Eidolos> primarily so I can just do development from my home box and not have to worry about not propagating changes
+[17:54:57]  * Eidolos writes a Darcs::Changes module
+[18:01:54] < alexbobp> Darcs has an ssh mode that lets users push as well as pull, right?
+[18:02:00] <@Eidolos> yes
+[18:02:05] < alexbobp> Is it possible to use that without giving them a shell account on my computer?
+[18:02:20] <@Eidolos> theoretically yes, but I wouldn't bother -- have people darcs send you patches
+[18:05:01] < alexbobp> okay
+[18:05:02] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has left #interhack []
+[18:05:05] <@Eidolos> O_o
+[18:36:10] < arcanehl> Eidolos: not really possible
+[18:36:26] < arcanehl> you'd have to do some hacking to get ssh to work without a user account
+[18:39:19] <@Eidolos> I'm pretty sure the darcs manual or wiki lets you to do it.. probably by setting up a special darcs account, shrug
+[18:39:58] < arcanehl> probably
+[19:01:09] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[19:20:43] <@Eidolos> grumble
+[19:21:14] <@Eidolos> for some reason darcs changes reports 796 patches
+[19:21:19] <@Eidolos> but my module reports 684
+[19:33:37] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[20:14:18] < arcanehl> removed any?
+[20:22:25] <@Eidolos> not that I know of
+[20:41:09] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:15:26] <@doy> Eidolos: so what's the point of 0.0?
+[21:16:03] <@Eidolos> so people can see what the real core of Interhack actually looks like, just how simple it is
+[21:16:36] <@Eidolos> and it's usable if someone doesn't want the full Interhack
+[21:16:45] <@Eidolos> they just want, say, a keystroke counter
+[21:17:15] <@doy> well, full interhack should be capable of that
+[21:17:16] <@doy> (:
+[21:17:27] <@Eidolos> it very much is
+[21:17:48] <@Eidolos> but it's a lot of code
+[21:17:51] <@doy> i should start reimplementing plugins
+[21:18:29] <@Eidolos> status is the one I want most :)
+[21:18:35] <@doy> heh
+[21:18:58] <@doy> oh, right
+[21:19:06] <@doy> arcanehl: i have a new public key
+[21:19:16] <@Eidolos> you should be pulling from interhack.us
+[21:19:20] <@doy> oh
+[21:19:22] <@doy> oops
+[21:19:26] <@Eidolos> :)
+[21:19:38] <@doy> darcs.katron.org isn't being used for anything anymore?
+[21:19:51] <@Eidolos> nope
+[21:20:13] <@Eidolos> www/code/interhack/trunk
+[21:20:39] <@Eidolos> how new is your key? :)
+[21:21:00] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[21:21:26] <@doy> hmmm, does this want my local passphrase
+[21:21:39] <@doy> or my passphrase on interhack.us
+[21:22:04] <@Eidolos> they're different?
+[21:22:10] <@doy> yeah
+[21:22:42] <@Eidolos> hmm
+[21:22:43] <@Eidolos> well
+[21:22:52] <@doy> hmmm
+[21:22:56] <@doy> maybe not
+[21:23:01]  * doy thinks
+[21:23:07] <@Eidolos> in any case I can update your pub key if you need it
+[21:23:20] <@doy> no, it should be the same since i gave it to you
+[21:23:44] < arcanehl> I'm sure he did some bit flippin`
+[21:24:13] < arcanehl> Eidolos: the only problem with that, is it takes a while to make sure the keys are the same
+[21:24:16] <@Eidolos> 5hm
+[21:25:49] <@doy> so... why does this work
+[21:25:54] <@doy> and darcs doesn't
+[21:25:55] <@Eidolos> no idea
+[21:28:06] <@Eidolos> heh
+[21:28:07] <@doy> ...hmm
+[21:28:08] <@Eidolos> weird O_o
+[21:28:14] <@Eidolos> that is a real patch, *stab toft*
+[21:28:25] <@doy> i'm not doing this every time i want to pull d:
+[21:28:36] <@Eidolos> your keychain might be misconfigured?
+[21:28:52] <@Eidolos> you could pull via http and darcs send your patches O:)
+[21:28:53] <@doy> oh!
+[21:28:53] < arcanehl> I blame his ssh wrapper script
+[21:28:57] <@doy> does darcs use sftp?
+[21:29:04] <@doy> that might be what it is
+[21:29:06] <@Eidolos> I think it does
+[21:29:37] <@doy> hmmm
+[21:29:38] < arcanehl> heh
+[21:29:48] < arcanehl> that's what you get for the bizarre ssh setup you have
+[21:30:09] <@Eidolos> it might not be seeing your sftp.. yeah I've got nothing :)
+[21:30:18] < arcanehl> which sftp then
+[21:30:37] <@doy> doy       2920  0.0  0.0   3636  1132 pts/14   S+   20:29   0:00 scp -q interhack.us:../sartak/www/code/interhack/trunk/.git/HEAD /h
+[21:30:41] <@doy> doy       2921  0.0  0.1   3876  1904 pts/14   S+   20:29   0:00 /usr/bin/ssh -x -oForwardAgent no -oPermitLocalCommand no -oClearAl
+[21:30:48] <@Eidolos> .git?
+[21:30:55] <@doy> no idea
+[21:31:10] <@Eidolos> oh, I think darcs has git support
+[21:31:34] <@Eidolos> anyway, not sure what to tell you except that it all works fine for me
+[21:31:43] <@doy> doy       2960  0.0  0.1  10368  2896 pts/14   S+   20:31   0:00 darcs pull interhack.us:../sartak/www/code/interhack/trunk
+[21:31:47] <@doy> doy       2961  0.0  0.0   3636  1132 pts/14   S+   20:31   0:00 scp -q interhack.us:../sartak/www/code/interhack/trunk/_darcs/inven
+[21:31:50] <@doy> doy       2962  0.0  0.1   3872  1900 pts/14   S+   20:31   0:00 /usr/bin/ssh -x -oForwardAgent no -oPermitLocalCommand no -oClearAl
+[21:31:53] <@doy> yeah, it checks _darcs first
+[21:32:05] <@doy> maybe i should move my wrapper to /usr/bin/ssh
+[21:32:15]  * Eidolos shudders
+[21:32:19]  * doy agrees
+[21:32:20] < arcanehl> shrug
+[21:32:23] <@Eidolos> what does your wrapper do anyway?
+[21:32:24] < arcanehl> which sftp
+[21:32:47] <@Eidolos> I see
+[21:32:54] < arcanehl> 30 second timeout? geez
+[21:32:59] <@doy> arcanehl: minute
+[21:33:29] <@Eidolos> which stfp!
+[21:33:43] <@Eidolos> -a
+[21:33:49] <@doy> but my point is that ps is saying that darcs uses scp
+[21:33:52] <@doy> not sftp
+[21:34:06] <@Eidolos> fiyen
+[21:34:22] <@doy> but it's also using /usr/bin/ssh to do something
+[21:34:23] < arcanehl> try without your wrappers
+[21:35:27] <@doy> i think it's already not using my wrappers
+[21:35:36] < arcanehl> one of them might have a hardcoded $PATH
+[21:35:39] <@doy> yeah
+[21:35:51] < arcanehl> and that was some interesting noise after all of those passphase prompts
+[21:36:00]  * Eidolos noticed that too
+[21:36:01] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[21:36:02] <@doy> it certainly was
+[21:36:10] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:36:12] < arcanehl> passphases usually aren't long passwords
+[21:36:30] <@Eidolos> noise.. or something more sinister
+[21:37:54] <@Eidolos> haxed!
+[21:38:14] <@Eidolos> .. or maybe I just remember the password I set for your account.. :)
+[21:38:17] <@doy> hmmm, i never reset my password did i
+[21:38:22] <@doy> heh
+[21:42:15] <@doy> so... what could be going wrong here
+[21:42:49] <@Eidolos> darcs may just hardcode the ssh path or something, but that sounds kinda ridiculous
+[21:43:02] <@Eidolos> oh
+[21:43:15] <@doy> that shouldn't be a problem though
+[21:43:19] <@Eidolos> Darcs will use scp to copy single files (e.g. repository meta-information), and sftp to copy multiple files in batches (e.g. patches).
+[21:43:24] <@Eidolos> but also
+[21:43:45] <@Eidolos> DARCS_SCP=/home/doy/bin/scp DARCS_SFTP=/home/doy/bin/sftp
+[21:43:58] <@doy> but that shouldn't matter
+[21:44:01] <@Eidolos> try it!
+[21:44:14] <@doy> once keychain has my privkey from before, just plain ssh should use it
+[21:44:20] <@doy> without needing the passphrase
+[21:44:24] < arcanehl> yes
+[21:44:33]  * Eidolos shrugs
+[21:45:31] <@doy> huh
+[21:45:37] <@doy> oh....
+[21:45:50] <@doy> maybe i do need something in my .bash_profile
+[21:46:46] <@doy> because unless i've called one of the ssh wrappers from a given term, it's not going to have the connection info for the ssh-agent socket
+[21:53:41] <@doy> Eidolos: so, how well does interhack-2.0 support multiple servers?
+[21:53:49] <@Eidolos> it doesn't
+[21:53:52] <@doy> you have function names like 'tonao'
+[21:53:55] <@Eidolos> :)
+[21:53:56] <@doy> which seems bad to me
+[21:53:58] <@Eidolos> yes
+[21:55:25] <@Eidolos> I'll fix tonao now
+[21:56:14] < arcanehl> toNAO
+[21:57:54] <@Eidolos> ack tonao
+[21:58:34] <@Eidolos> grep -l
+[21:59:39] <@Eidolos> so inefficient! :)
+[21:59:52] <@Eidolos> cw, then you can use .
+[21:59:55] <@Eidolos> oh vell :)
+[22:00:35] <@Eidolos> use. ack.!
+[22:00:40] <@Eidolos> <3 ack
+[22:01:30] <@Eidolos> http://search.cpan.org/~petdance/ack/ack
+[22:01:35] <@Eidolos> (click "view source" then download)
+[22:05:54] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[22:09:13] < billnye> you say to-nay-oh, I say to-nah-oh
+[22:09:47] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[22:09:56] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[22:11:54] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:12:44] <@Eidolos> alexbobp what do you think of http://interhack.us? :)
+[22:13:04] < alexbobp> I think it's beautiful
+[22:13:08] <@Eidolos> hee
+[22:13:14] < alexbobp> although when NAO works, I'll give you more screenshots.
+[22:13:19]  * Eidolos nods sadly
+[22:13:23] < alexbobp> I notice you're missing shots of the intrinsic thing'
+[22:13:32] <@Eidolos> yes
+[22:14:54]  * Eidolos <3 2.x
+[22:15:06] <@Eidolos> watch my termcast for some of the new features, alexbobp :)
+[22:15:13]  * Eidolos is on another NH public server
+[22:17:44] <@Eidolos> Press tab or q to read, q to stop asking, any other key to cancel.
+[22:17:47] <@doy> hmmm
+[22:17:48] <@Eidolos> conduct blocks, woooo haa
+[22:18:05] <@doy> are there any other public servers that use ssh?
+[22:18:27] <@Eidolos> we can just use interhack.us
+[22:18:32] < alexbobp> [24;18H
+[22:18:35] < alexbobp> what's that?
+[22:18:38] <@Eidolos> yes
+[22:18:41] <@Eidolos> that's just a bug :)
+[22:18:46] <@Eidolos> one that I don't feel like fixing
+[22:18:50] < alexbobp> doy: slashem.crash-override.net uses ssh
+[22:18:56] <@Eidolos> the way the realtime is printed is silly
+[22:19:04] <@Eidolos> since I just wanted features, not polish
+[22:21:02] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[22:21:20] <@Eidolos> the HP/power monitors are NOT Interhack
+[22:21:52] <@Eidolos> ok cool
+[22:22:14] < alexbobp> what is "press tab to send your invalid direction"?
+[22:22:24] <@Eidolos> if you're at a "In what direction?" prompt
+[22:22:30] <@Eidolos> and you type in something that isn't a direction
+[22:22:34] <@Eidolos> it'll use whatever you typed in last time
+[22:22:38] <@Eidolos> which can be Very Bad
+[22:22:53] <@Eidolos> someone killed an extinctionist game that way with finger of death
+[22:25:18] < alexbobp> ah.
+[22:25:30] < alexbobp> what happens if you cast finger of death in no direction?  suicide?
+[22:25:40] <@Eidolos> depends on what your last direction was
+[22:25:44] <@Eidolos> could very well be .
+[22:26:10] < alexbobp> okay.
+[22:41:50] <@doy> the slashem server is definitely telnet
+[22:41:53] <@doy> unless they provide both?
+[22:41:55] <@toft> doy: did you fix the scp problem?
+[22:41:59] <@toft> er darcs
+[22:42:00] <@doy> toft: yeah
+[22:42:03] <@toft> what was it?
+[22:43:06] <@doy> the issue was that the wrappers only populate the env with ssh-agent stuff after you run them in that term
+[22:43:06] <@doy> so i just added a source command to .bashrc
+[22:43:06] <@doy> also told darcs to use my wrappers
+[22:43:39] <@toft> gotcha
+[22:44:58] < alexbobp> doy: the slashem server has ssh access as well as telnet
+[22:45:38] <@doy> does ssh access go through dgamelaunch, or just straight into the game?

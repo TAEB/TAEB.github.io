@@ -1,0 +1,115 @@
+[02:33:22] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[08:49:00] -!- Zawk_ [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[08:52:57] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Read error: 60 (Operation timed out)]
+[11:42:40] -!- Zawk_ is now known as Zawk
+[12:09:13] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[12:39:36] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[15:14:43] <@Eidolos> doy: so keys/ plugins/ ttyrecs/ are all still in .interhack right? the only thing that moved is passwords?
+[15:15:00] <@Eidolos> (I can definitely see a point in making k/ p/ t/ all in each server/foo/)
+[15:15:31] <@doy> yeah, but i was going to change keys and ttyrecs to have more markings in the filename than just the timestamp
+[15:15:39] <@Eidolos> ah
+[15:15:48] <@doy> plugins doesn't really need to be per-server either
+[15:15:49] <@doy> but
+[15:15:58] <@doy> i did allow per-server config files
+[15:16:05] <@doy> which override the main one
+[15:16:12]  * Eidolos nods
+[15:16:28] <@doy> so you can just load different plugins per server
+[15:43:48] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 104 (Connection reset by peer)]
+[15:43:52] -!- toft [i=nobody@unaffiliated/crassworm] has joined #interhack
+[15:43:55] -!- mode/#interhack [+o toft] by ChanServ
+[16:21:21] <@doy> also, the scroll naming plugin doesn't protect against inventory
+[16:21:57] <@Eidolos> hmm?
+[16:22:23] <@doy> if you open your inventory and an unnamed scroll is on the top line, it puts up the tab
+[16:22:34] <@Eidolos> oh, heh
+[17:11:54] < Zawk> my status bar isn't there anymore...
+[17:11:56] < Zawk> On ludios. Is this a known bug?
+[17:12:49] <@doy> heh
+[17:13:00] <@doy> no, but fixable
+[17:13:06] <@doy> give me a second
+[17:13:14] < Zawk> alrighty
+[17:13:23] <@doy> (nobody here ever plays ludios)
+[17:13:24] <@doy> (:
+[17:13:40] < Zawk> (I was wondering why it had never been caught)
+[17:14:44] < Zawk> does the font change for anyone else?
+[17:14:53] < Zawk> every now and then I get weird symbols instead of letters
+[17:15:00] < Zawk> T␤␊ ⎽␊⎼±␊▒┼├ ┌⎺⎺┐⎽ ␌⎺└⎻┌␊├␊┌≤ ␤␊▒┌␊␍.--M⎺⎼␊--
+[17:15:16] <@doy> don't play with dec
+[17:15:21] < Zawk> aww
+[17:15:23] <@doy> fixing it is hard
+[17:15:29] <@doy> patches are welcome
+[17:15:30] <@doy> (:
+[17:15:55] <@doy> Zawk: are you playing now?
+[17:16:02] < Zawk> yea
+[17:16:15] < Zawk> "restart" ?
+[17:16:16] <@doy> ah, got it
+[17:18:26] <@doy> Zawk: alright, darcs pull and restart
+[17:18:57] <@Eidolos> \o/
+[17:19:32] < Zawk> what happened to http://darcs.katron.org/~sartak/interhack/README ?
+[17:19:41] <@doy> interhack/trunk/README
+[17:19:42] <@Eidolos> moved to trunk
+[17:19:48] <@Eidolos> sorry :) but necessary
+[17:19:55] <@doy> oh, probably have to pull from the new location too
+[17:19:59] <@doy> if you haven't done that already
+[17:20:04] < Zawk> fixing that now
+[17:21:21] < Zawk> http://darcs.katron.org/~sartak/interhack/trunk/ ?
+[17:21:25] <@Eidolos> yes
+[17:21:43] <@Eidolos> fixed the README
+[17:23:11] -!- doy changed the topic of #interhack to: http://darcs.katron.org/~sartak/interhack/trunk/README | http://darcs.katron.org/~sartak/interhack/trunk/screenshots/interhack2.png | Termcast: telnet noway.ratry.ru 37331
+[17:23:16] <@Eidolos> hehe
+[17:23:54] < Zawk> seeing as how I'm downloading all 786 patches, I think I did something wrong
+[17:24:13] <@Eidolos> nope
+[17:24:15] <@Eidolos> that's normal
+[17:24:20] <@doy> no it isn't
+[17:24:28]  * Zawk blinks
+[17:24:32] <@Eidolos> did you already have a checkout?
+[17:24:48] <@Eidolos> or did you just get some kind of tarball?
+[17:25:00] <@doy> i just did a 'darcs pull darcs.katron.org:../sartak/interhack/trunk'
+[17:25:06] <@Eidolos> nod
+[17:25:07] <@doy> and it just updated my checkout
+[17:25:17] <@Eidolos> others would want to do darcs pull http://darcs.katron.org/~sartak/interhack/trunk/
+[17:25:27] <@Eidolos> (to \set the default repo)
+[17:25:59] < Zawk> I just did `darcs get  http://darcs.katron.org/~sartak/interhack/trunk/` from inside my old interhack directory
+[17:26:08] <@doy> pull
+[17:26:09] <@doy> not get
+[17:27:23] <@Eidolos> yes, get is when you're getting the repo for the first time
+[17:27:32] <@Eidolos> I'm surprised darcs didn't shit itself
+[17:28:03] <@doy> difference between 'checkout' and 'update' in other scms
+[17:28:20] <@Eidolos> yup
+[17:30:39] < Zawk> hmm
+[17:31:16] < Zawk> Global symbol "$server" requires explicit package name at interhack.pl line 39.
+[17:32:00] <@Eidolos> your checkout is probably screwed up
+[17:32:10] <@Eidolos> you'll want to remove and re-get
+[17:39:06] < Zawk> yay!
+[17:40:13] < Zawk> doy: it's fixed
+[17:40:52] <@doy> i suppose i should look into those refresh issues at some point
+[19:10:38] <@Eidolos> fixed unnamed scrolls trying to name to null
+[19:10:48] <@Eidolos> for fixing things appearing in inventory..
+[19:10:54] <@Eidolos> that'll require adding some smarts to make_tab
+[19:14:38] <@Eidolos> fix stab one: if (\d+ of \d+), (end), or --More-- appear in lines 3 or greater, then it's a menu
+[19:16:13] <@doy> why not just test for botl being displayed?
+[19:16:20] <@Eidolos> FINE :)
+[19:17:49] <@Eidolos> which variable was it? $show_sl and $show_bl?
+[19:18:02] <@Eidolos> yeah
+[19:18:33] <@Eidolos> hrm
+[19:22:51] <@Eidolos> I guess you can't just revert a patch in the working copy but still keeping it recorded
+[19:23:06] <@Eidolos> should be able to, I think
+[19:25:43] <@Eidolos> hrm
+[19:26:20] <@Eidolos> oh, ha
+[19:26:42] <@Eidolos> ok
+[19:26:42] <@Eidolos> fixed
+[19:28:02] <@Eidolos> back to the inbox
+[19:28:57] < arcanehl> still reading that?
+[19:29:18] <@Eidolos> yeah
+[19:29:24] <@Eidolos> down to 955
+[19:29:28] <@Eidolos> from 1200
+[20:42:51] <@Eidolos> up to June 1st :) 833
+[21:30:57] <@Eidolos> Darcs 1.09 was released last month
+[21:30:59] <@Eidolos> Darcs ignores failure to set buffering mode for terminal in some places (supposedly fixes issue41, issue94, issue146 and issue318, Tommy Pettersson)
+[21:31:02] <@Eidolos> :)
+[22:18:28] < arcanehl> what's darcs.k.o using? 1.0.6?
+[22:21:44] <@Eidolos> 1.0.8
+[22:28:31] < arcanehl> kinda pitiful that I'm asking you
+[22:28:34] < arcanehl> shrug!
+[22:32:24] <@Eidolos> dk darcs -v
+[22:32:26] <@Eidolos> not so hard for me :)
+[22:34:23] < arcanehl> yeah, I'm not sshed into k right now

@@ -1,0 +1,745 @@
+[18:09:09] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[18:09:09] -!- Irssi: #interhack: Total of 4 nicks [3 ops, 0 halfops, 0 voices, 1 normal]
+[18:09:10] -!- Irssi: Join to #interhack was synced in 1 secs
+[18:09:13]  * Eidolos frowns
+[18:09:16] -!- mode/#interhack [+o Eidolos] by toft
+[18:11:02] <@toft> Eidolos: want to register it?
+[18:11:10] <@Eidolos> not particularly
+[18:11:31] <@toft> why the frown?
+[18:11:43] <@toft> I can see runcible's point
+[18:14:11] <@Eidolos> I hope my to-VT code didn't break much
+[18:14:19] <@Eidolos> jilles: have you played with Interhack at all?
+[18:14:48] <@jilles> nope
+[18:15:14] <@toft> you should! :)
+[18:15:16] <@Eidolos> http://darcs.katron.org/~sartak/interhack/README has some instructions, but you probably know what you're doing
+[18:15:19] <@jilles> it sounds like a funny idea
+[18:15:42] <@toft> its very helpful at best; amusing at worst
+[18:18:39] -!- mode/#interhack [-s+cnt] by ChanServ
+[18:18:55] <@Eidolos> well, one fringe benefit of splitting off into our own channel is we can have some not-eeople join
+[18:18:57] <@Eidolos> er
+[18:18:59] <@Eidolos> not-elite people
+[18:19:12] <@toft> yeah
+[18:19:20] -!- Eidolos changed the topic of #interhack to: http://darcs.katron.org/~sartak/interhack/README | http://darcs.katron.org/~sartak/interhack/screenshots/interhack2.png
+[18:21:27] -!- Eidolos changed the topic of #interhack to: http://darcs.katron.org/~sartak/interhack/README | http://darcs.katron.org/~sartak/interhack/screenshots/interhack2.png | Termcast: telnet noway.ratry.ru 37331
+[18:24:05] <@Eidolos> one idea, which would help most with devnull
+[18:24:12] <@Eidolos> is coloring the options
+[18:24:17] <@Eidolos> so things like numpad being off would be red forme
+[18:24:29] <@Eidolos> kinda useless but :)
+[18:26:03] <@toft> eh?
+[18:26:14] <@Eidolos> options that are mis-set
+[18:26:19] <@toft> ohh
+[18:26:20] <@toft> hehe :)
+[18:29:50] <@toft> yikes
+[18:29:59] <@toft> I accidentally hit ^V on an altar
+[18:30:05] <@Eidolos> :x
+[18:30:06] <@Eidolos> that's bad
+[18:30:08] <@toft> yeah
+[18:30:34] <@toft> instead of ^X
+[18:31:57] <@Eidolos> hmm
+[18:31:59] <@toft> my int is now shitty
+[18:32:19] <@Eidolos> I guess I should have separate variables for time_with_truncations and time_since_start
+[18:33:12] <@doy> heh, i'm dumb
+[18:35:50] <@toft> heh
+[18:35:56] <@toft> S:0 sworm the Aspirant       St:13 Dx:8 Co:15 In:12 Wi:19 Ch:8  Chaotic 0:00:13
+[18:36:08] <@doy> toft: yeah, working on that
+[18:36:10] <@doy> (:
+[18:36:14] <@toft> :)
+[18:36:15] <@doy> oh, actually
+[18:36:18] <@doy> i fixed that one
+[18:36:26] <@doy> it's because i was clearing the line after printing before
+[18:36:34] <@doy> but that breaks if you manually move the cursor
+[18:41:39] <@doy> alright, pull
+[18:42:01] <@Eidolos> pulk
+[18:42:40] <@Eidolos> hrmm
+[18:42:53] <@Eidolos> ok that explains why it wasn't working
+[18:42:54] <@Eidolos> I hope
+[18:42:54] <@Eidolos> :)
+[18:42:59] <@Eidolos> I set $trunc to 0..
+[18:43:08] <@Eidolos> which means "don't do this new stuff I just coded and am trying to debug arrrgh"
+[18:43:10] <@Eidolos> cool
+[18:43:13] <@Eidolos> seems to work
+[18:44:43] <@Eidolos> pushed time with truncs
+[18:44:57] -!- stumbly [i=wlngnut@dialup-4.246.238.89.Dial1.SanJose1.Level3.net] has joined #interhack
+[18:45:00] <@Eidolos> hi :)
+[18:45:06] < stumbly> :\
+[18:45:09] <@Eidolos> runcible kicked us out of #n-e
+[18:45:17] < stumbly> yeah saw
+[18:45:21] < stumbly> guess it makes sense
+[18:45:23] <@Eidolos> hehe
+[18:45:52] <@doy> toft: pull
+[18:46:18] <@Eidolos> doy: looks good.. that code looked pretty complicated.. :)
+[18:46:24] <@doy> (:
+[18:47:56] <@doy> Eidolos: should reprofile it with all of the new changes(:
+[18:48:02] <@Eidolos> yeah
+[18:48:39] <@Eidolos> don't have the ttyrec or even the results from before
+[18:49:58] <@Eidolos> bleh, damn keyfiles
+[18:50:03] <@Eidolos> work damn you! :)
+[18:50:15] <@toft> what's wrong with em?
+[18:50:16] <@doy> notes should work by username
+[18:50:22] <@Eidolos> yeah..
+[18:50:29] <@doy> notes.doy.txt, notes.Interhack.txt, etc
+[18:50:45] <@toft> I'd say just have a notes directory
+[18:50:46] <@doy> also, should start a new notes file when you see "welcome to NetHack" or whatever
+[18:50:52] <@toft> with doy.txt and Interhack.txt inside
+[18:50:55] <@Eidolos> hooray open source
+[18:50:59] <@doy> d:
+[18:51:50] <@toft> ew
+[18:51:55] <@toft> i hate picking up scare monster in shops
+[18:52:30] <@Eidolos> oh yeah doy, how do we get short names :)
+[18:52:38] <@Eidolos> enchant armor/remove curse/enchant weapon is too unwieldy
+[18:52:39]  * doy points to my config
+[18:52:49] <@Eidolos> ok
+[18:53:02] <@Eidolos> cool
+[18:54:27] <@Eidolos> hmmm
+[18:54:34] <@toft> I moron. why?
+[18:54:35] <@Eidolos> I have a better idea :/
+[18:54:42] <@Eidolos> instead of doing this here
+[18:55:12] <@Eidolos> use $short_names{$type}{$price} || $price_table{$type}{$price} when coming up with a name for something that can be multiple things
+[18:55:35] <@doy> hooray open source d:
+[18:55:37] <@doy> (:
+[19:09:54] <@Eidolos> r - a scroll labeled LEP GEX VEN ZEA (unpaid, 106 zorkmids).--More--
+[19:09:55] <@Eidolos> Press tab to send the string: \e#name\nnrLEP GEX VEN ZEA enchant armor/remove curse/EW\n 
+[19:09:56] <@Eidolos> :)
+[19:10:36] <@Eidolos> a little cleaner a solution, I'd say
+[19:11:33] <@Eidolos> pushed
+[19:11:35] <@doy> Eidolos: do i need to be receiving stuff over the socket in order to keep sending
+[19:11:48] <@Eidolos> shouldn'
+[19:12:42] <@doy> Eidolos: sending "p     O" sits at the "Restoring game" prompt
+[19:13:03] <@Eidolos> yes I've run into that problem before
+[19:13:11] <@Eidolos> I believe I just figured out why it happens
+[19:13:18] <@Eidolos> dgl consumes the "p      O"
+[19:13:25] <@Eidolos> before nethack is ready to begin accepting keypresses
+[19:13:29] <@Eidolos> know what I mean?
+[19:13:33] <@doy> yeah
+[19:13:38] <@Eidolos> wink wink nudge nudge
+[19:13:41] <@jilles> p is a dgl command right?
+[19:13:45] <@Eidolos> yeah, to play
+[19:15:22] <@Eidolos> so should we advertise this channel in #nh? :)
+[19:15:36] <@toft> hard to say
+[19:17:49] <@toft> weird bug
+[19:18:16] <@doy> toft: ?
+[19:18:31] <@toft> the right side of that room is yellow
+[19:18:47] <@doy> oh, huh
+[19:18:50] <@toft> eh, whatever
+[19:18:54] <@doy> yeah, i've seen that a couple times before
+[19:19:09] <@doy> it seemed to happen a lot with the bear trap regex
+[19:23:32] <@Eidolos> I missed it, but it's almost certainly a screwy recolor
+[19:24:51] <@doy> hmmm
+[19:24:55] <@doy> 6(30) is red
+[19:25:05] <@doy> on your termcast
+[19:25:10] <@Eidolos> :)
+[19:25:11] <@doy> oh
+[19:25:12] <@Eidolos> I'm watching on nao
+[19:25:17] <@Eidolos> so I could send mail
+[19:25:18] <@doy> who does that d:
+[19:25:26]  * Eidolos coughs
+[19:25:33] <@Eidolos> it was a particularly on-topic mail!
+[19:25:41] <@toft> really
+[19:25:50] <@Eidolos> :D
+[19:25:53] <@toft> :|
+[19:25:58] <@Eidolos> Life in a Glasshouse !
+[19:34:08] < stumbly> was like 23.x in the sanctum i thk
+[19:34:21] <@Eidolos> hmm?
+[19:34:29] < stumbly> oh nm
+[19:41:05] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[19:41:12] -!- stabwound [n=illbill@dsl163.rbh1.pppoe.execulink.com] has joined #interhack
+[19:42:04] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 110 (Connection timed out)]
+[19:42:57] <@Eidolos> yoa
+[19:43:24] < zubin> Will ih print underlines?
+[19:43:34] <@Eidolos> hrmm
+[19:43:37] <@Eidolos> I don't know :)
+[19:43:41] <@Eidolos> I guess so yes
+[19:44:02] <@Eidolos> stabwound: any luck getting it working?
+[19:44:02] < zubin> What I mean is, I'd like magicbagboom things to be blue and underlined.
+[19:44:08]  * Eidolos nods
+[19:45:31] <@Eidolos> looks like a "not yet"
+[19:45:45] <@Eidolos> however
+[19:46:22] <@Eidolos> if you pull
+[19:46:32] <@Eidolos> you can use this:
+[19:46:46] <@Eidolos> one sec
+[19:47:40] <@Eidolos> $ec_bohboom = "$colormap{blue}\e[4m";
+[19:50:19] <@Eidolos> oh right, my automap improvements.. mwa ha ha
+[19:50:37] <@Eidolos> basically now it'll look at the screen :)
+[19:51:33] <@Eidolos> but that's a little trickier.. hrm
+[19:52:07] < zubin> yep, that did it. yay underline.
+[19:52:25] <@Eidolos> no termcast.. boo
+[19:54:36] < zubin> ok
+[19:54:45] <@Eidolos> <3
+[19:57:02] < zubin> hm. I think eidocolors makes candles green.
+[19:57:12] <@Eidolos> yep
+[19:57:26] <@Eidolos> because they're vegan or whatever :)
+[19:57:34] < zubin> hah! really?
+[19:57:37] <@Eidolos> yep
+[19:57:42]  * zubin rawrgh
+[19:57:46] <@Eidolos> You may have to polymorph to be able to eat em
+[19:59:56] -!- stumbly_ [i=wlngnut@dialup-4.246.239.194.Dial1.SanJose1.Level3.net] has joined #interhack
+[20:00:08] -!- stumbly [i=wlngnut@dialup-4.246.238.89.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[20:00:39] -!- stumbly_ is now known as stumbly
+[20:02:59] -!- toft [i=nobody@unaffiliated/crassworm] has joined #interhack
+[20:06:22] < zubin> idea: hint "cannabalism: 100%" if elf meat + you're elf, etc.
+[20:06:36] < zubin> or agg monst or w/e
+[20:06:56]  * Eidolos nods
+[20:07:09] <@Eidolos> that was originally in, but it just said 'Elf'
+[20:07:11] <@Eidolos> which was confusing
+[20:07:17] <@Eidolos> but now that we know the player's race, we can do it better
+[20:12:46] < zubin> where's the 'learn player's race' code?
+[20:13:23] <@doy> zubin: $race
+[20:13:28] < zubin> ok
+[20:16:25] <@Eidolos> you can tell if it knows your race or not by the botl
+[20:16:31] <@Eidolos> the Zubih: Wiz *Elf* Cha  St:
+[20:16:56] <@Eidolos> whoa hey :)
+[20:17:02] < zubin> heh
+[20:17:21]  * zubin is perln00b
+[20:17:34] <@Eidolos> looked fine
+[20:19:59] < zubin> spoiler says eating own species is cannibalism unless caveman or orc... Orcs don't get aggmonst from eating orcs?
+[20:21:42] <@doy> nope
+[20:23:17] < zubin> If you're an elf without sleep resist and you eat an elf, might you get both aggmonst *and* sleep resist?
+[20:24:07] <@Eidolos> probabyl
+[20:24:31] < zubin> Also, I see for dogs you have "Aggravate"; would it be better to say "Aggravate" or "Cannibal"?
+[20:26:33] <@Eidolos> sure
+[20:27:26]  * Eidolos snickers
+[20:27:30] <@Eidolos> that THAT!
+[20:27:36] < zubin> ..
+[20:27:45] <@Eidolos> heh
+[20:32:22] <@Eidolos> completion cache, oo
+[20:33:29] < zubin> Is this okay perl:
+[20:33:30] < zubin> my $cannibal = (($race != 'Orc') && ($role != Cav)) ? "Cannibal! " : "";
+[20:33:37] <@Eidolos> sure
+[20:33:41] < zubin> hm
+[20:33:46] <@Eidolos> though I'd do it positively
+[20:33:52] <@Eidolos> well
+[20:33:53] <@Eidolos> actually
+[20:33:54] < zubin> is . the string concat operator?
+[20:33:56] <@Eidolos> the != is bad :)
+[20:34:01] <@Eidolos> != is numeric, you want ne
+[20:34:01] < zubin> ah
+[20:34:03] <@Eidolos> . is concat, yes
+[20:34:04] < zubin> aha
+[20:34:21] <@Eidolos> I'd do my $cannibal = $race eq 'Orc' || $race eq 'Cav' ? '' : 'Cannibal! ';
+[20:35:01] < zubin> word.
+[20:35:28] < stabwound> $ perl interhack.pl
+[20:35:28] < stabwound> Unable to open /home/Chris/.interhack/keys/Mon May 28 20:32:44 2007.txt for writing: Invalid argument at interhack.pl line 610.
+[20:35:37] <@Eidolos> hmm
+[20:35:38] <@Eidolos> ok
+[20:35:42] < stumbly> yeah i get that too
+[20:35:43] <@Eidolos> let me fix that
+[20:35:53] <@Eidolos> the problem is the keys/ dir doesn't exist
+[20:35:57] <@Eidolos> I think
+[20:35:59] < stumbly> nope
+[20:36:17] < stumbly> meaning i get it even when keys exists
+[20:36:17] <@Eidolos> huh
+[20:36:21] < stumbly> something about the name
+[20:36:22] <@Eidolos> well
+[20:36:25] < stumbly> shrug
+[20:36:25] <@Eidolos> maybe the spaces? shruyg
+[20:36:40] < stumbly> yeah could jion it on _ maybe
+[20:36:42] <@Eidolos> in any case you can just set $write_keys to 0 in your config
+[20:36:42] < stumbly> join
+[20:36:48] < stumbly> right
+[20:37:02] <@Eidolos> I suspect you're both cygwin users?
+[20:37:13] < stumbly> me yes, dunno if stab is
+[20:37:18] < stabwound> I am
+[20:37:23] < stumbly> kk
+[20:37:29] < stumbly> so some windows/ cyg issue
+[20:37:37] < stumbly> i'll play with it at some point
+[20:37:42] <@Eidolos> nod
+[20:41:26] < zubin> hmm
+[20:44:05] < zubin> are 'strings' and "strings" the same apart from variable interpolation?
+[20:44:44] < zubin> I ask because I switched from $race == 'Elf' (which was working) to $race eq 'Elf', and now it doesn't seem to work
+[20:45:07] <@doy> == and eq are different
+[20:45:15] <@doy> == is for numerical comparisons
+[20:45:23] < zubin> ok
+[20:45:26] <@Eidolos> I bet it would not have worked if you tired with a nonelf corpse :)
+[20:45:39] -!- mode/#interhack [+o toft] by ChanServ
+[20:45:40] <@Eidolos> or something
+[20:45:41] <@doy> does it compare the length of th strings?
+[20:45:45] -!- Zawk [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[20:45:48] <@Eidolos> nope, it tries to numberify them
+[20:45:52] <@Eidolos> ok Zawek
+[20:45:55] <@Eidolos> http://darcs.katron.org/~sartak/interhack/README
+[20:46:03] <@Eidolos> you'll need to sudo apt-get install darcs
+[20:46:31] <@Eidolos> doy: it's basically atoi++
+[20:47:19] <@doy> oh, that was lame
+[20:48:18] < zubin> Do I need to do something special to access $race inside annotations-corpse.pl?
+[20:48:36] < zubin> oh wait
+[20:50:16] < zubin> hm, no
+[20:50:38] < zubin> "This is madness!"... "THIS... IS.... PEEEERRRRRRRLLLLLLLL"
+[20:50:49] < stabwound> hmm, looks like I've got it working well
+[20:50:52] < stabwound> I just need a better font
+[20:52:03] <@Eidolos> zubin: hmm.. let me see your code
+[20:52:35] <@Eidolos> oh, that'd be why
+[20:52:37] < zubin> I'm only using vi because you're looking :)
+[20:52:46] <@Eidolos> race and role aren't set at that poin
+[20:52:50] < zubin> aha.
+[20:53:04] <@Eidolos> that's during Interhack loading, before it even connects to NAO
+[20:53:43] <@Eidolos> I guess what I'd do is
+[20:53:51] < zubin> make a cannibal plugin, which loads later?
+[20:54:00] <@Eidolos> nah, you can do it all in here
+[20:54:03] < zubin> cool
+[20:54:06] <@Eidolos> hmm
+[20:54:13] <@Eidolos> maybe I should do it.. :)
+[20:54:21] < zubin> suresure.
+[20:54:23] < zubin> while you're at it
+[20:54:41] < zubin> I didn't add anything for corpses which give no intrinsics, like dwarves.
+[20:54:46]  * Eidolos nods
+[20:54:47] < zubin> Because I didn't want it to say Tin:
+[20:54:55] < zubin> when it doesn't say Tin: Cannibal!
+[20:55:11] <@Eidolos> perhaps the best move is to just have _every_ corpse
+[20:55:13] <@Eidolos> with nutrition
+[20:55:14] < zubin> now how do I tell darcs to revert my file?
+[20:55:17] < zubin> nod
+[20:55:19] <@Eidolos> darcs revert
+[20:55:22] < zubin> well then :)
+[20:56:01] <@toft> oh no
+[20:56:05] <@toft> this oots stuff is addictive
+[20:56:08] <@Eidolos> hehe
+[20:57:30] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[20:57:44] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[21:01:10] <@doy> oh, come on!
+[21:01:19] <@doy> two purple L at the castle
+[21:01:24] <@doy> on a dfv
+[21:02:55] < zubin> http://greyfire.org/picture_library/nethack-dfv-caption.png
+[21:04:30] <@doy> (:
+[21:04:52] <@Eidolos> http://sartak.katron.org/nh/nethack-dfv-caption.png http://sartak.katron.org/nh/nethack-dfv-caption2.png http://sartak.katron.org/nh/nethack-dfv-caption3.png http://sartak.katron.org/nh/nethack-dfv-caption4.png http://sartak.katron.org/nh/nethack-dfv-caption5.png
+[21:05:33] <@Eidolos> http://sartak.katron.org/nh/nethack-dfv.png if you want to add your own lame caption. . . :)
+[21:05:49] < zubin> heh
+[21:07:02] -!- stumbly_ [i=wlngnut@dialup-4.246.232.124.Dial1.SanJose1.Level3.net] has joined #interhack
+[21:07:09] -!- stumbly [i=wlngnut@dialup-4.246.239.194.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[21:07:15] -!- stumbly_ is now known as stumbly
+[21:12:28] <@toft> Eidolos: what's that?
+[21:12:32] <@Eidolos> cannibalism
+[21:12:35] <@toft> oh
+[21:17:09] <@Eidolos> we need another visual mode
+[21:17:09] <@Eidolos> :)
+[21:17:22] <@toft> another?
+[21:17:35] <@Eidolos> one that I can highlight a column here
+[21:17:36] <@Eidolos> press t=
+[21:17:37] <@Eidolos> then x
+[21:17:40] <@toft> must be a better way to fix that stuf
+[21:17:41] <@Eidolos> and it'll align everything
+[21:17:54] < zubin> ⌘⌥] aligns all those assignments in TextMate :)
+[21:18:47] <@toft> i can't read that character, zubin
+[21:18:50] <@toft> its two little boxes
+[21:18:56] <@Eidolos> yeah
+[21:19:14] < zubin> Probably a mac font thing. Anyway, cmd-opt-]
+[21:19:21] < zubin> not that it's relevant :)
+[21:21:26] <@toft> I'm determined to find the way to fix that
+[21:23:57] <@toft> http://vim.sourceforge.net/scripts/script.php?script_id=294
+[21:27:00] <@Eidolos> doy: apparently Interhack doesn't recognize "Hello Interhac2, the elven Priest, welcome back to NetHack!"?
+[21:27:10] <@Eidolos> #eval $role gives me Pri, but #eval $race gives me the empty string
+[21:27:56] <@doy> Eidolos: #char
+[21:28:06] <@doy> huh
+[21:28:40] < zubin> did you muck with $race in annotate-corpse.pl?
+[21:28:50] <@Eidolos> let me see
+[21:28:53] <@Eidolos> I may have
+[21:29:04] <@Eidolos> yep >_<
+[21:29:07] <@Eidolos> nice thinking zubin 
+[21:29:14] <@Eidolos> sorry for the false alarm doy :)
+[21:29:19] <@doy> (:
+[21:29:24] <@Eidolos> yep, sall good
+[21:29:37] < zubin> huzzah!
+[21:30:20] <@Eidolos> cool
+[21:30:26]  * zubin buys Eid a coke.
+[21:31:08] <@Eidolos> :)
+[21:31:57] <@Eidolos> the passwords to all the Interhack accounts is kool, feel free to use them for testing or whatever
+[21:32:13] < zubin> kool.
+[21:32:33]  * Eidolos groans
+[21:32:51] <@Eidolos> a nice first useful plugin might be that auto whistle naming
+[21:33:07] <@Eidolos> see emptywand-name for help on tha
+[21:33:12] < zubin> ok
+[21:33:33] < zubin> suppertimez
+[21:33:36]  * zubin waves
+[21:33:41] <@Eidolos> lates
+[21:33:45] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[21:34:15] <@toft> argh
+[21:35:24] <@toft> sweet
+[21:35:50] <@toft> :DDDD
+[21:35:56] <@toft> Eidolos: saw that?
+[21:36:18] <@Eidolos> do it again plz
+[21:36:37] <@Eidolos> nice
+[21:36:38] <@toft> its not quite right
+[21:36:41] <@toft> because of that space
+[21:36:44] <@Eidolos> nod
+[21:36:45] <@toft> but I haven't read all the docs yet
+[21:36:47] <@Eidolos> it's just :Align?
+[21:36:54] <@toft> :Align seperator
+[21:37:00] <@Eidolos> ok
+[21:37:00] <@toft> its a script though
+[21:37:03] <@Eidolos> nod
+[21:37:14] <@toft> and you need the latest version of vimball
+[21:38:57] <@toft> oh I see
+[21:39:08] <@toft> just use :Align=> :)
+[21:39:18] <@Eidolos> ook
+[21:47:13] < stabwound> dammit, how do you make nethack not look like complete ass when using xterm under cygwin
+[21:47:22] < stabwound> this font crap is giving me a mindfuck
+[21:48:18] < stumbly> i use 6x9
+[21:48:19] <@Eidolos> :/
+[21:48:24] <@Eidolos> rxvt !
+[21:48:41] < stumbly> no 9x15 sry
+[21:49:07] < stumbly> xterm.exe -geometry 80x24 -rv -fn 9x15
+[21:49:14] < stabwound> hmm
+[21:49:29] < stumbly> (and remap function keys to do elbereth and stuff but that's obsolete now)
+[21:50:17] < stabwound> great, thanks, looks a lot better
+[21:50:54] < stumbly> i hunted long and hard for a larger font that didn't suck, but failed
+[21:51:18] < stabwound> let me know if you ever find one
+[21:51:39] < stumbly> some are ok but stuff like @ ends up looking odd and i can't take it
+[22:17:01] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[22:17:04] <@Eidolos> hai jason
+[22:17:12] < jasonmay> I guess it's hidden from whois or something
+[22:17:19] <@Eidolos> yeah +s I guess
+[22:17:37] < jasonmay> same with ##n-e
+[22:17:39] <@Eidolos> Interhack is cool, look at the screenshot in the topic (more in that directory)
+[22:17:45] <@Eidolos> heh :)
+[22:18:11] <@Eidolos> gah, I can't do flv files
+[22:19:01] <@toft> O_o
+[22:19:17] <@Eidolos> basically Interhack does cool stuff with Nethack
+[22:19:40] < jasonmay> I'm in a VT, I can't really look at the topic too well
+[22:19:44] < jasonmay> what's the basename?
+[22:19:48] <@doy> what about flv files?
+[22:19:53] < jasonmay> I'm in the screenshot directory in the darcs thing
+[22:19:57] <@Eidolos> http://darcs.katron.org/~sartak/interhack/screenshots/interhack2.png
+[22:20:01] < jasonmay> thanks
+[22:20:09] <@toft> mplayer handles flv fine, yeah
+[22:20:12] <@Eidolos> doy: don't have the codec
+[22:20:37] <@doy> and yeah, mplayer works
+[22:21:01] <@Eidolos> not here
+[22:21:20] <@Eidolos> [flv @ 0x874c3c8]Unsupported video codec (4)
+[22:21:20] <@Eidolos> [flv @ 0x874c3c8]Unsupported video codec (4)
+[22:21:20] <@Eidolos> [flv @ 0x874c3c8]Unsupported video codec (4)
+[22:21:20] <@Eidolos> [flv @ 0x874c3c8]Unsupported video codec (4)
+[22:21:21] <@Eidolos> etc
+[22:21:32] <@Eidolos> oh well
+[22:21:47] <@toft> there are all the flags I compiled mplayer with, Eidolos
+[22:22:15] <@doy> codecs are often separate packages though
+[22:22:19] <@toft> true
+[22:22:21] < jasonmay> Eidolos: so it just colors it up and allows you to type in less keystrokes for the repetitive stuff?
+[22:22:21] <@doy> win32codecs might be useful
+[22:22:31] < jasonmay> I have win32codecs in my USE
+[22:22:42] <@toft> I don't have it, yet it works fine here
+[22:22:53] <@toft> in fact I can even view .wmv
+[22:23:19] <@toft> shrug
+[22:23:24] <@Eidolos> jasonmay: other stuff too
+[22:23:33] <@Eidolos> like viewing other levels' maps
+[22:23:49] < jasonmay> interesting
+[22:24:10] < jasonmay> so you're going to try to break your ascension time record with this?
+[22:24:40] <@Eidolos> heh
+[22:24:41] <@Eidolos> I tried
+[22:24:41] < jasonmay> I keep giving my friend a hard time at school
+[22:24:48] < jasonmay> every morning we come in at work
+[22:24:51] < jasonmay> "ascend yet?"
+[22:24:54] <@Eidolos> did a 3h 1m on Saturday, that's my second fastest
+[22:24:55] < jasonmay> "oh god no"
+[22:25:16] <@Eidolos> you might be interested in the Interhack code
+[22:25:25] < jasonmay> really
+[22:25:47] < jasonmay> what's it in?
+[22:25:56] <@Eidolos> guess :)
+[22:25:59] <@Eidolos> I'm kinda the project head
+[22:26:01] < jasonmay> figured
+[22:26:35] < jasonmay> good luck with it, I'm going to snooze
+[22:26:37] <@Eidolos>  http://darcs.katron.org/~sartak/interhack/interhack.pl is the main script
+[22:26:49] <@Eidolos>  http://darcs.katron.org/~sartak/interhack/plugins/ are a bunch of mostly self-contained plugins
+[22:26:50] <@Eidolos> ok, night
+[22:26:52] < jasonmay> I'll take a look at it tomorrow at work probably
+[22:27:05] < jasonmay> hm, I'm in a VT
+[22:27:25] < jasonmay> I'm going to log out and back in to a screen
+[22:27:30] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit ["leaving"]
+[22:28:45] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[22:33:16] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[22:43:18] <@Eidolos> oh lordy / oh lordy
+[22:43:20] <@Eidolos> hay
+[22:43:25] <@Eidolos> toft: do you do Bowie?
+[22:43:25] < zubin> hiya.
+[22:43:32] < zubin> H gonna eat me!
+[22:43:33] <@toft> somewhat
+[22:43:38] <@Eidolos> Ziggy Stardust?
+[22:43:41] <@toft> no :)
+[22:43:43] <@toft> never heard of it
+[22:43:44] <@Eidolos> get it!
+[22:43:47] <@toft> k
+[22:43:47] <@Eidolos> it's a great album
+[22:43:54] <@toft> oh, a bowie album
+[22:43:58] <@Eidolos> ya
+[22:44:01] <@toft> k
+[22:44:13] <@Eidolos> John, I'm Only Dancing <3
+[22:51:05] -!- doy [n=doy@ppp-70-225-171-237.dsl.chmpil.ameritech.net] has quit [Connection timed out]
+[22:53:08] <@Eidolos> toft: I uploaded two Pain of Salvation albums for jasonmay
+[22:53:10] <@Eidolos> you're welcome to them
+[22:53:23] <@Eidolos> oh hey
+[22:53:23] <@toft> where at?
+[22:53:29] <@Eidolos> http://sartak.katron.org/misc/music/entropia.tar
+[22:53:32] <@Eidolos> http://sartak.katron.org/misc/music/concrete-lake.tar
+[22:53:44] <@Eidolos> http://sartak.katron.org/misc/music/10.%20Suffragette%20City.mp3 is a song from Bowie's Ziggy Stardust
+[22:53:58] <@Eidolos> Entropia and HbtCC are the two earliest PoS albums.. they get better 8)
+[22:54:06] <@toft> TBH normally I'd stay away from stuff sounding like "Pain of Salvation", but for you
+[22:54:12] <@Eidolos> hehe
+[22:54:12] <@toft> HbtCC?
+[22:54:18] <@Eidolos> One Hour by the Concrete Lake
+[22:54:28] <@toft> why are you giving me the crappy ones! :)
+[22:54:35] <@Eidolos> because jasonmay asked for them specifically
+[22:54:38] <@toft> ah
+[22:54:39] <@Eidolos> he already had the good ones
+[22:54:43] <@toft> 9well I'll check 'em
+[22:54:58] <@Eidolos> Concrete Lake is pretty good though, I listened to it a lot for a while 
+[22:55:23] -!- aioli [n=r00t@c-69-141-77-0.hsd1.pa.comcast.net] has joined #interhack
+[22:55:26] <@Eidolos> yo :)
+[22:55:27] < aioli> IM IN UR CHANEL LOL
+[22:55:32] <@toft> LOL
+[22:55:32] < aioli> hi
+[22:55:50] <@Eidolos> LOL Rax.
+[22:57:12] <@Eidolos> tar xvf
+[22:57:14] <@Eidolos> you silly person
+[22:57:25] <@Eidolos> eek
+[22:57:29] <@Eidolos> sorry about that O_o
+[22:57:41] <@Eidolos> oh I know what happened
+[22:57:45] <@Eidolos> I specified an absolute dir for tar cf
+[22:58:12] <@Eidolos> it starts off pretty heavy
+[22:58:14] <@toft> >_<
+[22:58:15] <@Eidolos> but it cuts back a bit :)
+[22:58:17] <@toft> RAWWRRR
+[22:58:24] <@toft> heh
+[22:58:30] <@toft> well
+[22:58:43] <@toft> oh
+[22:58:45] <@toft> this is this stuff
+[22:58:48] <@toft> where they are like RAWR
+[22:59:03] <@Eidolos> rock? >_>
+[22:59:06] <@toft> no no
+[22:59:08] <@toft> at the beginning
+[22:59:11] <@toft> growling
+[22:59:14] <@toft> its death metal
+[22:59:20] <@Eidolos> hehe
+[23:00:24] <@Eidolos> that was pretty good
+[23:00:40] <@toft> I made it up real fast >_>
+[23:00:48] <@Eidolos> uh huh :)
+[23:00:56] <@toft> ooh
+[23:00:57] <@Eidolos> oh come on!
+[23:01:00] <@Eidolos> you listened to the first second :)
+[23:01:00] <@toft> this is nice :D
+[23:01:03] <@toft> i know
+[23:01:05] <@toft> it was really loud
+[23:01:17] <@toft> i'll come back to it
+[23:01:19] <@toft> aww
+[23:01:19] <@Eidolos> ok :)
+[23:01:25] <@toft> the first 23 seconds of that were really good
+[23:01:33] <@Eidolos> Entropia is probably the heaviest album
+[23:01:36] <@Eidolos> and it's their first
+[23:01:56] <@Eidolos> yeah play does the same thing with ^A:
+[23:02:02] <@toft> weird
+[23:02:03] <@Eidolos> I guess buffered output or something
+[23:02:06] <@toft> yeah
+[23:02:09] <@toft> like a cd player :D
+[23:02:12] <@Eidolos> aye
+[23:02:32] <@toft> I always used to press the little sensor with a paperclip so I could stop the cd but KEEP ON LISTENING
+[23:04:48] <@toft> this really just doesn't strike me as enjoyable to listen to :(
+[23:04:55] <@Eidolos> well it's Entropia!
+[23:05:05] <@Eidolos> Scarsick is their most recent album, it's more goofy
+[23:05:13] <@Eidolos> I suspect Remedy Lane will be the best fit
+[23:08:57] <@toft> hmm
+[23:09:01] <@toft> fizzbuzz in a vim macro?
+[23:09:28] <@Eidolos> gopher it
+[23:09:45] <@Eidolos> I'll race ya! :)
+[23:09:54] <@Eidolos> fewest chars from the empty file wins..
+[23:10:12] <@toft> oh snap
+[23:10:47] <@toft> i forget what the spec is
+[23:10:58] <@toft> do you display numbers that arent fizz or buzz?
+[23:11:11] <@Eidolos> display the numbers 1 to 100
+[23:11:12] <@Eidolos> except
+[23:11:18] <@Eidolos> if a number is divisible by 15 display fizzbuzz
+[23:11:26] <@Eidolos> otherwise if a number is divisible by 5 display buzz
+[23:11:29] <@Eidolos> otherwise if a number is divisible by 3 display fizz
+[23:12:00] <@toft> heh
+[23:12:11] <@toft> hmm
+[23:13:28] -!- doy [n=doy@ppp-70-225-171-237.dsl.chmpil.ameritech.net] has joined #interhack
+[23:13:30] -!- mode/#interhack [+o doy] by ChanServ
+[23:13:41] <@Eidolos> can we bang out to the shell at all? :)
+[23:13:49] <@toft> noo! :)
+[23:13:51] <@Eidolos> ok
+[23:17:38] <@Eidolos> herm
+[23:17:53] <@Eidolos> oh
+[23:17:55] <@Eidolos> yeah >_>
+[23:17:58] <@toft> heh
+[23:19:05] < zubin> I love the priestydonatey thing
+[23:19:08] <@toft> done
+[23:19:34] <@toft> now I'll test it
+[23:19:41] < zubin> Hm, Eid and toft are golfing
+[23:20:23] <@toft> guh
+[23:20:28] <@toft> I need a way of viewing my thing outside of it
+[23:20:30] <@toft> screen!
+[23:22:36] <@toft> seems to work
+[23:22:48] <@toft> i1<ESC>qqYp^Aq98@qggO<ESC>qq3j^c$fizz<ESC>^q100@qggqq5j^c$buzz<ESC>^q100@qggqq15j^c$fizzbuzz<ESC>^q100@q
+[23:22:51] <@toft> although its sort of lame
+[23:22:57] <@toft> hehe
+[23:23:03] <@toft> just put it in a macro and it looks good!!
+[23:23:33] <@toft> does <ESC> work in a macro properly? like the literal chars <ESC> interpret as an escape?
+[23:24:22] <@doy> what's this, fizzbuzz in vi?
+[23:24:35] <@toft> yeah
+[23:25:22] <@toft> hmm
+[23:26:17] <@Eidolos> ok
+[23:26:22] <@Eidolos> i1\eqqyyp^Aq98@qqqSbuzz\e5kq19@@jjqqSfizz\e3jq32@@10kqqSfizzbuzz\e15kq5@@
+[23:27:11] <@Eidolos> 68 actual characters (counting \e and ^A as one char each)
+[23:27:36] <@toft> :)
+[23:27:48] <@Eidolos> 77 for you
+[23:27:53] <@Eidolos> though I could be wrong :)
+[23:27:58] <@toft> probably right
+[23:28:06] <@Eidolos> I think it's more, since I counted all ^x sequences as ctrl-x
+[23:28:13] <@Eidolos> where you may have meant go-to-start-of-line
+[23:28:13] <@toft> you were smart about going up and down
+[23:28:19] <@toft> yeah I did
+[23:28:23] <@toft> I wasn't very optimal
+[23:28:27] <@Eidolos> :)
+[23:28:53] <@Eidolos> S deletes the entire line and puts you in insert mode
+[23:29:20] <@Eidolos> also somewhat humorously my remapping of Y to mean y$ cost me a stroke here :)
+[23:29:31] <@toft> hehe
+[23:30:05] <@toft> Iwonder if you could put 'zz' into a buffer and save strokes that way
+[23:30:07] <@toft> probably not though
+[23:30:30] <@Eidolos> hmm
+[23:30:38] <@Eidolos> let me try :)
+[23:30:44] <@Eidolos> obviously you have to start from scratch but
+[23:30:48] <@Eidolos> eh naw
+[23:30:51] <@toft> :)
+[23:30:53] <@Eidolos> it takes two to save and two to restore
+[23:31:05] <@Eidolos> so you won't save anything by having fizz and buzz in registers to make fizzbuzz
+[23:31:31] <@toft> ah
+[23:31:34] <@Eidolos> actually I guess it takes three to save, four if you have oldstyle Y :)
+[23:32:00] <@toft> what's Y do for you?
+[23:32:06] <@Eidolos> y$
+[23:32:10] <@toft> ah
+[23:32:14] <@Eidolos> just like D is d$ and C is c$
+[23:32:25] <@Eidolos> http://sartak.katron.org/misc/music/remedy-lane.tar
+[23:32:31] <@toft> you and your absolute paths! :)
+[23:32:36] <@Eidolos> sry
+[23:33:40] <@Eidolos> FUCKIN METAL YO
+[23:33:49] <@Eidolos> vim :)
+[23:33:50] <@toft> haha
+[23:33:50] <@toft> oops
+[23:34:11] <@toft> WHAAAAAAAMMMM
+[23:34:15] <@Eidolos> wha-bam
+[23:34:47] <@Eidolos> as long as you give them a shot I'll be happy
+[23:35:31] <@toft> :)
+[23:35:58] <@toft> I guess i"m just judgmental, but the guy's voice is obnoxious
+[23:36:03] <@Eidolos> gasp
+[23:36:07] <@toft> hehe :)
+[23:36:34] <@Eidolos> he's fscking Swedish!
+[23:37:05] <@Eidolos> toft: alarms are cool 8)
+[23:37:10] <@Eidolos> basically this says
+[23:37:12] <@toft> interesting
+[23:37:29] <@Eidolos> "if this block goes on for ten seconds, send me a signal so I can stop"
+[23:37:36] <@toft> I figured, but its neat
+[23:37:40] <@Eidolos> yeah
+[23:38:05] <@Eidolos> any more vim-fu?
+[23:38:13] <@toft> hnn
+[23:38:14] <@toft> hmm
+[23:38:28] <@toft> vi-improved.org has a contest, but upon examination its really lame
+[23:38:53] <@Eidolos> oh
+[23:38:58] <@Eidolos> it's been there for years I think :)
+[23:39:06] <@Eidolos> even though it says weekly
+[23:39:29] <@toft> ah
+[23:39:29] <@toft> hehe
+[23:39:52] <@toft> did you install align yet?
+[23:40:05] <@Eidolos> nay
+[23:40:15] < zubin> oO!
+[23:40:18] < zubin> magic marker goodness
+[23:40:24] <@toft> ooh you can edit streams
+[23:40:39] <@Eidolos> yep
+[23:40:44]  * zubin does a little interhack dance
+[23:40:49] <@Eidolos> :)
+[23:40:52] < zubin> which basically consists of hitting <tab>
+[23:40:59] <@toft> hehe
+[23:41:02] <@Eidolos> that's the plan sir
+[23:41:08] <@toft> dare I yes | vim -?
+[23:41:16] <@Eidolos> you madman!
+[23:41:17] < zubin> lol: #dance sends hllhkjjkubbuynny
+[23:41:26] <@Eidolos> kkjjhlhl
+[23:41:35] <@toft> oh man
+[23:41:46] <@toft> it somehow righted itself
+[23:41:59] <@Eidolos> maybe a segfault or something
+[23:42:05] < zubin> hm.
+[23:42:06] <@Eidolos> zubin: hit ^R to redraw
+[23:42:10] < zubin> the magic ma-- ah.
+[23:42:43] <@Eidolos> the fix would be to re-send the map we drew over
+[23:43:15] <@Eidolos> Shore Serenity is pretty good
+[23:43:23] <@Eidolos> if you can get past that beginning :)
+[23:43:57] <@Eidolos> Pa
+[23:44:11] <@toft> the beginning /is/ good!
+[23:44:13] <@toft> oh
+[23:44:14] <@toft> :(
+[23:44:16] <@Eidolos> :D
+[23:44:22] <@toft> I'm just honestly not one for loud hardcore music
+[23:44:26] <@Eidolos> I know
+[23:44:32] <@toft> :)
+[23:44:40] <@toft> except for techno I guess
+[23:44:44] <@toft> but that's not as hard
+[23:44:48] <@toft> lol his voice
+[23:44:55] <@Eidolos> you're just a guitar-racist
+[23:44:58] <@Eidolos> and voice
+[23:44:58] <@toft> no way
+[23:44:59] <@Eidolos> >_>
+[23:45:05] <@toft> I <3 guitar and voice
+[23:45:12] <@toft> just not distortion and screaming :)
+[23:45:17] <@Eidolos> you wouldn't recognize quality even if you wgot and mplayed it!
+[23:45:23] <@toft> haha
+[23:45:40] <@toft> zubin: O_O
+[23:45:46] < zubin> ?
+[23:46:02] <@toft> what are yeou getting all that gold for? hehe
+[23:46:11] < zubin> protection!
+[23:46:12] <@Eidolos> a rich fiest
+[23:46:15] <@Eidolos> feast..
+[23:46:15] < zubin> It's a scary world.
+[23:46:34] < aioli> raymond feist?
+[23:46:35] <@toft> gold detection is rare enough that I usually don't use it, and still end up with only like 2 for the planes
+[23:47:08] <@Eidolos> it's cheap as hell to write with a marker
+[23:47:10] <@Eidolos> there's another idea 8)
+[23:47:12] <@Eidolos> marker charges..
+[23:47:14] <@Eidolos> let me add that then!
+[23:47:22] < zubin> yes. note marker.
+[23:47:56] <@toft> hey cool
+[23:47:59] <@toft> vim has a :Sex command
+[23:48:08] <@Eidolos> oh baby
+[23:48:41] <@doy> Eidolos: don't do it that way/:
+[23:49:03] <@doy> that makes overriding %scrolls irritating
+[23:49:10] <@toft> true
+[23:49:16] <@Eidolos> well
+[23:49:21] <@Eidolos> don't override %scrolls then! mwa ha ha
+[23:49:25] <@toft> :|
+[23:49:39] <@doy> i don't think it works like that d:
+[23:49:48] <@Eidolos> fine I'll do it another way then
+[23:49:52] <@Eidolos> you win this time ya jerk!
+[23:49:56] <@Eidolos> hrm
+[23:51:10] <@toft> why can't you exit shells with running jobs?
+[23:51:18] <@toft> I never understood that
+[23:51:29] <@doy> toft: you can, it just warns you so that you don't accidentally kill jobs
+[23:51:39] <@toft> why would you kill them if you exited?
+[23:51:49] <@doy> if you background something, then you kill the shell, the shell is the parent still
+[23:52:00] <@toft> well that shouldn't be! :)
+[23:52:03] <@doy> s/background/suspend/
+[23:52:08] <@doy> yes it should
+[23:52:12] <@doy> i didn't mean background there
+[23:52:16] <@doy> for suspending processes
+[23:52:21] <@toft> but its the same with background
+[23:52:25] <@toft> isn't it?
+[23:52:26] <@toft> oh no
+[23:52:29] <@toft> ok
+[23:52:43] <@toft> yes, it is!
+[23:53:00] <@toft> hmm all too bizarre
+[23:53:01] <@doy> run it under nohup then d:
+[23:53:09] <@toft> :)
+[23:53:31] <@doy> or disown after backgrounding
+[23:53:38] <@toft> how do you do that?
+[23:53:45] <@doy> 'disown'
+[23:53:47] <@toft> O:
+[23:53:53] <@doy> under bash anyway
+[23:54:00] <@doy> probably the same for zsh
+[23:54:12] <@toft> /awesome/
+[23:54:15] <@toft> thank you!
+[23:54:32] <@doy> unix process management
+[23:54:36] <@doy> it's good to understand
+[23:54:37] <@doy> (:
+[23:54:44] <@toft> true
+[23:56:29] <@toft> Eidoverynice
+[23:56:52] <@Eidolos> thanks
+[23:57:43] <@Eidolos> thar
+[23:58:18] <@Eidolos> still works, see
+[23:58:44] <@doy> awesome
+[23:58:57] <@Eidolos> I aim to please
+[23:59:13] <@toft> I am to.. ACHOO
+[23:59:17] <@toft> >_>
+[23:59:28] <@Eidolos> well don't just sit there! pull, people!

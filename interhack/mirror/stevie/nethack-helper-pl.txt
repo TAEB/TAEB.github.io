@@ -1,0 +1,94 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+#sub POE::Kernel::ASSERT_DEFAULT () { 1 }
+#sub POE::Kernel::TRACE_DEFAULT  () { 1 }
+#sub POE::Kernel::TRACE_EVENTS () { 1 }
+
+use POE;
+use POE::Session;
+
+use NethackHelperSession;
+
+NethackHelperSession->new( { RemoteServer => 'nethack.alt.org', RemotePort => 23, Port => 1234 } );
+
+POE::Kernel->run();
+
+__END__
+
+use POE::Component::Server::TCP;
+use POE::Component::Client::TCP;
+
+# okay, three things to serve up
+
+# prettify(str) returns str with anything that's not 0x20..0xFE escaped with \
+sub prettify {
+  my %map = { 8 => 'b', 9 => 't', 10 => 'n', 13 => 'r' };
+  my $str = $_[0];
+  for my $p (0..length($str)-1) {
+    my $ch = ord substr($str, $p, 1);
+    if ($ch < 0x20 || $ch >= 0x7F) {
+      my $val = $map{$ch} || sprintf'x%02x', $ch;
+      substr($str, $p, 1, '\\'.$val);
+    }
+  }
+  return $str;
+}
+
+sub handle_client_input {
+}
+
+sub handle_client_connect {
+  my ($heap) = @_[HEAP];
+  $heap->{client}->put('Please wait while we connect to nethack.alt.org...');
+  $heap->{_server} = POE::Component::Client::TCP->new(
+    RemoteAddress => 'nethack.alt.org',
+    RemotePort => 'telnet',
+    Domain => AF_INET,
+    Args => [ $_[SESSION] ],
+    
+    Started => sub { my ($heap) = @_[HEAP]; $heap->{_client} = $_[ARG0] },
+    
+    ConnectError => sub { my ($kernel, $heap) = @_[KERNEL,HEAP]; $kernel->post( $heap->{_client}, 'peerconnected', 0, 
+    );
+}
+
+sub handle_client_disconnect {
+  $_[KERNEL]->post(clientproxy => 'shutdown'); # kill the listener
+  if ($_[HEAP]{server}) {
+     $_[KERNEL]->post($_[HEAP]{_server}, 'shutdown'); # kill any peer we might have
+  }
+}
+
+  POE::Component::Server::TCP->new(
+    Port     => 0,
+#    Address  => $bind_address,      # Optional.
+#    Hostname => $bind_hostname,     # Optional.
+    Domain   => AF_INET,            # Optional.
+    Alias    => 'clientproxy',     # Optional.
+    
+    Error    => sub { die "An error occurred: $! [@_]"; },   # Optional.
+#    Args     => [ "arg0", "arg1" ], # Optional.
+
+#    SessionType   => "POE::Session::Abc",           # Optional.
+#    SessionParams => [ options => { debug => 1 } ], # Optional.
+
+    ClientInput        => \&handle_client_input,      # Required.
+    ClientConnected    => \&handle_client_connect,    # Optional.
+    ClientDisconnected => \&handle_client_disconnect, # Optional.
+#    ClientError        => \&handle_client_error,      # Optional.
+#    ClientFlushed      => \&handle_client_flush,      # Optional.
+    #ClientFilter       => "POE::Filter::Xyz",         # Optional.
+#    ClientInputFilter  => "POE::Filter::Xyz",         # Optional.
+ #   ClientOutputFilter => "POE::Filter::Xyz",         # Optional.
+    ClientShutdownOnError => 1,                       # Optional.
+
+    # Optionally define other states for the client session.
+    #InlineStates  => { ... },
+    #PackageStates => [ ... ],
+    #ObjectStates  => [ ... ],
+  );
+  
+
+$kernel->run();

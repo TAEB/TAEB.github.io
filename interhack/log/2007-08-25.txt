@@ -1,0 +1,10 @@
+[00:01:34] <@Eidolos> golfed further:
+[00:01:36] <@Eidolos> ack -f --perl |xargs perl -le'open _ and<_>!~/env perl/&&print for@ARGV'
+[00:01:38] <@Eidolos> :)
+[00:07:42] <@Eidolos> ok, I don't see it getting any shorter: perl -e'open _ and <_>!~/env perl/&&print for`ack -f --perl`'
+[00:07:54] <@Eidolos> hm, extra whitespace, ah well
+[00:19:28] <@Eidolos> ok, enough yak shaving
+[00:19:29] <@Eidolos> nh time :)
+[19:28:44] <@Eidolos> Pugs has a darcs mirror. this makes me happy
+[19:30:23] <@Eidolos> probably to facilitate haskell hackers
+[23:47:36] -!- Zawk is now known as Tirogn

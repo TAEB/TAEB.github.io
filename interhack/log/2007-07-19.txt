@@ -1,0 +1,14 @@
+[06:30:36] -!- ekiMbo [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[06:48:14] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[08:20:05] -!- Netsplit kornbluth.freenode.net <-> irc.freenode.net quits: jilles
+[08:21:58] -!- Netsplit over, joins: jilles
+[08:58:27] -!- ekiMbo is now known as ekiM
+[11:28:43] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:54:57] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[15:10:59] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+--- Log closed Thu Jul 19 16:17:34 2007
+[20:34:44] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[20:34:44] -!- Irssi: #interhack: Total of 8 nicks [2 ops, 0 halfops, 0 voices, 6 normal]
+[20:34:46] -!- mode/#interhack [+o Eidolos] by ChanServ
+[20:35:50] -!- Irssi: Join to #interhack was synced in 68 secs
+[22:18:58] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

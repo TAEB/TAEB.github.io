@@ -1,0 +1,18 @@
+[00:11:39] <@Eidolos> I'm probably going to be working on Adventure for the next few days
+[00:11:43] <@Eidolos> but I think it's worth it :)
+[00:11:47] <@Eidolos> after that, Calf.
+[00:20:40] < arcanehl> surely the port can't be that hard
+[02:09:10] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[02:10:03] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[02:31:31] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Remote closed the connection]
+[02:31:55] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[02:37:07] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Remote closed the connection]
+[02:37:10] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[03:04:38] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Read error: 104 (Connection reset by peer)]
+[03:09:27] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[07:00:23] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[07:20:21] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[07:20:40] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:38:37] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[10:31:34] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[10:31:43] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack

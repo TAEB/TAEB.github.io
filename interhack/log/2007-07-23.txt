@@ -1,0 +1,23 @@
+[00:42:34] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[01:36:04] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[01:36:09] < Zawk> yo
+[01:36:22] < Zawk> Maybe a plugin that lists stuff about items?
+[01:36:55] < Zawk> "a double-headed axe, price 53 zorkmids." would show on the line below that the statistics of the axe
+[01:37:13] < Zawk> 2d6, or whatever
+[03:41:29] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[03:48:18] <@Eidolos> sure
+[08:54:51] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[08:55:06] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:51:00] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:54:33] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[11:54:37] -!- ekiMbo is now known as ekiM
+[15:30:53] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+--- Log closed Mon Jul 23 16:08:04 2007
+[16:08:08] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[16:08:08] -!- Irssi: #interhack: Total of 11 nicks [3 ops, 0 halfops, 0 voices, 8 normal]
+[16:09:26] -!- Irssi: Join to #interhack was synced in 80 secs
+[16:18:36] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Connection timed out]
+[16:18:41] -!- You're now known as Eidolos
+[16:50:01] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[18:57:25] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Read error: 104 (Connection reset by peer)]
+[21:40:39] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

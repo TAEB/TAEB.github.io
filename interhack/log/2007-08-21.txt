@@ -1,0 +1,389 @@
+[00:50:09] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[00:50:20] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[00:57:23] < billnye> alexbobp: it's Doing It Wrong, then, right?
+[00:57:35] < billnye> don't oil show up on the "apply" list?
+[00:57:52] < billnye> (or am I thinking of something else?)
+[00:58:10] < alexbobp> oil does show up on the apply list
+[00:58:19] < alexbobp> is it supposed to light oil when it tests for it?
+[00:58:46] < billnye> a person wouldn't, so the plugin oughtn't either
+[00:59:07] < alexbobp> why does it then?
+[00:59:44] < alexbobp> bug?
+[01:01:02] < billnye> I assume so, but IANAIhDev
+[01:02:00] < alexbobp> ah
+[01:06:21] <@Eidolos> the problem is
+[01:06:27] <@Eidolos> it just assumes there are apply-able items in your inv
+[01:07:20] < alexbobp> yeah, that's another thing I noticed
+[01:07:26] < alexbobp> if i have nothing, it does funny things
+[01:07:31] <@Eidolos> right
+[01:07:37] <@Eidolos> say you pick up a potion in slot X
+[01:07:50] <@Eidolos> it'll send aX #name n X <whatever> !oil
+[01:08:01] <@Eidolos> and that could be problematic if a doesn't do what we expect it to do
+[01:08:25] < alexbobp> so there's no parsing, just a string?
+[01:08:49] < alexbobp> ah, well that's why it always lights oil then?
+[01:09:40] <@Eidolos> yep
+[01:11:10] < alexbobp> isn't that a potentially bad thing, since it consumes oil and attracts attention?
+[01:13:18] <@Eidolos> no.. 
+[01:13:34] < alexbobp> no to which one?
+[01:13:34] <@Eidolos> it's a bad thing because it can send crap to your NH if you have no apply-ables
+[01:13:45] < alexbobp> well, that also
+[01:16:21] < alexbobp> oil flasks can be used up, right?
+[01:36:14] -!- alexbobp is now known as alexbobp_away
+[01:39:14] < Zawk> yes.
+[01:39:26] < Zawk> light them, and they must be thrown
+[01:39:32] < Zawk> ...or they asplode all over you
+[02:05:41] <@Eidolos> hm
+[02:05:53] <@Eidolos> how do we get Interhack to run against a local NH anyway
+[02:06:16] < arcanehl> con it into thinking it's dgl
+[02:06:17] <@Eidolos> (the code is all there, I just don't know how to activate it :))
+[02:06:27] <@doy> Eidolos: just don't run the telnet module
+[02:06:31] <@Eidolos> ah
+[02:06:33] <@Eidolos> nice
+[02:06:39] <@doy> it's commented out in Config.pm
+[02:07:08] <@doy> well
+[02:07:10] <@doy> dgl too
+[02:07:25] <@doy> the plugin line below it has it ready
+[02:07:29] <@Eidolos> ah
+[02:07:34] <@doy> "use this plugin list to run a local copy of nethack"
+[02:07:40] <@doy> that's why it's there
+[02:07:41] <@doy> d:
+[02:07:51] <@Eidolos> so here
+[02:07:57] <@Eidolos> that crash is my fault
+[02:08:04] <@doy> awesome
+[02:08:05] <@doy> (:
+[02:10:01] <@Eidolos> sweet
+[02:10:07] <@doy> hehe
+[02:10:08] < arcanehl> memory locations? what a dirty cheater
+[02:10:12] <@Eidolos> hehe
+[02:10:35] <@doy> Eidolos: if it hangs on exit, just press a button
+[02:10:40] <@Eidolos> nod
+[02:10:57] <@doy> for whatever reason, ReadKey likes to block at the end... i'm not sure why
+[02:11:09] <@doy> i think it's probably something to do with the subprocess dying
+[02:14:58] <@Eidolos> doy++
+[02:15:24] <@Eidolos> (that gnome)--
+[02:17:27] <@Eidolos> D/DO/DOY
+[02:17:28] <@Eidolos> :)
+[02:17:40] <@Eidolos> oo
+[02:17:53] <@Eidolos> a failure
+[02:18:43] <@doy> yeah, working on that
+[02:18:57] <@doy> i'm pretty sure i know what's happening
+[02:19:21] <@Eidolos> ok
+[02:25:34] <@doy> how do you untag something?
+[02:25:49] <@Eidolos> you're using Hiveminder? :)
+[02:25:53] <@doy> no
+[02:25:55] <@doy> darcs
+[02:25:56] <@Eidolos> oh
+[02:26:02] <@Eidolos> a tag is just a regular patch
+[02:26:04] <@Eidolos> so unrecord it
+[02:30:44] <@Eidolos> yes.. we really need config
+[02:30:54] <@Eidolos> what would _you_ people like it to be
+[02:31:06] <@Eidolos> regular Perl code?
+[02:31:10] <@Eidolos> a special plugin?
+[02:31:19] <@Eidolos> a yaml file?
+[02:31:41] <@doy> hmmm
+[02:32:04] <@doy> as long as
+[02:32:06] <@doy> oops
+[02:32:28] <@doy> as long as ~/.interhack/plugins exists, it would probably be cleanest as a yaml file or something similar
+[02:32:29] <@Eidolos> a special plugin means we can wrap methods in it in the usual way
+[02:32:47] <@Eidolos> hm
+[02:32:51] <@doy> if we want something special that requires actual code, just write a local plugin
+[02:33:08] <@Eidolos> ok, let me go think about this for a minute :)
+[02:33:11] <@doy> okay
+[02:33:11] <@doy> (:
+[02:34:50] <@Eidolos> ok
+[02:34:53] <@Eidolos> yaml is fine
+[02:35:07] <@Eidolos> its hierarchical nature means defining plugin config is simple
+[02:35:26] <@Eidolos> some things may still be Perl code, like what to display on the statusline
+[02:35:31] <@doy> yeah
+[02:35:38] <@Eidolos> but that can be string eval'd
+[02:35:48] <@Eidolos> or even sprintf++'d
+[02:35:53] <@doy> right
+[02:36:02] <@Eidolos> ok then
+[02:36:05] <@Eidolos> :)
+[02:36:54] < arcanehl> you disregarded the bot's advice! ;(
+[02:38:15] <@doy> Eidolos: i know how i'm going to do the server stuff, so just do whatever for now
+[02:38:27] <@doy> and i'll get to it once i finish up this pty stuff
+[02:38:39] <@Eidolos> ok
+[02:38:57]  * arcanehl waits for Eidolos to fill out the password field
+[02:39:08] <@Eidolos> hmm
+[02:39:41] <@Eidolos> actually
+[02:39:44] <@Eidolos> I'll do doy's config :)
+[02:42:13] <@doy> does yaml just use indentation?
+[02:42:27] <@doy> or are the colons enough?
+[02:42:39] <@Eidolos> yaml does use indentation
+[02:42:57] <@Eidolos> colon indicates hash
+[02:43:35] < arcanehl> should rename "plugin" to something like "plugin-options"
+[02:47:14] <@doy> Eidolos: what should i be using here to get the STDIN filehandle?
+[02:48:26] <@Eidolos> *STDIN maybe
+[02:48:42] <@doy> what does the * mean?
+[02:49:02] <@Eidolos> typeglob :)
+[02:49:09] <@doy> ...okay then
+[02:49:10] <@doy> (:
+[02:49:20] <@Eidolos> the symbol table stores all global variables
+[02:49:28] <@Eidolos> but it has to distinguish between $a and @a
+[02:49:32] <@Eidolos> so what it does is it stores typeglobs
+[02:49:44] <@Eidolos> which let you differentiate between scalar and array
+[02:50:00] <@Eidolos> bareword filehandles are special in that they have no sigil
+[02:50:03] <@Eidolos> as an artifact of earlier perls
+[02:50:07] <@doy> aha
+[02:51:15] < arcanehl> blame sh on that
+[02:51:59] <@doy> perl did take quite a few questionable syntax things from sh syntax
+[02:52:22] < arcanehl> can't think of many that have survived so far
+[02:52:23] <@Eidolos> I don't think Larry intended it to be such a general purpose language
+[02:52:43] < arcanehl> nonsense
+[02:52:47] < arcanehl> he fully intended to takeover the world
+[02:52:51] <@Eidolos> hehe
+[02:53:28] < arcanehl> and would've succeeded were it not for those good for nothing kids with Python
+[02:53:38] <@Eidolos> those meddling kids!
+[02:53:57] < arcanehl> couldn't recall the term ;(
+[02:59:00] <@Eidolos> hrm
+[02:59:39] <@Eidolos> I really don't think I can wedge statusline in here :)
+[03:00:32] <@doy> well, why not?
+[03:01:05] <@Eidolos> 3well
+[03:01:09] <@doy> can we redo the statusline config so that it doesn't need code?
+[03:01:20] <@Eidolos> look at your statusline :)
+[03:01:39] <@Eidolos> I think we can have a simple format usable for most people
+[03:01:49] <@Eidolos> but for power users like you and me we'd want a local plugin
+[03:02:02] <@doy> well, yeah
+[03:02:11] <@doy> a lot of that stuff really should be in a plugin
+[03:02:14] <@doy> or two
+[03:02:15] <@doy> (:
+[03:02:41] < arcanehl> would be neat if you could specify variable items in the macros
+[03:02:45] <@Eidolos> what stuff?
+[03:03:00] <@Eidolos> http://interhack.us/branches/2.0/doc/example-config.yml btw
+[03:03:23] <@doy> Eidolos: the elbereth calculations should export as an item for botl config
+[03:03:33] <@Eidolos> oh
+[03:03:36] <@doy> like $botl{time}, there should be $botl{elbereths}
+[03:03:49] <@doy> and the colors... not sure how we could specify that
+[03:03:57] <@doy> another plugin, if nothing else
+[03:05:43] < arcanehl> heh, poor Eidolos
+[03:06:29] <@Eidolos> grumble
+[03:06:40] < arcanehl> comments are *completely* ignored, right?
+[03:06:52] <@Eidolos> nope
+[03:06:54] <@Eidolos> how lame
+[03:06:55] < arcanehl> lame
+[03:07:01] <@Eidolos> maybe it just wants them on their own lines
+[03:08:07] <@Eidolos> hmm
+[03:08:23] <@Eidolos> doy: I think we would just access attributes, not $botl{foo}
+[03:08:27] <@Eidolos> Elbereths would be an attr
+[03:08:31] <@doy> right
+[03:08:36] <@doy> however we implement it here
+[03:08:37] <@Eidolos> (more sane that way too)
+[03:08:41] <@doy> i was just talking about the 1.0 stuff
+[03:08:47] <@Eidolos> ok
+[03:14:53] <@Eidolos> ok
+[03:14:57] <@doy> hmm
+[03:14:57] <@Eidolos> that's enough IH for today
+[03:15:08] <@doy> it'd be sweet if i could reproduce these issues
+[03:15:24] <@doy> you were getting one of them
+[03:18:48] <@doy> ooh
+[03:18:49] <@doy> aha
+[03:18:56] <@doy> stupid buffering
+[03:19:11] <@doy> what is it, $|?
+[03:19:14] <@Eidolos> yep
+[03:19:15] <@Eidolos> $|=1
+[03:19:21] <@Eidolos> turns on autoflush
+[03:19:29] <@Eidolos> do it first
+[03:19:42] <@Eidolos> you need to do it in each script
+[03:19:48] <@doy> yeah
+[03:19:48] <@Eidolos> not the test file though
+[03:19:52] <@doy> oh
+[03:19:54] <@doy> right
+[03:20:50] <@doy> sweet
+[03:20:54] <@Eidolos> probably better written as: sleep 1 while 1
+[03:21:01] <@Eidolos> because who knows what the return value of sleep is :)
+[03:21:14] <@doy> eh, probably
+[03:21:16] < arcanehl> you should, Perl geek
+[03:21:41] <@Eidolos> not defined in the perldoc
+[03:22:04] <@Eidolos> alarm has a defined return value, but it's not really applicable to sleep
+[03:23:15] <@Eidolos> use single quoted heredoc
+[03:24:01]  * Eidolos bed &
+[03:25:32] <@Eidolos> I'll add config soon, no later than the end of the weekend
+[03:25:38] <@Eidolos> don't get much time on weekdays :/
+[03:25:39] <@doy> awesome
+[03:25:41] <@doy> (:
+[03:25:54] <@Eidolos> it won't be that hard
+[03:26:05] <@Eidolos> we just load the YAML file and it gives us a nice Perl data structure
+[03:27:43] <@doy> Eidolos: can you test this before you leave?
+[03:50:33] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[04:00:48] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[04:01:35] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Client Quit]
+[04:11:51] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[04:41:56] <@doy> 0.03 released
+[04:47:46] < Zawk> OOOOH
+[04:48:16] < Zawk> I see nothing new?
+[04:54:48] <@doy> 0.03 of IO::Pty::Easy
+[04:54:56] < Zawk> ...ah hah
+[06:16:58] <@doy> would be sweet if nao would stop failing
+[06:17:04] <@doy> so that i could actually test things
+[07:07:54] <@doy> Eidolos: alright, an initial implementation of modular connections is pushed
+[07:08:08] <@doy> it's not completely ideal yet, but it's a good start
+[07:08:23] <@doy> and that's enough for tonight
+[13:15:21] -!- alexbobp_away [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[13:59:20] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[14:45:21] -!- Eidolos_ [n=sartak@sartak.akrasiac.org] has joined #interhack
+[14:45:21] -!- Irssi: #interhack: Total of 13 nicks [3 ops, 0 halfops, 0 voices, 10 normal]
+[14:45:21] -!- Eidolos_ [n=sartak@sartak.akrasiac.org] has joined #interhack
+--- Log closed Tue Aug 21 14:45:26 2007
+[14:45:31] -!- Eidolos_ [n=sartak@sartak.akrasiac.org] has quit [Remote closed the connection]
+[14:45:39] <@Eidolos> oops
+[14:46:24] < alexbobp> Whaaa?  Eidolos makes mistakes?
+[14:46:51] <@Eidolos> gasp! the very thought!
+[15:10:43] < Zawk> Eidolos doesn't make mistakes. He just fakes them to appear mortal.
+[15:11:00] <@Eidolos> <3
+[15:11:08] <@Eidolos> I'm saving that one
+[15:11:22] < billnye> hehe
+[15:34:37] < Zawk> cd ~\nvim Eidopraise.txt\ni<middle click>:wq
+[15:35:43] < billnye> erm
+[15:35:56] < billnye> I applaud your use of vim
+[15:35:58] < Zawk> those are his keystrokes >:(
+[15:36:02] <@Eidolos> cat >> ~/Eidopraise.txt<middle click>^D
+[15:36:02] < billnye> yes
+[15:36:10] < billnye> but what happened to--yes
+[15:36:14] <@Eidolos> :)
+[15:36:16] < billnye> good ol' append
+[15:36:19] < Zawk> that's the easy way
+[15:36:40] <@Eidolos> I actually used nano to do it
+[15:36:45] <@Eidolos> vim is too slow
+[15:38:43] < arcanehl> such heresy
+[15:39:29] < ekiM> i like cats
+[15:40:34] < billnye> have yu considered the merits of potatoes, ekiM?
+[15:41:01] < ekiM> i like potatoes, but not in the way i like cats
+[15:42:43] < billnye> horses for courses
+[15:42:58] < billnye> (and no-one can talk to a horse for course?)
+[15:50:05] < alexbobp> I use cats to edit text files
+[15:50:18] < ekiM> i use them as an alarm clock
+[15:50:20] < alexbobp> as in, I give them a keyboard and whip them until they add data.
+[15:50:43] < alexbobp> When they die, I feed them to the greasel and get new cats.  I haven't actually gotten the text edited.
+[15:51:58] < alexbobp> How to use a cat as an alarm clock!  You will need: 1) a cat; 2) a timer; 3) a wire stripper; 4) an amplifier
+[15:52:18] < alexbobp> oh right, forgot a low-voltage inverter
+[15:52:31] < alexbobp> because you wouldn't want to DC the poor cat
+[15:55:00] < ekiM> all you need is 1 cat
+[16:20:14] < alexbobp> well, you have to shock it so it wakes you up
+[16:20:28] < alexbobp> otherwise it's completely up to the discretion of the cat when you wake up
+[16:21:11] < alexbobp> Never let a cat make a decision that you're barely smart enough to make yourself
+[16:21:45] < alexbobp> Apparently I get a point every time I type 5 lines in a row
+[16:21:48] < alexbobp> http://meatspin.com
+[16:22:14] <@Eidolos> damn, another point goes to the bad guys
+[16:22:23] < alexbobp> oh wait, shit, that was meant for #nethack-offtopic
+[16:22:32] < alexbobp> goddamnit, my IRC client needs to show the channel in a bigger font
+[16:22:45] < alexbobp> so, um, we can delete messages from IRC, right?
+[16:23:02] < alexbobp> ^5 s/meatspin/google/
+[16:23:11]  * Eidolos prepares the kickban
+[16:23:55] < alexbobp> for one little mistake?
+[16:24:20] <@Eidolos> GOOD BYE ALEX BOB P
+[16:24:22] < alexbobp> oh right, you're not familiar with mistakes.
+[16:24:31] -!- alexbobp [n=aponebsh@64.20.229.14] has left #interhack []
+[16:29:05] < ekiM> what an odd fellow
+[16:54:22] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[16:55:40] <@Eidolos> goofball :)
+[16:56:01] -!- psychomohel [n=mike@c-69-250-54-230.hsd1.md.comcast.net] has joined #interhack
+[16:57:11] < alexbobp> So any chance interhack will work with sporkhack?
+[16:59:25] <@Eidolos> probably
+[16:59:45] < alexbobp> I'll try it
+[17:00:00] <@Eidolos> I think doy tries to add support for it
+[17:01:33] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has joined #interhack
+[17:10:51] < arcanehl> why wouldn't it work?
+[17:10:58] < arcanehl> it uses dgl after all
+[17:11:35] <@Eidolos> some of the messages are different
+[17:11:52] <@Eidolos> most notably the replacement of NetHack with Sporkhack inn some places
+[17:15:34] < alexbobp> only time that shows up in-game are some of the fortunes, I thought
+[18:52:23] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Success]
+[18:57:11] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Read error: 104 (Connection reset by peer)]
+[19:30:44] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[19:30:47]  * Zawk hacks the inter
+[19:30:55] <@Eidolos> ssswooop
+[19:31:44] < Zawk> there it is
+[19:32:32] < Zawk> but first, I must shower and go buy Bioshock
+[19:32:58] < Zawk> and then hang out with a girl
+[19:33:10] < Zawk> but after that...I shall hack the inters
+[20:11:16] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[20:38:32] <@doy> sporkhack seems to work fine for me
+[20:38:47] <@doy> 1.0 at least
+[20:39:51] <@Eidolos> NewGame is hardcoded for vanilla
+[20:40:13] <@doy> right, but i don't think we use that in 1.0?
+[20:40:17] <@doy> maybe?
+[20:40:20] <@doy> it's been a while
+[20:40:30] <@Eidolos> oh. 1.0. right :)
+[20:40:31] <@doy> oh, we use it for character detection, sometimes
+[20:40:38] <@doy> but there are fallbacks for that
+[20:41:21] <@doy> i wonder how/if we want to support stuff like that
+[20:41:31] <@doy> maybe just a local NewGame plugin
+[20:41:33] <@doy> or something
+[20:41:54] <@doy> maybe allow plugins to provide certain functionality that others can depend on
+[20:42:00] <@doy> rather than depending on specific plugins
+[20:42:19] <@doy> do the dependencies like gentoo init scripts
+[20:42:32] <@doy> just have a sub depend()
+[20:43:45] <@doy> where you can call funcitons like 'before "*";' or 'requires "new_game";' or 'provides "debug";'
+[20:44:10] <@doy> which build up an internal data sructure that can then be toposorted
+[20:44:35] <@Eidolos> hrm
+[20:44:46] <@doy> i'm just throwing out ideas
+[20:44:55] <@Eidolos> want to write a mockup of a plugin or two that looks like that?
+[20:44:58] <@Eidolos> it sounds interesting
+[20:45:20] <@Eidolos> or should I say: what I'm thinking you mean sounds interesting
+[20:45:40] <@doy> are you at work now?
+[20:45:44] <@Eidolos> yes
+[20:46:19] <@doy> depend() { need net use dns logger
+[20:46:19] <@doy> }
+[20:46:24] <@doy> hmmm
+[20:46:41] <@doy> that should have been formatted better
+[20:46:43] <@Eidolos> heh, what?
+[20:47:04] <@doy> is your nopaste script public somewhere?
+[20:47:17] <@Eidolos> :)
+[20:47:34] <@Eidolos> nopaste =nopaste
+[20:47:46] <@Eidolos> http://paste.husk.org/8939
+[20:47:58] <@doy> http://rafb.net/p/DdwLUI91.html
+[20:48:06] <@doy> that's the ntpd init script
+[20:48:11] <@doy> note the depend() function
+[20:48:28] <@Eidolos> yes
+[20:48:38] <@Eidolos> what does "use dns logger" actually mean though?
+[20:48:51] <@doy> i believe use is a soft dep
+[20:48:55] <@doy> and need is a hard dep
+[20:48:55] <@Eidolos> ok
+[20:49:52] <@doy> http://rafb.net/p/JFw0m441.html
+[20:50:09] <@doy> and that's for sendmail
+[20:50:21] <@doy> which gives an example of the 'provide' concept
+[20:50:39] <@doy> so then other scripts can 'use mta'
+[20:50:47] <@Eidolos> so essentially a package can be an interchangeable part
+[20:50:50] <@doy> yeah
+[20:51:02] <@Eidolos> hrm
+[20:51:08] <@Eidolos> I'm not sure about thiis
+[20:51:15] <@doy> i'm not sure how generally applicable this is for interhack specifically
+[20:51:20] <@Eidolos> yeah
+[20:51:24] <@doy> i can see some uses for it
+[20:51:29] <@Eidolos> like menucolors
+[20:52:10] <@Eidolos> but those are usually the terminal plugins -- o plugins depend on them
+[20:52:11] <@doy> could use it to offer several different implementations of something which provide different amounts of functionality
+[20:52:11] <@Eidolos> no
+[20:52:21] <@Eidolos> aye
+[20:52:25] <@doy> if speed becomes an issue
+[20:52:36] <@doy> like the botl parsing stuff
+[20:52:40] <@Eidolos> I think specifically we want something that could support Sporkhack, or even Slash'EM
+[20:52:43] <@doy> yeah
+[20:52:54] <@doy> that's the main use i'm seeing for it
+[20:53:08] <@Eidolos> don't worry about speed, I don't think speed will be a problem :)
+[20:53:13] <@doy> probably all we want is that sort of ability
+[20:53:26] <@doy> hmmm
+[20:53:41] <@doy> maybe if we make the local plugins directory per-server
+[20:53:49] <@doy> that could be enough to solve that problem
+[20:53:56] <@Eidolos> yes
+[20:54:08] <@Eidolos> that is a nice solution
+[20:54:17] <@Eidolos> it's litirally one line of code
+[20:54:34] <@Eidolos> unshift @INC, "$ENV{HOME}/.interhack2/server/$server/lib"
+[20:54:45] <@doy> i'm pretty sure that's what i did for 1.0
+[20:54:55] <@doy> had a per-server plugins dir
+[20:55:04] <@Eidolos> don't  think so
+[20:55:11] <@Eidolos> we had per-server other stuff, but not plugins
+[20:55:42] <@doy> if (-e "$ENV{HOME}/.interhack/servers/$server->{name}/config")
+[20:55:43] <@doy> { do "$ENV{HOME}/.interhack/servers/$server->{name}/config";
+[20:55:43] <@doy> }
+[20:55:43] <@doy> elsif (-e "$ENV{HOME}/.interhack/config")
+[20:55:43] <@doy> { do "$ENV{HOME}/.interhack/config";
+[20:55:45] <@doy> }
+[20:56:06] <@Eidolos> config != plugins
+[20:56:16] <@doy> oh, heh
+[21:00:06] <@doy> it would be sweet to have a way to do it that's more modular than that
+[21:00:20] <@doy> but i guess being too general could be ugly
+[21:00:32] <@Eidolos> second system effect too :)
+[21:00:57] <@doy> (:
+[21:06:55] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[23:38:19]  * Eidolos works on Games::Adventure today

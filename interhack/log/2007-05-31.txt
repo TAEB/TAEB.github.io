@@ -1,0 +1,64 @@
+[00:03:59] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:04:42] -!- Netsplit over, joins: aioli
+[00:12:16] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:12:22] -!- Netsplit over, joins: aioli
+[00:20:33] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:20:59] -!- Netsplit over, joins: aioli
+[00:24:46] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:25:03] -!- Netsplit over, joins: aioli
+[00:32:07] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:32:45] -!- Netsplit over, joins: aioli
+[00:36:23] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:36:34] -!- Netsplit over, joins: aioli
+[00:41:03] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:42:24] -!- Netsplit over, joins: aioli
+[00:49:17] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:49:34] -!- Netsplit over, joins: aioli
+[00:54:55] -!- Netsplit sterling.freenode.net <-> irc.freenode.net quits: aioli
+[00:55:20] -!- Netsplit over, joins: aioli
+[01:05:30] -!- aioli [n=r00t@c-69-141-77-0.hsd1.pa.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[01:09:58] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[03:01:23] -!- stumbly [i=wlngnut@dialup-4.246.45.234.Dial1.SanJose1.Level3.net] has joined #interhack
+[03:01:53] < stumbly> so iTerm seems to bork on interhack... anyone able to compile and check? (cursor position errors. see runcible)
+[03:05:28] <@doy> zubin uses iterm
+[03:05:42] < stumbly> hrm ok
+[03:05:50] <@doy> i think i remember him having similar problems, although i'm not quite sure
+[03:05:57] < stumbly> runcie tried it and the cursor was parking on the bottom line
+[03:06:06] < stumbly> maybe some emulation setting
+[03:06:10] < stumbly> can't test it here
+[03:06:24] <@doy> probably it just doesn't support save/restore
+[03:06:37] <@doy> since that's how we update the bottom line
+[03:06:38] < stumbly> could be , but that would be pretty sloppy
+[03:06:45] <@doy> aterm had that issue
+[03:06:47] < stumbly> yeah i suspect that but really
+[03:06:55] <@doy> at least sometimes
+[03:07:10] < stumbly> she's on osx, not sure what the options are for other terms
+[04:19:40] -!- stumbly [i=wlngnut@dialup-4.246.45.234.Dial1.SanJose1.Level3.net] has left #interhack ["Jumps down a hole."]
+[08:57:44] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[08:57:48] < ekiM> o_0
+[10:01:44] <@toft> O_o
+[10:33:15] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:50:59] -!- stabwound [n=illbill@dsl237.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[10:51:11] -!- sadgsadg [n=illbill@dsl225.rbh1.pppoe.execulink.com] has joined #interhack
+[10:54:42] -!- sadgsadg is now known as stabwound
+[14:52:03] -!- stabwound [n=illbill@dsl225.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[14:52:20] -!- stabwound [n=illbill@dsl20.rbh1.pppoe.execulink.com] has joined #interhack
+[15:39:29] -!- stabwound [n=illbill@dsl20.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[15:39:44] -!- sadgsadg [n=illbill@66.203.174.31] has joined #interhack
+[16:18:49] <@Eidolos> sadgsadg: gdasgdas'
+[16:18:52] <@Eidolos> ;;;
+[16:19:03] < ekiM> no u
+[18:12:14] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[19:04:18] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[19:54:32] <@doy> Eidolos: the notes plugin is having the same issue that the mastermind plugin was
+[19:54:51] <@doy> it's giving like 3-5 'Got a wish' messages for each wish, among other things
+--- Log closed Thu May 31 20:08:26 2007
+[21:52:28] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[21:52:28] -!- Irssi: #interhack: Total of 8 nicks [3 ops, 0 halfops, 0 voices, 5 normal]
+[21:52:28] -!- mode/#interhack [+o Eidolos] by ChanServ
+[21:52:28] -!- Irssi: Join to #interhack was synced in 0 secs
+[22:14:12] <@Eidolos> I think I might know what's causing mastermind problems
+[22:52:32] <@toft> interhack problems on the rogue level
+[23:00:43] <@Eidolos> The soldier ant falls into a pit!  The soldier ant is killed!
+[23:00:44] <@Eidolos> lawl
+[23:55:16] <@Eidolos> horned devil is colored red, should be brown

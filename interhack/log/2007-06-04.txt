@@ -1,0 +1,19 @@
+[03:09:16] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[10:14:25] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:28:37] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[10:29:26] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[10:48:55] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[11:56:57] -!- yabba [n=yabba@c83-249-86-242.bredband.comhem.se] has joined #interhack
+[12:21:58] -!- yabba [n=yabba@c83-249-86-242.bredband.comhem.se] has quit [Remote closed the connection]
+[12:51:08] -!- doy_ [n=doy@ppp-70-225-175-53.dsl.chmpil.ameritech.net] has joined #interhack
+[13:04:06] -!- doy [n=doy@ppp-70-225-179-87.dsl.chmpil.ameritech.net] has quit [Read error: 110 (Connection timed out)]
+[13:11:27] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:29:32] -!- doy [n=doy@ppp-70-225-175-183.dsl.chmpil.ameritech.net] has joined #interhack
+[13:29:34] -!- mode/#interhack [+o doy] by ChanServ
+[13:44:17] -!- doy_ [n=doy@ppp-70-225-175-53.dsl.chmpil.ameritech.net] has quit [Read error: 110 (Connection timed out)]
+[18:01:24] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit [Remote closed the connection]
+[19:14:36] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[21:23:59] < jasonmay> not enough people are leaving and joining
+[21:45:52] <@Eidolos> :)
+[22:42:37] <@toft> hmm
+[22:42:49] <@toft> I certainly have sleep intrinsic.. I'll check that out later

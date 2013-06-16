@@ -1,0 +1,40 @@
+[00:43:25] < sorear> Does #char et all work by intercepting "char: unknown extended command" ?
+[00:46:25] <@doy> yup
+[00:48:15] < sorear> (Low severity) Feature request: make #char etc work while watching ttyrecs.
+[00:49:04] <@doy> for what it's worth, we aren't really going to be fixing 1.0 stuff anymore
+[00:49:08] <@doy> and 2.0 fixes this
+[00:49:14] <@doy> it's just not that useful yet
+[00:49:16] < sorear> cool.
+[00:49:25] < sorear> I was going to ask on the status of 2.0
+[00:54:16] <@Eidolos> it's functional
+[00:54:25] <@Eidolos> but doesn't have a lot of the 1.x plugin
+[00:54:27] <@Eidolos> s
+[00:54:34] < sorear> not imperative? :P
+[00:54:36] <@Eidolos> it still needs a few more things done, like config
+[00:54:52] <@Eidolos> that's not what I meant, but that's true too, 2.x is way more FPey :)
+[00:59:51] <@Eidolos> I like 2.0's architecture
+[01:00:19] <@Eidolos> there's the Interhack class which defines basic methods like send_to_server and whatnot
+[01:00:26] <@Eidolos> then each plugin modifies those methods
+[01:01:01] <@Eidolos> so Interhack without plugins is essentially a dumb telnet (though this is not so true any more because the default is now playing a local game, doy++)
+[01:02:32] <@Eidolos> see http://interhack.us/branches/2.0/lib/Interhack/Plugin/Foodless.pm for an example
+[01:02:33] < sorear> In the fragmentary Intrahack design, we have a screen-scraping library connected to a NetHack UI
+[01:03:13] < sorear> intrahack's Foodless wouldn't mention 'e' - it would just wrap 'eat'
+[01:03:55]  * Eidolos nods
+[01:04:22]  * sorear is much better at designing programs than writing them
+[01:04:34] <@Eidolos> "a screen-scraping library connected to a NetHack UI" describes Interhack as well
+[01:06:00] <@Eidolos> hm. that's another useful method modifier
+[01:06:05] <@Eidolos> confirm? shrug
+[01:06:47] <@Eidolos> I'll write guard and whatever this confirm ends up being named :)
+[01:07:53] <@Eidolos> hrm. confirm isn't the right name. confirm : guard :: after : before
+[01:08:33] < sorear> I want all the pieces interchangable.
+[01:08:50] <@Eidolos> which pieces? :)
+[01:08:56] < sorear> Screen scaping, NhExt, direct fingers into the bowels of NetHack - equivalent.
+[01:09:09] < sorear> Plugins, no plugins, tunnelling - equivalent.
+[01:09:30] < sorear> TTY, telnetd, X11, SDL, etc - equivalent.
+[01:09:52] <@Eidolos> Interhack will strive to do that as well
+[01:10:01] <@Eidolos> doy made that point explicit a few nights ago
+[01:11:58] < sorear> don't suppose there are public logs I should read?
+[01:12:43] <@Eidolos> I could publish the channel log
+[01:12:58] <@Eidolos> I'd have to skim it to make sure it doesn't include sensitive info ;)
+[01:13:17] < sorear> it's not like #haskell where it's 200MB of data :)
+[01:13:28] <@Eidolos> I'm interested in what you think. I'm also interested in collaboration and/or competition. (the latter makes me work harder!)

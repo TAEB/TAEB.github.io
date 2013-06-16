@@ -1,0 +1,470 @@
+[00:18:39] < alexbobp> I'm getting every once in a while "^E: command not available"
+[00:24:27] <@doy> when doing what?
+[00:34:17] < alexbobp> when hitting ^E
+[00:34:19] < alexbobp> of course
+[00:34:39] < alexbobp> in other words, interhack is somehow missing they keypress sometimes and sending it straight to the server.
+[00:34:42] <@doy> what version?
+[00:37:01] < alexbobp> 1
+[00:37:38] <@doy> type slower
+[00:37:40] <@doy> (:
+[00:37:48] <@doy> i don't feel like debugging 1.0
+[00:38:06] <@toft> yeah that's not really a problem per say
+[00:38:07] <@toft> per se*
+[00:38:15] <@toft> its more of a 'stop typing so fast'
+[00:38:48] <@toft> revdep-rebuild is a deeply scarring experience
+[00:38:48] <@doy> well, it is a problem, but it's one that's easily worked around
+[00:39:05] <@doy> and whatever, at least it's all automatic
+[00:39:10] <@toft> well, only sort of
+[00:39:12] <@doy> do it overnight
+[00:39:15] <@toft> I am :)
+[00:39:31] <@toft> mine does it in a bad order for some reason
+[00:39:40] <@doy> in any case, you don't have to check out expect any more
+[00:39:49] <@doy> since i got it working with IO::Pty direction
+[00:39:52] <@doy> *directly
+[00:39:54] <@toft> cool
+[00:40:17] <@doy> if i knew how to push a new branch into a darcs repo, i'd give you 0.0 code to try out
+[00:40:20] <@doy> (:
+[00:40:22] < alexbobp> it's not a problem at all, since it doesn't consume a turn or cause anything bad
+[00:40:22] <@toft> hehe
+[00:40:34] < alexbobp> since 1 is already frozen, I wouldn't worry about it
+[00:40:38] < alexbobp> just felt like pointing it out.
+[00:41:31] <@doy> alexbobp: one thing that is a problem - be careful about pressing ^E too quickly if it's possible that lots of things might be happening, since typing "E-  Elbereth" at a --More-- prompt is bad news
+[00:41:35] <@doy> i've done it a few times
+[00:44:01] < alexbobp> what happens?
+[00:44:33] <@doy> well, you try to engrave with 'l', then move southwest, then try to eat 'r', then try to eat 't', then move west
+[00:47:08] < alexbobp> wow, I just gained 3 levels thanks to a throne room
+[00:47:11] < alexbobp> and survived
+[00:49:55] < arcanehl> doy: that's why you use numpad!
+[00:50:00] < arcanehl> (should use)
+[00:50:53] <@doy> bah!
+[00:51:10] <@toft> screw numpad!
+[01:07:47] < arcanehl> more self-pity
+[01:14:37] < alexbobp> I find that numpad makes my fingers hurt
+[01:14:44] < alexbobp> I'm already a high risk for cts
+[01:16:16] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[01:16:24] <@doy> so... who knows how to write perl modules?
+[01:17:52]  * alexbobp does not raise hand
+[01:18:17] < arcanehl> pretty easy
+[01:18:34] <@doy> i've got what i think is a perl module written
+[01:18:45] < arcanehl> heh, just about to ask about the 1;
+[01:19:07] <@doy> i don't understand why it's doing this
+[01:19:35] <@doy> why is it trying to use IO::Pty?
+[01:20:53] < arcanehl> and you wrote IO::Pty::Easy?
+[01:20:56] <@doy> yeah
+[01:21:03] < arcanehl> show that please
+[01:21:27] < arcanehl> well, have a spawn sub?
+[01:21:34] < arcanehl> of course
+[01:23:00] <@doy> the main issue here is that i don't really know what's going on... this is just what i've managed to pick up from reading through interhack, Term::TtyRec::Plus, and IO::Pty
+[01:23:14] <@doy> so it's possible that i'm not doing things quite correctly
+[01:23:16] < arcanehl> mhm
+[01:23:21] < arcanehl> I'm going through the Camel now
+[01:24:22] < arcanehl> mkay, let me see IO::Pty::Easy now
+[01:24:49] < arcanehl> okay, I think you have to manually export the stuff
+[01:25:29] < arcanehl> i.e.
+[01:25:44] < arcanehl> our @EXPORT = qw(stuff); # by default exported
+[01:27:56] < arcanehl> look at the new sub
+[01:28:19] <@doy> hmmm
+[01:28:25] <@doy> i don't think i want to be exporting things
+[01:28:54] < arcanehl> yeah, I see no spawn
+[01:28:59] < arcanehl> try adding that to the new
+[01:29:15] <@doy> aha
+[01:29:16] < arcanehl> heh
+[01:32:59] < arcanehl> hmm, def_max_read_chars undefined?
+[01:33:16] <@doy> thanks(:
+[01:33:24] < arcanehl> welcome
+[01:35:58] -!- alexbobp is now known as alexbobp_away
+[01:41:02] <@doy> what
+[01:41:09] <@doy> 0 == undef?
+[01:41:14] <@doy> that's ridiculous
+[01:41:30] <@doy> how should i be doing this
+[01:42:11] < arcanehl> heh
+[01:42:13] < arcanehl> hmm
+[01:42:29] < arcanehl> what function?
+[01:42:41] <@doy> sysread: Returns the number of bytes actually read, 0 at end of file, or undef if there was an error
+[01:43:02] <@doy> but testing if the return value == 0 returns true for undef also
+[01:43:16] <@doy> do i have to explicitly call defined()?
+[01:44:21] < arcanehl> yes
+[01:44:32] <@doy> that's... ridiculous
+[01:44:32]  * arcanehl just checked
+[01:45:10] < arcanehl> if defined $pty->read
+[01:45:19] < arcanehl> err, yeah, unless
+[01:45:33] <@doy> no, i want to die if it's 0
+[01:45:37] <@doy> and do nothing if it's undef
+[01:45:43] < arcanehl> hmm
+[01:45:55] <@doy> because undef means timeout, and 0 means eof
+[01:48:34] < arcanehl> it's a start
+[01:49:22] < arcanehl> and your pain was worse
+[01:49:28] < arcanehl> "0" == "" == 0 == undef
+[01:50:52] < arcanehl> isn't that a bit hard to play?
+[01:50:56] <@doy> it's working though
+[01:51:02] <@doy> just need to clear up the warnings
+[01:51:36] < arcanehl> nice
+[02:26:50] <@doy> Eidolos: when you get a chance, give this a try http://tozt.jjaro.net/interhack0-easy-pty/
+[02:27:32] <@doy> Eidolos: i'll start integrating that with 2.0 tomorrow
+[03:43:26] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[08:16:34] -!- alexbobp_away [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[08:52:53] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[08:53:02] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:09:21] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[09:09:30] -!- alexbobp [n=aponebsh@64.20.229.14] has quit [Read error: 104 (Connection reset by peer)]
+[09:10:23] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[09:10:54] -!- alexbobp [n=aponebsh@64.20.229.14] has quit [Read error: 104 (Connection reset by peer)]
+[09:21:20] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[09:28:31] < alexbobp> does anybody know of a ttyrec workalike that will run on windows?
+[09:28:41] < alexbobp> I have cygwin, but the official version won't compile
+[11:12:13] -!- ekiMbo is now known as ekiM
+[12:34:05] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[12:34:14] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:47:16] -!- Flipper1 [i=Flipper1@c-69-253-204-2.hsd1.pa.comcast.net] has joined #interhack
+[12:47:23] < Flipper1> actually, I hate no idea
+[12:47:34] <@Eidolos> hi
+[12:47:38] < Flipper1> hi
+[12:48:21] < Flipper1> I love the idea...I'm a pretty mediocre player who leans heavily on spoilers, it looks like Interhack would automate a lot of the things I do manually
+[12:48:46] < Flipper1> are there plans, perhaps, to implement it on NAO?
+[12:50:23] <@Eidolos> nope :)
+[12:50:33] <@Eidolos> I can't even get NAO to implement conducts+turns inlogfile
+[12:51:54] < arcanehl> so NAO is sentient?
+[12:52:02] < arcanehl> better than SkyNet I suppose
+[12:55:44] <@doy> Eidolos: did you see my termcast?
+[12:57:27] <@Eidolos> no
+[12:57:31] <@Eidolos> I'm at work
+[12:58:29] <@doy> well, the important part
+[12:58:35] <@doy> my $pty = new IO::Pty::Easy(handle_pty_size => 0);
+[12:58:35] <@doy> $pty->spawn("nethack");
+[12:58:36] <@doy> (:
+[12:59:05] <@Eidolos> <3<3
+[12:59:14] <@Eidolos> you should CPAN IO::Pty::Easy
+[13:00:10] <@doy> yeah, i have no idea how to do that
+[13:00:25] <@Eidolos> ok
+[13:00:32] <@Eidolos> I'll walk you through it when I get home
+[13:00:36] <@doy> alright
+[13:00:41] <@Eidolos> yay :)
+[13:00:51] <@Eidolos> one thing you'll need is tests
+[13:00:56] <@doy> yeah
+[13:00:59] <@doy> and documentation
+[13:01:09] <@doy> i was just concerned with getting it working last night
+[13:01:19] <@Eidolos> aye
+[13:01:27] <@Eidolos> let me know if you have any questions
+[13:06:16] -!- firemonkey [n=spider@mrtcfw1.mebtel.net] has joined #interhack
+[13:09:30] <@doy> http://groups.google.com/group/rec.arts.int-fiction/browse_thread/thread/607acaf1a279d4dd/bd53b672a185d177#bd53b672a185d177
+[13:09:50] -!- firemonkey [n=spider@mrtcfw1.mebtel.net] has left #interhack []
+[14:00:59] <@doy> man
+[14:01:08] <@doy> that was pretty much entirely just a drop-in replacement
+[14:01:12] <@doy> how sweet is that
+[14:01:31] <@doy> let me make sure the telnet stuff works as a module, and i'll push
+[14:01:47] <@doy> we really need actual config soon
+[14:11:52] <@doy> Eidolos: only bug i'm seeing is that IO::Pty::Easy causes 'ReadKey 0.05' to block indefinitely when the subprocess exits
+[14:11:56] <@doy> and i don't know why
+[14:12:02] <@doy> any thoughts?
+[14:12:07] <@doy> reading a key makes it return
+[14:17:42] <@Eidolos> no idea
+[14:18:00] <@Eidolos> could very well just be a T:RK bug
+[14:18:18] <@Eidolos> does this fix the ^Z bug?
+[14:20:27] <@doy> what ^Z bug?
+[14:20:40] <@Eidolos> start up interhack 0.0
+[14:20:45] <@Eidolos> while in game, suspend
+[14:21:02] <@Eidolos> when you fg, the term is no longer and raw mode, and the display is screwed up
+[14:21:18] <@Eidolos> I'm pretty sure using IO::Pty fixes this :)
+[14:21:21] <@Eidolos> or should
+[14:21:25] <@doy> doesn't look like it
+[14:21:45] <@doy> probably because it's the user's terminal that's in raw mode
+[14:22:01] <@doy> so you'd need another ReadMode 3 after a suspend
+[14:22:06] <@doy> could just catch the signals
+[14:22:11] <@doy> and handle it that way
+[14:22:14] <@Eidolos> ah, I didn't know there was a signal for it. ok :)
+[14:22:40] <@doy> that's SIGSTOP, isn't it?
+[14:22:48] <@doy> i'm not quite sure
+[14:23:17] < billnye> SIG_OW_QUITTIT
+[14:23:18] <@doy> SIGTSTP apparently
+[14:23:40] < billnye> SIG_MOM!_HE'S_TOUCHING_MY_SIDE_OF_THE_SEAT!
+[14:23:47] <@Eidolos> -_-
+[14:24:02] <@Eidolos> I don't think billnye has ever contributed anything constructive to any conversation ever! con!
+[14:24:13] < billnye> evar!
+[14:24:31] < billnye> (wossa con?)
+[14:24:44] < billnye> (are you lisping at me)
+[14:25:02] <@Eidolos> it's the recognition that that sentence had too many cons
+[14:26:08] <@doy> ^Z sends SIGTSTOP, ^S sends SIGSTOP, and either resuming in the first case or ^Q in the second case sends SIGCONT
+[14:26:32] <@Eidolos> ok
+[14:26:32] <@doy> so just catching SIGCONT and doing a ReadMode 3 should work
+[14:26:38]  * doy tests
+[14:26:46] <@doy> *SIGTSTP
+[14:27:04] <@Eidolos> we'll probably need to redraw the screen too
+[14:27:15] <@doy> yeah, not sure if there's a good way to do that though
+[14:27:27] <@doy> i guess for nh specifically we can just send ^R
+[14:27:32] <@Eidolos> nosir
+[14:27:52] <@Eidolos> there's a method in Plugin::Util
+[14:27:58] <@Eidolos> restore_row
+[14:28:27] <@Eidolos> we can make it work :)
+[14:28:40] <@Eidolos> we can't send ^R because it'll screw up if NH isn't expecting a command
+[14:29:24] <@doy> yup, works
+[14:29:25] <@doy> sweet
+[14:29:31] <@Eidolos> :)
+[14:29:42] <@Eidolos> I'll write the "correct" handler
+[14:29:47] <@doy> okay
+[14:30:06] <@doy> i'll stick a handler in there that just restores the readmode for now
+[14:30:13] <@Eidolos> yes, that's good
+[14:30:17] <@doy> and you can handle getting the screen redrawn
+[14:30:50] <@Eidolos> I think we want a global variable for the interhack object
+[14:31:00] <@Eidolos> which is annoying but oh well
+[14:31:48] <@Eidolos> so you can use Interhack on a local nethack.. that's hawt
+[14:32:00] <@Eidolos> nice work ;)
+[14:33:26] <@doy> so hm
+[14:33:39] -!- ekiMbo is now known as ekiM
+[14:36:20] <@doy> why am i getting this
+[14:36:22] <@doy> Can't call method "telnet_server" on unblessed reference at lib/Interhack/Plugin/Telnet.pm line 44.
+[14:36:38] <@doy>     my ($server, $port) = ($self->telnet_server, $self->telnet_port);
+[14:36:40] <@doy> that's line 44
+[14:36:52] <@Eidolos> hm
+[14:37:07] <@Eidolos> that error means  you're using something as an instance that isn't
+[14:37:35] <@Eidolos> I'll poke through the code ereal quick
+[14:37:47] <@doy> well, i've changed stuff
+[14:37:49] <@Eidolos> o
+[14:38:04] <@doy> around 'connect' => sub { my $self = shift;
+[14:38:04] <@doy> my ($server, $port) = ($self->telnet_server, $self->telnet_port);
+[14:38:09] <@Eidolos> ah :)
+[14:38:16] <@doy> that's all i'm doing
+[14:38:27] <@Eidolos> the prroblem is that the fiirst argument to around is a sub ref
+[14:38:32] <@doy> ah....
+[14:38:33] <@doy> right
+[14:38:48] <@Eidolos> so just shift off $orig first
+[14:39:21] <@Eidolos> we probably want to rename connect, if the default is now a local game
+[14:39:32] <@Eidolos> (initialize)
+[14:39:54] <@doy> yeah
+[14:39:57] <@doy> read_socket too
+[14:40:00] <@Eidolos> done eating, back to work :)
+[14:40:12] <@doy> also, the telnet plugin works beautifully
+[14:40:13] <@doy> (:
+[14:40:33] <@Eidolos> \o/
+[14:48:39] < jasonmay> \o/ \o/ \o/
+[15:26:48] <@doy> alright, pull whenever and test it out
+[15:29:49] < arcanehl> that's a lot of windows in screen
+[15:29:51] <@Eidolos> will tonight
+[15:30:05] <@doy> yeah, i should get rid of some of them
+[15:30:13] <@doy> it's what happens when you work on too many things at once
+[15:51:00] < billnye> hmm
+[15:53:26] <@Eidolos> fun day at work today
+[15:53:36] <@Eidolos> figuring out why GPG is rejecting a particular mail's signature
+[15:54:03] <@Eidolos> tracked it down to RT re-wrapping the base64 binary attachment :)
+[15:54:18] <@Eidolos> am now trying to figure out what is causing the re-wrapping
+[15:56:29]  * arcanehl votes a bug
+[15:56:38] < arcanehl> maybe an ant?
+[15:56:42] < arcanehl> they're annoying
+[15:56:49] <@Eidolos> hehe
+[16:45:54] <@Eidolos>            Note: the output is very likely not going to be identical to any input you parsed to get this entity.  If you’re building some sort of email handler,
+[16:45:55] <@Eidolos>            it’s up to you to save this information.
+[16:46:01] <@Eidolos> a few modules deep :)
+[16:46:04] <@Eidolos> pretty lame
+[16:46:32] <@doy> rtfm!
+[16:46:33] <@doy> (:
+[16:46:43] < billnye> "it's not a bug, it's a feature"
+[16:47:25] <@Eidolos> doy: it was a matter of instrumenting a few modules deep just to find which m to fing r
+[16:47:28] < arcanehl> I concur with doy: should've RTFM
+[16:47:51] <@doy> Eidolos: obviously, all of them
+[16:49:13] <@Eidolos> MIME::Entity, used in MIME::Parser, used in RT::EmailParser, RT::Interface::Email, which uses the GPG code I'm familiar with
+[16:49:26] <@Eidolos> so screw you :)
+[16:49:41] < arcanehl> well, the original dev should've done the reading
+[16:49:54]  * Eidolos shrugs
+[16:50:02] < arcanehl> unless that's you, then shame!
+[16:50:04] <@Eidolos> MIME::Parser mentions no such limitation
+[16:50:26] <@Eidolos> that seems to be an awfully common source of bugs, relatively speaking
+[16:50:31] <@Eidolos> a limitation in a dependency isn't known
+[16:51:12] <@doy> theoretically, proper testing should catch those kinds of bugs
+[16:51:39] <@Eidolos> it did :)
+[16:51:55] <@doy> i mean, proper testing of MIME::Parser
+[16:52:06]  * Eidolos shrugs
+[17:21:44] < alexbobp> what?  gpg support in interhack?
+[17:21:52] <@Eidolos> nah, this is for work
+[17:21:56] < alexbobp> oh
+[17:22:22] < alexbobp> you're lucky.  At my job, I do web development... with asp.
+[17:22:28] < alexbobp> serverside javascript, basically
+[17:22:39] < alexbobp> and we have a tool called Site Press that makes it even less rational
+[17:37:43] < arcanehl> why the shift for one arg, but using @_ for the rest?
+[17:39:00] <@doy> it's clearer to me that way
+[17:39:05] <@doy> $self isn't explicitly passed in
+[17:39:08] <@doy> the rest are
+[17:40:49] <@doy> um
+[17:41:53] < arcanehl> happen to use Class::MOP::Method::Wrapped?
+[17:41:59] <@doy> not explicitly
+[17:42:09] <@doy> it's buried somewhere in moose
+[17:42:23] <@Eidolos> yep
+[17:42:23] <@doy> how do i get something resembling a backtrace?
+[17:42:32] <@doy> Use of uninitialized value in subroutine entry at /usr/lib/perl5/vendor_perl/5.8.8/Class/MOP/Method/Wrapped.pm line 47.
+[17:42:36] <@Eidolos> use Carp; Carp::longmess
+[17:42:36] <@doy> Can't use string ("") as a subroutine ref while "strict refs" in use at /usr/lib/perl5/vendor_perl/5.8.8/Class/MOP/Method/Wrapped.pm line 47.
+[17:42:38] <@doy> for eid's benefit
+[17:42:51] <@Eidolos> Carp::longmess returns a strriing
+[17:42:58] <@Eidolos> Carp::cluck will print it to stderr
+[17:43:09] <@doy> Eidolos: so i'd have to modify Wrapped.pm then?
+[17:43:12] <@Eidolos> that suggests that someone is misusing wrappers
+[17:43:35] < arcanehl> should just be able to add it to your program, no?
+[17:43:44] <@Eidolos> yep
+[17:43:53] <@doy> where?
+[17:44:00] < arcanehl> top of interhack.pl sounds good
+[17:44:09] <@Eidolos> doy: I mean yep to you :)
+[17:44:17] <@doy> oh
+[17:44:18] <@doy> (:
+[17:44:27] < arcanehl> that made two confused people
+[17:45:00] <@Eidolos> there's definitely a module that will upgrade dies and warnings to use backtraces automatically
+[17:45:10] <@Eidolos> but I don't feel like looking for it
+[17:45:19] <@Eidolos> it'd be in the Carp:: namespace
+[17:45:37] <@doy> $_->(@_) for @{$before};
+[17:45:41] <@doy> that's the affected line
+[17:45:47] <@doy> where do i add this longmess stuff
+[17:46:02] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[17:46:02] <@Eidolos> if you know the line then what good is a stacktrace?
+[17:46:13] <@Eidolos> oh
+[17:46:15] <@Eidolos> that
+[17:46:17] < arcanehl> to figure out what happens before?
+[17:46:27] <@Eidolos> I thought that as the line doy wrote that caused the error, heh
+[17:46:48] <@Eidolos> just add: use Carp; Carp::cluck;
+[17:46:53] <@Eidolos> above that line
+[17:46:54] < arcanehl> where
+[18:03:12] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[18:17:35] < billnye> arcanehl: Carp::cluck here, and a-Carp::cluck there
+[18:17:45] < billnye> basically, everywhere a-Carp::cluck
+[18:23:59] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[18:31:37] < billnye> grpe!
+[18:46:51] <@doy> Eidolos: it's the NewGame plugin
+[18:52:29] <@doy> the call to new_state in particular
+[18:52:43] <@doy> but i don't know enough about how the object system works to really fix that
+[19:05:05] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[19:13:56] <@doy> also, we have a circular dep between NewGame and Util, although i don't think it's related
+[19:14:20] <@doy> NewGame calls debug(), Util calls in_game()
+[19:34:27]  * Eidolos ist home
+[19:34:36] <@doy> i'm fixing the circular dep right now
+[19:34:43] <@Eidolos> ah
+[19:34:51] <@Eidolos> good catch
+[19:34:53] <@doy> you should look at new_state
+[19:35:00] <@Eidolos> heh
+[19:35:07] <@Eidolos> why?
+[19:35:17] <@doy> ...because calling it is causing interhack to crash?
+[19:35:22] <@Eidolos> other than that *state* is really friggen ugly
+[19:35:24] <@doy> that's what that problem was before
+[19:35:27] <@Eidolos> o
+[19:36:01] <@doy> when NewGame calls new_state, the program crashes with that message i pasted back there
+[19:36:07] <@Eidolos> ok
+[19:36:18] <@Eidolos> it's probably some change you made, because it's been working fine for me
+[19:36:23] <@doy> (:
+[19:36:31] <@Eidolos> in any case
+[19:36:34] <@Eidolos> I got the Dragon book today
+[19:36:34] <@doy> well, let me know what i broke then
+[19:36:36] <@Eidolos> and I wants to read it :)
+[19:36:40] <@doy> bah!
+[19:36:41] <@Eidolos> but I'll look at Interhack for.. an hour
+[19:37:45] <@Eidolos> 1 while $keep_looping = $self->dgl_iterate :)
+[19:38:18] <@doy> go ahead(:
+[19:38:26] <@Eidolos> I think I'll work on Calf more first
+[19:38:34] <@Eidolos> I can do everything we need, including plugins
+[19:38:37] <@Eidolos> except perhaps unloading plugins
+[19:38:38] <@doy> okay
+[19:38:40] <@Eidolos> that sounds very tricky
+[19:38:57] <@Eidolos> I'm not even sure it's worth the headaches
+[19:39:03] <@doy> might not be
+[19:40:12] <@Eidolos> heh
+[19:40:15] <@Eidolos> fun :)
+[19:40:22] <@Eidolos> looks cool though
+[19:40:25] <@doy> i kinda hacked this together from looking at Term::TtyRec::Plus
+[19:40:34] <@Eidolos> oh?
+[19:40:37] <@doy> not all that sure how correct everything is
+[19:40:43] <@doy> but it seems to work
+[19:40:46] <@Eidolos> doesn't look anything like TTP
+[19:40:50] <@doy> well
+[19:40:56] <@doy> for perl module syntax
+[19:40:58] <@doy> and whatnot
+[19:41:01] <@Eidolos> ahh
+[19:41:09] <@doy> i've never written one before
+[19:41:23]  * Eidolos nods
+[19:41:57] <@Eidolos> write_user_output.. too long >_>
+[19:42:01] <@doy> yeah, yeah
+[19:42:06] <@Eidolos> to_user ?
+[19:42:15] <@doy> go for it
+[19:42:16] <@doy> (:
+[19:42:18] <@Eidolos> and to_nethack or something
+[19:42:26] <@doy> yeah
+[19:42:30] <@Eidolos> well I plan on working on Calf the next few $TIMESLICES
+[19:42:31] <@doy> i might do that later
+[19:42:37] <@doy> alright
+[19:43:16] <@doy> darcs totally should display context diffs
+[19:43:24] <@Eidolos> END { ReadMode 0 }
+[19:43:27] <@Eidolos> this does what we want :)
+[19:43:32] <@doy> no
+[19:43:33] <@doy> here
+[19:43:44] <@doy> so that ReadMode 3 stores a new original state
+[19:43:45] <@Eidolos> oh. wait what
+[19:44:05] <@doy> that way the ReadMode 0 at END restores to what the state was during the suspend
+[19:44:21] <@Eidolos> ah
+[19:44:23] <@Eidolos> ok :)
+[19:44:26] <@Eidolos> a comment there would be good
+[19:44:38] <@doy> the comment was in the commit!
+[19:44:39] <@doy> (:
+[19:44:44] <@Eidolos> but but
+[19:44:48] <@doy> yeah, yeah
+[19:44:56] <@Eidolos> hehe
+[19:46:15] <@Eidolos> heh
+[19:46:21] <@doy> sweet
+[19:46:22] <@doy> (:
+[19:46:58] <@Eidolos> time to figure out how setuid works
+[19:47:31] <@doy> i think setgid on a directory makes files created underneath inherit the directory's group
+[19:47:35] <@doy> but not positive
+[19:48:21] <@Eidolos> looks like it
+[19:50:19] <@Eidolos> ok
+[19:50:23] <@Eidolos> that should do it..
+[19:53:27] <@doy> be back in a bit
+[19:57:35] <@Eidolos> I also need to set a umask, but I'm not sure how
+[19:57:36] < arcanehl> SGID is what I did pre-ACLs
+[19:57:41] < arcanehl> umask <umask>
+[19:57:49] < arcanehl> 022 is the standard
+[19:57:55] < arcanehl> I think 0 is the default though
+[19:57:59] <@Eidolos> 002 is what I want
+[19:58:01] < arcanehl> (no args to see)
+[19:58:05] <@Eidolos> hmm
+[19:58:24] <@Eidolos> the problem is getting the umask set for darcs push
+[19:58:27] < arcanehl> well, quit watching mrivan and show your term already
+[19:58:35] < arcanehl> does it use ssh?
+[19:58:38] <@Eidolos> yes
+[19:58:52] < arcanehl> then should be able to set in your bash_whatever
+[19:58:58] < arcanehl> bashrc I think is always read
+[19:59:29] <@Eidolos> ok
+[19:59:30] <@Eidolos> I'll try it
+[19:59:40] <@Eidolos> (heh)
+[20:00:35] < arcanehl> heh
+[20:00:45] < arcanehl> oh geez
+[20:00:47] <@Eidolos> whut
+[20:00:48] < arcanehl> is a change that hard?
+[20:00:50] <@Eidolos> hehe
+[20:00:51] <@Eidolos> yes!
+[20:00:54] <@Eidolos> it's perfect!
+[20:01:41] < arcanehl> ...heh
+[20:02:07] <@Eidolos> ok well that's a good sign
+[20:02:43] < arcanehl> look at the top
+[20:02:47] < arcanehl> #umask
+[20:02:59] <@Eidolos> maybe I should set it in /etc/login.defs
+[20:03:03] < arcanehl> and yeah, the zsh is wtfy
+[20:03:21] <@Eidolos> ah. chsh prompts for password, that's probably why
+[20:03:29] <@Eidolos> he doesn't know his raxbox password
+[20:03:50] <@Eidolos> anyway, off to read some dragon buk
+[20:04:03] < arcanehl> didn't even set the SGID bit
+[20:08:03] <@Eidolos> I did
+[20:08:11] <@Eidolos> before you started watching. I thought
+[20:08:26] <@Eidolos> drwxrwsr-x 3 sartak interhack 4096 Aug 14 23:51 0.0
+[20:08:26] <@Eidolos> drwxrwsr-x 7 sartak interhack 4096 Aug 14 23:16 2.0
+[20:50:01] <@Eidolos> doy: have you read any of the dragon book yet?
+[21:10:59] <@doy> Eidolos: yeah, i think i got through chapter 5 or so
+[21:12:02] <@Eidolos> oh good :)
+[21:12:30] <@doy> why?
+[21:12:57] <@Eidolos> I can bother you if I don't grok something
+[21:13:01] <@doy> (:
+[21:34:19] -!- alexbobp is now known as alexbobp_away
+[21:42:12] -!- alexbobp_away is now known as alexbobp
+[22:13:32] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[22:13:41] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[22:57:54] <@doy> Eidolos: at this point we really need a well defined config file structure
+[22:58:20] <@doy> i could start working on it, but i don't know how you envision it working
+[22:59:46] < alexbobp> I've got a new "termcast screen saver"
+[23:09:44] < jasonmay> good thing foxes are never near walls in real life
+[23:09:55] < alexbobp> right.
+[23:09:57] < alexbobp> wait, what?
+[23:12:04] < alexbobp> I'm pretty sure I've seen a fox near a wall
+[23:26:33] < alexbobp> check out my new termcast
+[23:26:36] < alexbobp> this one is much better
+[23:27:44] < alexbobp> this time it's the recursive trick but with acceleration

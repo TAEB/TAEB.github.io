@@ -1,0 +1,10 @@
+[09:36:06] -!- ekiMbo is now known as ekiM
+[10:32:23] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:37:14] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Client Quit]
+[10:37:20] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:10:14] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[13:55:23] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[17:44:25] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[17:44:38] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[19:33:12] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[19:56:30] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

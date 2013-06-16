@@ -1,0 +1,93 @@
+[00:00:29] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[00:30:54] -!- stumbly [i=wlngnut@dialup-4.246.36.124.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[00:40:32] -!- stumbly [i=wlngnut@dialup-4.246.36.223.Dial1.SanJose1.Level3.net] has joined #interhack
+[01:30:53] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[02:16:04] -!- stumbly_ [i=wlngnut@dialup-4.246.232.3.Dial1.SanJose1.Level3.net] has joined #interhack
+[02:16:41] -!- stumbly [i=wlngnut@dialup-4.246.36.223.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[02:16:46] -!- stumbly_ is now known as stumbly
+[02:35:02] -!- stumbly_ [i=wlngnut@dialup-4.246.45.245.Dial1.SanJose1.Level3.net] has joined #interhack
+[02:35:13] -!- stumbly [i=wlngnut@dialup-4.246.232.3.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[02:35:17] -!- stumbly_ is now known as stumbly
+[02:53:18] -!- stumbly_ [i=wlngnut@dialup-4.246.45.251.Dial1.SanJose1.Level3.net] has joined #interhack
+[02:53:32] -!- stumbly [i=wlngnut@dialup-4.246.45.245.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[02:53:41] -!- stumbly_ is now known as stumbly
+[03:42:02] -!- stumbly_ [i=wlngnut@dialup-4.246.45.15.Dial1.SanJose1.Level3.net] has joined #interhack
+[03:42:09] -!- stumbly [i=wlngnut@dialup-4.246.45.251.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[03:42:15] -!- stumbly_ is now known as stumbly
+[03:56:08] -!- stumbly [i=wlngnut@dialup-4.246.45.15.Dial1.SanJose1.Level3.net] has left #interhack ["Jumps down a hole."]
+[04:59:00] -!- stumbly [i=wlngnut@dialup-4.246.45.15.Dial1.SanJose1.Level3.net] has joined #interhack
+[05:25:11] -!- stumbly [i=wlngnut@dialup-4.246.45.15.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[08:56:05] -!- stumbly [i=wlngnut@dialup-4.246.45.159.Dial1.SanJose1.Level3.net] has joined #interhack
+[11:00:28] <@Eidolos> stumbly: net troubles? :)
+[11:00:43] < stumbly> my modem/isp sucks
+[11:00:52] < stumbly> dunno why, don't want to debug it
+[11:01:55] < stumbly> found a working ttrtail, that'll do for now
+[11:02:46] <@Eidolos> yeah
+[11:05:43] < stumbly> was checking out interhack on lor
+[11:05:56] < stumbly> s server, seems ok apart from dec shit
+[11:06:00] <@Eidolos> :)
+[11:06:19] < stumbly> a little laggy but not sure, he's in atlanta, like 8 hops from here
+[11:07:13] < stumbly> hard to imagine perl is sucking down a 2 GHz cpu,but it's possible!
+[11:08:45] < stumbly> they paying you anything eid?
+[11:09:06] < stumbly> i mean, anything real
+[11:13:32] <@Eidolos> $16.50 an hour
+[11:13:44] < stumbly> well
+[11:13:44] <@Eidolos> which isn't much for a programming position, admittedly
+[11:13:45] < stumbly> !!
+[11:13:47] <@Eidolos> but!
+[11:13:49] <@Eidolos> I'm happy
+[11:13:52] < stumbly> it's good exp
+[11:13:54] <@Eidolos> ya
+[11:14:06] < stumbly> about 10 x too low
+[11:14:11] < stumbly> well 5
+[11:14:12] <@Eidolos> heh
+[11:14:15] < stumbly> :)
+[11:14:24] < stumbly> norly
+[11:14:33] < stumbly> if you find a niche, 150 is easy
+[11:14:47] < stumbly> will happen soon enough
+[11:15:17] < stumbly> u have no idea how bad most people are
+[11:15:49] < stumbly> "ohnoes where is my IDE?"
+[11:16:30] < stumbly> and well, Boston is a good loc for smaert
+[11:19:08] <@Eidolos> well look at it from the employer's point of view
+[11:19:30] <@Eidolos> here's a 20 year old kid, hasn't been to college, been working at a gas station for 1.5 years
+[11:19:38] < stumbly> :p
+[11:20:05] < stumbly> shrug
+[11:20:12] < stumbly> after a week with someone u know
+[11:21:04] < stumbly> hopefuly sooner (the interview) but reality is that doesn't always work
+[11:29:45] -!- stumbly_ [i=wlngnut@dialup-4.246.45.26.Dial1.SanJose1.Level3.net] has joined #interhack
+[11:30:48] -!- stumbly [i=wlngnut@dialup-4.246.45.159.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[11:30:52] -!- stumbly_ is now known as stumbly
+[11:31:47] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[11:55:13] -!- stumbly_ [i=wlngnut@dialup-4.246.45.71.Dial1.SanJose1.Level3.net] has joined #interhack
+[11:55:18] -!- stumbly [i=wlngnut@dialup-4.246.45.26.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[11:55:22] -!- stumbly_ is now known as stumbly
+[12:12:44] -!- stumbly [i=wlngnut@dialup-4.246.45.71.Dial1.SanJose1.Level3.net] has quit ["Jumps down a hole."]
+[13:10:37] -!- stabwound [n=illbill@dsl163.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[13:10:52] -!- sadgsadg [n=illbill@dsl231.rbh1.pppoe.execulink.com] has joined #interhack
+[13:17:55] -!- sadgsadg is now known as stabwound
+[13:37:34] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[14:00:22] -!- stabwound [n=illbill@dsl231.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[14:00:37] -!- sadgsadg [n=illbill@dsl120.rbh1.pppoe.execulink.com] has joined #interhack
+[14:07:44] -!- stabwound [n=illbill@dsl198.rbh1.pppoe.execulink.com] has joined #interhack
+[14:19:04] -!- stabwound [n=illbill@dsl198.rbh1.pppoe.execulink.com] has quit [Read error: 104 (Connection reset by peer)]
+[14:23:07] -!- stabwound [n=illbill@dsl9.rbh1.pppoe.execulink.com] has joined #interhack
+[14:23:24] -!- sadgsadg [n=illbill@dsl120.rbh1.pppoe.execulink.com] has quit [Connection timed out]
+[14:48:20] -!- stabwound [n=illbill@dsl9.rbh1.pppoe.execulink.com] has quit [Connection timed out]
+[15:02:19] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[15:04:51] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 104 (Connection reset by peer)]
+[15:07:04] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[15:07:07] -!- mode/#interhack [+o toft_] by ChanServ
+[16:12:18] -!- stabwound [n=illbill@dsl237.rbh1.pppoe.execulink.com] has joined #interhack
+[17:24:24] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[18:10:48] -!- toft_ is now known as toft
+[18:47:13] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[18:58:02] -!- doy_ [n=doy@ppp-70-225-182-4.dsl.chmpil.ameritech.net] has joined #interhack
+[19:03:07] -!- doy [n=doy@ppp-70-225-171-237.dsl.chmpil.ameritech.net] has quit [Read error: 110 (Connection timed out)]
+[19:11:31] -!- doy [n=doy@ppp-70-225-179-87.dsl.chmpil.ameritech.net] has joined #interhack
+[19:11:34] -!- mode/#interhack [+o doy] by ChanServ
+[19:17:19] -!- doy_ [n=doy@ppp-70-225-182-4.dsl.chmpil.ameritech.net] has quit [Read error: 110 (Connection timed out)]
+[19:42:06] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[20:58:14] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[21:31:13] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[23:01:24] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[23:30:10] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack

@@ -1,0 +1,39 @@
+[03:06:47] -!- doy [n=doy@tozt.1ts.org] has joined #interhack
+[03:06:50] -!- mode/#interhack [+o doy] by ChanServ
+[07:15:51] -!- ekiMbo [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[07:17:18] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[07:17:19] -!- ekiMbo is now known as ekiM
+[11:38:54] <@Eidolos> [11:31:55] < newfinger> i'm thinking of playing color truist and having all my potions be the color they are
+[11:39:12] <@Eidolos> that'd be a reasonable interhack plugin
+[11:39:41] <@doy> ?
+[11:39:56] <@Eidolos> coloring potion names
+[11:40:01] <@doy> ah
+[11:41:12] <@Eidolos> I have a shell-scrpting question for you
+[11:41:18] <@Eidolos> I have a script that runs as root
+[11:41:31] <@Eidolos> I want it to drop privs and run something else
+[11:41:54] <@Eidolos> I have something working in perl, but it doesn't drop root gid properly
+[11:42:18] <@Eidolos> so
+[11:42:23] <@doy> hmmm
+[11:42:37] <@Eidolos> I wonder if it's more feasible with a shell script
+[11:42:53] <@doy> 'exec su - other_user -c something_else'?
+[11:42:56] <@Eidolos> really all it's doing is drop priv, chdir, exec
+[11:44:19] <@doy> not sure if there's a better way to do the drop privs thing, but that's the first thing that comes to mind
+[11:45:28] <@doy> if other_user is a system user rather than an actual user, don't use that extra -
+[11:45:54] <@doy> so 'exec su nobody -c something_else' for example
+[11:46:03] <@Eidolos> it is n actual user
+[11:46:11] <@Eidolos> it also seems to work
+[11:46:22] <@Eidolos> thanks!
+[14:52:24] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit ["I can kick stuff off a planet"]
+[14:59:41] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[16:39:03] <@Eidolos> heh, I'm still on 21.1 of the Programming in Lua 
+[16:39:09] <@Eidolos> haven't touched it since the weekend
+[16:39:32] <@Eidolos> it's a nice little language, you should learn it toft
+[16:39:43] <@toft> Lua
+[16:39:51] <@Eidolos> Loo ha!
+[16:39:59] <@toft> someone should write an extension called Kahlua... "With added alcohol!"
+[17:47:54] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[18:46:51] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[20:17:07] <@Eidolos> toft: ah, figured out why my termcast was weird.. interhack bug :)
+[20:17:39] <@doy> yeah, just noticed that
+[22:08:13] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[23:58:18] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []

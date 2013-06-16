@@ -1,0 +1,329 @@
+Sun May 06 2007
+[20:27:34] <Eidolos> I really want to get a layer between NAO and me
+[20:27:42] <Eidolos> would be incredibly awesome
+[20:27:52] <toft> what do you mean?
+[20:28:01] <Eidolos> for example
+[20:28:23] <Eidolos> Pakka Pakka offers 75 gold for your cyan potion.
+[20:28:32] <Eidolos>   cyan = base 75 or 100
+[20:28:45] <Eidolos> You hear 3 tumblers click.
+[20:28:48] <Eidolos>   Play FADAB
+[20:28:55] <toft> would be very neat
+[20:28:56] <toft> might be tough
+[20:29:09] <Eidolos> :)
+[20:32:55] <Eidolos> some other stuff I had in mind for the layer would be stuff to help with conducts
+[20:33:09] <toft> also naming gems based on whether they're hard or soft.. should be doable
+[20:33:27] <Eidolos> I don't think the layer itself should issue any commands to nethack
+[20:33:31] <Eidolos> for safety reasons
+[20:33:35] <Eidolos> if that's what you're suggesting
+[20:33:45] <toft> it could put it in your pastebuffer
+[20:33:45] <Eidolos> it would only improve the output :)
+[20:34:19] <Eidolos> it could have its own buffer (press X to send the string b"lahblah")
+[20:34:23] <toft> yeah
+[20:34:27] <toft> that would be pretty cool
+[20:34:34] <Eidolos> we could also use it to add hpmon and menucolors to devnull
+[20:34:37] <Eidolos> and statuscolors to NAO
+[20:34:56] <Eidolos> and local nethackrc editing ;)
+[20:34:58] <Eidolos> and autologin
+[20:35:00] <Eidolos> etc etc
+[20:35:11] <itsblah> autologin is a bit too far...
+[20:35:19] <itsblah> but the passwords are sent in plaintext anyway, so oh well
+[20:35:26] <Eidolos> itsblah: you could disable it with a command line arg
+[20:35:31] <Eidolos> like nao -l
+[20:35:46] <Eidolos> autologin would be better for termcast anyway so you don't accidentally type your password in at the wrong moment :)
+[20:36:09] <Eidolos> the only problem with all of this is I'm not quite sure how to do the actual layering
+[20:36:46] <Eidolos> from NAO to the term is probably pretty easy, the only trick would be annotating it with layer stuff
+[20:36:55] <Eidolos> from term to NAO is trickier
+[20:37:03] <Eidolos> I should see how ttyrec does it
+[20:37:17] <doy> i don't know if having the layer in between you and nao would be that workable
+[20:37:25] <doy> lag issues and whatnot
+[20:37:56] <doy> but being able to have some other process watching the output and telling you things about it would be nifty
+[20:40:22] <Eidolos> doy: so how does lag come into it?
+[20:49:43] <Eidolos> I think this layer would be worth it for price IDing alone
+[20:55:13] <doy> Eidolos: maybe somehow detect accidental pastes into the nh window?
+[20:55:21] <toft> good idea
+[20:55:23] <toft> irssi does it
+[20:55:24] <doy> would probably be hard to do that though
+[20:55:30] <raxvulpine> Are you writing a nethack assistant layer or something?
+[20:55:34] <Eidolos> raxvulpine: yes
+[20:55:55] <raxvulpine> Huh, an acquaintance of mine was working on that a while ago, I don't think he got much of anywhere though.
+[20:56:08] <Eidolos> was it Stevie? :)
+[20:56:22] <raxvulpine> Eidolos: No, jhawk (you met him at the meetup)
+[20:56:31] <Eidolos> and at the NH class
+[20:56:37] <raxvulpine> Eidolos: Oh yeah, he was there.'
+[21:00:08] <Eidolos> can anyone think of anything else for this helper?
+[21:00:37] <doy> Eidolos: scroll up
+[21:00:47] <Eidolos> oh, the paste detection? meh
+[21:00:52] <Eidolos> no way I could code that! :)
+[21:00:57] <arcanehl> can it take finals for me?
+[21:00:58] <doy> (:
+[21:03:46] <AirGoNomic> Eidolos: damn :)
+[21:04:02] <Eidolos> :)
+[21:06:49] <Eidolos> look at all this awesome stuff we could do
+[21:07:02] <Eidolos> 8)
+[21:07:06] <toft> dooo it
+[22:17:02] <Eidolos> help me brainstorm guyzz
+[22:17:11] <toft> you have enough ideas already! get coding :)
+[22:17:19] <Eidolos> fine!
+[22:17:25] <Eidolos> but!
+[22:17:26] <Eidolos> need a name first
+[22:17:35] <Eidolos> interhack, done
+[22:17:40] <toft> heh
+[22:17:54] <toft> I was thinking something along the lines of getlaid
+[22:17:57] <toft> or something :|
+[22:18:02] <Eidolos> :|
+[22:18:29] <Eidolos> I'll try to get autologin done first
+[22:18:43] <toft> should be trivial
+[22:18:47] <Eidolos> trivial! pah!
+[22:18:51] <toft> :)
+[22:19:18] <Eidolos> hrm
+[22:19:25] <Eidolos> yeah I'll probably have to handle sockets.. again
+[22:19:45] <billnye> bow chicka BOW wow
+[22:20:16] <toft> heh
+[22:20:35] <Eidolos> ok well the REAL first is just getting a no-op layer
+[22:20:44] <toft> that might be hard
+[22:25:01] <Eidolos> ok well that's encouraging
+[22:25:30] <Eidolos> oh
+[22:25:41] <Eidolos> yeah this is the mode I want
+[22:32:16] <Eidolos> I'll just hardcode the telnet negotiation
+[22:34:12] <Eidolos> that might be enough
+[22:34:46] <Eidolos> \o/
+[22:34:51] <Eidolos> looks like that ought to work just fine
+[22:34:59] <Eidolos> probably better to use select but hey, fuck off!
+[22:59:27] <Eidolos> woot
+[22:59:44] <Eidolos> got the login screen :)
+[23:01:03] <Eidolos> excellent!
+[23:01:44] <toft> :D
+[23:01:56] <Eidolos> now for my first trick
+[23:02:32] <Eidolos> autologin done!
+[23:02:51] <Eidolos> now to color power
+[23:03:57] <toft> :D
+[23:06:42] <Eidolos> fuck. yes.
+[23:07:16] <toft> :)
+[23:07:38] <toft> they're not the same as the HP colors to me, but maybe that's intended
+[23:07:46] <Eidolos> well I just did them off the top of my head
+[23:07:51] <toft> nod
+[23:08:10] <toft> nice going :(
+[23:08:12] <toft> ":) *
+[23:08:13] <Eidolos> yeah
+[23:08:17] <Eidolos> I'm excited!
+[23:08:53] <Eidolos> give me a message to color :)
+[23:09:00] <toft> wishing
+[23:09:10] <Eidolos> something a little more common!
+[23:09:21] <toft> DYWYPI
+[23:09:23] <toft> heh
+[23:09:30] <Eidolos> :)
+[23:09:33] <toft> awesome
+[23:09:51] <Eidolos> doy: check out my termcast!!
+[23:09:53] <doy> Eidolos: make the messages configurable!
+[23:09:56] <Eidolos> of course
+[23:09:56] <doy> Eidolos: i am
+[23:09:58] <Eidolos> this is just a prototype
+[23:10:12] <Eidolos> but it's so simple that it'll probably become the real thing
+[23:10:19] <Eidolos> no noticeable lag :)
+[23:11:29] <doy> Eidolos: color item pickup messages the same way as menucolors
+[23:11:54] <Eidolos> yes :)
+[23:12:00] <Eidolos> well it's pretty easy to do all that
+[23:12:07] <Eidolos> since it's just a simple substitution on the input
+[23:12:10] <doy> yeah
+[23:12:22] <Eidolos> I'll upload the script as it exists now so you guys can play
+[23:12:50] <doy> i won't get around to looking at it until wednesday or so
+[23:12:55] <Eidolos> nod
+[23:12:57] <doy> maybe thursday
+[23:13:15] <Eidolos> there are still some kinks but I could ascend with this as it is
+[23:13:24] <Eidolos> I'll probably use purple and cyan for power colors :)
+[23:14:52] <Eidolos> one more, hmm
+[23:16:59] <billnye> hehe evil eid
+[23:17:04] <billnye> good proof of concept
+[23:17:04] <Eidolos> :)
+[23:17:04] <doy> yeah
+[23:17:06] <Eidolos> yes
+[23:17:22] <toft> autologin is nice
+[23:18:12] <Eidolos> haha
+[23:18:16] <Eidolos> too bold but awesome
+[23:18:17] <billnye> :)
+[23:18:18] <doy> heh
+[23:18:34] <doy> how are you matching that?
+[23:18:54] <toft> XD
+[23:18:58] <doy> haha
+[23:19:08] <Eidolos> I am so excited
+[23:19:42] <toft> hmm
+[23:19:46] <Eidolos> OK time to upload
+[23:19:50] <doy> i wonder how hard it would be to have pluggable taeb modules for this
+[23:19:53] <toft> that would break though, Eidolos
+[23:20:00] <Eidolos> toft: yes
+[23:20:10] <toft> long messages, etc
+[23:20:15] <toft> you have foreseen it
+[23:20:15] <Eidolos> you can only safely substitute same-length messages
+[23:20:16] <Eidolos> but :)
+[23:20:19] <doy> like... you get to the castle and press f1 and the bot takes over
+[23:20:30] <toft> ooh
+[23:20:38] <doy> you get to sokoban and press f2 and come back in about 30 minutes
+[23:20:45] <doy> and it's sitting on the bag
+[23:20:48] <doy> or amulet
+[23:20:55] <toft> would be pretty hawt
+[23:21:03] <toft> especially if s/30/2/
+[23:21:10] <doy> toft: taeb is slow
+[23:21:10] <doy> (:
+[23:21:13] <toft> I know :)
+[23:21:21] <toft> that was a veiled incentive
+[23:21:29] <toft> or something
+[23:22:53] <doy> Eidolos: you could actually stick hp colors into the script too
+[23:22:59] <doy> since the nh patch sucks so much
+[23:23:05] <Eidolos> yep
+[23:23:39] <Eidolos> and especially color prayable level
+[23:23:59] <doy> that would be an interesting idea
+[23:24:02] <doy> how do you mean?
+[23:24:04] <doy> oh
+[23:24:05] <doy> yeah
+[23:24:07] <Eidolos> :)
+[23:24:19] <doy> hmmm
+[23:24:21] <doy> what about
+[23:24:39] <doy> have it match on "You offer a prayer to" and record the time
+[23:24:47] <doy> and color the T: based on prayer safety?
+[23:24:50] <Eidolos> well yeah, I have all sorts of ideas for that
+[23:25:43] <doy> back to pluggable taeb: marvin mode: press f3 and it farlooks at every square on the map, stopping if it finds a ghost
+[23:26:03] <Eidolos> :)
+[23:26:05] <Eidolos> yeah!
+[23:26:34] <toft> XD
+[23:27:50] <Eidolos> darcs get http://sartak.katron.org/nh/interhack/
+[23:29:55] <toft> snazzy
+[23:30:22] <Eidolos> eventually it'll have an ~/.interhack dir with config and plugins
+[23:30:45] <Eidolos> still need to figure out how to properly detect socket disco
+[23:30:51] <Eidolos> just hitting enter should be enough but.. :)
+[23:32:24] <billnye> what good is that one, Eid?
+[23:32:36] <Eidolos> gonna make it display how much XP needed to next level
+[23:32:41] <billnye> ah
+[23:32:51] <Eidolos> gotta make sure it fits within $2's length though :)
+[23:34:02] <doy> socket disco?
+[23:34:13] <Eidolos> disconnect
+[23:35:12] <billnye> have funs, Eid
+[23:35:15] <Eidolos> later
+[23:35:17] <billnye> go sleepies now
+[23:35:37] <Eidolos> :)
+[23:38:44] <Eidolos> seems to work :)
+[23:41:00] <Eidolos> man that's awesome
+[23:41:18] <Eidolos> doesn't seem to reset the term correctly on my end
+[23:42:25] <Eidolos> toft: have you tried it yet?
+[23:45:27] <Eidolos> oh yeah
+[23:45:31] <Eidolos> I can send ^L
+[23:45:34] <Eidolos> to redraw
+[23:58:37] <Eidolos> there, now it'll highlight in red high priest of Foo messages, except when Foo = Moloch
+[23:59:27] <Eidolos> hehe
+[23:59:34] <Eidolos> you can get all the highlighting when watching someone on NAO too!
+[23:59:38] <Eidolos> good for testing
+[00:01:05] <Eidolos> anselmus: if you see a floating eye, can you turn on color for a moment, for testing?
+[00:01:36] <anselmus> k
+[00:02:15] <Eidolos> the entire first bottom line is useless :)
+[00:11:44] <Eidolos> Stevie-O: check out my termcast
+[00:12:00] <Stevie-O> eh
+[00:12:09] <Eidolos> telnet noway.ratry.ru 37331
+[00:12:34] <Eidolos> in particular look at Pw
+[00:12:37] <Stevie-O> cool, pwcolors?
+[00:12:39] <Eidolos> ya
+[00:12:47] <Stevie-O> how'd you get that?
+[00:12:52] <Eidolos> this is a script that sits between you and NAO and tweaks messages as they come in :)
+[00:12:57] <Stevie-O> oh
+[00:13:02] <Stevie-O> is it based on my hungermon thingy?
+[00:13:02] <toft> also theres a nice feature that changes jackals into master mind flayers
+[00:13:10] <Eidolos> nope I wrote it from scratch
+[00:13:12] <Stevie-O> wtf?
+[00:13:16] <Eidolos> http://sartak.katron.org/nh/interhack/
+[00:13:21] <Eidolos> that was for fun :)
+[00:13:26] <Eidolos> I got rid of that
+[00:13:30] <Stevie-O> just does s/jackal/master mind flayer/ ?
+[00:13:31] <toft> hehe
+[00:13:40] <Eidolos> well it also did s/brown d/purple h/
+[00:13:48] <Stevie-O> haha
+[00:14:22] <Eidolos> a genuinely good application of that is making floating eyes a brighter blue
+[00:14:47] <Eidolos> I'm watching someone else play at the moment but I can also play myself :)
+[00:15:11] <Eidolos> gonna make a nice little plugin system for this
+[00:15:41] <Eidolos> toft: have you tried using it yet?
+[00:15:51] <toft> nope
+[00:15:54] <toft> I will
+[00:15:57] <Eidolos> :)
+[00:15:58] <toft> I'm going to start up a knight soon
+[00:16:14] <Eidolos> I'm not sure if autologin is at all secure (ie whether it displays the password in plain view at any point)
+[00:16:16] <Eidolos> so don't use it
+[00:16:16] <toft> anyway to not autologin?
+[00:16:20] <toft> :)
+[00:16:33] <Eidolos> search for /$nick
+[00:16:36] <Eidolos> well
+[00:16:36] <Eidolos> $nick
+[00:16:47] <Eidolos> :)
+[00:17:29] <Eidolos> cool!
+[00:17:39] <toft> 1n20?
+[00:17:44] <Eidolos> experience level one, need 20 exp
+[00:17:47] <Eidolos> for 23
+[00:17:48] <Eidolos> er 2
+[00:17:49] <toft> hot :D
+[00:17:53] <Eidolos> yes :)
+[00:18:21] <Eidolos> avoid hitting tab, remember :)
+[00:18:25] <Eidolos> not that tab helps
+[00:18:26] <toft> why?
+[00:18:30] <Eidolos> it's the killswitch
+[00:18:34] <toft> ahh, heh
+[00:18:35] <Eidolos> I can probably remove it though
+[00:18:45] <Eidolos> in fact I will
+[00:19:19] <toft> I wish nao was as responsive as cao
+[00:19:21] <Stevie-O> kool!
+[00:19:28] <Eidolos> :)
+[00:19:51] <Stevie-O> ;)
+[00:19:59] <Eidolos> ok I have a half-autologin mode now
+[00:20:03] <Eidolos> if you remove the pass
+[00:20:08] <Eidolos> it'll still type in l$nick
+[00:28:56] <toft> hey I have a good idea for interhack.. might be unreasonably hard though: corpse age tracking
+[00:29:03] <toft> no more friggin accidental FoodPois XD
+[00:29:05] <Eidolos> heh
+[00:29:24] <Eidolos> yeah that's too hard
+[00:29:28] <toft> nod
+[00:29:52] <toft> I'm probably the only one who ever gets foidpois anyway so
+[00:29:55] <Eidolos> haha
+[00:29:57] <Eidolos> yeahh
+[00:30:15] <toft> bug!
+[00:30:23] <Stevie-O> I recently got foodpois from a wraith corpse
+[00:30:25] <Eidolos> hmm
+[00:30:29] <Eidolos> save your game crass
+[00:30:32] <toft> it was cyan, then it moved, then its blue
+[00:30:38] <Stevie-O> there was a very old corpse on the square
+[00:30:44] <Eidolos> hrm
+[00:30:50] <Eidolos> let me look at the ttyrec for that
+[00:30:51] <Stevie-O> then I killed one
+[00:31:06] <Stevie-O> and the new one didn't drop a corpse
+[00:31:19] <toft> ouch
+[00:31:23] <toft> that's annoying
+[00:31:39] <Eidolos> ahh I see
+[00:31:42] <Eidolos> it's the DEC graphics
+[00:32:09] <Eidolos> let me try watching you in interhack with dec stripping :)
+[00:32:24] <toft> oops
+[00:32:26] <toft> I killed it
+[00:32:29] <toft> sorry :)
+[00:32:33] <Eidolos> arrghghghgRRrrrgh!
+[00:32:40] <Eidolos> fuck DEC anyway!
+[00:32:44] <toft> just replicate with a grid bug or whatever
+[00:33:35] <Eidolos> heh
+[00:33:39] <Eidolos> screws with menucolors :)
+[00:33:59] <doy> just have people run with dec off and add dec conversions to the script
+[00:34:00] <doy> (:
+[00:34:05] <Eidolos> hehe
+[00:34:09] <toft> yess :)
+[00:34:40] <Eidolos> haha
+[00:34:47] <Eidolos> damn
+[00:34:53] <Eidolos> that's going to be very difficult to fix
+[00:34:57] <toft> yeah that's what it looked like for me
+[00:35:03] <toft> I don't get what happens?
+[00:35:16] <Eidolos> it's because it does optimization
+[00:35:22] <Eidolos> first it goes to yellow
+[00:35:26] <Eidolos> then prints the HP
+[00:35:28] <Eidolos> then prints the :
+[00:35:33] <Eidolos> or so I thought
+[00:36:08] <Eidolos> ok that doesn't seem to be the case
+[00:36:30] <Eidolos> happens when he moves right
+[00:36:37] <Eidolos> I bet I know what happens there
+[00:36:43] <Eidolos> it just prints : then removes the older one
+[00:36:58] <Eidolos> maybe
+[00:37:49] <Eidolos> ohh
+[00:38:07] <Eidolos> <0f>
+[00:41:23] <Eidolos> fixed, I think
+[00:41:45] <Eidolos> blue newts!
+[00:44:00] <Eidolos> and I'd rather be scripting at this point!
+[00:44:07] <Eidolos> since this interhack script seems to have great promise

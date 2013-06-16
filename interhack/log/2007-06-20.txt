@@ -1,0 +1,24 @@
+[00:03:39] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[05:09:16] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[05:22:28] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[05:59:35] -!- ekiMbo is now known as ekiM
+[10:13:57] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:14:26] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[10:14:44] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[10:14:46] -!- ekiMbo is now known as ekiM
+[11:16:31] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[11:17:19] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[11:17:21] -!- ekiMbo is now known as ekiM
+--- Log closed Wed Jun 20 12:09:07 2007
+[19:45:49] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[19:45:49] -!- Irssi: #interhack: Total of 7 nicks [2 ops, 0 halfops, 0 voices, 5 normal]
+[19:45:49] -!- mode/#interhack [+o Eidolos] by ChanServ
+[19:47:01] -!- Irssi: Join to #interhack was synced in 74 secs
+--- Log closed Wed Jun 20 21:00:01 2007
+[21:00:04] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[21:00:04] -!- Irssi: #interhack: Total of 8 nicks [3 ops, 0 halfops, 0 voices, 5 normal]
+[21:01:18] -!- Irssi: Join to #interhack was synced in 76 secs
+[21:04:17] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:11:00] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[21:11:36] -!- You're now known as Eidolos
+[23:55:41] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []

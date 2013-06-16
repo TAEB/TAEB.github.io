@@ -1,0 +1,195 @@
+[00:00:12] <@toft> quick linenum settability is nice
+[00:00:15] <@Eidolos> whoa, set_number is cooler than usual with folds
+[00:00:19] <@toft> yea
+[00:01:05] <@Eidolos> oh dh
+[00:01:12] <@Eidolos> forgot to test actually selecting to make sure it doesn't print the ink cost :)
+[00:01:25] <@Eidolos> good
+[00:01:53] <@Eidolos> nice having a test account at the castle, let me tell you :)
+[00:03:19] <@Eidolos> http://sartak.katron.org/misc/music/perfect-element.tar
+[00:03:20] <@Eidolos> hehe :)
+[00:03:34] <@Eidolos> Remedy Lane is really good toft, should at least give that one a play through
+[00:04:05] <@toft> I listened to a bunch of it
+[00:04:09] <@toft> its late now though
+[00:04:11] <@toft> i'll go back to it tomorrow
+[00:04:15] <@Eidolos> RL? or Concrete Lake?
+[00:04:26] <@toft> RL
+[00:04:29] <@Eidolos> oh, cool
+[00:04:58] <@Eidolos> 0WN3D
+[00:05:07] <@Eidolos> wait
+[00:05:10] <@Eidolos> do you have a marker doy? :)
+[00:05:15] <@Eidolos> aw
+[00:05:18] <@Eidolos> need a blank scroll anyway
+[00:05:29] <@Eidolos> I'll do spellbooks later..
+[00:14:49] -!- stumbly [i=wlngnut@dialup-4.246.232.124.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[00:25:15] < zubin> hmm
+[00:25:25] < zubin> shouldn't spells c, d, and e all be colored purple?
+[00:25:36] <@doy> they sure should
+[00:25:42] <@doy> there are some issues with spell menu coloring
+[00:25:46] < zubin> ok
+[00:25:47] < zubin> :)
+[00:26:09] <@doy> hmmm
+[00:26:14] <@doy> go back to the menu for a sec
+[00:27:25] <@doy> huh
+[00:27:28] <@doy> yeah, no idea
+[00:27:38] < zubin> np
+[00:27:41] <@doy> it certainly looks like it should match
+[00:27:43] < zubin> so long as you're aware
+[00:31:18] < zubin> one difference I see is that the magenta regexp uses .*, while the others don't. If that's greedy, it'll consume the [n%] at the end and won't match.
+[00:31:37] < zubin> maybe.
+[00:31:50]  * zubin tests
+[00:32:29] < zubin> recolor qr/[a-zA-Z] - [a-z ]+ \d\*\s+\w+\s+[0-9]+%/ => "magenta";
+[00:32:30] < zubin> works
+[00:34:12] < zubin> I think I'm right for the wrong reason, though. :)
+[00:45:41] <@doy> hmmm
+[00:45:43] <@doy> maybe
+[00:45:50] <@doy> sounds reasonable anyway
+[00:46:09] <@doy> i don't know though
+[00:46:53] < zubin> You could also try just putting .*? instead of .*
+[01:05:10] < zubin> heh, I like the artifact name coloring in the quest leader's speech
+[01:06:12] <@toft> hehe
+[01:12:47] <@toft> nooo
+[01:12:51] <@toft> the server stopped responding
+[01:12:55] <@toft> err
+[01:31:57] < zubin> 'night
+[01:32:24] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[02:26:24] -!- Zawk [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has quit ["leaving"]
+[10:22:07] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[11:36:21] < zubin> gosh, I hope dragon joins.
+[11:38:06] <@Eidolos> o rly
+[11:38:26] < zubin> srsly
+[11:39:53] < zubin> I'm so sick of being a hair below burdened. Make interhack fix that, pls
+[11:40:03] < zubin> ^B = generate bag of holding
+[11:40:05] < zubin> kthx
+[11:40:13] <@Eidolos> hehe
+[11:42:58] -!- raxvulpine [n=rax@autumnfox.akrasiac.org] has joined #interhack
+[11:43:06] < zubin> LOL Rax.
+[11:43:06] < raxvulpine> (because I'm curious)
+[11:43:17] < zubin> welcome!
+[11:43:24] < zubin> to your doom.
+[11:43:46] < raxvulpine> A portentions pronouncement!
+[11:44:43] < zubin> A pandemonious panoply of potentates!
+[11:45:04] <@Eidolos> hay RAX
+[11:45:08] < raxvulpine> Pish posh.
+[11:45:12] < raxvulpine> Hidolos.
+[11:46:25] < zubin> oo eid I'm at the castle. how does the mm thing work?
+[11:46:43] <@doy> just play the instrument
+[11:46:49] < zubin> mmkay
+[11:46:49] <@doy> it will tab complete stuff
+[11:46:51] < zubin> simple enough
+[11:47:05] < raxvulpine> You made nethack have _tab completion_?
+[11:47:10] < raxvulpine> Maybe I need to try this interhack thing.
+[11:47:25] <@doy> raxvulpine: check out the screenshots
+[11:47:25] <@doy> (:
+[11:47:51] <@doy> http://darcs.katron.org/~sartak/interhack/screenshots/mastermind.png
+[11:48:46] < zubin> ok, termcasting from the castle
+[11:48:54] < raxvulpine> Oh my god that is awesome.
+[11:49:08] < raxvulpine> Oh I bet when I was watching and not seeing dark gray I was missing out on the price-ID stuff happening!
+[11:49:15] <@Eidolos> see the interhack2.png screenshot in the topic
+[11:49:16] < zubin> nod
+[11:49:18] < raxvulpine> I need to fix my terminal so that that works.
+[11:49:28] <@doy> yeah, we use dark gray a lot
+[11:49:32] < raxvulpine> (it works in crawl, I wonder if it's an interaction with termcast)
+[11:50:30] <@doy> the drawbridge takes less than 10 seconds once you get used to it
+[11:50:48] < zubin> hm
+[11:50:55] <@Eidolos> there should be an extended command for setting key remappings on the fly
+[11:51:00] <@doy> hmmm
+[11:51:03] < zubin> I don't think it's working.
+[11:51:19] <@doy> zubin: do it again
+[11:51:36] < zubin> surely I don't hit tab here?
+[11:51:39] <@doy> why is it matching there?
+[11:52:32] <@doy> Eidolos: check out zubin's termcast
+[11:53:37] <@doy> ooh
+[11:53:54] <@doy> this is one of the plugins i redid
+[11:54:01] < zubin> do I need to pull?
+[11:54:05] <@doy> and one of the ones i was also unable to test
+[11:54:13] <@doy> no, i probably just need to fix it
+[11:54:23] <@doy> since i wasn't paying much attention when i was doing it
+[11:54:47] <@doy> hmmm
+[11:54:48] <@doy> maybe
+[11:54:54] <@doy> it looks right at first glance
+[11:55:03] < zubin> nothing in there about strange sounds from a flute
+[11:57:27] <@doy> yeah, the code looks right/:
+[11:57:54] <@doy> it's possible it's an issue with using the $vt
+[11:58:04] <@doy> do it again
+[11:59:05] < zubin> definitely messed up.
+[11:59:35] <@doy> well, i can't really look into it now
+[11:59:49] < zubin> np :)
+[12:00:04] <@doy> possibly tonight
+[12:00:05] < zubin> I'll leave zubih here and we can play later on.
+[12:00:09] <@doy> okay
+[12:00:14]  * zubin waves
+[12:00:50] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[12:01:57] <@doy> Eidolos: my only guess is that using the $vt to do mastermind matching is causing each_match to be called several times, if we are getting separate updates that don't update the top line
+[12:08:08] <@Eidolos> I won't be able to figure it out until later
+[12:08:41] <@doy> yeah, me either
+[12:11:15] <@Eidolos> I have a man at the castle so I'll be able to test it
+[12:17:45] < raxvulpine> You have a man in every castle, Eidolos.
+[12:19:07] <@Eidolos> yes.. yes?
+[12:46:28] < stabwound> is there a place that lists all of the features of interhack?
+[12:46:33] < stabwound> or do you just have to dig around
+[12:47:06] <@Eidolos> I'll write something for that soonish
+[12:47:16] <@Eidolos> in the meantime check out the comments at the start of each file in plugins/
+[12:47:32] < stabwound> yeah
+[16:25:37] < stabwound> awesome, I can use interhack with Putty \o/
+[16:25:40] < stabwound> wish I discovered this earlier
+[16:25:46] <@Eidolos> neat, how?
+[16:26:03] < stabwound> there is a patch for Putty to use it as a cygwin terminal
+[16:26:16] <@Eidolos> hah, cool
+[16:58:02] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[17:01:47] <@Eidolos> sooo
+[17:01:55] <@Eidolos> raxvulpine: want to write some documentation for Interhack
+[17:01:55] <@Eidolos> ;)
+[17:02:02] <@Eidolos> (just kidding, honest)
+[17:02:03] < raxvulpine> Eidolos: Sure, in my copious free time.
+[17:02:30] < zubin> Eidolos: mastermind isn't working for me; doy and I were looking at it earlier
+[17:02:38] <@Eidolos> zubin: nod, I'll look into it when I get home
+[17:02:45] < zubin> mmkay
+[17:38:08] -!- stabwound [n=illbill@dsl163.rbh1.pppoe.execulink.com] has left #interhack []
+[17:40:31] -!- stabwound [n=illbill@dsl163.rbh1.pppoe.execulink.com] has joined #interhack
+[19:47:11] < zubin> hm
+[20:23:29] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[21:04:56] -!- stumbly [i=wlngnut@dialup-4.246.45.19.Dial1.SanJose1.Level3.net] has joined #interhack
+[21:08:51] < stumbly> eid check my termcast
+[21:10:30] <@Eidolos> watching
+[21:10:38] <@Eidolos> I know some stuff is broken
+[21:10:48] <@Eidolos> we did just switch over to using the VT a lot more
+[21:11:09] < stumbly> you saw the bag ?
+[21:11:18] <@Eidolos> nope
+[21:11:24] < stumbly> hrm
+[21:11:27] <@Eidolos> what's wrong?
+[21:11:31] < stumbly> there
+[21:11:33] <@Eidolos> oh
+[21:11:36] <@Eidolos> DEC isn't well supported
+[21:11:40] < stumbly> ctrlP that time
+[21:11:43] < stumbly> ah ok
+[21:11:57] <@Eidolos> I made a halfassed attempt to support it, not interested in doing much more :)
+[21:12:08] < stumbly> gothca
+[21:12:11] <@Eidolos> feel free to poke toft and doy for it, they may be more receptive
+[21:12:46] < stumbly> shrug
+[21:12:51] < stumbly> not needed especially
+[21:13:29] <@Eidolos> my point exactly :)
+[21:14:35] <@Eidolos> guess I'll try to fix the castle now
+[21:16:37] <@Eidolos> hmm
+[21:16:38] <@Eidolos> ohh
+[21:17:13] <@Eidolos> I see what it is
+[21:18:34] <@Eidolos> cool
+[21:18:34] <@Eidolos> fixed
+[21:18:38] <@Eidolos> the problem was
+[21:18:47] <@Eidolos> the code was matching
+[21:18:54] <@Eidolos> What tune are you playing? [5 notes, A-G] AABBC
+[21:19:02] <@Eidolos> since there was an update to the VT
+[21:19:12] <@Eidolos> I'm sure doy will understand anyway :)
+[21:19:46] <@Eidolos> pushed
+[21:19:54] <@Eidolos> I'm sure it'll happen with other stuff too
+[21:46:00] -!- stumbly_ [i=wlngnut@dialup-4.246.36.58.Dial1.SanJose1.Level3.net] has joined #interhack
+[22:02:13] -!- wlngnut [i=wlngnut@dialup-4.246.36.110.Dial1.SanJose1.Level3.net] has joined #interhack
+[22:05:00] -!- stumbly [i=wlngnut@dialup-4.246.45.19.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[22:18:36] -!- stumbly_ [i=wlngnut@dialup-4.246.36.58.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[23:12:46] -!- stumbly [i=wlngnut@dialup-4.246.36.38.Dial1.SanJose1.Level3.net] has joined #interhack
+[23:30:03] -!- wlngnut [i=wlngnut@dialup-4.246.36.110.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[23:45:57] -!- stumbly_ [i=wlngnut@dialup-4.246.36.101.Dial1.SanJose1.Level3.net] has joined #interhack
+[23:48:12] -!- stumbly [i=wlngnut@dialup-4.246.36.38.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[23:48:13] -!- stumbly_ is now known as stumbly
+[23:58:38] -!- stumbly_ [i=wlngnut@dialup-4.246.36.124.Dial1.SanJose1.Level3.net] has joined #interhack
+[23:58:50] -!- stumbly [i=wlngnut@dialup-4.246.36.101.Dial1.SanJose1.Level3.net] has quit [Nick collision from services.]
+[23:58:54] -!- stumbly_ is now known as stumbly

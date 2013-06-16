@@ -1,0 +1,16 @@
+[00:42:19] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[05:23:13] -!- neoh [i=timelton@212.58.172.200] has joined #interhack
+[05:25:31] < neoh> hi all!
+[05:25:58] < neoh> all in private&
+[05:25:59] < neoh> ?
+[05:28:59] -!- neoh [i=timelton@212.58.172.200] has left #interhack []
+[07:48:45] < billnye> yes, we're all chatting furiously amongst ourselves in PM
+[07:49:07] < billnye> or perhaps an entire private channel that you don't know about, neoh: this is just a sham.
+[14:02:07] < ekiM> >_>
+[14:02:32] < billnye> <_>
+[14:02:54] < billnye> (quit making that face, or it'll get stuck!)
+[14:16:54] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[19:02:39] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[23:06:07] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[23:54:10] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+--- Log closed Sat Jul 14 02:43:36 2007

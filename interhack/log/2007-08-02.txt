@@ -1,0 +1,152 @@
+[00:30:57] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[00:31:10] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[00:31:33] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Client Quit]
+[00:36:17] -!- alexbobp [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[00:36:24] -!- alexbobp [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Client Quit]
+[00:36:36] -!- alexbobp [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[00:36:52] -!- alexbobp [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has left #interhack []
+[00:53:42] -!- yeh [n=yeh@231.246.208.218.brf01-home.tm.net.my] has joined #interhack
+[01:01:58] -!- yeh [n=yeh@231.246.208.218.brf01-home.tm.net.my] has left #interhack ["Leaving"]
+[07:12:47] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:39:08] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[10:47:39] <@Eidolos> alexbobp is like our marketing department
+[10:49:13] < alexbobp> heh
+[10:49:30] < alexbobp> it's hard not to.  I'd still be eating poisonous corpses if it weren't for you guys.
+[10:54:47] <@Eidolos> well, I'm glad you're liking it
+[10:57:37] < alexbobp> are there any plans to make it attempt to store information about the game, like inventory, what parts of the map are explored, what items on the ground are?
+[10:58:24] <@Eidolos> we'd like to do that, sure
+[10:58:27] <@Eidolos> but it can be tricky
+[11:01:42] < alexbobp> yeah, I know
+[11:03:05] < alexbobp> when you're picking up a lot of items at once, or something like that, could it be made to save all the "push tab to send ..." prompts until the end?  It ends up messing things up if you push tab in the middle of a pickup sequence
+[11:03:40] <@Eidolos> right, that's a known issue. I'm still thinking of the best way to fix it
+[11:07:07] <@doy> hmmm
+[11:07:09] <@doy> what about
+[11:07:33] <@doy> if there is a --More-- on the top line, map escape to an automore type function
+[11:07:50] <@doy> and if any make_tabs get triggered, have them get pushed into an array
+[11:08:12] <@doy> and present them in order once the top line doesn't match /--More--/
+[11:10:01] < alexbobp> good idea
+[11:10:03] < alexbobp> that should work.
+[11:10:16] <@doy> "should"
+[11:10:30] <@doy> the nethack interface is... well, tricky to say the least
+[11:10:33] < alexbobp> well, in cs, you can't be sure until you try (or prove it mathematically)
+[11:10:42] < alexbobp> yeah, tricky it is
+[11:11:02] < alexbobp> Yay, I made pudding!
+[11:13:39] <@doy> for instance, i don't know if it's possible for more prompts to have intervening frames with a blank top line
+[11:14:09] < alexbobp>  I don't even know what that means.
+[11:14:11] <@Eidolos> hm
+[11:14:16] <@doy> although i suppose #automore works passably well
+[11:14:26] <@doy> so it isn't all that much of a problem
+[11:14:27] <@Eidolos> if we're just naming things I suppose that's fine
+[11:15:28] <@doy> really, it would make a lot of sense to map escape to automore if the topline matches /--More--/ anyway
+[11:15:36] <@doy> to catch things like force_tabs
+[11:15:38] < alexbobp> It says "automore on"
+[11:15:56] < alexbobp> what's force_tabs?
+[11:17:39] <@Eidolos> my net is way laggy so it may have already beenanswered but: when s omething really dangerous happens to you 9such asbeing started to turn to stone) force_taab will make you press tab to acknowledgethat really dangerous thing
+[11:17:52] <@Eidolos> also sorryy for my crappy sptypos, I'm on my laptop, and it's got a horrendous keyboard
+[11:18:06] <@Eidolos> and th  reallybad lag doesn'thelp any
+[11:22:40] -!- Netsplit kubrick.freenode.net <-> irc.freenode.net quits: ekiM
+[11:23:01] -!- Netsplit over, joins: ekiM
+[12:35:27] < alexbobp> Would it be easy to add automatic artifact naming?
+[12:39:36] <@Eidolos> heh
+[12:39:54] <@Eidolos> as in not having to press tab?
+[12:40:27] < alexbobp> oh, it does have artifact naming>
+[12:40:29] < alexbobp> *?
+[12:40:53] <@Eidolos> yes..
+[12:41:13] < alexbobp> hmm.  I haven't seen it.  Maybe I haven't picked up the right type of weapon, then.
+[12:41:24] <@Eidolos> oh
+[12:41:37] <@Eidolos> not that kind of artifact naming
+[12:41:51] < alexbobp> what kind?
+[12:42:15] <@Eidolos> artiiifactnaming isabugthat letsyouIDcertaiinitemsl saskRodney
+[12:42:20] <@Eidolos> argh
+[12:42:32] < ekiM> my god
+[12:43:57] <@doy> you broke him
+[12:44:52] < alexbobp> sorry
+[12:45:25] < ekiM> great, now who will do all the coding
+[12:45:46] < alexbobp> Rodney doesn't know artifact naming.  Anyway, I thought it was how you identify the class of an item by whether you are blocked from giving it an artifact name.
+[12:46:26] < alexbobp> shouldn't it try to name when I pick up a dagger, for example?
+[12:46:51] < ekiM> but you know what a dagger is..
+[12:47:11] < alexbobp> oh.  Which things is it used on then?
+[12:47:26] < ekiM> gray stones, helmets, amulets
+[12:47:53] < alexbobp> oh.
+[12:47:53] < alexbobp> there's an artifact touchstone?
+[12:48:04] < ekiM> luckstone
+[12:48:08] < alexbobp> ah
+[12:48:59] < alexbobp> okay.  Guess I was just doing it wrong.
+[13:40:43] -!- alexbobp [n=aponebsh@64.20.229.14] has quit [Read error: 104 (Connection reset by peer)]
+[13:41:18] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[14:39:33] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[14:54:59] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[15:12:39] -!- alexbobp [n=aponebsh@64.20.229.14] has quit [Read error: 104 (Connection reset by peer)]
+[15:17:45] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[16:14:27] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[16:14:48] < Zawk> hai. how i hax?
+[16:18:21] < raxvulpine> First, you need a keyboard.
+[16:18:35] < raxvulpine> Then, plug the keyboard into the Internet.
+[16:18:42] < raxvulpine> Now, Ctrl-Alt-Delete
+[16:18:49] < raxvulpine> Congratulations! You reset it!
+[16:21:12] <@Eidolos> alexbobp: by the way, it's interhack or Interhack, neever InterHack :)
+[16:21:31] < Zawk> Eidolos is touchy about capitalization
+[16:21:38] <@Eidolos> by contrast, it's nethack or NetHack, never Nethack
+[16:21:39] <@Eidolos> :)
+[16:22:05] < Zawk> somethings also known as "vanilla"
+[16:22:21] < alexbobp> why the contrast?
+[16:22:52] <@Eidolos> I just don't like the  look of InterHack
+[16:23:01] <@Eidolos> or camelcase in general
+[16:23:09] < alexbobp> well, I know you're big on looks
+[16:23:18] < alexbobp> seeing as how you have the most developed menucolors
+[16:23:29] <@Eidolos> you're creepyu!
+[16:24:09] < alexbobp> I think you may have misunderstood me.
+[16:24:33] <@Eidolos> the menucolors aren't about looks so much as for functionality
+[16:24:47] < arcanehl> Eidolos loathes Java
+[16:26:29] < alexbobp> Why loathes java?  and how is that relevant?
+[16:26:57] <@Eidolos> nevermind
+[16:28:42] <@Eidolos> there's a whole message board dedicated to interhack on those forums
+[16:28:54] < alexbobp> which forums?
+[16:29:10] <@Eidolos> the ones you posted about
+[16:29:49] < alexbobp> ah, yes there is.
+[16:29:56] < alexbobp> you should create an account and post things!
+[16:30:07] <@Eidolos> meh :)
+[16:30:30] < alexbobp> is that a yes?
+[16:31:08] <@Eidolos> nop
+[16:31:22] <@doy> that's a "why use web forums when i have darcs and irc?"
+[16:31:35] <@doy> (an opinion i happen to share)
+[16:31:36] <@doy> (:
+[16:32:15] < arcanehl> and when the userbase is less than ten
+[16:32:48] <@Eidolos> if people want to discuss interhack, great, they're welcome to do it anywhere, but I'm pretty partial to this little channel
+[16:33:06] <@Eidolos> I think we're at 5 actual users
+[16:33:35] <@Eidolos> I think I'll wait for 2.0 before I really begin pushing it
+[16:34:29] < arcanehl> is this before or after R4?
+[16:34:36] <@Eidolos> :P
+[16:34:43] <@Eidolos> always with the  insults!
+[16:35:23] < alexbobp> with irc, you will get asked a question many times.  With fora, you can post it once, ban the people who don't read stickies, and then you don't have to answer it any more.
+[16:35:55] <@Eidolos> we have a README, and can have a FAQ
+[16:35:58] < arcanehl> yeah, and in mutiple channels! hah
+[16:36:04] <@doy> and we can ban people too
+[16:36:18] < arcanehl> from the darcs server too
+[16:36:21]  * arcanehl evil grinn
+[16:36:28] <@doy> (:
+[16:36:58] -!- ekiMbo is now known as ekiM
+[16:41:25] < alexbobp> I don't think I understand darcs.  I thought it was just revision control
+[16:41:28] < alexbobp> is it also a forum thing?
+[16:42:11] < alexbobp> ooh, the darcs site is back up.  I'll just look.
+[16:43:04] <@doy> it's just revision control
+[16:43:07] <@Eidolos> it is just revision control, i'm not 100% sure what doy's point was trhthere :)
+[16:43:22] <@doy> but it helps for things like discussing patches
+[16:44:26] < alexbobp> Is the cyan e patch an eyepatch?
+[16:44:48] <@Eidolos> BAN
+[16:45:21] < alexbobp> what, is there something wrong with bad jokes>
+[16:45:33] < alexbobp> *?
+[18:01:53] < alexbobp> It sure is nice having Elbereth purple highlighting when I'm standing on dust Elbereths and fighting.
+[18:02:02] < alexbobp> Gives me a quick count of how many degrees of freedom I have
+[18:09:40] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[19:11:43] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:26:38] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[19:29:51] -!- ekiMbo is now known as ekiM
+[19:58:53] -!- alexbobp [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[20:23:32] <@Eidolos> yep. I think colored Elbereths was doy's idea
+[20:24:58] < arcanehl> color freak
+[20:25:36] <@doy> it certainly was
+[20:26:46] < alexbobp> Well, I appreciate it
+[20:26:55] < alexbobp> it really makes my Elbereth abuse easier.
+[20:27:41] < alexbobp> Right now, I'm in Delphi, with a few $s on Es around the doorway, throwing darts at things.
+[21:04:47] -!- alexbobp is now known as alexbobp_away

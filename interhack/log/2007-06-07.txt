@@ -1,0 +1,148 @@
+[00:21:23] <@toft> Eidolos: confirm_confirm = <3333
+[00:22:36] <@Eidolos> :)
+[00:22:45] <@Eidolos> there's also fucking #GREP
+[00:22:50] <@Eidolos> built RIGHT fucking IN
+[00:22:51] <@Eidolos> <3
+[00:23:00] <@toft> yeah :D
+[00:23:05] <@toft> dude check this out
+[00:23:13] <@Eidolos> it currently displays results on the top line, but I might pipe it through $PAGER instead
+[00:23:29] <@toft> do maptimeout 50 in screen
+[00:23:36] <@toft> its beautiful
+[00:24:01] <@Eidolos> whuz it do
+[00:24:03] <@toft> also, your termcast seems to have been detached or some such
+[00:24:08] <@toft> fixes the escape delay in screen
+[00:24:11] <@Eidolos> nod
+[00:24:14] <@Eidolos> I'm at work :D
+[00:24:20] <@Eidolos> hackathon
+[00:24:22] <@toft> so vim escapes  work properly, and switching windows is like INSTANT
+[00:24:23] <@doy> same thing as timeoutlen in vim
+[00:24:29] <@toft> its really surprisingly nice
+[00:24:33] <@Eidolos> nice
+[00:28:03] <@toft> how late does this hackathon go?
+[00:28:13] <@toft> do you sleep at the office? that would be pretty sweet
+[00:30:19] <@Eidolos> well
+[00:30:25] <@Eidolos> we're about to leave now I guess
+[00:30:29] <@Eidolos> it's just me the boss and another guy
+[00:30:46] <@toft> ah
+[00:31:23] <@Eidolos> and the other guy is clkao
+[00:31:29] <@Eidolos> and he's staying at the boss' house for now
+[00:32:04] <@toft> haha
+[00:32:05] <@toft> cool
+[00:33:09] <@Eidolos> he actually lives in.. Thailand? or Taiwan? I forget
+[00:33:16] <@Eidolos> he's the svk guy
+[00:33:27] <@toft> yeah you've mentioned that
+[00:33:31] <@Eidolos> :D
+[00:33:34] <@Eidolos> he's a fun guy
+[00:34:40] <@toft> he's a fungi? gross
+[00:34:57] <@Eidolos> that one doesn't really work on the internets
+[00:35:02] <@toft> :|
+[00:35:13] <@toft> yuor mom!!
+[00:44:05] < zubin> is synonymous with suck
+[00:44:10] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[00:54:34] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+[01:09:04] <@Eidolos> heh, I'm at the boss's house now 8)
+[01:09:49] < arcanehl> don't get banned again
+[01:11:01] <@Eidolos> eh!
+[01:11:02] <@Eidolos> oh
+[01:11:04] <@Eidolos> right
+[01:20:25] <@doy> what are you doing there?
+[01:28:39] <@Eidolos> sleeping
+[01:29:08] <@Eidolos> we had a hackathon (look, new interhack features) which ended late
+[01:34:00] < ekiM> you sure don't look like you're sleeping
+[01:34:07] <@Eidolos> welp
+[01:34:15] <@Eidolos> my battery is about to kick out so
+[01:34:18] <@Eidolos> good night :)
+[01:34:55] < ekiM> night
+[01:35:01] < ekiM> person battery or laptop battery I wonder
+[02:00:17] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[02:02:43] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[02:02:46] -!- ekiMbo is now known as ekiM
+[11:15:49] <@Eidolos> heh, laptop
+[11:21:34]  * billnye blinks
+[11:21:48] < billnye> LOL, Laps.
+[11:21:50] < billnye> ???
+[11:22:05] < raxvulpine> That looks like a LOL lapse to me, billnye.
+[11:22:08] <@Eidolos> lol
+[11:22:29] < billnye> :)
+[11:22:46] < billnye> in regex, "." matches any single character
+[11:23:27] <@Eidolos> except \n
+[11:27:39] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[12:57:29] < stabwound> .
+[12:58:20] < jasonmay> Highlander?!
+[13:00:30] <@Eidolos> WE'RE THE PRINCES OF THE UNIVERSE
+[13:03:31] < jasonmay> OVER NINE THOUSAAAAND
+[13:03:47] <@Eidolos> lulwhut
+[13:04:11] < jasonmay> it's a meme
+[13:04:20] < jasonmay> sorta
+[13:06:17] <@Eidolos> nod
+[13:52:28] < billnye> I borned your mom's kings, last night
+[14:01:49] <@toft> no wei
+[14:05:41] <@Eidolos> so do you guys love #grep yet
+[14:05:47] <@toft> haven't played since
+[14:05:50] <@Eidolos> SIGH
+[14:05:52] <@Eidolos> :)
+[14:05:54] <@doy> haven't pulled yet
+[14:05:54] <@toft> I'm about to start my Gno
+[14:06:01] <@toft> I still don't know what kind of Gno to play
+[15:25:09] <@toft> I've been noticing some weird stuff with ^E lately
+[15:25:19] <@Eidolos> o rly
+[15:25:21] <@doy> such as?
+[15:25:36] <@toft> sometimes I get "No such command: ^E" or whatever
+[15:25:52] <@toft> so interhack misses it somehow
+[15:26:00] <@doy> hmmm, never seen that
+[15:26:14] <@toft> look at my termcast
+[15:26:22]  * doy at work
+[15:26:24] <@toft> ok
+[15:26:27] <@toft> Unavailable command '^E'.
+[15:26:45] <@Eidolos> only sometimes?
+[15:26:48] <@toft> yes
+[15:26:50] <@toft> its pretty rare
+[15:26:53] <@toft> every 10 or so
+[15:26:55] <@Eidolos> hmmm
+[15:26:59] <@Eidolos> are you current?
+[15:27:02] <@toft> ?
+[15:27:04] <@toft> oh, yeah
+[15:27:22] <@Eidolos> did you notice before you pulled last night's changes, do you remember?
+[15:27:27] <@Eidolos> because I recently touched the keymap code
+[15:27:33] <@toft> I didn't, yeah
+[15:27:41] <@Eidolos> ok
+[15:27:58] <@toft> just happened again
+[15:28:00] <@toft> you at work?
+[15:28:03] <@Eidolos> yes
+[15:28:35] <@toft> The soldier ant is caught in the gas spore's explosion!--More--
+[15:28:36] <@toft> :D
+[15:28:41] <@toft> You kill the soldier ant!--More--
+[15:28:41] <@toft> :DDD
+[15:28:57] <@Eidolos> You are caught in the explosion!--More--
+[15:28:58] <@Eidolos> :D
+[15:29:00] <@toft> haha
+[15:29:01] <@toft> die!
+[15:29:02] <@Eidolos> You die...--More--
+[15:29:04] <@Eidolos> :D:D:D:D:D
+[19:31:33] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[20:24:38] <@doy> oh, maybe that's it
+[20:24:49] <@doy> maybe the elbereth plugin is catching the keystroke
+[20:25:00] <@doy> or overriding the keymap for the next input
+[20:25:12] <@doy> because it's interfering with the marker plugin right now like that
+[20:25:25] <@doy> (regex wasn't good enough, i'll push a fix soon)
+[20:25:51] <@doy> it's possible that if you are pressing ^E too quickly it might be using the wrong keymap?
+[20:25:55] <@doy> not sure
+[20:34:15] <@doy> toft: watching your game, it does look like that's the issue
+[20:37:46] <@toft> too quickly?
+[20:37:52] <@toft> I tested that a bunch of times
+[20:38:07] <@toft> like pressing it really slowly and deliberately after a good wait after the last one
+[20:38:13] <@toft> it would still happen with the same frequency
+[20:38:20] <@doy> no, it has to do with when the elbereth plugin notices stuff
+[20:38:24] <@toft> oh?
+[20:38:35] <@doy> i'm pretty sure if you just unload it, it should work fine again
+[20:39:39] <@toft> ahh.
+[20:39:57] <@toft> I wish we had dynamic unloading support.. :)
+[20:43:51] <@doy> you do if you're eidolos and can just eval stuff on the fly
+[20:43:58] <@toft> sigh
+[20:44:12] <@toft> have you tried to get that perl module towork?
+[20:44:21] <@toft> also, more bones? you bastard :)
+[20:45:21] <@toft> unless its a fake ghost
+[20:45:30] <@toft> oh
+[20:45:30] <@toft> haha
+[20:45:38] <@toft> way to be observent, mr. ego
+--- Log closed Thu Jun 07 21:13:42 2007

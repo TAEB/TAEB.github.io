@@ -1,0 +1,58 @@
+[08:52:31] -!- alexbobp_away [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has left #interhack []
+[09:26:24] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[10:43:24] <@Eidolos> alexbobp: if you bg interhack and fg, does it just cause display errors?
+[10:43:34] <@Eidolos> you can use ^R to get NH to redra
+[10:46:11] < alexbobp> not display errors
+[10:46:18] < alexbobp> it starts writing letters to the cursor instead of sending them.
+[10:46:27] < alexbobp> I haven't tried it with just telnet
+[10:46:28] <@Eidolos> ah
+[10:46:34] <@Eidolos> I know why
+[10:46:40] < alexbobp> also, the behavior might be different on Linux, I'm using cygwin.
+[10:46:46] < alexbobp> can you test it?
+[10:46:56] < alexbobp> I noticed because I accidentally hit ctrl-z instead of shift-z
+[10:47:09] < alexbobp> and then again the next two times I tried running the game, because I'm an idiot
+[10:47:23] < alexbobp> anyway, each time I had to type Sy and then press enter
+[10:47:40] <@Eidolos> I'm at work an't really
+[10:47:56] < alexbobp> I'll test with my home Linux box then.
+[10:48:49] < alexbobp> cygwin won't run telnet on it's own, so I can't test that
+[10:48:56] < alexbobp> and there's no task management in cmd, of course
+[10:49:36] <@doy> putty?
+[10:49:47] < alexbobp> actually, I was using putty
+[10:49:57] < alexbobp> since I like the interface so much, I used putty to ssh to localhost
+[10:50:16] < alexbobp> okay.  I just tested cygwin sshed to a home linux box, ran interhack at home, and same trouble
+[10:50:50] <@Eidolos> it's the way we get into "read raw keys" mod
+[10:51:16] < alexbobp> okay, if I use Konsole (via CoLinux) and ssh home, same thing happens.\
+[10:51:23] < alexbobp> and that's pure linux with no Windows
+[10:52:08] < alexbobp> If I do it without interhack, it crashes when I hit ctrl-z
+[10:55:42] < alexbobp> I notice the world orange is hilighted in green
+[10:57:29] <@doy> that's because oranges are vegan
+[10:58:03] <@doy> bright green food items are vegan, dark green ones are vegetarian
+[11:02:04] < alexbobp> ah, I see.
+[11:02:13] < alexbobp> so it was a context issue.
+[11:02:41] <@doy> what was the context?
+[11:03:03] < alexbobp> gems
+[11:03:20] <@doy> hmmm, i thought that context at least was fixed
+[11:03:31] < alexbobp> In the inventory
+[11:03:43] < alexbobp> but when I rub it against a gray stone, it hilights orange when talking about the orange streaks.
+[11:03:44] <@doy> we do have lots of context issues though... mostly we just don't care that much, since they don't really hurt anything
+[11:03:54] <@doy> ah, okay
+[11:04:25] <@Eidolos> no big deal
+[11:04:27] <@doy> i won't have time to fix it for a while, but eid can probably handle it when he gets off of work
+[11:04:32] <@doy> should be a pretty simple fix
+[11:04:35] <@Eidolos> (?! streaks)
+[11:04:40] <@doy> yeah
+[13:13:25]  * billnye streaks (?!)
+[13:15:24] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[13:21:48] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[13:21:50] -!- ekiMbo is now known as ekiM
+[15:25:34] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:26:30] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[15:26:31] -!- ekiMbo is now known as ekiM
+[16:20:07] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[18:16:14] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[18:34:35] -!- Netsplit over, joins: ekiM
+[19:42:58] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:44:45] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[19:44:46] -!- ekiMbo is now known as ekiM
+[20:42:14] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:58:22] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]

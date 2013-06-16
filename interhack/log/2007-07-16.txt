@@ -1,0 +1,29 @@
+[01:13:03] <@Eidolos> which prompt in particular?
+[01:13:17] <@Eidolos> the regex might be expecting a space at the end when there isn't, or something
+[13:13:22] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[14:26:44] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[14:52:51] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit ["I can kick stuff off a planet"]
+[15:00:13] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[15:19:47] -!- profanephobia [n=profanep@74-137-92-239.dhcp.insightbb.com] has joined #interhack
+[15:20:52] < profanephobia> hello
+[15:21:41] <@doy> hey
+[15:23:08] <@Eidolos> hi
+[15:24:57] < profanephobia> ive been looking through several channels for some advice on advancing my security knowledge for the company i work for... would anyone here care to be of assistance?
+[15:25:14] <@doy> wrong channel
+[15:25:16] <@doy> this is about a game
+[15:25:42] < profanephobia> ha i should have actuall yread the readme
+[15:25:54] <@Eidolos> I blame Jay Fenlason (is that how you spell it?) for all of our grief
+[15:26:00] < profanephobia> oh well thanks anyways
+[15:26:20] <@doy> Eidolos: who?
+[15:27:01] <@Eidolos> the guy who started Hack
+[15:27:26] <@doy> heh
+[15:28:15] <@Eidolos> so any info on that make_tab problem?
+[15:31:15] <@doy> nope, just noticed it when trying to #name a gray stone
+[15:31:36] <@Eidolos> ok
+[15:39:22] -!- profanephobia [n=profanep@74-137-92-239.dhcp.insightbb.com] has left #interhack ["Leaving"]
+[16:03:28] <@Eidolos> aww
+[16:03:32] <@Eidolos> I'm gonna miss that little man
+[16:22:38] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[18:50:21] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[19:19:16] < billnye> I think that condition is when you're afraid of shit
+[23:36:42] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

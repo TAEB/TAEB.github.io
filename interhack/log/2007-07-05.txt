@@ -1,0 +1,68 @@
+[00:53:58] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: arcanehl
+[01:04:56] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+[10:17:54] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[10:24:07] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[16:39:10] < billnye> #n: interhack ought to have automatic downstacking of important items, up to pack-item limits
+[16:39:26] < billnye> curse-catching and blank-protection
+[16:39:59] < billnye> can 200 AUTOMATIC ROCKS be far behind?
+[16:41:46] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[16:41:52] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has left #interhack []
+[16:41:52] <@Eidolos> I get angry at the word 'automatic'
+[16:43:21] < billnye> becuase of the lack of the word "optional", or because of the implicit effort involved in every feature request?
+[16:44:03] < ekiM> he prefers 'automagic'
+[16:48:35] <@doy> downstacking?
+[16:50:46] < billnye> stack splitting into 1-item stacks, by any other name, would smell as strange a request
+[17:14:54] <@Eidolos> billnye: Interhack should not be sending any commands automatically, it should all be tabs or whatever
+[17:27:24] < arcanehl> Eidolos is a bit of a purist in this
+[17:27:41] <@Eidolos> for good reason: I don't trust myself to write correct coode
+[17:27:49] <@Eidolos> can't even spell correctly
+[17:27:56] < billnye> ah, that's not an issue in what I'm imagining
+[17:30:02] < billnye> #unstack and #restack commands, with "press tab to unstack all potions of gain level" and "press tab to unstack all potions of gain level"
+[17:31:22] <@Eidolos> oh, sure
+[17:33:49] < billnye> it's an idle thought, really
+[17:35:21] < billnye> the coincidence with the 200 ROCKS process is just a coincidence, I swear! ;)
+[17:38:32] <@Eidolos> you still owe me an interhack ascension!
+[17:40:51] < arcanehl> you still owe me a (posted) YAAP!
+[17:41:37] <@Eidolos> >_>
+[17:41:56] < billnye> I have to install it, first!
+[17:42:02]  * billnye runs away
+[17:42:13] < billnye> (headed home from work, bbl)
+[17:42:15] < arcanehl> also, how many games counted for the 2007 tournament?
+[17:45:58] <@Eidolos> enough1
+[17:47:51]  * arcanehl wants a number
+[17:51:50] <@Eidolos> 14524
+[17:52:12] <@Eidolos> dn 06 was 17753
+[18:22:21] < ekiM> despite outwards appearances, NH players in general are getting better
+[18:22:26] < ekiM> I guess!
+[18:30:16] <@doy> or the good players who stopped playing because they were getting tired of it actually made an effort during the tournament
+[18:30:19] <@doy> (:
+[20:00:04] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[21:06:14] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[21:21:37] < Zawk> Is there a list of plugins somewhere?
+[21:34:57] < Zawk> using interhack on SNO has some funny behaviour
+[21:35:30] <@Eidolos> plugins/ :)
+[21:35:50] < Zawk> if you have the password set to be passed through, it logs in fine, but then sends a 'c' through so SNO prompts you to change your password
+[21:36:00] <@toft> SNO?
+[21:36:21] < Zawk> sporkhack.nineball.org
+[21:36:25] <@toft> ah
+[21:36:27] <@toft> roight
+[21:36:47] < Zawk> what does `chomp` do in perl again?
+[21:36:58] <@toft> removes a newline at the end if it exists
+[21:37:04] < Zawk> alright
+[21:37:09] <@toft> of a string
+[21:37:23] < Zawk> hm... in linux the new line is just <CR>, right?
+[21:37:43] <@toft> usually displayed as \n, but yeah
+[21:38:01] < Zawk> well there's the problem I think
+[21:38:23] < Zawk> interhack.pl line 629
+[21:38:31] < Zawk> $pass = do { local @ARGV = "$ENV{HOME}/.interhack/passwords/$nick"; <> };
+[21:38:38] < Zawk> then it does "chomp $pass"
+[21:38:44] < Zawk> but $pass has already been sent
+[21:39:57] < Zawk> and then maybe the C in <CR> is interpretted as "C" and sent through?
+[21:40:07] < Zawk> no, that can't be it. 'R' would show up at the change password prompt
+[21:55:39] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[23:32:09] < arcanehl> err
+[23:32:18] < arcanehl> the newline in Linux is a newline
+[23:32:25] < arcanehl> <CR> is a carriage return
+[23:36:46] < Zawk> well, I figured out that it was the terminal that I was using that was causing the problems
+[23:39:05] < Zawk> ahh crap
+[23:39:17] < Zawk> interhack started to use a weird font!

@@ -1,0 +1,13 @@
+[02:26:53] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[03:12:06] -!- doy [n=doy@adsl-76-199-4-46.dsl.chmpil.sbcglobal.net] has quit ["leaving"]
+[12:15:37] -!- ekiMbo [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[12:16:45] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[12:16:47] -!- ekiMbo is now known as ekiM
+[12:22:01] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[12:54:50] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[15:53:03] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[17:59:17] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[19:17:26] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[20:30:08] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[21:18:07] -!- D4nUx [n=danuxx@189.136.60.12] has joined #interhack
+[21:19:26] -!- D4nUx [n=danuxx@189.136.60.12] has left #interhack []

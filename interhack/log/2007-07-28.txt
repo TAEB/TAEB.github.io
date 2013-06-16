@@ -1,0 +1,81 @@
+[00:10:29] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[00:10:45] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[00:10:51] < Zawk> interhack...2?
+[00:11:06] <@Eidolos> yes
+[00:11:19] < Zawk> what's ne?
+[00:11:20] < Zawk> ew
+[00:11:21] < Zawk> new
+[00:11:24] <@Eidolos>   * First milestone: ability to play on NAO
+[00:11:24] <@Eidolos>   * Milestone 2: plugin loading
+[00:11:24] <@Eidolos>   * Milestone 3: reloading plugins live
+[00:11:24] <@Eidolos>   * Milestone 4: save/load state
+[00:11:24] <@Eidolos>   * Milestone 5: new game detection / state clear
+[00:11:27] < Zawk> wheeee sleepy drugs
+[00:11:27] <@Eidolos> that's where I am now
+[00:11:39] <@Eidolos> the source code is worlds nicer too. all modular and stuff!
+[00:11:50] < Zawk> so what's it mean to be modular?
+[00:12:04] <@Eidolos> separate things are separate, so it's easy to combine them into more powerful things
+[00:12:21] <@Eidolos> plus it's a lot easier to remove parts of it you don't like, or add new parts
+[00:12:29] <@Eidolos> shrug :)
+[00:12:55] <@Eidolos> Interhack 1.x loses any state it has when you save. 2.0 fixes that. that's probably the biggest difference the users will see until we get back up to 1.x's level
+[00:13:00] <@Eidolos> since it's a complete rewrite
+[00:13:10] <@Eidolos> (sans stuff that's easy to copy over, like menucolors)
+[00:14:58] < billnye> mention "refactoring" somewhere
+[00:15:02] < billnye> you know you wanna!
+[00:15:14] <@Eidolos> :)
+[00:15:18] <@Eidolos> the way I look at it is
+[00:15:28] <@Eidolos> Interhack 1.x was a long-lived prototype. it clearly all works
+[00:15:48] <@Eidolos> it evolved
+[00:15:52] <@Eidolos> 2.x is intelligently designed :)
+[00:15:58] <@Eidolos> well. designed.
+[00:16:01] < zubin> Eid
+[00:16:02] < zubin> help me
+[00:16:08] < zubin> make the plane go
+[00:16:20] < zubin> pleeeeeease
+[00:17:09] < billnye> pEidolot :<
+[00:22:00] <@Eidolos> :|
+[00:24:02] < zubin> pleeeeese go haxxor jetblue.com and make my plane go!
+[00:24:11] < zubin> cause I <3 NY but not this fucking terminal
+[00:29:51] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[01:07:16] <@Eidolos> time to start writing tests! dunnn
+[01:21:22] <@Eidolos> see, the trick with testin
+[01:21:35] <@Eidolos> is to write the code with testing in mind
+[01:21:36] <@Eidolos> :)
+[01:21:59] <@Eidolos> I have methods for exactly the smallest bits of code that need to be overridden in the test suite: basically IO
+[02:07:30] <@Eidolos> so Interhack has a test framework now. just need to make it easy to test plugins
+[02:29:46] <@Eidolos> ha ha. test suite found its first real bug
+[02:29:56] <@Eidolos> (?! - ) is the same was (?!-) with /x on :)
+[03:01:30] <@Eidolos> going to bed
+[03:01:43] <@Eidolos> toft: darcs get darcs.katron.org:../sartak/interhack/branches/2.0
+[03:01:47] <@Eidolos> doy: darcs pull :)
+[03:02:01] <@Eidolos> everyone else: darcs get http://darcs.katron.org/~sartak/interhack/branches/2.0/
+[03:02:49] <@Eidolos> it's not worth using yet but if you want to see what I've done in the past.. 7 hours.. :)
+[03:03:01] <@Eidolos> 9? shrug
+[03:03:07] <@Eidolos> yeah 9
+[03:04:26] <@Eidolos> night. have fun I guess!
+[09:51:10] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:51:26] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[09:51:28] -!- ekiMbo is now known as ekiM
+[10:02:50] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:03:53] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[10:03:54] -!- ekiMbo is now known as ekiM
+[12:10:08] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit ["I can kick stuff off a planet"]
+[12:18:30] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:35:36] <@Eidolos> you guys should try the new Interhack.. :|
+[12:37:58] < billnye> b-b-but I haven't tried the OLD one :<
+[12:39:26] <@Eidolos> yeah.. that too
+[12:43:59] < billnye> ;D
+[13:49:00] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[14:00:40] <@Eidolos> cool. Interhack 2.x now has macros.. :)
+[14:04:36] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[15:56:35] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[16:11:41] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[16:26:04] <@Eidolos> it's not perfect yet! :)
+[16:26:12] <@Eidolos> trying to at least get failing tests
+[16:32:30]  * Eidolos frowns
+[16:32:45] <@Eidolos> I think I'll revert to when everything was peachy, even if the tests were a little broken
+[16:33:04] <@Eidolos> since I've lost the ability to save/load and reload plugins live, which is kind of a big deal
+[20:00:27] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:16:00] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[20:58:28] -!- ekiMbo is now known as ekiM
+[23:47:35] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

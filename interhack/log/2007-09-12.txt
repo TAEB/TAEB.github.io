@@ -1,0 +1,9 @@
+[06:03:11] -!- sorear [n=stefan@ip68-6-133-142.sd.sd.cox.net] has quit ["zzz"]
+[12:42:18] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has quit ["Leaving."]
+[19:35:30] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has joined #interhack
+[21:29:52] -!- sorear [n=stefan@ip68-6-133-142.sd.sd.cox.net] has joined #interhack
+[22:54:39]  * sorear facetiously proposes automatically turning off DECgraphics
+[23:23:34]  * alexbobp seriously proposes the same
+[23:34:53] < arcanehl> they just want you to use IBM instead
+[23:46:24] <@Eidolos> :)
+[23:46:46] <@Eidolos> hmm, maybe Interhack should issue a warning if it detects that you're using dec

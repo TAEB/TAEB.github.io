@@ -1,0 +1,38 @@
+[13:48:11] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[13:48:11] -!- Irssi: #interhack: Total of 8 nicks [2 ops, 0 halfops, 0 voices, 6 normal]
+[13:48:13] -!- mode/#interhack [+o Eidolos] by ChanServ
+[13:49:23] -!- Irssi: Join to #interhack was synced in 73 secs
+[14:33:49] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[14:50:12] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[16:19:04] <@Eidolos> What do you want to add to the text burned into the floor here?
+[16:19:19] <@Eidolos> What do you want to add to the engraving in the floor here?
+[16:19:27] <@Eidolos> What do you want to add to the writing in the dust here?
+[16:19:28] <@Eidolos> ok :)
+[16:19:37] <@Eidolos> What do you want to scribble on the floor here?
+[16:19:44] <@Eidolos> What do you want to add to the graffiti on the floor here?
+[16:19:54] < billnye> "what do you want to add to the inexplicable list in the channel here?"
+[16:20:07] <@Eidolos> #interhack is my notepad
+[16:21:43] < billnye> #music is my aeroplane
+[16:26:57] <@Eidolos> http://paste.husk.org/8637 see how lovely this is!!
+[16:36:39] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[16:39:18] <@Eidolos> there's also a command-line utility for it
+[16:39:21] <@Eidolos> but it's not as nice
+[16:39:34] <@Eidolos> it's also just as slow as the web ui because that's what it uses :)
+[16:42:55] < zubin> Stupid question. Medusa. Do you need to blind yourself, if you have reflection?
+[16:43:06] < zubin> I always blind myself, but this time I don't have a blindfold/towel handy
+[16:43:10] < zubin> So I'm not sure.
+[16:43:24] <@Eidolos> you're safe from stoning if you're reflecting
+[16:43:27] < zubin> ok.
+[16:43:29] <@Eidolos> if you're also invisible, you just won't stone her
+[16:43:32] <@Eidolos> (so you might die in melee)
+[16:43:41] < zubin> "..says the statue of a wizard named Eidolos"
+[16:43:45] < zubin> :)
+[16:43:56] <@Eidolos> hehe
+[16:44:27] < zubin> Yep, she didn't notice that her gaze was reflected. Invisibility, presumably.
+[16:44:36] <@Eidolos> yup
+[18:31:11] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[21:27:35] <@Eidolos> pushed a few small changes
+[21:42:57] < raxvulpine> billnye: #music is my aeroplane in that context gets like 1000 points.
+[21:43:43] < billnye> heh
+[21:43:45]  * billnye bows
+[21:47:54] <@Eidolos> hehe

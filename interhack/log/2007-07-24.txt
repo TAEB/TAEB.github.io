@@ -1,0 +1,18 @@
+[02:41:09] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[03:55:20] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 104 (Connection reset by peer)]
+[03:55:24] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[08:04:34] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[10:35:52] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:01:18] -!- mode/#interhack [+o Eidolos] by ChanServ
+[11:46:12] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[12:17:07] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+--- Log closed Tue Jul 24 12:46:03 2007
+[14:02:09] -!- Netsplit kornbluth.freenode.net <-> irc.freenode.net quits: jilles
+[14:02:39] -!- Netsplit over, joins: jilles
+[14:13:02] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[14:15:27] -!- Netsplit kornbluth.freenode.net <-> irc.freenode.net quits: jilles
+[14:16:16] -!- Netsplit over, joins: jilles
+[19:02:21] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[19:25:38] -!- billnye [i=billnye@unaffiliated/billnye] has quit ["Changing server"]
+[19:43:54] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[23:12:12] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

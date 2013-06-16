@@ -1,0 +1,31 @@
+[01:19:35] -!- Netsplit kubrick.freenode.net <-> irc.freenode.net quits: jilles
+[01:35:12] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[02:12:38] -!- jilles [i=jilles@unaffiliated/jilles] has joined #interhack
+[02:16:42] -!- Netsplit kubrick.freenode.net <-> irc.freenode.net quits: jilles
+[02:16:51] -!- Netsplit over, joins: jilles
+[02:34:21] -!- Netsplit kubrick.freenode.net <-> irc.freenode.net quits: jilles
+[02:40:29] -!- Netsplit over, joins: jilles
+[10:18:13] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:21:36] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[16:19:34] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[17:06:54] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[17:12:01] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[17:40:48] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[17:41:10] < Zawk> What's the point of having interhack call a scroll something when you pick it up?
+[17:41:47] <@doy> Zawk: scrolls you have #named can be written with 100% accuracy
+[17:41:54] <@doy> even if you don't know what they are
+[17:42:14] < Zawk> oh nifty
+[17:42:56] <@Eidolos> :)
+[17:43:05] <@Eidolos> it's one of those things that I forget to abuse
+[17:43:12] <@Eidolos> so I make it less easy to forget
+[17:56:26] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[18:09:57] < ekiM> I name scrolls obsessively now :/
+[18:11:15] <@Eidolos> use innerhacks
+[18:11:24] < ekiM> windoze
+[18:11:41] < ekiM> maybe I'll get around to switching to ubunutu once I'm at home and have nothing to do, heh
+[18:12:00] < ekiM> or, I have some old computers I can practice on!
+[18:13:04] <@Eidolos> cygwin?
+[19:04:09] < billnye> coLinux?
+[19:30:30] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[22:15:59] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[23:27:25] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

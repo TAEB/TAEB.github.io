@@ -1,0 +1,62 @@
+[07:08:36] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[07:09:44] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[07:36:25] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has quit [Read error: 54 (Connection reset by peer)]
+[11:26:00] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[14:28:17] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[17:10:20] <@Eidolos> anselmus takes this game too seriously, it's funny :)
+[17:11:56] < ekiM> you killed my father's ascension ratio, prepare to die
+[17:12:02] < raxvulpine> HAH
+[17:12:15] <@toft> lol ekiM
+[17:14:41] < raxvulpine> There must be some Faustian deal with the devil going on.
+[17:14:55] < ekiM> _cannot_ _afford_ another splat
+[17:26:09] < ekiM> there's still something I'm missing
+[17:26:23] < raxvulpine> It does not compute!
+[17:27:14] < ekiM> he paid money?
+[17:27:20] <@toft> yes
+[17:27:45] <@toft> 'dumb'
+[17:27:46] < ekiM> there's _definitely_ something I don't understand
+[17:27:54] < ekiM> but I guess I don't know anything about aneslmus
+[17:28:08] <@toft> anselmus paid a bunch of people to finish off his post castle games
+[17:28:09] <@toft> end of story
+[17:28:11] < ekiM> $200 ????
+[17:28:59] <@toft> more than just that
+[17:29:09] < raxvulpine> A mysterious man offering money to play a simple game. Four experts down on their luck willing to accept his offer. But when they start losing, they find that they're losing more than they bargained for... Ascenion Percentage. In theaters this November.
+[17:29:11] <@toft> he also paid Eid, and possibly others.. but i dunno
+[17:29:32] <@toft> Ascenions. Ascensions for those short on the letter s.
+[17:29:48] < raxvulpine> Oops.
+[17:29:50]  * Eidolos got $160 :)
+[17:30:05] < raxvulpine> What the fuck?
+[17:30:14] <@Eidolos> yeah
+[17:30:16] <@Eidolos> you didn't know?
+[17:30:20] < ekiM> is he actually insane?
+[17:30:26] <@Eidolos> .. yes !
+[17:30:47] <@toft> "In a world where a mysterious man offers money to play a simple game, four men down on their luck are willing to accept his offer."
+[17:30:58] < ekiM> spin the bottle?
+[17:31:08] <@toft> gotta use the proper introduction, rax :D
+[17:31:22] < raxvulpine> Oh right!! I obviously haven't seen enough movie trailers.
+[17:31:38] < ekiM> you probably don't have the gravelly voice for it either, amirite
+[17:31:54] < raxvulpine> I do not.
+[17:32:36] < ekiM> is it the same guy each time or is there a special school where they get taught to talk that way
+[17:34:42] <@Eidolos> probably one or two guys
+[17:34:54] <@toft> its mainly one guy though
+[17:34:56] <@toft> I knew his name
+[17:34:56] <@Eidolos> (a backup!)
+[17:34:59] <@toft> he's on the geico commercial
+[17:35:13] < ekiM> imagine his pillow talk
+[17:35:38] < raxvulpine> Ewwwwww
+[17:35:45] < ekiM> :D
+[17:35:47] <@Eidolos> haha
+[17:35:47] <@toft> "In a world where we're lying next to each other on the bed, one man has the courage to ..."
+[17:35:54] < raxvulpine> HAH
+[17:35:54] <@toft> Don LaFontaine
+[17:36:11] <@toft> voice actor famous for recording over 5000 movie trailers
+[17:36:17] <@toft> says wikipedia
+[17:36:55] <@toft> Many of his voiceovers take the format of "In a world where (some negative condition), one (usually person) will (do something positive)". He has also parodied this cliché several times.
+[17:42:44] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[17:58:28] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[23:11:44] -!- Netsplit calvino.freenode.net <-> irc.freenode.net quits: @toft
+[23:13:42] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[23:13:45] -!- mode/#interhack [+o toft_] by ChanServ
+[23:19:03] -!- toft [i=nobody@unaffiliated/crassworm] has joined #interhack
+[23:19:03] -!- ServerMode/#interhack [+o toft] by irc.freenode.net
+[23:19:15] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Success]

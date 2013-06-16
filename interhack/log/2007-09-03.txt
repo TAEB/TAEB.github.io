@@ -1,0 +1,11 @@
+[17:45:10] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[17:45:19] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[17:56:04] -!- ekiMbo is now known as ekiM
+[18:58:26] -!- scmadi|work [n=samir@200.233.27.35] has joined #interhack
+[18:59:17] -!- scmadi|work [n=samir@200.233.27.35] has left #interhack ["this monkey is gone to heaven"]
+[20:13:34] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[21:14:14] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[21:24:17] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[21:24:26] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:25:41] -!- ekiMbo is now known as ekiM
+[22:28:47] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack

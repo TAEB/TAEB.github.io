@@ -1,0 +1,29 @@
+[00:22:28] <@Eidolos> down to 498, woo
+[00:48:56] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[00:58:59] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: jilles
+[00:59:16] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: @doy, billnye, zubin, raxvulpine, @toft, Zawk, ekiM
+[01:04:00] -!- Netsplit over, joins: @toft, zubin, Zawk, ekiM, billnye, jilles, @doy, raxvulpine
+[01:23:25] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[02:43:52] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[02:43:52] -!- mode/#interhack [+o toft_] by ChanServ
+[02:48:20] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 104 (Connection reset by peer)]
+[03:13:17] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit ["Reconnecting"]
+[03:13:20] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[04:24:49] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 110 (Connection timed out)]
+[06:51:42] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: ekiM
+[06:52:29] -!- Netsplit over, joins: ekiM
+[07:08:17] -!- toft_ is now known as toft
+[07:22:57] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[11:01:00] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[11:01:42] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[12:45:03] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[12:51:47] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[14:53:05] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Read error: 60 (Operation timed out)]
+[16:45:03] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[17:14:01] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[18:48:51] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: billnye
+[18:55:00] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: jilles
+[18:56:14] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[18:56:54] -!- Netsplit over, joins: jilles
+[19:36:08] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:09:20] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []

@@ -1,0 +1,38 @@
+[01:13:45] -!- toft [i=nobody@unaffiliated/crassworm] has quit ["Lost terminal"]
+[01:48:57] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[01:49:00] -!- mode/#interhack [+o toft_] by ChanServ
+[01:51:02] -!- toft_ is now known as toft
+[01:58:23] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[04:00:14] -!- ekiMbo is now known as ekiM
+[04:12:23] -!- jilles_ is now known as jilles
+[05:11:51] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[08:55:34] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[09:02:17] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has joined #interhack
+[10:54:28] -!- doy_ is now known as doy
+[10:54:47] -!- mode/#interhack [+o doy] by ChanServ
+[10:58:00] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[12:31:02] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[12:31:10] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:11:03] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[15:02:02] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[18:00:01] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[20:22:54] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[22:27:57] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[22:41:20] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit [Read error: 110 (Connection timed out)]
+[23:32:34] -!- Zawk [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[23:32:44] < Zawk> I wasn't aware that this was now "public"
+[23:32:47] < Eidolos> hai
+[23:32:48] < Eidolos> yeah
+[23:33:07] < Zawk> I thought you were waiting for the end of the tourney?
+[23:33:47] < Eidolos> meh
+[23:33:50] < Eidolos> for rgrn yes
+[23:33:55] < Zawk> ahhh
+[23:49:12] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[23:57:56] < arcanehl> he'll announce it when he posts that YAAP..
+[23:58:02] < Eidolos> :)
+[23:58:06] < Eidolos> YAAP is like 95% done
+[23:58:17] <@toft> the YA'Q'AP
+[23:58:18] < arcanehl> so?
+[23:58:24] < arcanehl> it hasn't been *posted* yet
+[23:58:30] < arcanehl> hence, it's effectively 0% complete
+[23:58:34] <@toft> hehe

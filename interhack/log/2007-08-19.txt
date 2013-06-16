@@ -1,0 +1,150 @@
+[04:27:36] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[04:27:50] < Zawk> hai. intrhack is name of aartifact?
+[04:29:04] <@Eidolos> yes
+[04:29:06] <@Eidolos> yes it is
+[04:29:45] < Zawk> Cool beans
+[04:30:52] <@Eidolos> yes
+[04:30:54] <@Eidolos> yes they are
+[04:30:58] <@Eidolos> er..
+[04:34:41] < Zawk> it's ok
+[05:09:18] <@Eidolos> toft: I converted Interhack this afternoon to use Calf. it all works, mostly. all tests pass! I just need doy to do a little cleanup
+[05:09:49] <@toft> goodness gracious
+[05:09:52] <@toft> I'm like, so behind.
+[05:10:01] <@Eidolos> :)
+[05:10:17] <@toft> and its just going to get worse, because I'm going to colorado on tuesday for a few weeks... that's pretty much why I've not been around too much
+[05:10:21] < Zawk> GREAT BALLS OF FIRE!
+[05:10:23] <@toft> lot of planning and stuff to be done
+[05:10:25] <@Eidolos> oo
+[05:10:36] <@Eidolos> by the time you get back, 2.0 might be trunk :)
+[05:10:42] <@toft> but after that i'm guessing i'll have a renewed damn vigour
+[05:10:53] <@Eidolos> (and we'll be on to 4.0)
+[05:11:20] <@toft> you know what i'm talking about anyway about the whole 'getting bored' thing, i'm sure... sometimes I lose focus on a project and it takes a few weeks of other stuff to get meback on track etc
+[05:11:31] <@Eidolos> of course :)
+[05:11:33] <@toft> :)
+[07:16:17] -!- alexbob1 [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[07:18:25] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Nick collision from services.]
+[07:19:20] -!- alexbob1 is now known as alexbobp[
+[07:19:22] -!- alexbobp[ is now known as alexbobp
+[07:33:20] -!- alexbobp is now known as alexbobp_away
+[13:34:25] -!- GreyKnight [n=chatzill@86.112.250.209] has joined #Interhack
+[13:37:26] < GreyKnight> hai guyz
+[14:29:41] <@Eidolos> hi GK
+[14:30:11] < GreyKnight> hai
+[14:30:25] < GreyKnight> I had an Interhack question
+[14:30:53] <@Eidolos> yes
+[14:30:57] < GreyKnight> is there a simple way to have setups for different servers/accounts, other than two different copies of Interhack?
+[14:31:07] < GreyKnight> Also, RoundRobins.
+[14:31:33] <@Eidolos> the answer is somewhat involved, but yes
+[14:31:52] <@Eidolos> doy added support for multiple servers so he could play Sporkhack easier
+[14:32:02] <@Eidolos> and autologin lets you have different accounts
+[14:32:20] <@Eidolos> (you make a folder with each file being an account name, containing that account's password)
+[14:32:43] <@Eidolos> 1.0 doesn't save any data between games, but 2.0 saves everything
+[14:33:27] < GreyKnight> what about robins, I suppose you'd need to have the saved-data files accessible to all the robin users?
+[14:33:57] <@Eidolos> there probably wouldn't be any built in support but you could have a wiki somewhere
+[14:34:14] <@Eidolos> where when you begin playing you take the save file (which is plaintext.. yaml specifically), play, and then update the yaml when you're done
+[14:35:56] < GreyKnight> Another question! Doesn't the NewGame plugin method of resetting saved data basically mean that you can set up your system to either reset everything or nothing at a new game, but nowhere inbetween?
+[14:36:06] < GreyKnight> I feel like I'm doing an interview.
+[14:37:43] < GreyKnight> I was thinking about a new_game() event that plugins could hook to reset their data on an individual basis.
+[14:38:46] <@Eidolos> hmm
+[14:38:52] <@Eidolos> well
+[14:38:59] <@Eidolos> that wouldn't be too hard
+[14:39:13] <@Eidolos> callbacks to config in plugins in general are a Good Idea
+[14:39:58] < GreyKnight> probably you might want to collect the changes from the different plugins before rewriting the yaml (maybe that's already done, I haven't looked at that part of the code much)
+[14:40:42] < GreyKnight> oh, none of the links on http://sartak.akrasiac.org/interhack/plugins.html seem to work D-:
+[14:40:43] <@Eidolos> well ok, what do you want the "reset their data on an individual basis" for? maybe there's something deeper
+[14:41:01] <@Eidolos> where'd you get that url? O_o   http://interhack.us
+[14:41:28] < GreyKnight> well, actually, probably most of the plugins are going to want to reset all their data, and only a few might want to preserve state across a newgame.
+[14:41:57] < GreyKnight> An example might be a plugin with configurable options which wants to keep the player's settings from the last game unless they're changed.
+[14:42:15] < GreyKnight> others might include plugins that record statistical information across games
+[14:42:17] <@Eidolos> that'd generally go into your config
+[14:42:27] <@Eidolos> but yes.. things like "total time spent playing evar"
+[14:42:49] <@Eidolos> might be easiest to just go into a different yaml file
+[14:43:27] < GreyKnight> mebbe the utility plugin could have a method for writing per-plugin exterior storage, then, in a separate yaml
+[14:44:06] <@Eidolos> yeah
+[14:44:12] < GreyKnight> I was also wondering about how a plugin could keep track of player position, but I think that might be Hard
+[14:44:22] <@Eidolos> hmm
+[14:44:35] <@Eidolos> the cursor is always on the player when NetHack is expecting a command
+[14:44:38] <@Eidolos> afaik
+[14:44:43] <@Eidolos> so it's pretty do-able
+[14:44:58] <@Eidolos> if we can start looking at the map in a sane way we can accomplish more
+[14:45:03] < GreyKnight> but isn't the current "am expecting a command" function itself a best-guess approach?
+[14:45:04] <@Eidolos> like coloring branch stairs
+[14:45:13] <@Eidolos> yes, but I haven't had any misses with it yet
+[14:45:24] < GreyKnight> ok
+[14:45:40] <@Eidolos> humorously all of my experience writing bots has very much come in handy with Interhack :)
+[14:46:23] <@Eidolos> you also seem to know the code pretty well
+[14:46:24] < GreyKnight> player-position tracking could be handy; for instance, you could use that plus map-reading and the appearance of a "Welcome to $shop!" message to identify a shop room (which is endlessly useful)
+[14:46:31] < GreyKnight> I had a bit of a read the other day.
+[14:46:38] <@Eidolos> if you can lower yourself to write Perl I'd be happy to set you up with a commit bit
+[14:46:50] < GreyKnight> but it would dirty my mind ;-)
+[14:47:15] <@Eidolos> two other uses of player-position are VS and planes-portal hunting
+[14:47:20] < GreyKnight> I want to write some toy plugins, I don't know how much time I could commit to actual development right now :-)
+[14:47:25] < GreyKnight> oh, VS, good idea
+[14:47:47] <@Eidolos> http://interhack.us/trunk/TODO has some early ideas
+[14:47:49] < GreyKnight> draw big multicoloured arrows pointing to it
+[14:48:08] <@Eidolos> well it'd be more "color any square I've stepped on differently" :)
+[14:48:35] < GreyKnight> :-)
+[14:48:44] <@Eidolos> expecting_command is really going to come in handy
+[14:48:47] <@Eidolos> I expect we'll be using it a lot
+[14:49:22] < GreyKnight> hm, I see there's a sokohelper command, that's a good idea
+[14:49:35] <@Eidolos> yeah :) that's been our big target
+[14:49:53] <@Eidolos> when doy and toft came to Boston we were going to work on it, but we never did :)
+[14:51:17] < GreyKnight> Actually, I thought about putting in a "Clipley" meta-plugin that could watch for certain situations and ask if you want help with them :-3
+[14:51:33] < GreyKnight> "You appear to be trying to solve sokoban.  Would you like some assistance?"
+[14:51:51] <@Eidolos> I guess the "press tab to send foo" is a kind of proto clipley :)
+[14:53:03] < GreyKnight> obviously he would appear as an overlay, as a grey & with a speech bubble
+[14:53:37] <@Eidolos> p://blogs.sun.com/marigan/resource/vim.gif
+[14:53:40] <@Eidolos> http://blogs.sun.com/marigan/resource/vim.gif
+[14:54:34] < GreyKnight> I made a mock-up of a NetHack clipley once, actually, but I can't find it now D-:
+[14:56:06] < GreyKnight> oh, does NAO actually send the text for status effect flags that have wrapped off the side of the botl, or does it clip to the window size before sending? Keeping track of those would be useful, it's a hindrance to the player that is imposed entirely by their choice of window size
+[14:58:33] <@Eidolos> we recognize it based on the first three letters
+[14:58:43] <@Eidolos> so it's generally not an issue, unless you have a lot of statuses
+[14:59:22] <@Eidolos> I don't see an easy fix.. we could artificially make our term size larger, but I really don't want to do that because one of my hidden motivations for Interhack is it forces 80x24
+[14:59:29] <@Eidolos> which means I can watch more people :)
+[14:59:36] < GreyKnight> :-)
+[15:00:01] <@Eidolos> but the other thing is we'd have to re-number all the cursor drawing code to squeeze it back into 80x24, and that wouldn't be easy
+[15:00:03] < GreyKnight> I meant maybe some sort of status-summary command (maybe ^S, everyone hates that anyway)
+[15:00:21] < GreyKnight> sort of like fake enlightenment :-)
+[15:00:43] <@Eidolos> hmmmmm
+[15:00:53] <@Eidolos> I wonder how hard it would be to override ^S
+[15:00:58] <@Eidolos> I know it's part of the telnet negotiation
+[15:01:16] <@Eidolos> but we need to tell the controlling terminal "hey ignore ^S"
+[15:02:42] < GreyKnight> It is a recurring problem that should probably be addressed
+[15:04:21] < GreyKnight> The internal documentation for 2.0/lib/Interhack.pm specifies "Carp-REPL" as the CPAN item name.  Copy-and-paste much? :-P
+[15:04:48]  * Eidolos grins
+[15:04:55] <@Eidolos> which file?
+[15:05:16] < GreyKnight> http://interhack.us/branches/2.0/lib/Interhack.pm
+[15:05:48] <@Eidolos> ah. thanks
+[15:06:23] <@Eidolos> (yes, you did say Interhack.pm >_>)
+[15:06:27] <@Eidolos> anyway, fixed
+[15:06:30] < GreyKnight> :-P
+[15:20:50] < GreyKnight> does that floating-eye-recolour method work pretty well too?
+[15:47:59] < GreyKnight> oh, hm, here's a tricksy one:
+[15:48:40] < GreyKnight> taking action whenever some new part of the level is discovered
+[15:49:12] < GreyKnight> specific example: a vault-scanner that highlights parts of the screen where a vault could conceivably be
+[15:49:42] < GreyKnight> but that sounds like it could be quite intensive, at least with the "obvious" implementationt
+[15:49:47] < GreyKnight> * implementation
+[16:27:58] < GreyKnight> Eidolos is ignoring me again >:-(
+[16:56:12] -!- GreyKnight [n=chatzill@86.112.250.209] has quit ["gone!"]
+[16:57:27]  * Eidolos was reading
+[16:57:59] <@Eidolos> even though he won't read this:
+[16:58:11] <@Eidolos> floating eye works incredibly well, haven't had any misses with it
+[16:58:17] <@Eidolos> and vault scanner.. meh :) maybe
+[17:46:01] -!- alexbobp_away is now known as alexbobp
+[18:51:34] < Zawk> Eidognore
+[19:40:09] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[19:40:12] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:47:20] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:58:25] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[20:02:26] -!- Corpsegrinder [n=victor@189.152.45.126] has joined #interhack
+[20:02:51] < Corpsegrinder> hi
+[20:05:01] <@Eidolos> hi
+[20:22:42] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[20:26:23] -!- Corpsegrinder [n=victor@189.152.45.126] has quit ["Ex-Chat"]
+[22:13:51] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:53:24] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[22:53:33] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[22:54:31] -!- ekiMbo is now known as ekiM
+[23:04:56] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[23:05:05] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[23:05:21] -!- ekiMbo is now known as ekiM

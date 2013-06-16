@@ -1,0 +1,159 @@
+[00:48:54] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[01:39:35] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has joined #Interhack
+[01:49:29] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 54 (Connection reset by peer)]
+[02:02:09] < Reiska> step ahead, eid
+[02:02:22] <@Eidolos> that's the kind of initiative I look for in a soldier
+[02:03:21] < Reiska> :D
+[02:03:47] < Reiska> Copying patch 475 out of 706!
+[02:03:58] <@Eidolos> yeah, we do atomic coding pretty much
+[02:04:15] <@Eidolos> meaning every patch is an atomic changing, no piggybacking
+[02:04:21] <@Eidolos> darcs makes that convenient
+[02:42:45] < Reiska> okay
+[02:42:52] < Reiska> now that I've got this downloaded and read all the docs and stuff
+[02:43:18] < Reiska> which prepackaged config file has the most stuff for experimenting early?
+[02:46:11] < Reiska> or can I just launch it with the default CONFIG
+[02:46:17] < Reiska> aside from changing login name
+[02:46:18] < Reiska> obviously
+[02:54:57]  * Reiska sets up cpan
+[06:11:11] < Reiska> minor bug: in the very terminal lower right hand corner, screen redraws messed up
+[06:54:08] < Reiska> s/corner/bottom row of the map
+[08:34:08] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[09:45:28] <@Eidolos> yes, there are still some issues with the botl
+[10:00:20] < Reiska> what're the various # commands interhack recognizes?
+[10:00:28] < Reiska> or is supposed to, anyway
+[10:00:53] <@Eidolos> other than #rest they're all in the plugins
+[10:00:57] <@Eidolos> you could grep for extended_command
+[10:01:19] <@Eidolos> the documentation will improve soonish
+[10:01:26] <@Eidolos> especially since I have time to kill in my commute
+[10:01:29] <@Eidolos> (which has no net)
+[10:03:01] < Reiska> #rest didn't work for me when I tried it, incidentally
+[10:03:10] < Reiska> but it was on a pre-existing game, dunno if that's anything to do with it
+[10:03:59] <@Eidolos> shouldn't
+[10:04:03] <@Eidolos> it rests until:
+[10:04:08] <@Eidolos>   your hp which wasn't full becomes full
+[10:04:10] <@Eidolos>   your pw which wasn't full becomes full
+[10:04:14] <@Eidolos>   you get a message on the top line
+[10:04:18] <@Eidolos>   you hit a key
+[10:04:26] < Reiska> when I do it, it brings up my inventory and moves me one space southwest
+[10:04:27] < Reiska> o_O
+[10:04:32] <@Eidolos> oh
+[10:04:39] <@Eidolos> have to set the vi_keys option in your rc
+[10:04:51] <@Eidolos> sorry, that's not documented
+[10:05:14] < Reiska> ahh
+[10:21:29] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:49:24] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[11:59:13] -!- raxvulpi1e [n=rax@autumnfox.akrasiac.org] has joined #interhack
+[11:59:25] -!- Netsplit niven.freenode.net <-> irc.freenode.net quits: Reiska, raxvulpine
+[12:50:19] -!- raxvulpi1e is now known as raxvulpine
+[13:12:21] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:12:48] < zubin> im in ur cpu winnin ur tournament -- Interhack
+[13:13:16] <@Eidolos> :D
+[13:14:39] < zubin> grats on your 1st asc eid :)
+[13:14:56] <@Eidolos> thanks <3
+[14:04:46] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has joined #Interhack
+[15:12:43] -!- lament [n=lament@S010600110999ad06.vc.shawcable.net] has joined #interhack
+[15:14:03] < lament> i assume interhack is devnull-compatible?
+[15:17:07] < lament> oh god, ghc
+[15:17:11] < lament> i just noticed :)
+[15:17:30] <@Eidolos> yep, it will be
+[15:17:44] < lament> :(
+[15:17:51] <@Eidolos> we have devnull ttyrecs that we can use to test
+[15:18:00] <@Eidolos> will need to wait for Nov to set up the actual connection
+[15:18:34] < lament> of course they fuck with the source in unpredictable ways
+[15:18:58] <@Eidolos> yes :(
+[15:20:08] < lament> to get intehack without darcs, is there a single file i could download?
+[15:21:07] <@doy> the source changes pretty often
+[15:21:10] <@Eidolos> arcanehl suggested nightly tarballs to me yesterday, that might be do-able
+[15:21:12] <@doy> you'll probably want darcs
+[15:21:16] <@Eidolos> just get darcs, yes
+[15:21:26] < lament> nah
+[15:21:33] <@Eidolos> then you're on your own
+[15:21:34] < lament> that's _way_ too much pain and this isn't even my computer.
+[15:21:36] <@doy> nightly tarballs could work too, i suppose
+[15:22:04] < lament> i think the last time i tried installing ghc it just failed with an obscure message
+[15:48:37] < lament> interhack is in http://darcs.katron.org/~sartak/interhack/_darcs/pristine/ ?
+[15:49:00] <@Eidolos> nono
+[15:49:03] <@Eidolos> don't touch _darcs
+[15:49:33] < lament> well, it sure _seems_ to be
+[15:50:08] < lament> the contents of that thing looks very much like interhack :)
+[15:51:07] <@Eidolos> well yes
+[15:51:10] <@Eidolos> but it's a bad habit to get into
+[15:51:11] <@Eidolos> :P
+[15:51:47] < lament> okay, so
+[15:52:16] < lament> wget -m -np -nH --cut-dirs=4 -R _darcs http://darcs.katron.org/~sartak/interhack/_darcs/pristine/
+[15:52:21] < lament> maybe put that in the topic or something
+[15:52:36] <@Eidolos> heh
+[15:52:40] <@Eidolos> maybe get darcs
+[15:52:46] < lament> uhh
+[15:52:53] < lament> i do believe this is easier :)
+[15:52:59] <@Eidolos> uh huh
+[15:53:07] < lament> like i said this isn't even my computer
+[15:53:17] <@Eidolos> so why are you installing Interhack on it
+[15:53:31] < lament> why not?
+[15:53:41] <@Eidolos> why is interhack ok but ghc and darcs aren;t
+[15:54:00] < lament> i'm not sure if ghc is fine with a user-local installation
+[15:54:05] < lament> in my experience, it just fails to install period
+[15:54:12] < lament> also it's a big fucking monster
+[15:54:25] <@Eidolos> did you get a binary or try to compile it?
+[15:54:27] <@doy> yeah, size is certainly an issue, depending on the system
+[15:54:37] < lament> finally, there's simply no reason to get darcs unless i plan to contribute
+[15:54:47] <@Eidolos> how about it's easy to keep things in sync
+[15:54:48] < lament> since the wget command i pasted fetches the files just fine
+[15:54:53] <@Eidolos> and you can avoid getting the patches you don't want
+[15:55:14] <@doy> Eidolos: i don't think you're going to convince him
+[15:55:15] <@doy> (:
+[15:55:19] <@Eidolos> fiyen
+[15:56:06] < lament> see, you're being a typical linux user :)
+[15:56:26] < lament> "to get htis program, you must first install 10 completely unrelated pieces of software"
+[15:56:41] <@Eidolos> it's not completely unrelated though, it's the source control manager we're all using for it
+[15:56:49] <@Eidolos> which makes keeping your program in sync very easy
+[15:56:57] <@doy> Eidolos: ideally, end users shouldn't need source control systems
+[15:56:59] < lament> Eidolos: right, this is important for developers but not as much for users
+[15:57:25] <@Eidolos> whatrever
+[15:57:44] < lament> (case in point: no other program i use requires darcs :) )
+[15:58:07] <@doy> i think the nightly tarball idea is a good one
+[15:58:16] <@doy> it is how most projects operate
+[15:58:19] <@Eidolos> feel free to contribute code for that
+[15:59:31] <@doy> i'll look into it tonight... shouldn't be hard if arcanehl gave us a crontab
+[15:59:34] < lament> oh sweet, so i can't install the perl modules without root?..
+[15:59:37] < lament> blah
+[15:59:45] <@doy> lament: sure you can
+[15:59:55] < lament> doy: how?
+[16:00:04] <@doy> using cpan
+[16:00:18] <@doy> eidolos can fill in the details probably
+[16:00:19] < lament> the cpan command given in the readme says it needs root and dies
+[16:00:44] <@Eidolos> you can install the modules manually
+[16:02:03] <@Eidolos> have fun with that.. I dunno how deep the dependencies go
+[16:02:20] < lament> oh well
+[16:02:37] < lament> screw it then :)
+[16:02:56] <@Eidolos> sorry
+[16:03:06] -!- lament [n=lament@S010600110999ad06.vc.shawcable.net] has left #interhack ["I lost an eye in a drunken ko fight!"]
+[17:30:24] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[17:48:04] < jasonmay> can't you just install cpan with a local prefix?
+[17:48:16] < jasonmay> oh, that person left
+[17:54:28] <@doy> jasonmay: i had that impression, but i don't use perl that much
+[18:15:01] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[18:19:31] <@Eidolos> it's tricky, I think
+[18:19:42] <@Eidolos> since Perl's (default?) @INC doesn't include anything in your home dir, afaik
+[18:19:49] <@Eidolos> but it does include .
+[18:30:25] < jasonmay> I got it to work just fine on k
+[18:30:45] < jasonmay> when you install CPAN, you do PREFIX=/full/path/to/custom/module/folder
+[18:30:50] < jasonmay> or something like that
+[18:43:44] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[18:43:51] < ekiM> cheats.
+[19:37:40] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+--- Log closed Fri Jun 01 19:53:13 2007
+[21:27:38] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[21:27:38] -!- Irssi: #interhack: Total of 9 nicks [3 ops, 0 halfops, 0 voices, 6 normal]
+[21:27:38] -!- mode/#interhack [+o Eidolos] by ChanServ
+[21:27:38] -!- Irssi: Join to #interhack was synced in 1 secs
+[23:14:14] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[23:39:05] <@doy> hmmm, occasionally interhack requires being sent a ^D before it will start
+[23:39:11] <@doy> not sure what triggers that
+[23:40:07] <@Eidolos> pressing any key should do it?
+[23:40:37] <@Eidolos> I know what's causing it anyway
+[23:40:44] <@Eidolos> the "remove password until we've logged in" code
+[23:41:37] <@doy> ^C doesn't work, in any case
+[23:41:44] <@Eidolos> anything that NAO sees
+[23:41:52] <@Eidolos> every key it sees causes a refresh
+[23:59:39] <@toft> a lot of the code doubles things, but I guess yall already new that

@@ -1,0 +1,725 @@
+[01:22:49] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has joined #interhack
+[02:28:50] -!- sorear [n=stefan@ip68-6-133-142.sd.sd.cox.net] has joined #interhack
+[02:30:27] < sorear> Somehow I was under the impression that Interhack was a pile of regexes that dynamically picked an expansion for TAB based on the screen.
+[02:31:09] < sorear> ... Thus motivating me to start designing Intrahack, which (no code yet) would do vaguely similar stuff, but with a full parser.  Semantic awareness and all that.
+[02:31:35] <@Eidolos> heh
+[02:31:46] <@Eidolos> that's all Interhack 1 is
+[02:31:54] <@Eidolos> Interhack 2 aims to be more aware
+[02:32:05] < arcanehl> but does Intrahack have a domain yet??
+[02:32:53] < sorear> hehe, no
+[02:32:57] <@Eidolos> I have a bit of experience with this whole thing
+[02:33:02] <@Eidolos> a few bots and whatnot :)
+[02:33:16] < sorear> I don't usually announce my projects until *after* starting code :)
+[02:33:24] <@Eidolos> :)
+[02:33:29] <@Eidolos> picked a lang yet?
+[02:37:17] <@Eidolos> suppose I'll do a little work on it tonight.. :)
+[02:37:46] <@doy> finally?
+[02:37:46] <@doy> (:
+[02:39:51] <@Eidolos> I boot up Interhack and I get.. sporkhack!
+[02:41:24] <@doy> i did that because i was working on that section of the code while nao was down
+[02:41:29] <@Eidolos> ah :)
+[02:41:49] <@Eidolos> well, I have a plugin that would be useful only to me
+[02:41:54] <@doy> hehe
+[02:41:59] <@doy> what would that be?
+[02:42:04] <@Eidolos> enter (= ^J) in command mode should be ignored instead of moving down
+[02:42:10] <@Eidolos> since I'm a new vi keys user
+[02:42:21] <@doy> that would be useful
+[02:42:29] <@doy> i run into it on rare occasions
+[02:42:31]  * Eidolos nods
+[02:42:36] <@doy> but it's pretty much never what i want
+[02:42:40] <@Eidolos> yep! :)
+[02:42:53] <@Eidolos> I think I want to change the HJKLYUBN defaults to use different movement modes
+[02:42:56] <@Eidolos> whatever numpad uses
+[02:43:10] <@doy> what i want you to work on
+[02:43:11] <@Eidolos> (whatever numpad uses when you hit 5)
+[02:43:25] <@doy> is implementing things like annotate() and make_tab()
+[02:43:33] <@doy> so that i can start converting plugins
+[02:43:33] <@doy> (:
+[02:43:40] <@Eidolos> ahh
+[02:44:02] <@doy> because the inner workings of those were an area of ih1 that i was never very familiar with
+[02:44:27] <@Eidolos> part of the reason I'm procrastinating on that is the multiple-annotations-in-one-go problem
+[02:44:50] <@doy> we can just get ih1 behavior implemented now
+[02:44:54] <@doy> and convert it later
+[02:45:03] <@Eidolos> ok
+[02:45:05] <@doy> it should be able to be swapped out fairly easily
+[02:45:18] <@Eidolos> what I'd like YOU to work on.. ;)
+[02:45:22] <@doy> (:
+[02:45:32] <@Eidolos> you wrote four plugins
+[02:45:40] <@Eidolos> Telnet, DGameLaunch, DGL_LocalConfig, DGL_Fortune
+[02:45:41] <@Eidolos> or so
+[02:45:54] <@Eidolos> I think those are all somewhat poorly named
+[02:46:01] <@Eidolos> especially DGL_*
+[02:46:01] <@doy> probably
+[02:46:03] <@doy> yeah
+[02:46:51] <@doy> what i think we should do
+[02:47:02] <@doy> is split up the process into multiple parts
+[02:47:11] <@doy> connection, pre-game, in-game, post-game
+[02:47:28] <@doy> have separate interhack main loops for each part
+[02:47:28] <@Eidolos> and have plugins target each part?
+[02:47:31] <@doy> yeah
+[02:47:34] <@Eidolos> ok
+[02:47:42] <@doy> so connection would be telnet, ssh, local
+[02:47:43] <@Eidolos> hmm
+[02:47:54] <@doy> pre-game would be dgamelaunch, devnull, etc
+[02:48:00] <@doy> ingame would be everything we have now
+[02:48:01] <@doy> hmmm
+[02:48:11] <@Eidolos> I agree with all that
+[02:48:12] <@doy> maybe around-game, rather than pre- and post- game
+[02:48:23] <@Eidolos> heh :)
+[02:48:44] <@doy> there's not really going to be a case where we need to swap out pre- and post- separately
+[02:48:47] <@doy> (:
+[02:49:01] <@Eidolos> so hm
+[02:49:09] <@doy> right now i'm just having DGameLaunch.pm implement its own main loop
+[02:49:17] <@Eidolos> is the problem that we simply can't override methods from Interhack.pm?
+[02:49:17] <@doy> which is functionally equivalent to what i want
+[02:49:19] <@doy> but messy
+[02:49:40] <@doy> yeah, i don't want in-game plugins to be messing with input/output in dgamelaunch, etc
+[02:49:45] <@Eidolos> telnet and ssh should override the connect (which should be renamed to startup)
+[02:49:53] <@Eidolos> aye
+[02:50:31] <@Eidolos> so we just want extra methods, I think
+[02:50:39] <@doy> connect has already been renamed to initialize
+[02:50:48] <@Eidolos> ah. that's fine
+[02:51:26] <@Eidolos> when does the game start?
+[02:51:29] <@Eidolos> turn 0
+[02:51:31] <@Eidolos> character creation
+[02:51:36] <@Eidolos> something else? :)
+[02:51:40] <@doy> when the actual nethack binary is run
+[02:51:45] <@doy> so character creation
+[02:51:48] <@Eidolos> ok
+[02:52:27] <@Eidolos> so we need a way of signalling to the main loop that initialization is done and we're in main loop
+[02:52:44] <@Eidolos> setting an attribute is probably best
+[02:53:00] <@Eidolos> (connected which can be renamed to initialized)
+[02:53:20] <@doy> yeah
+[02:54:09] <@Eidolos> first I think I'm going to detour into Calf
+[02:54:18] <@Eidolos> and provide an override method modifier
+[02:54:41] <@doy> something similar to this
+[02:54:43] <@doy> (termcast)
+[02:54:56] <@Eidolos> yep
+[02:56:33] <@doy> what's the difference between around and override?
+[02:57:22] <@Eidolos> override is just a shorthand way of saying "around but I'm not calling the original method
+[02:57:24] <@Eidolos> "
+[02:57:27] <@Eidolos> it's all about encoding intent
+[02:57:39] <@Eidolos> actually, hm
+[02:57:43] <@Eidolos> I think it means
+[02:57:59] <@Eidolos> "override the actual method provided, underneath all the 'around's"
+[02:58:13] <@doy> ah, that would be useful
+[02:58:28] <@doy> that's the issue i was working around with the to_nethack/to_nethack_raw
+[02:58:30] <@doy> thing
+[02:58:35] <@doy> which was pretty ugly
+[02:59:29] <@doy> if that's how override works, the telnet plugin should just be able to override to_nethack, etc and the _raw distinction wouldn't be necessary
+[03:00:25] <@Eidolos> I'm envisioning override just replacing the innermost method, with all the arounds still being applied
+[03:01:07] <@doy> that would be perfect
+[03:01:24] <@Eidolos> great :)
+[03:01:35] <@Eidolos> I think I can hack it in
+[03:01:51] <@doy> what was your motivation for adding it?
+[03:02:31] <@Eidolos> overriding connect and whatnot, but still letting you say things like "before connect => sub { read_config }"
+[03:03:11] <@Eidolos> actually
+[03:03:14] <@Eidolos> we don't need override at all
+[03:03:22] <@Eidolos> having a role export the method will do the right thing
+[03:03:31] <@doy> how so?
+[03:04:32] <@Eidolos> it will override only the original method
+[03:05:32] <@Eidolos> so your Telnet code will do
+[03:05:40] <@Eidolos> use Calf::Role qw/connect/;
+[03:05:42] <@Eidolos> sub connect
+[03:05:45] <@Eidolos> { stuff }
+[03:06:45] <@doy> hmmm
+[03:06:47] <@doy> interesting
+[03:08:02] <@Eidolos> oh noes :)
+[03:08:08] <@Eidolos> I hate this problem
+[03:08:12] <@Eidolos> because it's going to be annoying to fix
+[03:08:51] <@doy> what problem is that?
+[03:08:58] <@Eidolos> in one class have
+[03:09:00] <@Eidolos> sub foo
+[03:09:03] <@Eidolos> around foo => sub
+[03:09:19] <@Eidolos> the around foo would destroy the sub foo
+[03:09:19] <@doy> i think i may have run into that problem at some point
+[03:09:27] <@Eidolos> so CMM craps out
+[03:09:50] <@Eidolos> I will attempt to fix it
+[03:23:26] <@Eidolos> oh snap
+[03:23:26] <@Eidolos> :)
+[03:23:33] <@Eidolos> I didn't have to jump through quite so many hoops
+[03:23:44] <@Eidolos> I was worried I'd have to do more surgery
+[03:24:21] <@Eidolos> if we provide a 'sub foo' then it's the end of the line as far as we're concerned
+[03:27:08] <@Eidolos> in other news
+[03:27:15] <@Eidolos> using ttyrec within screen was a good idea :)
+[03:27:22] <@Eidolos> because I just accidentally killed that one iTerm
+[03:55:50] <@Eidolos> oh hey, ack. :)
+[03:55:54] <@doy> (:
+[03:56:39] <@doy> hmmm
+[03:57:16] <@doy> are modifiers dynamic?
+[03:57:23] <@doy> or can they be?
+[03:57:26] <@Eidolos> yeah
+[03:57:33] <@doy> how would you clear them?
+[03:57:35] <@Eidolos> you can add them dynamically
+[03:57:45] <@Eidolos> now that's the tricky part
+[03:57:58] <@Eidolos> I can't think of any good syntax for letting you clear modifiers
+[03:58:09] <@Eidolos> if you're doing it for efficiency reasons then don't worry about it
+[03:58:33] <@doy> no, i'm trying to figure out a better way of working out the multi-stage thing
+[03:58:48] <@doy> like... apply all of the connection modifiers to things like to_nethack, etc
+[03:59:00] <@doy> then clear all the modifiers and apply all of the ones for the pre-game phase
+[03:59:01] <@doy> etc
+[03:59:10] <@doy> that keeps consistent syntax
+[03:59:43] <@Eidolos> ah
+[04:00:02] <@Eidolos> Class::Method::Modifiers does provide a way to wipe out all modifiers
+[04:00:12] <@Eidolos> (of everything, of a package, and of a method)
+[04:00:21] <@Eidolos> I thought you wanted to just pull out one modifier
+[04:00:30] <@Eidolos> it's called _wipeout
+[04:00:40] <@Eidolos> Calf::Refresh uses it
+[04:03:50] <@Eidolos> oh hey
+[04:03:52] <@Eidolos> midnight came and went :)
+[04:05:54] <@Eidolos> I think I want a "guard" modifier
+[04:06:16] <@Eidolos> which is like "before" but can stop the execution
+[04:06:23] <@Eidolos> based on return value
+[04:06:23] <@Eidolos> so
+[04:06:34] <@Eidolos> guard input => sub { length $_[0] > 0 }
+[04:06:58] <@Eidolos> the only question is, when would it run?
+[04:07:13] <@Eidolos> probably between the befores and arounds
+[04:07:26] <@Eidolos> that'd be most useful for IH
+[04:10:20]  * Eidolos talks to the Moose guy about guard
+[04:10:48] <@doy> yeah, between sounds most useful
+[04:11:31] <@Eidolos> I'll probably add it anyway, because we'd certainly use it in IH
+[04:12:34] <@Eidolos> ok, cpan time
+[04:28:00] <@Eidolos> uploaded
+[04:34:26] <@Eidolos> ok, so overriding methods isn't quite perfect yet
+[04:37:26] <@Eidolos> ahhh
+[04:37:31] <@Eidolos> they're mostly fine
+[04:38:33] <@Eidolos> heh
+[04:38:41] <@Eidolos> I think I need to make CMM override every sub and instrument it.. :)
+[04:39:08] <@Eidolos> actually, can work around it
+[04:39:26] <@Eidolos> the problem is as soon as you apply a role that overrides a method
+[04:39:37] <@Eidolos> when you call that method, it can no longer check for modifiers
+[04:40:00] <@Eidolos> so what we need to do is have a CMM hook to let us swap out the original method
+[04:40:06] <@Eidolos> probably by saying "install nothing"
+[04:40:44] <@Eidolos> ok, can do it without revision of CMM
+[04:40:47] <@doy> what do you mean
+[04:42:07] <@Eidolos> the way method modifiers work is
+[04:42:14] <@Eidolos> when you say around foo => sub { ... }
+[04:42:19] <@Eidolos> it will do two things
+[04:42:49] <@Eidolos> it will stash that sub somewhere (in a hash)
+[04:43:00] <@Eidolos> and it will define a foo sub in that package
+[04:43:17] <@Eidolos> which will handle calling all the modifiers
+[04:43:45] <@Eidolos> now if you apply a role that defines a regular foo sub
+[04:44:00] <@Eidolos> it will overwrite the sub that handles calling all the modifiers
+[04:44:25] <@Eidolos> but we can work around it by saying: overwrite the sub, then add a null modifier
+[04:44:42] <@Eidolos> adding the null modifier will handle all the work of stashing the sub and installing the handler
+[04:44:43] <@Eidolos> :)
+[04:45:15] <@Eidolos> I think it's clever. shrug
+[04:46:16] <@Eidolos> ok, it will require a small revision to CMM
+[04:46:43] <@Eidolos> right now the logic is "if there already exists a sub in the foo slot, and we don't have any modifiers stashed, then it must be a regular 'sub foo { }'
+[04:47:26] <@Eidolos> but we want to sneak that behavior in even if there are already stashed modifiers
+[04:54:00] <@Eidolos> I should just make the method cache a global.. but having separation is good too
+[05:12:02] <@doy> hmmm, so
+[05:12:07] <@doy> how do we want to do this...
+[05:13:27] <@doy> Eidolos: what do BUILD and SETUP do, exactly?
+[05:17:01] <@Eidolos> BUILD is called after new
+[05:17:04] <@Eidolos> to do initialization
+[05:17:14] <@doy> okay
+[05:17:17] <@Eidolos> SETUP is there for roles to override
+[05:17:41] <@Eidolos> that's outside of Calf though, that's implemented by Interhack
+[05:17:42] <@doy> so...
+[05:17:44] <@Eidolos> ::Config I think
+[05:18:07] <@doy> to do this, would it make sense to move... hmmm
+[05:18:11] <@doy> how should this work
+[05:18:23] <@doy> we need to split load_config and load_plugins out
+[05:18:26] <@doy> maybe
+[05:18:27] <@doy> hmmm
+[05:18:43] <@doy> load_config should populate data structures
+[05:18:55] <@doy> and then we can do like load_plugins "connection";
+[05:19:03] <@doy> and load_plugins "pregame";
+[05:19:04] <@doy> etc
+[05:19:28] <@Eidolos> yuck
+[05:19:51] <@doy> ?
+[05:20:02] <@Eidolos> I don't like that at all
+[05:20:16] <@Eidolos> having load_plugins "time"
+[05:20:17] <@doy> this way we don't have to have separate to_user_pregame and to_user_ingame and all that
+[05:20:29] <@Eidolos> I understand
+[05:20:37] <@doy> what would you rather do?
+[05:21:15] <@Eidolos> not sure yet :)
+[05:21:29] <@doy> what about that is ugly though?
+[05:21:34] <@Eidolos> [05:21:26] <stubblyhead> renamed a rope golem a rape golem, and only made the ape part brown.
+[05:21:35] <@Eidolos> heh :)
+[05:22:13] <@Eidolos> well
+[05:22:16] <@Eidolos> it'd be hard to implement
+[05:22:21] <@doy> why?
+[05:22:26] <@Eidolos> you'd either have to tag plugins with a time, which limits the power of plugins
+[05:22:32] <@Eidolos> or you'd have to tag modifiers with a time
+[05:22:52] <@doy> i don't think it limits the power of plugins at all
+[05:23:01] <@doy> the point is that the phases are fundamentally differetn
+[05:23:12] <@doy> and there's no reason at all that a plugin should last between them
+[05:23:48]  * Eidolos ponders
+[05:23:54] <@doy> and there's no reason we couldn't tag plugins with multiple times, if it's actually an issue
+[05:24:07] <@doy> like we might split out "ingame" and "watching" into separate phases
+[05:24:16] <@doy> and switch based on setting a value in "pregame"
+[05:24:26] <@doy> and want to load things like eidocolors in both of those
+[05:24:31] <@Eidolos> right
+[05:24:33] <@doy> but not things like force-tabs
+[05:24:41] <@Eidolos> that does make sense
+[05:24:43] <@doy> and so we would want separation there
+[05:24:48] <@Eidolos> but I want to think about it before I say ok
+[05:24:53] <@doy> (:
+[05:26:13] <@Eidolos> loading plugins to probe what stages they're active in isn't a problem, because loading a plugin doesn't really do anything, it defers all its magic until apply time
+[05:26:31] <@doy> which is why deps should be redone too, to take advantage of that
+[05:26:34] <@Eidolos> unloading plugins is possible but it's not at all pretty
+[05:26:37] <@doy> that's another thing i want to do
+[05:26:37] <@doy> (:
+[05:26:51] <@doy> hmmm
+[05:27:14] <@doy> what would be required to unload a plugin?
+[05:27:38] <@doy> and would unloading all plugins be easier than unloading specific plugins?
+[05:27:52] <@doy> i don't think there's a need to be able to unload specific plugins
+[05:28:51] <@Eidolos> I was thinking of the case where you go from watching to playing
+[05:29:05] <@doy> well, you don't, really
+[05:29:10] <@doy> you go from watching to pregame to playing
+[05:29:16] <@Eidolos> heh
+[05:29:22] <@Eidolos> point still stands :P
+[05:29:25] <@doy> but still, yeah
+[05:29:31] <@Eidolos> you want to be able to unload the watching plugins, probably
+[05:29:43] <@doy> well, my point is to just unload everything
+[05:29:50] <@doy> and then reload the ones that are appropriate
+[05:30:12] <@Eidolos> yeah
+[05:30:27] <@doy> hmmm
+[05:30:45] <@doy> on a side note, splitting things into phases makes initialize() unnecessary
+[05:31:14] <@Eidolos> ack, I still have this infinite recursion bug to deal with
+[05:31:15] <@Eidolos> :)
+[05:31:18] <@doy> (:
+[05:31:36] <@Eidolos> I can stay up only a little longer, I'll try to fix that before I go to bed
+[05:31:50] <@doy> okay
+[05:32:30] <@Eidolos> I'm just realizing that CMM and Calf are practically all symbol table magic
+[05:32:40] <@Eidolos> scary stuff
+[05:32:44] <@doy> (:
+[05:33:15] <@doy> is $self->_wipeout() correct?
+[05:34:50] <@Eidolos> nailed it
+[05:34:51] <@Eidolos> nope
+[05:34:55] <@Eidolos> Class::Method::Modifiers::_wipeout
+[05:35:18] <@Eidolos> so the issue was
+[05:35:51] <@Eidolos> sneaking a new method in under all the modifiers had a bug
+[05:36:16] <@Eidolos> it would stash the original method if you used a null modifier or there were no existing modifiers
+[05:36:36] <@Eidolos> that's fine
+[05:36:43] <@Eidolos> the problem is then when you add a modifier _to that_
+[05:36:49] <@Eidolos> it would look like there were no existing modifiers
+[05:37:00] <@Eidolos> so it would stash the handler and install the same handler
+[05:37:04] <@Eidolos> leading to infinite recursion
+[05:37:44] <@Eidolos> so the executive summary is the null modifier now looks a little more like a real modifier :)
+[05:37:47] <@Eidolos> good fun!
+[05:37:50] <@doy> (:
+[05:38:50] <@doy> is 'do {} until();' valid perl?
+[05:39:26] <@Eidolos> ya
+[05:39:59] <@Eidolos> ok, CMM and Calf are up to date
+[05:40:21] <@Eidolos> roles can now safely blow away methods and still have the modifiers applied to them
+[05:40:24] <@Eidolos> important.
+[05:42:25] <@Eidolos> Class::Method::Modifiers::_wipeout($self)
+[05:42:39] <@Eidolos> that will DTRT
+[05:42:50] <@Eidolos> ..as soon as you upgrade your CMM to what I just pushed :)
+[05:42:55] <@doy> (:
+[05:45:10] <@Eidolos> wow. slow
+[05:45:24] <@doy> i have laggy internet here
+[05:49:13] <@doy> hmmm
+[05:49:18] <@doy> here's an issue
+[05:49:30] <@doy> how do we handle core stuff
+[05:49:45] <@doy> i've wanted to move large parts of it out to modules for a while now
+[05:49:51] <@doy> but you said no
+[05:49:52] <@doy> (:
+[05:50:40] <@Eidolos> which core stuff?
+[05:50:49] <@doy> like iterate, etc
+[05:50:55] <@doy> in Interhack.pm
+[05:50:59] <@Eidolos> oh.. why?
+[05:51:13] <@doy> because it's going to need to do different things in different phases
+[05:51:40] <@doy> and i personally think that tagging modifiers is uglier than tagging plugins
+[05:51:41] <@Eidolos> urg
+[05:52:25] <@Eidolos> hrm
+[05:52:49] <@Eidolos> I wonder if it would be best to make state a totally generic thing
+[05:53:07] <@doy> maybe if we look at the 'zero plugins is usable' thing from a different perspective
+[05:53:17] <@doy> more of a 'zero configuration is usable'
+[05:53:33]  * Eidolos nods
+[05:53:45] <@doy> we can do things like distribute plugin/configuration packs
+[05:53:49] <@Eidolos> heh :)
+[05:54:09] <@doy> "untar this in ~/.interhack and you can set this one value in your config to play locally"
+[05:54:12] <@doy> etc
+[05:54:19] <@Eidolos> sure, all that would be good
+[05:54:31] <@doy> instead of packaging the plugins with the main program
+[05:54:38] <@Eidolos> I like how Interhack.pm is (or was, until you sullied it! :))
+[05:54:50] <@doy> that way things like monster-data or whatever it's called can be different for nethack vs sporkhack, etc
+[05:55:21] <@Eidolos> so this multiple states thing is big
+[05:55:26] <@Eidolos> potentially a big win if it can be done right
+[05:55:29] <@doy> yeah
+[05:56:20] <@Eidolos> it is a good idea, disabling force_tabs for watching is a perfect example
+[05:56:29] <@doy> this local/global plugin split thing is something i've been thinking about for a while now too
+[05:56:31] <@Eidolos> so we do want it in some form
+[05:57:21] <@Eidolos> as in personal plugins?
+[05:57:36] <@doy> as in having most plugins be personal... or at least part of a consistent set
+[05:57:43] <@doy> doesn't have to be 'personal'
+[05:58:15] <@doy> but having a collection of plugins that work together for playing on nao, or locally, or on sporkhack, etc
+[05:58:25] <@doy> i'm just not sure how general we want to be
+[05:58:31]  * Eidolos nods
+[05:58:33] <@doy> should se support things like slashem?
+[05:58:42] <@doy> or at least make it possible for other peopl eto?
+[05:58:53] <@Eidolos> we should make it possible for them to, yes
+[05:58:58] <@doy> the current system makes it difficult
+[05:59:09] <@doy> which is why i've been thinking about it
+[05:59:25] <@doy> hmmm
+[05:59:31] <@doy> maybe tie these ideas together
+[05:59:34] <@Eidolos> what about it is difficult?
+[05:59:43] <@doy> plugin packs (meta-plugins?) for each phase
+[06:00:05] <@doy> connection plugin packs that handle telnet stuff, etc
+[06:00:20] <@doy> pregame plugin packs that have all of the dgl special stuff
+[06:00:35] <@doy> ingame plugin packs that support vanilla, spork, slashem, etc
+[06:00:48] <@Eidolos> yeah
+[06:01:03] <@Eidolos> specialized if you want, so you could have vanilla-Eid, vanilla-doy, vanilla-itsblah
+[06:01:14] <@doy> sure
+[06:01:15] <@Eidolos> there'd be a large intersection in the three of course
+[06:01:19] <@doy> yeah
+[06:01:38] <@doy> that's what i'm trying to see how to avoid too... but i don't know if it would be *that* big of a problem even so
+[06:02:02] <@doy> and a lot of that could just be vanilla + config modifications
+[06:02:07] <@doy> rather than entirely new packs
+[06:02:14]  * Eidolos nods
+[06:02:21] <@doy> although having new packs would have its place too
+[06:02:40] <@doy> i'm just trying to think about this more in terms of a finished product
+[06:02:50] <@Eidolos> :0
+[06:02:51] <@Eidolos> :)
+[06:02:53] <@doy> that people outside of the dev team can easily use
+[06:02:53] <@doy> (:
+[06:03:06] <@Eidolos> well
+[06:03:17] <@Eidolos> on the way to/from work I'll think hard on the phase changes
+[06:03:43] <@doy> we could just package it with plugin packs for connection:pty and ingame:vanilla
+[06:03:52] <@doy> to make it work with no configuration
+[06:04:10] <@doy> then offer connection:telnet/pregame:dgl to make nao work
+[06:04:10] <@doy> etc
+[06:04:26] <@Eidolos> yeh
+[06:04:37] <@Eidolos> your ideas about packs sound good
+[06:04:44] <@doy> connection:telnet/pregame:dgl/ingame:spork, connection:ssh/pregame:dgl/ingame:slashem
+[06:05:25] <@Eidolos> so hmm
+[06:05:35] <@doy> and there's no reason people can't modify the packs and the individual plugins themselves if something really bothers them
+[06:05:36] <@Eidolos> I think the best way to tag would actually be in the filename itself
+[06:05:46] <@Eidolos> Interhack::Plugin::Connection::Telnet
+[06:05:52] <@doy> but most of that should be able to be handled with config
+[06:05:54] <@Eidolos> Interhack::Plugin::Pregame::DGameLaunch
+[06:05:55] -!- sorear [n=stefan@ip68-6-133-142.sd.sd.cox.net] has quit ["zzz"]
+[06:05:59] <@doy> what about watching/ingame?
+[06:06:10] <@Eidolos> Interhack::Plugin::Display::Eidocolors
+[06:06:16] <@doy> okay
+[06:06:21] <@Eidolos> Interhack::Plugin::Watching::ColorIdle
+[06:06:32] <@Eidolos> Interhack::Plugin::Playing::ForceTabs
+[06:06:34] <@doy> that one would be pregame, probably
+[06:06:36] <@doy> coloridle
+[06:06:40] <@Eidolos> true
+[06:06:52] <@doy> but yeah
+[06:06:55] <@doy> that sounds good
+[06:06:56] <@Eidolos> I can't think of many things that would be useful only for watching. maybe auto-strip
+[06:07:13] <@doy> yeah
+[06:07:16] <@Eidolos> I'm not too fond of the names Watching and Playing :) maybe just Watch Play
+[06:07:41] <@Eidolos> anyway, I have to go!
+[06:07:45] <@doy> okay!
+[06:07:50] <@doy> think about it tomorrow, let me know
+[06:07:54] <@Eidolos> yup
+[06:07:59] <@Eidolos> nice doing business with you :)
+[06:08:02]  * Eidolos kicks toft in the shins
+[06:08:14] <@toft> oh god its the interhack mafia
+[06:08:29] <@doy> oh, toft is here
+[06:08:29] <@Eidolos> oh, btw, currently _something_ is broken with plugin reloading. I suspect it's a _wipeout problem
+[06:08:34] <@doy> participate!
+[06:08:34] <@Eidolos> (we have a failing Interhack test)
+[06:08:36] <@doy> d:
+[06:08:39] <@toft> d: indeed
+[06:08:55] <@Eidolos> one thing we need to do, perpetually, is write tests
+[06:09:09] <@Eidolos> and run them
+[06:09:31] <@Eidolos> having a good test suite makes me way more confident when I change code
+[06:09:44] <@doy> i've mostly been waiting for the overall architecture to settle down first
+[06:09:49]  * Eidolos has >1000 Hiveminder IM tests..
+[06:09:53] <@Eidolos> yeah
+[06:10:01] <@doy> because it's irritating to have to change twice as much code
+[06:10:07] <@doy> but that's close to done
+[06:10:15] <@Eidolos> at the moment I have tests for all the super important features of IH
+[06:10:19] <@doy> hopefully once we get these last few things in
+[06:11:05] <@Eidolos> toft: it'd be great if you could get up to speed again
+[06:11:15] <@Eidolos> we haven't made all that much progress in your absence
+[06:11:24] <@toft> ok
+[06:11:29] <@toft> are we still using the same repo?
+[06:11:34] <@Eidolos> though you've never really been up to speed on 2.0
+[06:11:40] <@toft> i know
+[06:11:42] <@Eidolos> main devel is happening on
+[06:11:50] <@Eidolos> interhack.us/branches/2.0
+[06:11:59] <@Eidolos> use scp so you can push
+[06:12:09] <@doy> interhack.us:/home/sartak/www/code/interhack/branches/2.0
+[06:12:49] <@doy> toft: also, termcast!
+[06:12:49] <@doy> (:
+[06:12:55] <@toft> nod nod
+[06:15:31] <@doy> toft: for whatever reason, it does this on pull
+[06:15:48] <@toft> i'm more concerned with my inability to type/remember it
+[06:15:51] <@doy> like it makes 7 or 8 scp connections
+[06:15:56] <@Eidolos> yeah
+[06:16:05] <@doy> try just sshing somewhere
+[06:16:09] <@Eidolos> darcs pull --ssh-cm
+[06:16:16] <@doy> because here you're getting no feedback
+[06:16:18] <@Eidolos> or use ssh-agent already
+[06:16:18] <@toft> that's super regarded
+[06:16:22] <@doy> about whether or not it's correct
+[06:16:39] <@doy> or, yeah, use keychain
+[06:16:50] <@toft> sup;posedly its active
+[06:16:54] <@Eidolos> ssh-add ?
+[06:17:00] <@doy> try to ssh somewhere
+[06:17:37] <@Eidolos> eval `ssh-agent -s`
+[06:17:40] <@doy> keychain --kill?
+[06:17:55] <@Eidolos> mine will make ssh-agent listen to this term
+[06:18:02] <@Eidolos> but you still need to ssh-add again
+[06:18:25] <@toft> thanks
+[06:19:03] <@Eidolos> hmm
+[06:19:06] <@Eidolos> so slow. gah
+[06:19:10] <@doy> yeah
+[06:19:11] <@toft> yeah
+[06:19:26] <@Eidolos> try --ssh-cm next time
+[06:19:26] <@doy> i wonder why
+[06:20:27] <@doy> what's control master
+[06:20:42] <@toft> it lets you multiplex ssh connections
+[06:20:44] <@Eidolos> yep
+[06:20:52] <@Eidolos> so you don't need to renegotiate
+[06:21:13] <@Eidolos> when I used it on Linux it cut ssh time to a quarter
+[06:21:25] <@toft> so you use iTerm?
+[06:21:32] <@toft> why not just use apple's x11 thing?
+[06:21:45] <@Eidolos> meh :)
+[06:21:52] <@Eidolos> then it's just a bad Linux!
+[06:22:09] <@toft> no, you can mix the x11 windows with all the other windows
+[06:22:10] <@doy> instead, you just have a bad bsd?
+[06:22:12] <@doy> (:
+[06:22:15] <@toft> they have a quartz wm
+[06:22:32] <@toft> (quartz is the window managing dealie on os x, what makes things pretty)
+[06:22:34] <@toft> whatever!
+[06:23:38] <@Eidolos> toft: you're going to want to get Class::Method::Modifiers and Calf from my CPAN repos
+[06:23:51] <@Eidolos> darcs get http://sartak.katron.org/code/cpan/Class-Method-Modifiers
+[06:23:54] <@Eidolos> darcs get http://sartak.katron.org/code/cpan/Calf
+[06:23:58] <@toft> ok
+[06:24:03] <@Eidolos> since those are always up to date
+[06:24:07] <@Eidolos> Calf isn't even on the CPAN yet
+[06:24:14] <@toft> nice
+[06:24:15] <@Eidolos> it's a Moose clone designed for Interhack :)
+[06:24:19] <@toft> we on da cutting edge
+[06:24:32] <@doy> why isn't calf on cpan yet?
+[06:24:41] <@Eidolos> shrug
+[06:25:01] <@Eidolos> I could release it tonight if I really felt like it
+[06:25:05] <@Eidolos> but I'm not sure... :)
+[06:25:23] <@Eidolos> wuh oh
+[06:25:33] <@Eidolos> IO::Pty::Easy fails to test again
+[06:25:34] <@doy> oh, heh
+[06:25:44] <@doy> yeah, on darwin it has problems
+[06:26:05] <@doy> i don't think it should be an issue for how we are using it
+[06:26:16] <@doy> but it's ont going to go anywhere for that test
+[06:26:21] <@doy> it just hangs
+[06:26:32] <@toft> really
+[06:26:40] <@doy> yeah, stupid darwin
+[06:26:40] <@doy> (:
+[06:26:41] <@Eidolos> sudo cpan -fi 'IO::Pty::Easy'
+[06:27:09] <@Eidolos> I think I saw a "invalid option -f" scroll by
+[06:27:13] <@Eidolos> hit ^C
+[06:27:20] <@Eidolos> k
+[06:27:21] <@Eidolos> sudo cpan
+[06:27:23] <@doy> --forse maybe
+[06:27:25] <@doy> force
+[06:27:25] <@Eidolos> force install IO::Pty::Easy
+[06:27:26] <@Eidolos> or that
+[06:27:40] <@Eidolos> you could even notest install
+[06:27:43] <@doy> ^C
+[06:27:53] <@Eidolos> weeoo
+[06:28:00] <@Eidolos> it installed
+[06:28:03] <@doy> toft: it worked
+[06:28:05] <@doy> it's installed
+[06:28:11] <@Eidolos> the ^C killed the test harness, but not make
+[06:28:29] <@Eidolos> anyway, really leaving now. ^BD
+[06:29:24] <@toft> bah
+[06:29:29] <@toft> the perl repos are 404
+[06:29:36] <@doy> ?
+[06:29:51] <@toft> the Calf and Class-Method-Modifiers
+[06:30:05] <@doy> http://sartak.org/code/cpan/Calf
+[06:30:08] <@toft> ah.
+[06:30:13] <@toft> its not .katron.org
+[06:30:17] <@doy> nope
+[06:32:14] <@toft> perl dependencies are a real bitch you know
+[06:32:35] <@doy> they certainly are, mostly because there are a lot of them
+[06:32:47] <@doy> the Makefile.PL should be up to date though
+[06:33:05] <@toft> I don't have Module::Install yet, apparently, which is a major stumblinmg block
+[06:33:38] <@doy> cpan -i Module::Install ?
+[06:33:52] <@toft> yup, now its done
+[06:33:53] <@toft> or, not
+[06:35:17] <@toft> could you check what your urllist is in cpan? do o conf
+[06:35:36] <@toft> hmm
+[06:35:40] <@doy> blank
+[06:35:53] <@toft> look at this
+[06:36:01] <@doy> you aren't using termcast
+[06:36:02] <@doy> d:
+[06:36:09] <@toft> certainly am
+[06:36:14] <@toft> what
+[06:36:21] <@doy> did you switch terminals?
+[06:36:22] <@toft> ahhh
+[06:36:28] <@toft> i think i ctrl-c'd the ttyrec
+[06:36:57] <@doy> oh, heh
+[06:37:02] <@toft> there
+[06:37:16] <@toft> i think i did it again
+[06:37:23] <@toft> no!
+[06:37:52] <@doy> say yes
+[06:38:00] <@toft> ...
+[06:38:00] <@toft> i swear
+[06:38:05] <@doy> (:
+[06:38:05] <@toft> it failed miserably last time
+[06:38:09] <@doy> i have this effect on computers
+[06:38:13] <@doy> it's not just you
+[06:39:03] <@toft> there, that's what happened
+[06:39:06] <@doy> hmmm
+[06:39:34] <@doy> what's in your urllist?
+[06:39:40] <@toft> its blank like yours
+[06:39:43] <@doy> hmmm
+[06:40:56] <@doy> that is weird
+[06:41:13] <@toft> last time it worked on try 3
+[06:43:48] <@doy> FinNet?
+[06:44:21] <@toft> the network that it fails on
+[06:44:39] <@toft> but then it somehow works.
+[06:44:48] <@doy> maybe just a flaky server
+[06:46:04] <@doy> toft: eid recommended doing this
+[06:46:09] <@doy> if you haven't already
+[06:46:11] <@toft> ok
+[06:46:32] <@doy> instead of doing make install for calf and c::m::m
+[06:46:41] <@doy> since you'll probably be updating them a bunch
+[06:46:44] <@toft> whoops
+[06:46:44] <@toft> ok
+[06:46:50] <@doy> doesn't particularly matter though
+[06:47:46] <@toft> crap
+[06:48:09] <@doy> ^C a bunch
+[06:48:15] <@doy> it will skip them
+[06:48:19] <@toft> it just puts me back
+[06:48:36] <@doy> :q
+[06:48:43] <@doy> it should be saved
+[06:49:28] <@toft> what do you do to locally install?
+[06:50:56] <@doy> i just do 'cp -r lib/* ~/.perl'
+[06:54:41] <@toft> this is mad complex
+[06:55:22] <@doy> certainly much more so than 1.0
+[06:56:12] <@doy> but it lets us do things like have telnet connection code be plugins
+[06:56:17] <@doy> or dgl handling
+[06:56:29] <@toft> yeah
+[06:56:30] <@doy> that's the stuff i've been working on mostly
+[06:56:38] <@toft> undoubtedly its better
+[06:59:13] <@doy> that's part of Class::Method::Modifiers
+[07:00:00] <@doy> perldoc Class::Method::Modifiers should do it
+[07:06:45] <@toft> so lets see
+[07:06:59] <@toft> around /totally/ overrides its argument?
+[07:07:04] <@doy> yeah
+[07:07:10] <@doy> then you call it with orig
+[07:07:17] <@toft> gotcha
+[07:07:25] <@doy> if you want to
+[07:07:46] <@doy> before/after can be implemented in terms of around
+[07:08:01] <@doy> around is the only one that's strictly necessary
+[07:08:07] <@toft> nod
+[07:11:27] <@toft> so when do the overridden methods get called?
+[07:11:48] <@doy> all the before ones get called, then the arounds, then the afters
+[07:11:57] <@doy> (not sure if that's what you meant)
+[07:12:05] <@toft> not really, but i get it anyway
+[07:12:07] <@toft> that's sort of neat
+[07:12:28] <@toft> what happens if there are multiple arounds on the same method?
+[07:12:35] <@toft> from different plugins, perhaps
+[07:12:39] <@doy> they get called in the order of loading
+[07:12:52] <@toft> cool
+[07:13:02] <@doy> like they wrap each other
+[07:13:39] <@toft> right
+[07:20:07] <@doy> we're going to fix that
+[07:20:18] <@doy> because the dep file is a really ugly way of doing things
+[07:20:21] <@toft> mm
+[07:20:42] <@doy> but necessary for dev at the moment
+[07:22:43] <@doy> oh yeah, i wrote up a module that lets us do local nethack binaries
+[07:22:54] <@doy> so that's the default currently
+[07:22:59] <@doy> unless you load the Telnet.pm module
+[07:23:09] <@toft> cool ok
+[07:23:11] <@doy> but that's what the pty sty stuff is
+[07:24:13] <@doy> hmmm
+[07:24:21] <@doy> not sure where sty came from there
+[07:24:25] <@doy> just pty
+[07:24:38] <@toft> hehe]
+[07:26:48] <@toft> well
+[07:26:58] <@toft> hopefully i'll write some plugins tomorrow
+[07:27:01] <@toft> but im going to sleep now
+[07:27:18] <@doy> okay
+[07:27:40] <@doy> we're still working on getting a bit of infrastructure in there
+[07:27:48] <@doy> so a lot of plugins aren't going to be possible yet
+[07:28:27] <@doy> like there's no way to do annotations or tabs yet
+[07:28:33] <@toft> ok
+[07:29:05] <@toft> well i'll try to get more familiar with the core code as well so i can help out with that
+[07:29:22] <@doy> okay
+[13:14:07] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[14:41:55] <@Eidolos> for Interhack we may want a bundle with all the modules you need
+[14:44:35] <@Eidolos> doy: so I think your phase idea is fine
+[14:45:11] <@Eidolos> each phase would know how to transition to different phases. like pregame::dgl would know that if you hit p on the main dgl menu it should go to playing 
+[14:50:46] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[14:59:54] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[15:39:59] -!- alexbobp [n=alex@wireless-128-62-174-38.public.utexas.edu] has joined #interhack
+[15:40:06] < alexbobp> How do I #adjust in screen?
+[15:40:35] <@Eidolos> what does screen have to do with #adjust?
+[15:40:48] < alexbobp> Maybe I should remove the metaphor.
+[15:40:52] < alexbobp> How do I change the number of a screen?
+[15:41:12] < alexbobp> Such as change ^A 0 to ^A 6
+[15:42:17] <@Eidolos> ah
+[15:42:19] <@Eidolos> not sure
+[16:15:41] <@doy> i think :number
+[16:15:41] -!- alexbobp [n=alex@wireless-128-62-174-38.public.utexas.edu] has quit [Connection timed out]
+[16:18:18] <@doy> Eidolos: the only other thing i thought about was that connection needs to be special
+[16:18:38] <@doy> because it actually does need to override functions throughout the entire life of the program
+[16:19:08] <@doy> to/from_nethack/user
+[16:21:19] <@Eidolos> yeah
+[19:15:16] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has joined #interhack
+[19:39:51] -!- sawtooth [n=sawtooth@70-100-5-85.dsl1.wyg.mn.frontiernet.net] has joined #interhack
+[19:40:23] <@doy> Eidolos: hmmm
+[19:40:33] <@Eidolos> hi :)
+[19:40:33] <@doy> how deep do we want these hierarchies to go?
+[19:40:34] <@doy> (:
+[19:40:52] <@doy> Interhack::Plugin::InGame::Playing::Foodless
+[19:40:53] <@doy> (:
+[19:40:57] <@Eidolos> Interhack/Plugin/$phase/$name is about as deep as it can manageably get
+[19:41:43] <@doy> Interhack::Plugin::InGame::Playing::Vanilla::NewGame
+[19:41:46] <@doy> hmmm
+[19:42:11] <@Eidolos> InGame::Playing feels wrong
+[19:42:50] <@doy> well, i was thinking like Plugin::InGame::Eidocolors, Plugin::InGame::Playing::Weaponless, Plugin::InGame::Watching::StripMenucolors
+[19:43:44] <@Eidolos> display can be playing+watching
+[19:44:04] <@doy> i was just trying to think of a way that indicated that more clearly
+[19:44:38] <@Eidolos> having such a deep hierarchy is a pain
+[19:45:06] <@doy> what are the drawbacks?
+[19:45:08] <@doy> other than typing
+[19:46:03] <@Eidolos> ummmm typing :)
+[19:46:07] <@doy> (:
+[19:46:35] <@Eidolos> but I'm not convinced that we need to put playing and watching in ingame
+[19:48:22] <@doy> also, rather than Connection, i think IO would be better
+[19:48:37] <@Eidolos> yeah
+[19:48:48] <@doy> i can't really think of a reason why we would want to support things other than keyboard input and terminal output
+[19:48:52] <@doy> but that doesn't mean they don't exist
+[19:48:53] <@doy> (:
+[19:49:06] <@doy> and IO plugins shouldn't wrap anything
+[19:49:12] <@doy> they should only override
+[19:51:14] <@doy> hmmm
+[19:51:25] <@doy> i wonder if it would be helpful to put plugins in their own darcs repo
+[19:51:35] <@doy> so that we can treat them as mostly branches of each other
+[19:51:43] <@doy> or is there a better way to do that
+[19:51:44] <@Eidolos> stumbly perpetually has an idea where you connect with a second term and get extra output
+[19:51:58] <@doy> that's a cool idea
+[19:52:04] <@Eidolos> maybe eventually, but not yet (plugins)
+[19:52:16] <@doy> okay
+[19:52:26] <@doy> yeah, once we get config written (*cough*)
+[19:52:28] <@doy> (:
+[19:57:23] <@doy> Eidolos: um... where is $interhack->load_plugins() defined?
+[19:58:22] <@Eidolos> probably Interhack::Config
+[19:58:30] <@Eidolos> though Interhack has a wrapper
+[19:58:41] <@doy> no... it isn't
+[19:58:44] <@doy> is it part of calf?
+[19:59:55] <@Eidolos> ah yes
+[20:00:03] <@Eidolos> sorry :)
+[20:02:16] <@Eidolos> that will require a bit of tweaking, yes
+[20:02:59] <@doy> can i just have them load IO::Telnet rather than Telnet?
+[20:03:33] <@Eidolos> I can't really help at the moment
+[20:03:38] <@doy> okay
+[20:03:44] <@Eidolos> I suspect what we want to do is pass the root namespace to load_plugins
+[20:03:51] <@Eidolos> like Interhack::Plugin::Vanilla::Connection
+[20:04:58] <@doy> and have a Connection.pm that does the right thing?
+[20:05:24] <@Eidolos> the user would say what kind of connection plugin he wants
+[20:06:07] <@Eidolos> hm
+[20:06:25] <@Eidolos> I don't know and can't think about it right now. sorry! :)
+[20:06:29] <@doy> (:
+[21:24:28] <@Eidolos> stevan said he liked guard btw
+[21:24:34] <@Eidolos> and he wanted to let people define their own modifiers
+[21:24:56] <@Eidolos> which would be nifty
+[21:41:16] <@doy> hmmm
+[21:41:27] <@doy> how would that work?
+[21:41:33] <@doy> just define them in terms of around?
+[21:46:51] <@Eidolos> probably
+[21:52:27] <@Eidolos> heading home
+[21:52:41] <@Eidolos> will think about how to properly implement these sonsabitches

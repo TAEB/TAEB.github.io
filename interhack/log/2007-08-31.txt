@@ -1,0 +1,6 @@
+[01:02:23] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[13:02:42] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[14:19:12] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[15:48:49] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit ["Leaving."]
+[20:35:26] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 104 (Connection reset by peer)]
+[20:36:52] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack

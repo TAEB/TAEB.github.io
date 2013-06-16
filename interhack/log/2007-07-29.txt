@@ -1,0 +1,20 @@
+[00:49:43] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[10:45:10] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[10:52:18] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[10:53:36] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[11:52:22] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[15:08:08] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:12:34] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[15:12:36] -!- ekiMbo is now known as ekiM
+[20:09:48] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[20:30:57] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[23:06:51] <@doy> interhack should incorporate more out-of-game type stuff
+[23:07:06] <@doy> things like updating a server with whereis data based on it's current state
+[23:07:22] <@doy> or auto-updating of eidolos's asc page on an ascension
+[23:08:08] <@Eidolos> yes yes yes
+[23:08:09] <@Eidolos> :)
+[23:08:22] <@Eidolos> I could change my asc-update script into a plugin
+[23:12:00] <@doy> maybe a learndb query function
+[23:12:07] <@doy> that pulls from the alt.org archive
+[23:12:49] <@doy> or that interfaces with a bot who /msgs rodney
+[23:16:04] <@Eidolos> easiest solution would be a web server somewhere

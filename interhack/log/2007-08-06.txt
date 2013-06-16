@@ -1,0 +1,18 @@
+[11:00:22] -!- ekiMbo [n=Mike@81.98.246.13] has joined #interhack
+[11:02:59] -!- ekiMbo [n=Mike@81.98.246.13] has quit [Client Quit]
+[11:03:10] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[11:03:17] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:05:57] -!- ekiMbo is now known as ekiM
+[15:55:45] -!- doy [n=doy@tozt.1ts.org] has quit [Read error: 113 (No route to host)]
+[15:55:54] -!- raxvulpine [n=rax@autumnfox.akrasiac.org] has quit [Read error: 113 (No route to host)]
+[16:10:35] -!- raxvulpi1e [n=rax@autumnfox.akrasiac.org] has joined #interhack
+[16:10:49] -!- doy [n=doy@69.25.196.247] has joined #interhack
+[16:11:29] -!- mode/#interhack [+o doy] by ChanServ
+[16:22:06] -!- raxvulpi1e [n=rax@autumnfox.akrasiac.org] has quit ["leaving"]
+[16:23:17] -!- raxvulpine [n=rax@autumnfox.akrasiac.org] has joined #interhack
+[18:21:14] -!- alexbobp [n=alex@189.147.76.39] has joined #interhack
+[19:24:45] -!- alexbobp [n=alex@189.147.76.39] has quit [Read error: 104 (Connection reset by peer)]
+[21:38:44] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[21:38:53] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:48:07] -!- ekiMbo is now known as ekiM
+[22:24:53] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Read error: 104 (Connection reset by peer)]

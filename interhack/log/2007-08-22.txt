@@ -1,0 +1,87 @@
+[00:26:04] -!- psychomohel [n=mike@c-69-250-54-230.hsd1.md.comcast.net] has quit []
+[01:48:14] < Zawk> feature request: intercrawl
+[01:49:57] <@Eidolos> meh
+[01:50:16] <@Eidolos> Crawl was the inspiration of more than a few Interhack features
+[01:50:25] < Zawk> such as?
+[01:51:14] <@Eidolos> message coloring
+[01:51:37] <@Eidolos> can't think of any others off the top of my head, been months since I've played
+[01:54:49] < Zawk> cool.
+[02:03:38] <@doy> input confirmation
+[04:37:44] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[04:38:32] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[04:38:39] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Remote closed the connection]
+[04:38:48] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[16:12:15] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[16:12:24] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[16:13:25] -!- ekiMbo is now known as ekiM
+[16:28:46] <@Eidolos> oh whew
+[16:28:52] <@Eidolos> there's a Class::Trigger module
+[16:29:03] <@Eidolos> it looks a lot like Class::Method::Modifiers
+[16:29:12] <@Eidolos> but it's fundamentally different
+[16:29:51] <@Eidolos> specifically, Class::Trigger requires that superclasses invoke the triggery methods
+[16:30:00] <@Eidolos> whereas C:M:M has no such dependency
+[16:30:29] <@Eidolos> finally, Class::Trigger's "middle" is very much like Moose's augment/inner
+[16:30:34] <@Eidolos> instead of "around"
+[16:31:01] <@Eidolos> so while CT and CMM occupy similar niches
+[16:31:04] <@Eidolos> it's not the same niche
+[19:10:30] <@doy> i seem to be passing a lot more tests with 0.03
+[19:10:32] <@doy> sweet
+[19:10:51] <@Eidolos> good :)
+[19:11:21] <@doy> still hanging on darwin though
+[19:11:57] <@doy> and solaris 2.9 dies in a very strange way
+[19:12:04] <@doy> that i don't understand
+[19:12:13] <@doy> but i don't care much about solaris 2.9
+[19:12:29] <@doy> (:
+[19:12:52] <@doy> the only thing that seems to make sense is that the child dying is also killing the parent
+[19:13:02] <@doy> but i have no idea why that would be the case
+[19:15:56] < jilles> there could be very good reasons for that
+[19:16:07] < jilles> you're playing with pseudo terminals, right?
+[19:16:17] <@Eidolos> ya
+[19:16:32] <@Eidolos> doy's writing an IO::Pty::Easy for us to use in Interhack
+[19:18:38] < jilles> one portability thing I encountered with putty on freebsd was that some OSes require the slave side to be open before you can tcsetattr() or TIOCSWINSZ
+[19:18:56] < jilles> in other words, you need to open the slave side in the parent process
+[19:19:02] < jilles> then close it again after forking
+[19:20:13] < jilles> as for killing with your vague information I can think of two things
+[19:20:24] < jilles> one is SIGPIPE from writing to a dead connection
+[19:22:19] < jilles> the second one may happen when the controlling process (session leader which has the pseudo terminal as controlling terminal) terminates
+[19:26:18] < jilles> but you can probably give more detailed information
+[19:33:04] <@doy> what issue would that second case cause?
+[19:33:09] <@doy> i don't think SIGPIPE is the issue
+[19:33:30] <@doy> what's happening is that i'm sending SIGTERM to the child's pid, and then the parent is dying
+[19:33:35] <@doy> along with the child
+[19:33:39] < jilles> what's child and parent?
+[19:33:55] < jilles> and which process group and session are they in?
+[19:34:19] <@doy> the parent is the perl script using my module, and the child is the process that's running on the pty
+[19:34:37] <@doy> the child makes the pty its controlling terminal when it forks
+[19:36:34] < jilles> try using truss to find where it dies
+[19:36:49] <@doy> well, i can't, since i don't have a solaris 2.9 machine(:
+[19:36:57] <@doy> i'm just getting the output from the cpantesters
+[19:41:15] < jilles> why do you know so sure SIGPIPE isn't the problem
+[19:41:22] <@doy> hmmm
+[19:41:37] <@doy> well, i'm not using any pipes explicitly after the initial spawning process
+[19:41:47] <@doy> i guess i'm not sure in what other contexts it can be sent
+[19:43:29] < jilles> SIGPIPE is also sent if you try to write to a TCP connection which has closed in the meantime
+[19:43:46] < jilles> so maybe solaris does something similar for the master side of a pty
+[19:43:56] <@doy> hmmm
+[19:45:19] <@doy> but what's confusing is that the process spawns fine, i can read and write on the pty fine, it's just when i try to kill it where there's a problem
+[19:45:30] <@doy> i'm pretty sure i'm not trying to write anywhere at that point
+[20:13:32] -!- alexbob1 [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[20:14:53] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[20:15:05] -!- alexbob1 is now known as alexbobp
+[20:26:26] < alexbobp> can we add mouse support to interhack?
+[20:26:46] < alexbobp> (I guess I already know the answer: "do it yourself")
+[20:26:56] < alexbobp> When will Interhack 2's framework be ready for plugin development to start?
+[20:29:08] <@Eidolos> mouse support.. I would like to add that
+[20:29:17] <@Eidolos> and Interhack 2's framework is ready for plugins
+[20:29:43] <@Eidolos> it just doesn't have enough of 1's plugins to supersede it
+[20:34:55] < alexbobp> Ah.  How hard would mouse support be?
+[20:35:21] < alexbobp> basically, It should move the cursor to the click target if in a selection mode or initiate a travel there if not, right?
+[20:35:37] < alexbobp> by selection mode I mean a part where it asks you to pick a location
+[20:35:43] <@Eidolos> dunno how hard mouse support is, never tried it :)
+[20:35:57] <@Eidolos> but yes, that's what mousing would do
+[20:37:31] < alexbobp> ah, found a bug in version 1: interhack should not say press tab to type _ if there is a -more-, because it messes things up
+[20:38:22] <@Eidolos> there are a lot of such bugs in v1
+[20:40:03] <@doy> that's why it prompts for pressing tab
+[20:40:27] <@doy> but yeah, we never bothered to do any kind of delaying or stacking for annotations/tabs
+[21:03:17] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[21:56:18] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack

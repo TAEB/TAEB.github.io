@@ -1,0 +1,492 @@
+[00:42:41] -!- alexbobp is now known as alexbobp_away
+[07:45:32] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[08:35:56] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:36:12] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[14:56:53] -!- alexbobp_away [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Nick collision from services.]
+[14:57:38] -!- alexbob1 [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[14:59:32] -!- alexbob1 [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Client Quit]
+[15:06:02] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[15:06:11] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:10:36] -!- ekiMbo is now known as ekiM
+[17:39:35] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Read error: 113 (No route to host)]
+[18:08:18] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[22:13:48] <@Eidolos> toft, doy: gonna move the Interhack darcs repo to sartak.org. give me public keys and I'll make yas accounts
+[22:14:07] <@toft> yes'm
+[22:15:58] <@doy> http://tozt.jjaro.net/id_dsa.pub
+[22:16:07] <@Eidolos> there ya go
+[22:16:37] <@toft> http://mookmo.net/id_dsa.pub
+[22:16:55] <@Eidolos> http://sartak.org/conf/id_rsa.pub
+[22:16:56] <@Eidolos> win!
+[22:17:02] <@toft> rsa? ew
+[22:17:07] <@toft> oldfangled bastard
+[22:17:13] <@Eidolos> rsa is better
+[22:17:18] <@Eidolos> dsa is like "lol I sucks"
+[22:17:21] <@toft> haha
+[22:17:29] <@Eidolos> that's what dsa is an acronym for, you see
+[22:17:39] <@toft> ah.
+[22:17:53] <@toft> I'm rereading pbf archives.. funneh
+[22:18:00] <@toft> <3 microbot
+[22:18:03] <@Eidolos> :D
+[22:18:24] < arcanehl> Eidolos: sudo -i
+[22:18:53] < arcanehl> mkdir /etc/skel/.ssh
+[22:19:08] < arcanehl> -R
+[22:19:14] <@Eidolos> shaddap!
+[22:19:25] <@Eidolos> ok
+[22:19:30] <@Eidolos> you two should be able to log in
+[22:19:39] <@toft> username toft/
+[22:19:41] <@Eidolos> yes
+[22:19:42] <@Eidolos> toft and doy
+[22:19:43] <@toft> k
+[22:19:50] < arcanehl> man, what a waste in typing
+[22:19:56] <@Eidolos> it keeps me sharp
+[22:20:06] < arcanehl> yeah, so you can type sudo faster?
+[22:20:16] <@toft> why are you switching the repo?
+[22:20:21] <@toft> this seems like Hassle
+[22:20:24] <@Eidolos> because I ownz sartak.org
+[22:20:24] < arcanehl> he's a masochist
+[22:20:29] <@toft> bah
+[22:20:44] < arcanehl> just wait until you have permission problems ;)
+[22:20:52] < arcanehl> sudo -i!
+[22:20:58] <@Eidolos> enough OUTTA YOU!
+[22:20:59] <@Eidolos> :)
+[22:21:09] <@toft> ooh, termcast
+[22:21:12] < arcanehl> cd ..
+[22:21:19] < arcanehl> sudo chown :interhack -R .
+[22:21:22] <@toft> lol
+[22:21:35] < arcanehl> (probably have to move that -R, whatever)
+[22:21:36] <@toft> Eidolos is being arcanal'd
+[22:21:48] < arcanehl> shrug
+[22:21:48] <@Eidolos> toft: termcast kthx
+[22:21:53] < arcanehl> he's a first time admin ;)
+[22:21:56] <@toft> termcast myself? blaho
+[22:21:58] < arcanehl> I've only done it for several years
+[22:22:10] <@Eidolos> can you log in yet?
+[22:22:16] <@toft> yup
+[22:22:43] < arcanehl> doy: editing your bash config?
+[22:22:55] <@doy> arcanehl: yeah, messing around with ssh-agent
+[22:23:01] <@Eidolos> keychain ++
+[22:23:05] < arcanehl> yeah
+[22:23:17] <@doy> hmmm
+[22:23:18] <@doy> interesting
+[22:23:19] <@toft> double yeah
+[22:23:26] < arcanehl> that way, you don't ever have to remember your passphase
+[22:23:30] < arcanehl> I've already forgotten mine
+[22:23:32] <@toft> nice how keychain is made by gentoo isn't it
+[22:23:32] <@toft> hehe
+[22:23:37] <@doy> why did nobody tell me of this before when i was messing with it d:
+[22:23:39] < arcanehl> both in fact
+[22:23:50] <@toft> how long is your passphrase?
+[22:23:51] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[22:23:56] <@Eidolos> xxx
+[22:24:01] <@Eidolos> oops, I mean, 3
+[22:24:02] < arcanehl> that would involve remembering it, no?
+[22:24:05] <@toft> haha
+[22:24:07] <@toft> approximate silly
+[22:24:13] <@Eidolos> mine is too long
+[22:24:20] < arcanehl> 14
+[22:24:28] < arcanehl> other is 17 I think
+[22:24:58] <@toft> 24  and 21 here
+[22:25:20] <@Eidolos> can one of you try pushing to The New Interhack
+[22:25:31] <@doy> 36, woot
+[22:25:35] <@doy> although i use pwsafe
+[22:25:36] <@doy> (:
+[22:25:37] < arcanehl> uh oh, I think I might've lost it
+[22:25:40] <@toft> pwsafe?
+[22:25:47] <@toft> oh right
+[22:25:50] <@toft> we went over this i believe
+[22:25:53] <@doy> yes
+[22:25:53] <@doy> (:
+[22:25:56] <@Eidolos> 29 here
+[22:26:07] < arcanehl> but, it depends on the format
+[22:26:07]  * Eidolos makes a note not to grep through RAM on termcast :)
+[22:26:20] < arcanehl> it shouldn't be in RAM
+[22:26:35] <@Eidolos> right
+[22:26:44] <@Eidolos> but I used a script to calculate the length of my phrase :)
+[22:26:51] <@toft> what's the address of the new repo?
+[22:27:08] < arcanehl> sartak.org:eidolos/hates/free/hosting
+[22:27:13] <@Eidolos> toft@sartak.org:/home/sartak/www/code/interhack/{trunk,branches/2.0}
+[22:27:16] <@Eidolos> I recommend making symlinks
+[22:27:31] <@toft> I love the cryptonomicon section where he has to defeat the van eck phreaking in his cell
+[22:27:35] <@toft> symlinks why?
+[22:27:37] <@toft> that fucking rocks
+[22:27:46] < arcanehl> because that's a lot to type
+[22:27:56] <@toft> I'll just put it in the config, no?
+[22:28:23] < arcanehl> that worked great
+[22:28:32] <@toft> i forgot that I have two machiens
+[22:28:38] <@toft> with different keys
+[22:28:42] < arcanehl> gave the wrong pubkey?
+[22:28:45] <@toft> yes
+[22:28:56] < arcanehl> put in both
+[22:28:57]  * Eidolos grins
+[22:29:04] <@Eidolos> yeah, pub keys are no thang
+[22:29:12] <@toft> its just annoying
+[22:29:51] <@Eidolos> no up/down? heh
+[22:29:53] < arcanehl> can't use up-arrow?
+[22:30:16] < arcanehl> scp can do remote->remote
+[22:30:23] <@toft> apparently it didnt work or something
+[22:30:25] <@Eidolos> the problem was you typod it as mooko.net
+[22:30:28] < arcanehl> you had mooko
+[22:30:31] <@toft> haha
+[22:30:55] < arcanehl> wow that was a lot of work
+[22:31:03] <@Eidolos> work I didn't have to do! yay
+[22:31:20] < arcanehl> cat id_dsa.pub|ssh sartak.org -c "cat >> ~/.ssh/authorized_keys2"
+[22:31:32] <@toft> :|
+[22:31:39] < arcanehl> ssh works like that
+[22:31:48] <@Eidolos> you don't even need the -c "..."
+[22:31:53] <@Eidolos> I think
+[22:31:56] <@Eidolos> oh, well
+[22:31:57] < arcanehl> hmm
+[22:32:07] <@Eidolos> well you do need to quote the >>
+[22:32:14] <@Eidolos> but ssh host@name command does work
+[22:32:20] < arcanehl> well, it's not -c for one thing
+[22:32:29] <@Eidolos> toft: eval `ssh-agent -s`
+[22:32:31] <@Eidolos> sorta works :)
+[22:32:35] < arcanehl> I think it's "sh -c '....'"
+[22:32:36] <@Eidolos> you have to ssh-add again
+[22:32:48] < arcanehl> -c for ssh is cipher
+[22:33:00] <@Eidolos> yeah
+[22:33:21] < arcanehl> hah
+[22:33:45] <@Eidolos> sartak :(
+[22:34:05] <@Eidolos> try an actual darcs pull
+[22:34:34] < arcanehl> not using the toft username there?
+[22:34:50] <@Eidolos> make a change, push
+[22:35:28] <@toft> that was irresponsible but i dont care! :D
+[22:35:30] <@Eidolos> [yn] sure
+[22:35:49] <@toft> eh?
+[22:35:51] <@Eidolos> ok, now actually push it :)
+[22:35:59] <@toft> right
+[22:36:00] <@toft> heh
+[22:36:02] <@Eidolos> ok
+[22:36:03] <@Eidolos> cool
+[22:36:20] < arcanehl> rm -r interhack && mv interhacktest interhack
+[22:36:22]  * Eidolos registers interhack.org
+[22:36:28] <@toft> arcanehl: but that's version 1.0
+[22:36:39] < arcanehl> shrug shrug
+[22:37:27] <@Eidolos> ack
+[22:37:30] <@Eidolos> interhack.org is registered
+[22:37:39] < arcanehl> interhack.com!
+[22:37:45] <@Eidolos> :(
+[22:37:59] < arcanehl> ghc is in there
+[22:38:03] < arcanehl> I have it installed on my laptop
+[22:38:04] <@toft> this is on os x
+[22:38:06] < arcanehl> ....
+[22:38:19] < arcanehl> you didn't say you weren't using a stupid arch!
+[22:38:23] <@toft> I got a macbook pro
+[22:38:23] < arcanehl> err, werr ;)
+[22:38:34] < arcanehl> oh
+[22:38:41] <@toft> its intel
+[22:38:45] < arcanehl> yeah
+[22:39:04] < arcanehl> justa universal binary
+[22:39:17] < arcanehl> I completely skipped typing "get"
+[22:39:22] <@Eidolos> fuck
+[22:39:25] <@Eidolos> .net and .com are taken too
+[22:39:25] <@toft> haha
+[22:39:38] <@toft> interhackproject.org
+[22:39:41] <@Eidolos> I'll kill all those bastards!
+[22:39:54] <@Eidolos> interhack.com is a business
+[22:40:10] <@Eidolos> Is The Internet's Strength
+[22:40:12] <@Eidolos> Your Weakness?
+[22:40:12] < arcanehl> fink and darwinports has darcs
+[22:40:24] <@toft> not as binaries,
+[22:40:27] <@Eidolos> we should come up with a new name for interhack
+[22:40:30] <@toft> and I don't want to compile ghc
+[22:40:31] < arcanehl> http://glozer.net/darcs has Intel binaries
+[22:40:39] <@Eidolos> it's already loaded, even within the nethack community
+[22:40:40] <@toft> orly
+[22:40:57] < arcanehl> hmm
+[22:41:00] < arcanehl> intrahack!
+[22:41:03] <@toft> heh
+[22:41:07] <@Eidolos> hackohack
+[22:41:12] <@toft> oh yeah this website
+[22:41:16] <@toft> they forgot to do the MIME types
+[22:41:17] <@toft> annoying
+[22:42:01] <@toft> the huge dmg thing displays as nice garbled text on a page
+[22:42:07] < arcanehl> wget
+[22:42:17] < arcanehl> though, it'll probably mess with that too
+[22:42:18] <@toft> well obviously, but first I have to fix firefox :)
+[22:42:22] <@toft> nope, its fine to wget it
+[22:42:36] < arcanehl> I'd say alt+click
+[22:42:49] < arcanehl> but I don't know the Mac equivalent
+[22:43:03] < arcanehl> Eidolos: eh?
+[22:43:15] < arcanehl> yeah, take that one
+[22:43:28] <@Eidolos> String::Koremutake generates pronounceable strings, gonna try a bunch to see if anything sounds good
+[22:43:39] < arcanehl> make them longer
+[22:43:51] < arcanehl> like seven or eight
+[22:44:05] <@Eidolos> heh :)
+[22:44:07] < arcanehl> then make an sh script to output a bunch at once
+[22:44:09] <@toft> way to not include a readme, mr. glozer
+[22:44:32] < arcanehl> download the dmg file from the above link
+[22:44:37] < arcanehl> drag the GMP.Framework into /Library/Frameworks
+[22:44:37] <@toft> i did
+[22:44:41] < arcanehl> drag the darcs executable into somewhere in your path like /usr/local/bin
+[22:44:43] <@toft> where are you getting this? heh
+[22:44:50] < arcanehl> http://wiki.darcs.net/DarcsWiki/CategoryBinaries
+[22:44:54] <@toft> Eidolos: fumytum, definitely
+[22:44:57] <@toft> ah, thanks
+[22:44:59] <@doy> how do i stop firefox from caching things
+[22:45:15] <@doy> it's downloading the same pdf file from a url even though i've moved the file
+[22:45:19] < arcanehl> make cache size 0
+[22:45:21] <@doy> it shouldn't even exist
+[22:45:27] <@toft> doy: or you can shift refresh I think
+[22:45:39] <@doy> i do that already for disk cache, but there's no option for memory cache
+[22:45:49] <@doy> and you can't refresh on downloaded files
+[22:45:52] <@toft> hm
+[22:46:42] < arcanehl> wget!
+[22:46:57] <@doy> arcanehl: well, right, but it would be nice for firefox to not be broken
+[22:47:06] < arcanehl> that's asking a bit much, don't you think?
+[22:47:27] <@Eidolos> perl -MString::Koremutake -le 'for (1..5000) { print substr(String::Koremutake->new->integer_to_koremutake(rand 1_000_000) . String::Koremutake->new->integer_to_koremutake(rand 1_000_000), 0, 7) }' | less
+[22:47:27] < arcanehl> I've had that problem before though
+[22:47:30] <@Eidolos> is the script I'm using
+[22:47:37] < arcanehl> it's not sh, fail
+[22:47:53] <@Eidolos> does bash have String::Koremutake
+[22:47:54] <@toft> why do i need to enter an admin password to copy shit to my very own user folder? ridiculous
+[22:47:56] < arcanehl> gydrapr
+[22:47:58] < arcanehl> I like that one
+[22:48:07] <@toft> very web 2.0
+[22:48:12] < arcanehl> there's a 'y'
+[22:48:15] <@Eidolos> it has to be somewhat pronounceable
+[22:48:17] < arcanehl> Eidolos: try something with a 'z'
+[22:48:19] <@Eidolos> like dastify
+[22:48:28] < arcanehl> haha
+[22:48:40] <@Eidolos> damn module
+[22:48:41] <@doy> Eidolos: what are you generating these for?
+[22:48:44] < arcanehl> lutyfib!
+[22:48:49] <@Eidolos> finding a new Interhack name :)
+[22:48:51] < arcanehl> distery!
+[22:48:57] <@toft> gulity!
+[22:49:08] <@toft> JIPUSTE XD
+[22:49:10] < arcanehl> reminds me of dysentery
+[22:49:10] <@Eidolos> gotrage
+[22:49:13] <@toft> gotrage yeah
+[22:49:24] <@toft> fotrake
+[22:49:34] < arcanehl> bitradr
+[22:49:35] <@toft> dysotra
+[22:49:41] <@toft> that's pretty good arcanehl
+[22:49:45] <@toft> bitraidr
+[22:49:46] <@toft> haha
+[22:49:57] < arcanehl> interradr
+[22:50:07] < arcanehl> those are a bit long
+[22:50:16] <@Eidolos> sure do like ^b
+[22:50:20] <@doy> hmmm
+[22:50:21] < arcanehl> bonystabredry
+[22:50:29] <@doy> what would be sweet
+[22:50:37] <@doy> would be the ability to use the -t option to ssh-ad
+[22:50:37] <@doy> d
+[22:50:40] < arcanehl> is if interhack.org was available
+[22:50:48] <@toft> hey Eidolos wanna make the whole interhack dir a darcs repo plz?
+[22:50:49] <@doy> and then have ssh auto-add things when the timeout expires
+[22:50:53] <@doy> so it works like sudo
+[22:50:57] <@Eidolos> toft: not really!
+[22:51:12] <@toft> doy: I believe keychain lets you do that
+[22:51:41] <@Eidolos> I like the sound of Trego
+[22:51:49] <@Eidolos> but a million google hits, meh
+[22:51:50] <@toft> for interhack? that's ridiculous
+[22:51:52] <@toft> I think we should keep interhack
+[22:51:56] <@toft> that's its goddamn name
+[22:51:58] <@Eidolos> I think we shouldn't!
+[22:52:05] <@toft> bestevolypu!
+[22:52:07] <@doy> i think we should!
+[22:52:12] <@Eidolos> overruled!
+[22:52:17] <@doy> by who?
+[22:52:18] <@toft> :|
+[22:52:18] <@doy> d:
+[22:52:22] <@Eidolos> whom!
+[22:52:50] <@Eidolos> 1) interhack.org is taken, as is .net and .com
+[22:52:58] <@Eidolos> 2) interhack means multiplayer nethack for a lot of people
+[22:53:16] <@doy> what about .cc, or .info, or all those others
+[22:53:17] <@Eidolos> 3) interhack doesn't really capture its purpose, except vaguely
+[22:53:57] < arcanehl> nethackfilterforthepurposesofmakingiteasiertoplaythegame?
+[22:54:03] <@toft> heh
+[22:54:10] <@toft> how bout trahifabu
+[22:54:12] <@Eidolos> having something that googles well doesn't hurt
+[22:54:13] <@toft> or tasopeme
+[22:54:14] <@toft> those are good
+[22:54:22] <@toft> stuhopule is nice too
+[22:54:28] <@Eidolos> -_-
+[22:54:29] < arcanehl> no, it isn't
+[22:54:30] <@toft> hehe
+[22:54:36] < arcanehl> I still like bitradr
+[22:54:38] <@Eidolos> I will pull this car right over!
+[22:54:38] <@doy> i don't think made up words are the way to go, really
+[22:54:44] < arcanehl> agreed
+[22:54:46] <@toft> arcanehl: not appropriate though, is it?
+[22:54:49] <@toft> agreed double
+[22:54:53] < arcanehl> toft: not at all
+[22:54:55] <@toft> :)
+[22:54:59] <@Eidolos> I was looking for something that sounded nice
+[22:54:59] < arcanehl> reminds me of bittorrent
+[22:55:11] <@toft> so I wonder why I can't darcs get the new repo
+[22:55:34] <@Eidolos> hm
+[22:55:44] <@toft> it kinda hangs here
+[22:56:06] <@toft> its probably the fault of my darcs copy somehow
+[22:56:12] < arcanehl> intrahack is completely available
+[22:56:30] <@Eidolos> whoa
+[22:56:34] <@toft> o;
+[22:56:40] < arcanehl> interhack.us is available
+[22:56:56] <@toft> that's awesome
+[22:56:57] <@toft> do it
+[22:57:04] <@toft> interhack.me
+[22:57:05] < arcanehl> yeah, that's rather nice
+[22:57:08] <@Eidolos> I like that
+[22:57:32] <@toft> inter.hack.us
+[22:57:33] <@toft> hehe
+[22:57:40] < arcanehl> no .me
+[22:57:41] <@Eidolos> it was probably working, toft, just slow
+[22:57:44] <@toft> int.erha.ck
+[22:57:53] < arcanehl> there is a .ck
+[22:57:58] <@toft> interha.ck
+[22:57:59] <@toft> hahah
+[22:58:02] <@Eidolos> there is some shit I will not eat
+[22:58:18] < arcanehl> no can do
+[22:58:25] < arcanehl> they only register third level ccTLDs
+[22:58:27] <@Eidolos> toft: try get over http
+[22:58:35] < arcanehl> ..heh
+[22:58:42] < arcanehl> you can have a foo.co.ck name
+[22:58:44] <@Eidolos> or pull with an init
+[22:58:56] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[22:59:06] <@Eidolos> code/
+[22:59:22] <@toft> lotta patches eh
+[22:59:27] <@Eidolos> ya rly
+[22:59:32] < arcanehl> not long until the big 1-0-0-0!
+[22:59:43] <@Eidolos> probably will be long
+[22:59:49] <@Eidolos> because 1.0 is at the end of its life
+[23:00:20] <@Eidolos> make a symlink to interhack already :)
+[23:00:55] <@Eidolos> intrahack is almost entirely unused, as arcanehl said
+[23:01:03] <@Eidolos> thoughts?
+[23:01:11] <@Eidolos> at least we wouldn't clash with that multiplayer nh
+[23:01:14] <@doy> makes even less sense than interhack
+[23:01:18] <@toft> I agree with doy
+[23:01:22] <@Eidolos> ok
+[23:01:31] <@toft> if we're going to change the name, then lets really change it
+[23:01:34] <@toft> but I like interhack.us :
+[23:01:43] <@Eidolos> me too
+[23:01:52] < arcanehl> s/almost/
+[23:01:54] < arcanehl> /
+[23:02:07] <@toft> we'll just have a big banner on the page about how its not multiplayer nh perhaps
+[23:02:08] <@Eidolos> anyone else have any ideas for names though?
+[23:02:15] <@toft> everyone thinks that nethack is about hacking, so
+[23:02:22] <@Eidolos> fair enough
+[23:02:22] < arcanehl> yeah
+[23:02:26] <@toft> its not like we'll have a unique problem
+[23:02:27] < arcanehl> let's just confuse them more
+[23:02:32] <@Eidolos> interhack.us ordered
+[23:02:35] <@toft> :)
+[23:02:47] < arcanehl> teh internets hack us
+[23:02:55] <@toft> ...this means we'll have to change our repo settings again, doesn't it. :)
+[23:03:06] < arcanehl> not necessarily
+[23:03:08] <@toft> actually ig uess not
+[23:03:13] <@toft> its the same IP i'm assuming
+[23:03:17] <@Eidolos> it will be
+[23:03:28] <@Eidolos> but you should change them :)
+[23:03:34]  * arcanehl likes how I in IP was capitalized, but not i in i'm
+[23:03:38] <@toft> haha
+[23:03:38] <@Eidolos> wait until tomorrow
+[23:03:48] <@toft> screw You>
+[23:03:57] < arcanehl> oh, there's betapistero
+[23:04:00] <@Eidolos> IH is kind of blocking on NAO's coming back to life anyway
+[23:04:00] < arcanehl> choose that!
+[23:04:13] < arcanehl> it even has beta in it
+[23:04:14] <@toft> crap, Eidolos, shouldn't have ordered that name...
+[23:04:18] <@toft> betapistero is WAY better
+[23:04:18] <@toft> haha
+[23:04:20] <@Eidolos> heh
+[23:04:26] <@Eidolos> curses!
+[23:04:29] <@toft> so's bigafotratu
+[23:04:34] <@toft> this is a great little module
+[23:04:35] <@toft> what's it called?
+[23:04:40] <@Eidolos> String::Koremutake
+[23:05:08] < arcanehl> heh, Quake 4
+[23:05:13] < arcanehl> I bnought that game and never played it
+[23:05:16] < arcanehl> -n
+[23:05:21] <@toft> its a high quality game
+[23:05:24] <@toft> but its boring as fuck
+[23:05:28] <@toft> single player at least
+[23:05:28] <@Eidolos> perl -MString::Koremutake -le 'print String::Koremutake->new->integer_to_koremutake(rand 1_000_000_000)'
+[23:05:30] < arcanehl> I wanted to do multiplayer
+[23:05:39] < arcanehl> jason has it as well
+[23:05:50] < arcanehl> just needed to convince Eidolos to get a new computer
+[23:05:51] <@toft> well I pirated it, so no multi for me
+[23:06:38]  * arcanehl uses everydns.net FWIW
+[23:06:43] < arcanehl> it's free and all
+[23:07:19] <@toft> whhha?
+[23:07:22] <@Eidolos> well
+[23:07:29] <@Eidolos> toft recommended me to the nazis at 1and1
+[23:07:36] <@toft> they ARE nazis
+[23:07:46] <@Eidolos> already stole $12 out of my kid's mouth
+[23:07:54] <@toft> wait they let you register /any/ domain for free? that's absurd
+[23:07:56] <@Eidolos> and don't even give me full subdomain control
+[23:08:04] <@Eidolos> I mean, I could totally justify it if..
+[23:08:31]  * Eidolos registers coke.com. for his cocaine dealing needs.
+[23:08:46] <@Eidolos> you get 20 domains I guess
+[23:09:17] <@toft> what the heck
+[23:09:20] <@toft> how do they do it for free?
+[23:09:28] <@Eidolos> science.
+[23:10:02] <@toft> it works, bitches.
+[23:10:09] <@Eidolos> yes sir
+[23:11:52] <@toft> infinitoftimal
+[23:15:25] <@Eidolos> we should start putting together a wobsite
+[23:15:52] <@toft> in soviet russia... the site wobs you!
+[23:15:52] <@Eidolos> not tonight though, because I'm going to bed soon
+[23:22:05] < arcanehl> toft: you still have to purchase the domain elsewhere
+[23:22:09] < arcanehl> I just get full DNS control
+[23:22:11] < arcanehl> for free
+[23:22:13] <@toft> oh.
+[23:22:28] < arcanehl> up to 20 domains, any more and I have to donate
+[23:22:34] <@Eidolos> oh, so this is something I should use
+[23:22:38] < arcanehl> 20 domains and 200 records
+[23:22:55] <@toft> full DNS control meaning what?
+[23:23:02] < arcanehl> meaning full DNS control
+[23:23:10] <@toft> I don't know what that means :)
+[23:23:18] < arcanehl> means complete control ;)
+[23:23:21] <@toft> bah!
+[23:23:22] < arcanehl> over the DNS records
+[23:23:31] < arcanehl> whatever is possible to do, you can
+[23:23:31] <@Eidolos> like unlimited subdomains, right?
+[23:23:37] < arcanehl> well, 200 records
+[23:23:44] < arcanehl> unless you donate, then yes, unlimited
+[23:24:07] < arcanehl> none of the alphanumeric bullshit
+[23:24:12] < arcanehl> if I want to forward *, I can
+[23:26:06] <@toft> i see
+[23:26:15] <@toft> so i just put in everydns for my name servers
+[23:27:30] < arcanehl> yep
+[23:27:33] < arcanehl> that's it
+[23:28:29] <@toft> uhm
+[23:29:01] <@toft> it doesn't add it to the current records table... I guess it has to propagate to itself?
+[23:29:46] <@toft> oh, nevermind
+[23:29:47] <@toft> :(
+[23:29:50] <@toft> :)*
+[23:32:16] <@Eidolos> hmm
+[23:32:33] <@Eidolos> walk me through the steps here. I have an account on everydns. I'm in 1&1, and setting everydns.net to the primary name server
+[23:32:46] <@toft> actually no
+[23:33:03] <@toft> you want ns1-4.everydns.net for each of the dns servers
+[23:33:10] <@Eidolos> oh right
+[23:34:01] <@Eidolos> ok
+[23:34:07] <@Eidolos> now how does everydns know I am who I am
+[23:34:35] <@toft> i have no idea how that works
+[23:35:40] <@Eidolos> ok just put whatever.com into the basic new domain field
+[23:35:53] <@toft> ?
+[23:36:02] <@toft> I think you put sartak.org
+[23:36:06] <@Eidolos> right
+[23:36:07] <@Eidolos> I did :)
+[23:36:10] <@toft> k :)
+[23:39:54] <@Eidolos> what's the difference between A and CNAME? hrm
+[23:40:01] <@toft> CNAME is just a forwarding thing
+[23:40:04] <@Eidolos>     * An A record or address record maps a hostname to a 32-bit IPv4
+[23:40:07] <@Eidolos> A CNAME record or canonical name record is an alias of one name to another. The A record to which the alias points can be either local or remote - on a foreign name server. This is useful when running multiple services (like an FTP and a webserver) from a single IP address. Each service can then have its own entry in DNS (like ftp.example.com. and www.example.com.)
+[23:40:08] <@Eidolos> :)
+[23:40:34] <@toft> shrug
+[23:42:02] <@Eidolos> ok. I think I have everydns all configured for both sartak.org and ih.us
+[23:42:05] <@Eidolos> iha.us
+[23:42:27] <@Eidolos> we'll see what things look like in the morning
+[23:42:57] <@doy> ih8.us
+[23:43:23] -!- alexbobp [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[23:43:46] < arcanehl> mkay
+[23:44:09] < arcanehl> once you add the domain, it checks the nameservers to make sure you're using it
+[23:46:43] <@Eidolos> alexbobp: I just bought interhack.us :)
+[23:47:07] <@Eidolos> a little easier to point people at than darcs.katron.org/~sartak/interhack
+[23:47:28] <@Eidolos> the site won
+[23:47:33] <@Eidolos> 't be up and running until tomorrow though
+[23:47:39] <@Eidolos> since it takes a while to set things up
+[23:48:11] < arcanehl> (DNS to propagate)
+[23:53:03] <@Eidolos> yes
+[23:53:46] < arcanehl> and g`night

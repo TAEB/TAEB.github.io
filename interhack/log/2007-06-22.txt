@@ -1,0 +1,13 @@
+[02:00:06] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[05:31:28] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[05:38:49] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[05:40:46] < ekiM> should specify waxcandles
+[05:40:50] < ekiM> they last twice as long!
+[08:24:44] < Eidolos> uh huh :)
+[14:22:05] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[14:25:36] -!- ek|M [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[14:30:51] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[14:34:23] -!- ek|M is now known as ekiM
+[14:42:34] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[18:17:04] < Eidolos> r - a potion called water (unpaid, 6 zorkmids). doesn't match correctly
+[23:56:01] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has quit [Remote closed the connection]

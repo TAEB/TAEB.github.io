@@ -1,0 +1,311 @@
+[00:02:19] <@doy> sounds like ruby
+[00:03:07] <@Eidolos> Moose is more powerful than Ruby's oop system
+[00:03:21] <@Eidolos> it's most comparable to CLOS :)
+[00:11:20] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[00:13:15] <@Eidolos> so there's a MooseX::Storage
+[00:13:21] <@Eidolos> which does pretty much everything we need
+[00:26:51] < zubin> Which would you prefer for a Xl30 healer in gehennom: +6 Mojo with +0 round shield, or +7 staff of misspelling? not that it probably matters much, I'm already nigh-unstoppable
+[00:26:59] <@Eidolos> latter
+[00:27:05] <@doy> staff
+[00:27:15] < zubin> cool, it's more stylish anyway :)
+[00:27:21] <@Eidolos> and dangerous!
+[00:27:28] <@Eidolos> ladies like that, I'm told
+[00:27:40] <@Eidolos> doy: have you been watching my termcast?
+[00:28:01] <@doy> i've been playing mario kart 64 and drinking
+[00:28:05] <@Eidolos> :D
+[00:28:13] <@Eidolos> well, the whole saving to disk thing works
+[00:28:48] < zubin> oo, I forgot the whole 'draws the life from' bit
+[00:32:23] < zubin> also, a public service announcement: the recent 'Ghost Rider' film is a towering pillar of shit.
+[00:37:33] <@Eidolos> this is working like a *peach*
+[00:37:38] <@Eidolos> I am impressed
+[00:37:47] < zubin> I like peaches.
+[00:38:36] < billnye> I could eat a peach for *hours*, speaking of Cage
+[00:39:01] < zubin> hmm, well done
+[01:02:58] <@doy> Use of uninitialized value in pattern match (m//) at lib/Interhack/Sock.pm line 63, <> line 1.
+[01:03:02] <@doy> Eidolos: what does this mean
+[01:03:08] <@doy> there is no match on that line
+[01:03:15] <@Eidolos> can you ^L?
+[01:03:36] <@Eidolos> hmm
+[01:04:07] <@Eidolos> shrug! maybe it means the next line? heh
+[01:04:28] <@doy> but the next line doesn't have anything that could be uninitialized
+[01:05:23] <@doy> are $', etc always set?
+[01:05:26] <@Eidolos> nope
+[01:05:53] <@doy> only if they contain text?
+[01:06:29] <@Eidolos> if there haven't been any successful matches they'd be undef
+[01:06:33] <@Eidolos> probably in other cases
+[01:06:35] <@Eidolos> perldoc perlvar
+[01:11:54] <@toft> I see development
+[01:11:57] <@Eidolos> :D
+[01:11:59] <@toft> :)
+[01:12:08] <@Eidolos> I'm working on making plugins Totally Fucking Badass
+[01:12:23] <@doy> i'm parsing telnet codes
+[01:12:24] <@Eidolos> http://darcs.katron.org/~sartak/interhack/branches/uber-plugins/wishlist.pl
+[01:12:26] <@doy> after drinking
+[01:13:38] <@doy> but perl is giving me error messages that don't make sense
+[01:17:23] <@toft> what is MooseX?
+[01:17:38] <@Eidolos> Moose is the Perl 6 object system for Perl 56
+[01:17:40] <@Eidolos> Moose is the Perl 6 object system for Perl 5
+[01:17:41] <@Eidolos> essentially
+[01:17:47] <@Eidolos> MooseX is moose extensions
+[01:18:09] <@toft> what is this Can't locate Moose/Role.pm in @INC
+[01:18:10] <@toft> blah
+[01:18:13] <@toft> err
+[01:18:16] <@toft> not what is this
+[01:18:18] <@Eidolos> :)
+[01:18:22] <@Eidolos> sudo cpan -i Moose
+[01:18:26] <@toft> that was part of a different question
+[01:18:28] <@toft> I know, its just annoying :)
+[01:18:30] <@Eidolos> ok
+[01:18:43] <@Eidolos> if you want useful code, hang on and I'll check in as soon as this workz
+[01:19:45] <@doy> Eidolos: strangely enough, we don't appear to get DONT ECHO before passwords
+[01:19:57] <@Eidolos> fun
+[01:20:29] <@doy> here's what we receive in that packet
+[01:20:47] <@Eidolos> y with diareses is IAC
+[01:20:50] <@doy> yeah
+[01:21:00] <@Eidolos> hmm
+[01:21:03] <@doy> lowercase thorn is DONT, <01> is ECHO
+[01:21:11] <@doy> u circumflex is DO
+[01:28:09] <@Eidolos> grep{ /${o}$/ }
+[01:28:12] <@Eidolos> that is the best regex ever
+[01:28:54] <@Eidolos> Carp::REPL++
+[01:30:53] <@doy> so, since we don't actually get telnet commands for this, i suppose i'll just go back to the original method of doing things
+[01:48:31] < zubin> OK, that'll do it for tonight. See you guys later.
+[01:48:36] <@Eidolos> bye
+[01:48:51] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[01:57:19] <@doy> hmmm
+[01:57:30] <@doy> think it's acceptable to just hang if the password is incorrect?
+[01:57:35] <@doy> "don't do that then"
+[01:57:45] <@doy> because detecting that properly is irritating
+[02:05:30] <@Eidolos> I don't think that is acceptable..
+[02:05:46] <@Eidolos> especially since it can probably happen if the user types in the pass
+[02:05:57] <@doy> well, no, that should be fine
+[02:06:04] <@doy> i just mean for the password in the file
+[02:06:28] <@doy> should be fine if i wasn't stupid that is
+[02:06:33] <@doy> hmmm
+[02:07:03] <@doy> does autologin require a password file?
+[02:07:08] <@Eidolos> should
+[02:07:33] <@doy> how do you allow the user to type in a pass then?
+[02:08:02] <@Eidolos> uh
+[02:08:17] <@Eidolos> if the pass in autologin is wrong you still get spit out at the login page
+[02:08:24] <@Eidolos> and you're in control
+[02:08:34] <@Eidolos> what are you asking? :)
+[02:08:57] <@doy> hmmm
+[02:09:28] <@doy> i thought it could handle just halfway autologin
+[02:09:40] <@Eidolos> ahhh
+[02:09:41] <@Eidolos> nope
+[02:09:56] <@Eidolos> might be useful though!
+[02:13:06] <@doy> so you're still against hanging if the password in the password file is wrong?
+[02:13:15] <@doy> bleh
+[02:13:27] <@Eidolos> yes
+[02:20:22] <@doy> sigh
+[02:20:30] <@doy> packets are so inconsistent
+[02:22:25] <@doy> we do on a regular basis get packets from the server containing "lInterhack\nkool\n" followed by the login screen, followed by the logged in screen
+[02:22:35] <@doy> all in a single packet
+[02:22:39] <@doy> what do i do with that
+[02:22:48] <@Eidolos> give up?
+[02:22:51] <@doy> basically
+[02:23:11] <@doy> there has to be a solution to this
+[02:23:18] <@doy> but they certainly aren't making it easy
+[02:39:53] <@doy> hmmm
+[02:39:57] <@doy> this looks reasonable
+[02:40:06] <@doy> ugly, but
+[02:41:02] <@doy> also, it ties it to dgamelaunch
+[02:41:07] <@Eidolos> that's fine
+[02:41:11] <@doy> which isn't ideal, but fixable later most likely
+[02:41:13] <@Eidolos> for now
+[02:41:37] <@doy> anything in here that looks particularly wrong?
+[02:47:19] <@Eidolos> woot
+[02:47:26] <@Eidolos> sorry, was getting it ALL WORKING
+[02:47:31] <@doy> (:
+[02:47:35] <@doy> awesome
+[02:48:20] <@Eidolos> for now it's reasonable to have the user delete interhack.json if they're starting a new game
+[02:48:29] <@Eidolos> later we can detect that they're starting a new game and reload things for them
+[02:48:38] <@Eidolos> one thing I have to try now is actual reloading :)
+[02:48:42] <@Eidolos> but tomorrow
+[02:49:30] <@Eidolos> I don't really see what you're doing
+[02:49:32] <@Eidolos> but ok :)
+[02:49:39] <@doy> (:
+[02:49:50] <@doy> it works, in my limited testing
+[02:49:52] <@doy> so whatever!
+[02:49:59] <@Eidolos> what is this $maybechar about?
+[02:50:17] <@doy> well, i want to use .+, since otherwise it will just keep matching
+[02:50:25] <@doy> but the first loop through, there won't be anything before it
+[02:50:36] <@doy> so .+ won't match
+[02:50:39] <@Eidolos> oh. you want to consume at least one char. ok
+[02:50:46] <@doy> yeah, except the first time
+[02:51:14] <@doy> hmmm, i wonder if that even makes sense
+[02:51:37] <@Eidolos> my $minimum = 0;
+[02:51:37] <@Eidolos> while (s/^.{$minimum,}? xxx//)
+[02:51:37] <@Eidolos> {    $minimum = 1; 
+[02:51:41] <@Eidolos> or so
+[02:51:52] <@doy> yeah
+[02:51:55] <@doy> but thinking about that
+[02:52:06] <@doy> it would still fail if it only matched once, at the beginning
+[02:52:08] <@doy> hmmm
+[02:53:00] <@Eidolos> are you talking about the anchor
+[02:53:01] <@Eidolos> ?
+[02:53:05] <@Eidolos> because I think you want one
+[02:53:16] <@doy> well, i do
+[02:53:25] <@doy> but if the \e[H happens at the beginning of the string
+[02:53:31] <@doy> and the pattern only matches once
+[02:53:34] <@doy> it's just going to loop
+[02:53:44] <@doy> hmmm
+[02:53:45] <@doy> maybe
+[02:54:14] <@doy> it feels like there could be some incorrect behavior here
+[02:54:39] <@Eidolos> yeah
+[02:56:33] <@Eidolos> if you get bored you can play with this plugin stuff :)
+[02:56:39] <@doy> it looks hard
+[02:56:40] <@doy> (:
+[02:56:44] <@Eidolos> darcs get http://darcs.katron.org/~sartak/interhack/branches/uber-plugins/
+[02:56:51] <@doy> how difficult are actual plugins going to be to write?
+[02:56:54] <@Eidolos> weell... :)
+[02:56:56] <@Eidolos> not difficult!
+[02:57:03] <@doy> more difficult?
+[02:57:04] <@doy> (:
+[02:57:06] <@Eidolos> http://darcs.katron.org/~sartak/interhack/branches/uber-plugins/lib/Interhack/Plugin/
+[02:57:10] <@Eidolos> are entirely finished
+[02:57:39] <@Eidolos> a little more difficult, but way more powerful
+[02:57:46] <@Eidolos> since plugins can now do arbitrary things
+[02:58:07] <@Eidolos> I can explain things you have trouble with
+[02:58:27] <@Eidolos> plugins are mixins
+[02:58:45] <@Eidolos> familiar with mixins?
+[02:58:49] <@doy> somewhat
+[02:58:55] <@Eidolos> I'm not very, but I get the idea.. a smart #include for classes
+[02:58:57] <@Eidolos> :)
+[02:58:58] <@doy> yeah
+[02:59:02] <@doy> that's about what i get
+[02:59:03] <@doy> (:
+[02:59:21] <@Eidolos> anyway Moose's before/around/after handlers are dead sexy and straight out of CLOS
+[02:59:29] <@Eidolos> (actually, CLOS only gives you around, afaik)
+[03:01:16] <@Eidolos> 3 watchers, wonder who
+[03:01:19] <@doy> what does around do?
+[03:01:20] <@Eidolos> other than you :)
+[03:01:29] <@Eidolos> it's a wrapper for the parent sub
+[03:01:46] <@Eidolos> so you can play with arguments or return value, or choose to just not call the parent at all
+[03:02:12] <@doy> so around is the only one that's necessary
+[03:02:15] <@Eidolos> http://search.cpan.org/~stevan/Moose-0.24/lib/Moose/Cookbook.pod will be helpful
+[03:02:19] <@doy> before and after are just convenient
+[03:02:22] <@Eidolos> true
+[03:05:09] <@Eidolos> I really hope reloading is painless
+[03:05:17] <@Eidolos> oh!
+[03:05:19] <@Eidolos> yes it will be!
+[03:05:22] <@Eidolos> what I can do is
+[03:05:26] <@Eidolos> destroy the plugin object
+[03:05:39] <@Eidolos> module::refresh the plugin packages
+[03:06:00] <@Eidolos> and create a new plugin object similar to how I load it in the first place
+[03:17:37] <@doy> alright, i'm more satisfied with this code i think
+[03:17:59] <@doy> actually, can make it simpler
+[03:19:32] <@doy> alright
+[03:19:37] <@doy> i think i'm happy with this
+[03:23:12] <@doy> hmmm, maybe not
+[03:31:26] <@doy> there we go
+[04:25:13] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[04:25:43] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[05:01:23] <@doy> hmmm, interhack is coloring 'scroll labeled THARR' as green
+[05:01:53] <@doy> and it offered to send #name\nnu\n
+[05:01:58] <@doy> when i picked it up
+[05:02:04] <@doy> something seems off there
+[05:04:25] <@doy> oh, the scroll plugin recolors things
+[05:05:02] <@doy> still, the make_tab is wrong
+[05:25:25] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[05:25:34] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[06:31:54] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[06:34:06] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[06:41:06] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[06:41:35] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[07:56:25] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[07:56:59] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[09:09:29] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[09:09:55] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[09:15:05] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[09:15:12] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[10:26:23] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[10:26:38] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[10:56:24] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[10:56:29] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[11:33:24] <@Eidolos> http://paste.husk.org/8676 woot
+[11:33:36] <@Eidolos> spacing is shitty, sorry :)
+[11:33:38] < Zawk> interhack sucks for watching games
+[11:34:00] <@Eidolos> thanks
+[11:34:01] < Zawk> "Your HP is monstrously low! Hit tab to continue!"
+[11:34:08] <@Eidolos> yes well
+[11:34:14] <@Eidolos> it does try to compensate
+[11:34:19] < Zawk> and sure enough, I had to hit tab to continue :)
+[11:36:38] <@Eidolos> basically we need to be able to detect 100% when we're playing versus when we're watching
+[11:36:42] <@Eidolos> and it's not as simple as you might think
+[11:36:56] <@Eidolos> the way we do it currently is by watching for a 'w' key on the login screen
+[11:39:54] <@Eidolos> I doubt the module reloading will work great if you're making structural changes
+[11:39:58] <@Eidolos> but it's quite good enough
+[11:57:10] < ekiM> -w to force watch-mode
+[13:13:32] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[13:24:15] <@Eidolos> I'm termcasting Carp::REPL devel.. :)
+[13:29:38] < zubin> You're replacing fish?
+[13:29:57] < zubin> $koi = Carp::REPL();
+[13:34:54] <@Eidolos> Carp is the Perl error module namespace
+[14:21:43] <@Eidolos> sweet! all tests successful.
+[14:21:48] <@Eidolos> that means I can release 0.06!
+[14:25:16] < Zawk> yay!
+[14:29:39] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[14:35:44] < Zawk> I had an idea for a plugin earlier
+[14:35:54] <@Eidolos> yes?
+[14:35:56] < Zawk> Something that does #untrap 3 times then unlocks it
+[14:35:57] < Zawk> err
+[14:35:59] < Zawk> unlocks a chest
+[14:36:10] <@Eidolos> meh
+[14:36:15] <@Eidolos> what happens if a leocrotta shows up
+[14:36:18] < Zawk> or door I suppose
+[14:36:20] < Zawk> it'd stop
+[14:36:45] < Zawk> That was about the point where I thoguht "interesting idea, I have no desire to implement it though."
+[14:36:51]  * Eidolos nods
+[14:36:57] < Zawk> after coming up with the "monster shows up" scenario
+[14:36:58] <@Eidolos> I'm not implementing it because it goes against my vision for Interhack
+[14:37:06] < Zawk> What's your vision?
+[14:37:16] <@Eidolos> but I would include it in the plugin list
+[14:37:16] <@doy> could do it sort of okay the same way that #rest works
+[14:37:24] <@doy> you'd still get hit though
+[14:37:53] <@Eidolos> well ok, it doesn't violate my vision
+[14:37:58] <@Eidolos> since you'd have to invoke the #untrap command
+[14:38:16] <@Eidolos> or whatever you decide to call it
+[14:38:23] < Zawk> yea, I had thought of making it #unlock
+[14:38:31] < Zawk> #unl for short maybe
+[15:28:36] <@doy> hmmm...
+[15:28:42] <@doy> when does interhack disconnect?
+[15:33:40] <@Eidolos> recv returns 0 if the socket disconnected
+[15:33:48] <@Eidolos> it returns undef if it would have blocked for input
+[15:36:20] <@doy> never mind, server issue
+[15:39:08] <@Eidolos> o
+[17:53:31] <@Eidolos> so I saw on your termcast you had some uber-plugin code up. scared? :)
+[17:57:18] <@Eidolos> and, have you tried running it yet?
+[18:00:07] <@Eidolos> also, we should definitely have tests :)
+[18:16:25] <@doy> Eidolos: your termcast is corrupted again
+[18:17:56] <@Eidolos> huh, didn't even realize it was still going :)
+[18:21:22] <@Eidolos> are you able to push and pull to the branch?
+[18:22:49] <@doy> i did a get on the branch
+[18:22:53] <@doy> haven't tried pushing/pulling
+[18:23:08] <@doy> pushing/pulling on the trunk works
+[18:23:13]  * Eidolos nods
+[18:23:23] <@Eidolos> I bet pushing to the branch will fail
+[18:24:33] <@Eidolos> I wonder if we want Interhack::Plugin to extend Interhack
+[18:37:12] < arcanehl> yeah!
+[18:38:49] <@doy> we like extending things!
+[18:40:28] <@Eidolos> yes
+[18:40:59] <@Eidolos> OK I think I've got a clear idea of what should go where
+[18:41:50] <@Eidolos> hmm
+[18:45:59] <@Eidolos> sheesh
+[18:46:11] <@Eidolos> Moose is so awesome
+[18:46:25] <@Eidolos> essentially all the hooks we need are before input, after input, before output, after output
+[18:46:26] <@Eidolos> :)
+[18:46:51] <@Eidolos> that is, if we were just reimplementing Interhack in an OO way
+[18:47:09] <@doy> should have some way to specify dependencies
+[18:47:30] <@Eidolos> I don't think Moose::Roles have that
+[18:47:35] <@Eidolos> on the other hand
+[18:47:42] <@Eidolos> you now tell Interhack what plugins to load
+[18:47:58] <@Eidolos> so we can probably have some kind of dependency file
+[18:48:07] <@Eidolos> and just make sure things are loaded in the correct order
+[18:49:20] <@Eidolos> so I'm thinking we don't need Interhack/Plugin.pm at all
+[18:49:41]  * Eidolos wanders off to ponder
+[18:50:07] < billnye> I wonnnderrrr as I wannnderrrrr
+[18:50:16] < billnye> mum ble mumble starrrrs
+[21:18:36] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:51:26] <@Eidolos> zubin!
+[21:51:34] < zubin> yo.

@@ -1,0 +1,79 @@
+[00:05:50] <@doy> seems odd though that every test on darwin/netbsd has only hung on 004
+[00:05:53] <@doy> but probably
+[00:06:04] <@doy> the prints probably just threw off the timing
+[03:41:29] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[03:41:53] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[04:11:26] <@Eidolos> doy: I have termcast set up on the macbook
+[04:11:40] <@Eidolos> so if you want to do some interactive debugging that'll help
+[04:12:46] < arcanehl> should rsync the files over!
+[04:12:52] < arcanehl> can do it over ssh easily enough
+[04:12:53] <@Eidolos> hmmm
+[04:12:59] <@Eidolos> good idea
+[04:13:10] <@Eidolos> but, lazy
+[04:13:11] < arcanehl> should I save the "of course" for later?
+[04:13:21] <@Eidolos> this works, and isn't too much effort
+[04:13:40] < arcanehl> now only if you remembered -R
+[04:13:42] <@Eidolos> ever play with Quicksilver?
+[04:13:51] < arcanehl> I don't own a Mac, so no
+[04:13:56] < arcanehl> talk to runc though
+[04:17:18] < alexbobp> Interhack autoadjusts smoky potions?
+[04:17:59] <@Eidolos> it adjusts potions off q, if that's in your config
+[04:18:08] < alexbobp> Ah, I see
+[04:18:09] < alexbobp> makes sense
+[04:18:10] < alexbobp> By the way, what is this IO::Pty::Easy I keep hearing about?
+[04:18:31] < arcanehl> it's going to CHANGE THE WORLD
+[04:18:32] <@Eidolos> a module for Perl that doy is writing
+[04:18:40] <@Eidolos> it lets you run Interhack with a local copy of NetHack
+[04:18:52] <@Eidolos> which is good if you have no net
+[04:18:56] <@Eidolos> and good for testing
+[04:19:14] <@Eidolos> basically NetHack doesn't like it when a program is invoking it
+[04:19:20] <@Eidolos> it wants to be in a shell
+[04:19:38] <@Eidolos> and IO::Pty is how you fake a shell for programs like this
+[04:32:55] < alexbobp> ah, I see.
+[04:33:00] < alexbobp> sounds like a very good thing
+[04:33:16] < alexbobp> why does nethack not like that?
+[04:33:57]  * Eidolos shrugs
+[04:36:15] < arcanehl> prevent cheating
+[04:36:34] < alexbobp> Damn, he got my pack from a long way away!
+[04:42:06] < alexbobp> prevents cheating?  NetHack already has enough barriers to AI players.
+[04:43:03] < arcanehl> it was entirely a guess
+[04:43:24] < arcanehl> could be a leftover from Hack
+[05:33:02] <@Eidolos> so now I have bleadperl set up
+[05:33:08] <@Eidolos> == bleeding edge perl
+[05:33:12] <@Eidolos> straight outta repo
+[05:36:27] < arcanehl> will it be the new 5.10 then?
+[05:37:30] <@Eidolos> eventually, yes
+[05:37:36] <@Eidolos> it has the // and //= operators, wewt!
+[05:40:05] <@Eidolos> also given/when
+[05:48:41] < alexbobp>  // as in documentation?
+[05:48:50] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has quit [Read error: 110 (Connection timed out)]
+[05:49:19] <@Eidolos> huh? no, a // b is short for defined a ? a : b 
+[05:49:36] <@Eidolos> generally more correct than || which is a ? a : b
+[05:50:41] < arcanehl> what do given and when do?
+[05:51:06] <@Eidolos> read them as switch and case, except Perlier
+[05:51:20] < arcanehl> the last part scares me
+[05:52:17] <@Eidolos> given ($foo) { when ('bar') { ... } when /baz/ { ... } }
+[05:52:20] <@Eidolos> I believe
+[05:54:49] < alexbobp> Eidolos: more correct how?
+[05:54:55] <@Eidolos> (/baz/). ugh.
+[05:55:16] <@Eidolos> alexbobp: 0 and the empty string usually aren't special cases
+[05:55:36] < alexbobp> oh, so those aren't neccessarily booleans
+[05:55:43] < alexbobp> I was thinking strong-typed.
+[05:55:47]  * arcanehl prefers plain /baz/ over (/baz/)
+[05:55:50] < arcanehl> heh, this is Perl
+[05:56:01] <@Eidolos> arcanehl: me too. Perl 6 gets rid of a lot of parens :)
+[06:21:51] <@Eidolos> Calf has 108 patches? gosh
+[06:22:01] <@Eidolos> and CMM has 76
+[06:22:06] <@Eidolos> (atomic coding)++
+[06:28:18] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[14:34:02] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has joined #interhack
+[18:06:51] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[18:14:38] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[21:16:05] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[21:33:53] -!- billnye [i=billnye@unaffiliated/billnye] has quit ["Lost terminal"]
+[21:34:12] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[23:40:15]  * Eidolos plays some good ole fashioned NetHack
+[23:58:00] <@Eidolos> ack -f --perl | xargs perl -le 'for (@ARGV) { print if do { open X, $_; <X> } !~ /env perl/ }'
+[23:58:27] <@Eidolos> print the names of Perl files under the current directory (recursively) whose first line doesn't match "env perl"
+[23:58:50] <@Eidolos> purpose: the perl I want to run is not in /usr/bin/perl
+[23:58:56] <@Eidolos> so I need to make it /usr/bin/env perl

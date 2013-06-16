@@ -1,0 +1,63 @@
+[00:06:42] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has quit [Connection timed out]
+[00:28:56] -!- alexbobp [n=alex@wireless-128-62-176-95.public.utexas.edu] has joined #interhack
+[01:18:33] -!- alexbobp [n=alex@wireless-128-62-176-95.public.utexas.edu] has quit [Success]
+[03:05:14] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has joined #interhack
+[03:34:05] -!- stumbly_ [i=wlngnut@dialup-4.246.233.115.Dial1.SanJose1.Level3.net] has joined #interhack
+[03:52:27] -!- stumbly [n=wlngnut@dialup-4.246.36.120.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[06:45:30] -!- stumbly [i=wlngnut@dialup-4.246.234.136.Dial1.SanJose1.Level3.net] has joined #interhack
+[07:03:18] -!- stumbly__ [i=wlngnut@dialup-4.246.234.159.Dial1.SanJose1.Level3.net] has joined #interhack
+[07:04:09] -!- stumbly_ [i=wlngnut@dialup-4.246.233.115.Dial1.SanJose1.Level3.net] has quit [Success]
+[07:20:22] -!- stumbly [i=wlngnut@dialup-4.246.234.136.Dial1.SanJose1.Level3.net] has quit [Connection timed out]
+[08:20:37] -!- stumbly__ [i=wlngnut@dialup-4.246.234.159.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[09:52:42] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[09:52:51] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:53:29] -!- ekiMbo is now known as ekiM
+[14:40:28] -!- stumbly [i=wlngnut@dialup-4.246.236.225.Dial1.SanJose1.Level3.net] has joined #interhack
+[15:40:24] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has quit ["Leaving."]
+[16:06:48] -!- stumbly_ [i=wlngnut@dialup-4.246.237.167.Dial1.SanJose1.Level3.net] has joined #interhack
+[16:23:04] -!- stumbly [i=wlngnut@dialup-4.246.236.225.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[16:50:36] -!- stumbly_ [i=wlngnut@dialup-4.246.237.167.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[17:30:46] -!- alexbobp [n=alex@wireless-128-62-176-95.public.utexas.edu] has joined #interhack
+[17:48:46] -!- stumbly [i=wlngnut@dialup-4.246.238.114.Dial1.SanJose1.Level3.net] has joined #interhack
+[17:55:49] -!- alexbobp [n=alex@wireless-128-62-176-95.public.utexas.edu] has quit [Connection timed out]
+[17:56:46] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has joined #interhack
+[18:32:08] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has quit ["Leaving."]
+[18:44:48] -!- alexbobp [n=alex@wireless-128-62-176-95.public.utexas.edu] has joined #interhack
+[19:14:26] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[19:14:33] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:29:36] -!- alexbobp [n=alex@wireless-128-62-176-95.public.utexas.edu] has quit [Connection timed out]
+[19:48:56] -!- alexbobp [n=alex@wireless-128-62-174-74.public.utexas.edu] has joined #interhack
+[19:54:18] -!- ekiMbo is now known as ekiM
+[20:09:23] -!- alexbobp [n=alex@wireless-128-62-174-74.public.utexas.edu] has quit [Connection timed out]
+[21:02:30] -!- stumbly_ [i=wlngnut@dialup-4.246.45.132.Dial1.SanJose1.Level3.net] has joined #interhack
+[21:11:23] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has joined #interhack
+[21:18:40] -!- stumbly [i=wlngnut@dialup-4.246.238.114.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[22:07:39] <@Eidolos> toft: feel like getting up to speed with ih tonight?
+[22:07:55] <@Eidolos> I wrote a miniature version of Moose which optimizes for IH's use case
+[22:08:12] <@Eidolos> (reloadable runtime plugins with state)
+[22:11:56] <@Eidolos> it superficially resembles Moose, but isn't as general
+[22:12:05] <@Eidolos> and I suspect it wouldn't support a more complex app
+[22:12:15] <@Eidolos> with just one main class and multiple plugins, it works great
+[22:12:28] < ekiM> oh deer
+[22:17:39] <@doy> yeah, we need to get back on track with interhack devel
+[22:17:40] <@doy> (:
+[22:17:47] <@doy> kinda died out
+[22:18:16] <@doy> on the other hand, http://luaforge.net/projects/luairc/
+[22:21:18]  * Eidolos nods
+[22:21:44] <@Eidolos> doy: woot
+[22:22:25] <@doy> Eidolos: you should test it out
+[22:22:30] <@doy> make sure i'm not breaking things
+[22:23:06] <@Eidolos> Interhack? or LuaIRC?
+[22:23:11] <@doy> luairc
+[22:23:28] <@Eidolos> ok
+[22:23:31] <@Eidolos> will tonight
+[22:23:36] <@doy> deps are lua5.1 and luasocket
+[22:23:52] <@doy> everything should work fine with just make && sudo make install
+[22:24:30] <@Eidolos> ok, have lua5.1.2
+[22:43:55] -!- stumbly [i=wlngnut@dialup-4.246.45.143.Dial1.SanJose1.Level3.net] has joined #interhack
+[23:00:45] -!- stumbly_ [i=wlngnut@dialup-4.246.45.132.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[23:30:25] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: arcanehl, jilles
+[23:30:39] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: @toft, billnye, stumbly
+[23:31:04] -!- Netsplit over, joins: @toft
+[23:31:21] -!- Netsplit over, joins: arcanehl, jilles
+[23:31:37] -!- Netsplit over, joins: stumbly, billnye

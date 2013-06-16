@@ -1,0 +1,67 @@
+[01:14:24] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has quit [Read error: 104 (Connection reset by peer)]
+[01:18:55] -!- alexbobp [n=alex@w-mob101-128-62-86-159.public.utexas.edu] has joined #interhack
+[02:33:55] -!- sorear [n=stefan@ip68-6-133-142.sd.sd.cox.net] has joined #interhack
+[02:36:01]  * sorear loses pacifism once too often, dl's
+[02:38:44] <@Eidolos> neither 1 nor 2 has a pacifism blocker
+[02:38:46] <@Eidolos> yet
+[02:39:00] <@Eidolos> we do have weaponless, illiterate, foodless, maybe another
+[02:40:39] < sorear> Writing it will be much easier than starting from scratch, even for someone who knows almost no Perl
+[02:41:10] <@Eidolos> yeah
+[02:41:21] <@Eidolos> it shouldn't be too hard to add
+[02:41:48] <@Eidolos> when we receive a movement command, are expecting a command, and that movement would move us into a monster, ask for confirmation first
+[03:01:09] < sorear> How do I install CPAN modules on a system that already has a package manager?  (dpkg fwiw)  Same method?
+[03:03:24] <@Eidolos> the Debian/Ubuntu repos do have some of the dependencies
+[03:03:41] <@Eidolos> but not all (for 2.0 anyway) :/
+[03:03:48] < sorear> I don't see libterm-vt102-perl (debian sid)
+[03:04:01] < sorear> will cpan -i break things?
+[03:04:15] <@Eidolos> nope, I use both apt and cpan to install modules
+[03:04:32] <@Eidolos> apt when it's a big module with special dependencies (like libdbd-pg-perl and libgd-perl)
+[03:05:02] <@Eidolos> when we get closer to having a finished product of 2.0 we'll have a tarball of all the deps you need
+[03:06:09] <@Eidolos> my battery's about to run out and I don't feel like getting the cord set up, so, good night :)
+[03:06:24] <@Eidolos> hope it doesn't run out during the night
+[03:06:26] < sorear> 'night Eidolos
+[03:06:37] < sorear> "save" :D
+[03:13:27] < sorear> Documentation error
+[03:14:57] < sorear> http://members.cox.net/stefanor/1189480468.png <- we have interhack!
+[03:15:45] <@doy> that is one massive terminal
+[03:18:04] < sorear> muahaha.
+[03:18:56] < sorear> ... but what are my stats?  *reads up on configuration*
+[03:19:22] <@doy> #stats
+[03:19:39] <@doy> also, you can adjust the $botl and $sl variables in the config file
+[03:20:10] <@doy> $statusline rather
+[03:20:51] <@doy> see plugins/botl.pl for an example
+[03:20:54] <@doy> well
+[03:20:57] <@doy> for the default, rather
+[03:21:03] < sorear> Interhack doesn't officially support DEC graphics, <- in the unlikely event I'm motivated to fix this, does this say "the patch will be rejected"?
+[03:21:16] <@doy> nope
+[03:21:21] < sorear> ah good :)
+[03:21:32] <@doy> it just means "man is that irritating and complicated to get exactly right"
+[03:21:58] <@doy> and if you don't get it exactly right, it just destroys your screen, basically
+[03:28:30] < sorear> hmm, the engr-ider doesn't quite work
+[03:35:31] <@doy> yeah, that one wasn't really worked on too much
+[03:38:34] < sorear> generally really cool though :)
+[03:52:48] < sorear> I love ^E
+[04:46:02] < sorear> The kitten yowls!  You hit the kitten.  You feel a bit steadier now.
+[04:46:02] < sorear> Your pet is hungry!
+[04:46:10] < sorear> ^^bug, doy
+[05:17:45] -!- sorear [n=stefan@ip68-6-133-142.sd.sd.cox.net] has quit ["zzz"]
+[05:38:34] -!- Lemarck-BR [i=pwxxcwid@200.246.54.134] has joined #interhack
+[05:40:02] -!- Lemarck-BR [i=pwxxcwid@200.246.54.134] has left #interhack ["[CyberScript]"]
+[13:32:37] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: ekiM
+[13:33:10] -!- Netsplit over, joins: ekiM
+[19:15:32] -!- sorear [n=stefan@ip68-6-133-142.sd.sd.cox.net] has joined #interhack
+[19:45:55] < sorear> Does Interhack work on !80x25 terminals?
+[19:46:01] <@Eidolos> :)
+[19:46:09] <@Eidolos> it forces itself to use 80x24 for two reasons
+[19:46:14] <@Eidolos> 1) it simplifies code
+[19:46:19] <@Eidolos> 2) I hate when people use huge terms!
+[19:46:29] <@Eidolos> makes it all but impossible to watch them
+[19:46:55]  * sorear ponders a plugin to make these inventory lists easier to read :)
+[19:47:00] < sorear> Fair enough.
+[19:48:21] < sorear> It's just a little annoying to have my inventory list stop halfway down my screen; but that's not a big deal.
+[19:48:38] <@Eidolos> understood
+[20:47:37] < arcanehl> so use 80x24, then it stops at the bottom
+[20:55:46] < sorear> ...of the terminal.
+[20:56:10] < sorear> I don't have X11 fonts the right shape to fill the screen at 80x24, only 79x35
+[20:57:39] < arcanehl> why full screen though?
+[20:57:51] < arcanehl> I'd have to say I like multiple terms open on one screen

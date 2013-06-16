@@ -1,0 +1,45 @@
+[00:03:51] <@Eidolos> which?
+[00:04:37] < arcanehl> former
+[00:05:38] <@Eidolos> it's a template language optimized for CSS
+[00:05:40] <@Eidolos> originally in Lua
+[00:05:42] <@Eidolos> see moonfall.org
+[00:06:31] < arcanehl> seems like a logical complement for T::D
+[00:06:39] <@Eidolos> yep
+[00:06:47] <@Eidolos> our CSS in HM is pretty ugly
+[00:07:13] <@Eidolos> so Jifty may end up using CSS::Moonfall or its spiritual successor, once we figure out exactly how we want things to work
+[00:07:48] <@Eidolos> my naive guess is that we'll end up using templates very similar to what TD does, though instead of a sub you just provide hashrefs
+[00:28:19] -!- stumbly_ [i=wlngnut@dialup-4.246.45.15.Dial1.SanJose1.Level3.net] has joined #interhack
+[00:47:48] -!- stumbly [i=wlngnut@dialup-4.246.45.195.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[00:53:08] <@Eidolos> CSS::Moonfall uploaded \o/
+[00:59:31] <@doy> awesome
+[01:04:34] <@Eidolos> have you played with it
+[01:04:35] <@Eidolos> ?
+[01:17:53] <@Eidolos> it's now at the point where it can parse my rc file correctly :)
+[01:18:30] <@Eidolos> but I have to hardcode in all the defaults so Interhack can use it successfully
+[03:23:39] -!- stumbly [i=wlngnut@dialup-4.246.45.88.Dial1.SanJose1.Level3.net] has joined #interhack
+[03:42:47] -!- stumbly_ [i=wlngnut@dialup-4.246.45.15.Dial1.SanJose1.Level3.net] has quit [Connection timed out]
+[04:37:40] -!- stumbly_ [i=wlngnut@dialup-4.246.45.204.Dial1.SanJose1.Level3.net] has joined #interhack
+[04:54:42] -!- stumbly [i=wlngnut@dialup-4.246.45.88.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[06:31:36] -!- stumbly_ [i=wlngnut@dialup-4.246.45.204.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[13:55:40] -!- stumbly [i=wlngnut@dialup-4.246.45.60.Dial1.SanJose1.Level3.net] has joined #interhack
+[14:43:06] -!- stumbly_ [i=wlngnut@dialup-4.246.45.119.Dial1.SanJose1.Level3.net] has joined #interhack
+[15:00:31] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[15:00:40] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:01:49] -!- stumbly [i=wlngnut@dialup-4.246.45.60.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[15:03:57] -!- ekiMbo is now known as ekiM
+[15:13:41] -!- stumbly [i=wlngnut@dialup-4.246.45.162.Dial1.SanJose1.Level3.net] has joined #interhack
+[15:40:52] -!- stumbly_ [i=wlngnut@dialup-4.246.45.119.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[15:55:52] -!- stumbly [i=wlngnut@dialup-4.246.45.162.Dial1.SanJose1.Level3.net] has quit [Read error: 104 (Connection reset by peer)]
+[18:53:51] -!- stumbly [i=wlngnut@dialup-4.246.36.28.Dial1.SanJose1.Level3.net] has joined #interhack
+[19:16:08] -!- stumbly_ [i=wlngnut@dialup-4.246.233.64.Dial1.SanJose1.Level3.net] has joined #interhack
+[19:23:38] -!- stumbly__ [i=wlngnut@dialup-4.246.45.243.Dial1.SanJose1.Level3.net] has joined #interhack
+[19:33:46] -!- stumbly [i=wlngnut@dialup-4.246.36.28.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[19:40:36] -!- stumbly_ [i=wlngnut@dialup-4.246.233.64.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[20:30:46] -!- stumbly [i=wlngnut@dialup-4.246.45.168.Dial1.SanJose1.Level3.net] has joined #interhack
+[20:48:09] -!- stumbly__ [i=wlngnut@dialup-4.246.45.243.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[21:21:43] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Read error: 104 (Connection reset by peer)]
+[22:06:27] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[23:08:50] -!- stumbly_ [i=wlngnut@dialup-4.246.45.64.Dial1.SanJose1.Level3.net] has joined #interhack
+[23:30:17] -!- stumbly [i=wlngnut@dialup-4.246.45.168.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[23:34:43] -!- stumbly [i=wlngnut@dialup-4.246.45.107.Dial1.SanJose1.Level3.net] has joined #interhack
+[23:52:10] -!- stumbly_ [i=wlngnut@dialup-4.246.45.64.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]

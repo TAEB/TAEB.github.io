@@ -1,0 +1,33 @@
+[02:29:35] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[02:29:57] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[03:22:07] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[03:23:05] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[03:23:53] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[03:51:50] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[03:52:07] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[04:04:12] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[04:04:31] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[05:30:33] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[05:40:05] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[05:40:15] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[08:46:08] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[08:46:16] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[09:17:59] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[09:18:19] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[09:51:31] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:07:26] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[10:25:42] -!- ekiMbo is now known as ekiM
+[11:12:05] <@Eidolos> Interhack doesn't try very hard to support DEC. sorry :)
+[11:12:15] <@Eidolos> (it's difficult)
+[12:53:52] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[14:07:32] < Zawk> how do you all play then?
+[14:16:42] <@Eidolos> without DEC..?
+[14:16:51] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[14:23:08] < Zawk> but then it's ugly =/
+[15:04:55] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[15:05:05] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Read error: 104 (Connection reset by peer)]
+[17:42:53] -!- gabrielaher1 [n=knoppix@dslb-088-070-017-208.pools.arcor-ip.net] has joined #interhack
+[17:43:54] -!- gabrielaher1 [n=knoppix@dslb-088-070-017-208.pools.arcor-ip.net] has left #interhack []
+[19:48:12] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[22:12:25] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[23:34:49] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]

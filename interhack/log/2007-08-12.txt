@@ -1,0 +1,1539 @@
+[00:47:53] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Connection timed out]
+[00:52:03] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[01:41:56] < alexbobp> the ssh access goes through dgamelaunch also'
+[01:41:58] < alexbobp> same interface
+[01:42:05] < alexbobp> sorry I took 3 hours to respond...
+[01:42:13] < alexbobp> username is slashem and password is slashem
+[01:42:27] < alexbobp> also, I tried ssh port forwarding, but it didn't work
+[01:42:32] < alexbobp> so they seem to have it secured well.
+[01:43:04] < alexbobp> Eidolos: is interhack 2 yet developed enough to be used by someone who doesn't know perl>
+[01:43:06] < alexbobp> *?
+[01:43:13] <@Eidolos> sure
+[01:43:18] <@Eidolos> even more so than 1
+[01:43:28] <@Eidolos> but stick with 1 for now
+[01:43:49] <@Eidolos> since 2 doesn't have autologin or autoadjust or #view or anything else that's really handy
+[01:46:29] < alexbobp> where do I get version 2?  is it the one currently in darcs?
+[01:46:44] < alexbobp> wait, features were removed?
+[01:46:50] < alexbobp> or is it rewritten from scratch?
+[01:46:53] <@Eidolos> rewritten
+[01:47:00] < alexbobp> wow
+[01:47:00] < alexbobp> okay.
+[01:47:32] <@Eidolos> and they're both in darcs.. the version you have is most likely 1
+[02:03:22] <@Eidolos> we need new status and botl plugins!
+[02:04:51] < alexbobp> botl?
+[02:04:57] <@Eidolos> bottom line
+[02:11:32] < alexbobp> ah
+[02:11:54] < alexbobp> how well does interhack handle it when you change the settings for what the bottom line shows?
+[02:12:10] <@Eidolos> it should handle it well
+[02:41:09] <@Eidolos> hmm
+[02:41:36] <@Eidolos> Stevie had the initial interhack implementation, he hasn't been around since I started working on it though
+[02:55:52]  * Eidolos mails Stevie
+[02:57:12] <@Eidolos> from trunk/TODO:
+[02:57:12] <@Eidolos> kill counter
+[02:57:12] <@Eidolos> which could be used to rewind live
+[02:57:13] <@Eidolos> hee
+[02:57:23] <@Eidolos> there was a line between them, "ttyrec output" or some such
+[02:59:22] <@Eidolos> I don't think I have a copy of Stevie's code.. think I'll do some log grep
+[03:00:56] <@Eidolos> http://www.klozoff.ms11.net/nethack/helper/pictures/nethack-helper-fainting.png http://www.klozoff.ms11.net/nethack/helper/pictures/nethack-helper-hungry.png http://www.klozoff.ms11.net/nethack/helper/pictures/nethack-helper-weak.png
+[03:00:56] <@Eidolos> :)
+[03:02:47] <@Eidolos> w
+[03:02:51] <@Eidolos> http://www.klozoff.ms11.net/nethack/helper/nethack-helper-pl.txt
+[03:05:03] <@Eidolos> wow, I had a lot of good ideas when he was first announcing this
+[03:05:07] <@Eidolos> I'll put the log on the site
+[03:13:02] <@Eidolos> http://interhack.us/genesis-irc.txt
+[03:18:00] <@Eidolos> [20:37:17] <@doy> i don't know if having the layer in between you and nao would be that workable
+[03:18:01] <@Eidolos> :)
+[03:18:30] -!- jilles [i=jilles@unaffiliated/jilles] has quit [Read error: 60 (Operation timed out)]
+[03:29:07] <@doy> yeah, i wasn't sure how much lag it would introduce
+[03:29:11]  * Eidolos nods
+[03:29:16] <@doy> with all of the pattern matching and stuff
+[03:39:26] <@Eidolos> http://interhack.us/initial-implementation-irc.txt
+[03:46:40] <@Eidolos> I think I can detect pastes
+[03:47:19] <@Eidolos> after we get a key, block for input for 0.001s or something and if we get another key, confirm before continuing
+[03:49:55] <@Eidolos> and it's very do-able as a plugin :)
+[03:53:00] <@doy> hmmm
+[03:53:25] <@doy> i suppose it could be useful
+[03:53:36] <@doy> pasting is useful on occasion, but unloading plugins shouldn't be hard
+[03:53:46] <@Eidolos> heh :)
+[03:53:55] <@Eidolos> right now there's no config.. I'll fix that some time
+[03:54:04] <@doy> hmmm
+[03:54:10] <@doy> how does it work at the moment?
+[03:54:13] <@Eidolos> I'm pretty sure that config will be a plugin
+[03:54:15] <@doy> where is stuff like state stored?
+[03:54:23] <@Eidolos> interhack.yaml
+[03:54:30] <@Eidolos> otherwise in attributes in the Interhack instance
+[03:56:31] <@doy> does nethack test whether it's being run on a tty?
+[03:56:37] <@Eidolos> yep
+[03:56:40] <@doy> bah
+[03:56:45] <@Eidolos> yep :)
+[03:57:03] <@doy> i wonder if that would be possible to fake
+[03:57:19] <@Eidolos> IO::Pty
+[03:57:24] <@doy> isn't there a Term::PTY ... yeah, that
+[03:58:15] <@Eidolos> ok so it's pretty difficult to trip up the paste detection manually
+[03:58:26] <@doy> what's the [24;19H thing?
+[03:58:54] <@Eidolos> that's just the silly way I handle putting realtime on the botl
+[03:59:08] <@Eidolos> (hence why we need botl 2.0 :))
+[03:59:26] <@Eidolos> paste detection seems to work like a fscking peach :D:D
+[03:59:30] <@Eidolos> I love it when a plan comes together
+[04:01:05]  * Eidolos hmms
+[04:01:09] <@Eidolos> ah, I see
+[04:01:32] <@Eidolos> it's asking for eat confirmation because we're sending data to NAO so quickly it can't keep up
+[04:01:35] <@Eidolos> s'probably ok
+[04:02:31] <@doy> that is certainly a silly way to write to the botl
+[04:02:32] <@doy> (:
+[04:02:41] <@Eidolos> I know :)
+[04:02:48] <@Eidolos> I wrote that code about an hour into 2.0
+[04:02:59] <@doy> just can't live without realtime?
+[04:02:59] <@doy> (:
+[04:03:00] <@Eidolos> and I just wanted to see that the realtime was being saved
+[04:03:24] <@doy> what does the version represent?
+[04:03:31] <@Eidolos> nothing at the moment
+[04:03:43] <@Eidolos> I'll start incrementing it when we cut a 2.0
+[04:04:25] <@Eidolos> hmm
+[04:04:29] <@Eidolos> this won't interact well with macros
+[04:04:35] <@Eidolos> I'll solve it later
+[04:04:41] <@doy> i was wondering about that
+[04:04:42] <@Eidolos> (need to implement dependencies)
+[04:05:07] <@Eidolos> macros need to have an soft dependency on pastedetection
+[04:05:18] <@doy> hmmm
+[04:05:20] <@Eidolos> meaning if both macros and pastedetection are loaded, then pastedet comes first
+[04:05:28] <@Eidolos> so pastedet's method modifiers are applied first
+[04:05:28] <@doy> about the dep sorting
+[04:05:52] <@doy> how possible would it be to do something like the way vim's quickload plugins are written
+[04:05:59] <@Eidolos> dunno what they are
+[04:06:14] <@doy> where you load them once to get info about the plugin, and then load them again to actually load the plugin
+[04:06:21] <@Eidolos> ah
+[04:06:26] <@doy> in vim's case, info means function names
+[04:06:42] <@Eidolos> wellll
+[04:06:42] <@doy> so the plugin is only actually loaded once you call a function it includes
+[04:06:51] <@doy> but here, could just have it provide deps
+[04:07:12] <@Eidolos> I was just thinking a flat file with all the deps
+[04:07:17] <@Eidolos> since that kind of loading is hard to do right
+[04:07:37] <@doy> it's easier to keep in sync and stuff if it's closer to the plugin itself i think
+[04:07:41] <@doy> but yeah
+[04:07:48] <@doy> if it adds a lot of code, might not be worth it
+[04:08:21] <@Eidolos> a 95% solution might just be to load the plugin as text and look for a dep string, and eval only that line
+[04:08:43] <@doy> yeah
+[04:09:37] <@doy> and i do want to write the status parsing stuff, but i think i'll write a few of the smaller ones first just to get an idea of how this all works
+[04:09:44] <@Eidolos> oh, of course :)
+[04:09:52] <@doy> because that status stuff is quite a big chunk of code
+[04:09:53] <@Eidolos> I can write any utility functions you need
+[04:09:55] <@doy> with lots of state
+[04:09:59] <@doy> also
+[04:10:12] <@doy> i was wondering how utility functions were going to be handled
+[04:10:20] <@doy> are they still going to be in core?
+[04:10:24] <@Eidolos> nope
+[04:10:35] <@Eidolos> in the ideal world
+[04:10:44] <@doy> so are we just going to have two different types of module then?
+[04:10:44] <@Eidolos> there would be a base class for all plugins and the utilities would live there
+[04:10:57] <@Eidolos> but you can't (yet?) subclass roles
+[04:10:59] <@doy> that might be reasonable...
+[04:11:15] <@Eidolos> so utilities are just another role that provide methods
+[04:11:20] <@Eidolos> and happens to look a lot like a plugin
+[04:11:24] <@Eidolos> Interhack::Plugin::Util
+[04:11:28] <@Eidolos> already has a few things
+[04:11:29] <@doy> but i'm thinking for things like how the intrinsic matcher was used for both a display thing and for a tracking thing
+[04:11:37] <@doy> (and i wanted it to be a note thing too)
+[04:11:41] <@Eidolos> aye
+[04:11:48] <@doy> and it would be nice to be able to do that in a more generic way
+[04:11:53] <@Eidolos> I'd say anything that just looks for data should be its own plugin
+[04:12:20] <@Eidolos> then anything that uses it to provide info or to munge output should compose that plugin into itself and wrap its methods
+[04:12:30] <@Eidolos> so a concrete example would be
+[04:12:36] <@Eidolos> Plugin::Interhack::IntrinsicMatcher
+[04:12:47] <@doy> yeah
+[04:12:56] <@doy> that was my thought
+[04:12:57] <@Eidolos> around 'from_server' => sub { look for stuff }
+[04:13:07] <@Eidolos> sub gained_intrinsic { ... }
+[04:13:11] <@Eidolos> sub lost_intrinsic { ... }
+[04:13:13] <@doy> it would involve splitting up a lot of the current plugins though
+[04:13:22] <@Eidolos> Plugin::Interhack::IntrinsicViewer
+[04:13:32] <@Eidolos> with "Plugin::Interhack::IntrinsicMatcher";
+[04:13:37] <@doy> ah...
+[04:13:38] <@doy> yeah
+[04:13:42] <@doy> and then around those two
+[04:13:44] <@doy> nifty
+[04:13:47] <@Eidolos> yes
+[04:13:50] <@Eidolos> :)
+[04:14:00] <@doy> yeah, that does seem to be the best way
+[04:14:11] <@doy> i wonder how much stuff needs to be split up like that
+[04:14:20] <@Eidolos> IntrinsicViewer would actually just look at attributes, probably
+[04:14:24] <@doy> like should eidocolors be split like that?
+[04:14:37] <@Eidolos> but the note-adding one should wrap gained and lost
+[04:14:41] <@doy> right
+[04:14:46] <@Eidolos> anyway
+[04:14:51] <@Eidolos> Eidocolors is basically just a straight port
+[04:15:04] <@Eidolos> ack
+[04:15:10] <@Eidolos> welcome back should not call new_state
+[04:15:14] <@Eidolos> whoops :)
+[04:15:20] <@doy> also, that's a bad regex
+[04:15:27] <@doy> Konnichi wa doy, ...
+[04:15:27] <@Eidolos> aye
+[04:15:37] <@Eidolos> the first one works
+[04:15:44] <@Eidolos> I checked that one pretty thoroughly
+[04:15:57] <@Eidolos> the game never says Konnichi wa, \w+ hits all the greetings for that message
+[04:16:04] <@Eidolos> shopkeepers say it though
+[04:16:17] <@doy> Konnichi wa wizard, welcome to NetHack!  You are a lawful male human Samurai.
+[04:16:24] <@Eidolos> >_>
+[04:16:25] <@Eidolos> ok then
+[04:16:34] <@Eidolos> cut me some slack, the source is hard! :)
+[04:16:36] <@doy> (:
+[04:16:58] <@Eidolos> back to the plugin splitting
+[04:17:14] <@Eidolos> it's probably only needed for a small amount of plugins
+[04:17:18] <@doy> yeah
+[04:17:46] <@Eidolos> eidocolors is entirely configurable with three hashes, so we won't need to split it up
+[04:18:02] <@doy> (unrelated note again, would it possibly be a good idea to allow plugins to unload themselves?)
+[04:18:26] <@Eidolos> it also puts all of its recolorings into an attribute, so you could disable certain colorings at any time if you tried hard enough
+[04:18:31] <@Eidolos> unloading is actually somewhat tricky
+[04:18:36] <@Eidolos> I wonder if I do it right
+[04:18:51] <@doy> like here, this plugin does nothing after the game starts
+[04:18:55] <@Eidolos> I'm pretty sure it entails saving all state, creating a new Interhack instance, ... :)
+[04:18:56] <@doy> and stuff like the conduct trackers
+[04:19:05] <@doy> do nothing after q is pressed
+[04:19:08] <@Eidolos> right
+[04:19:16] <@doy> would be nice to not have to run that code
+[04:19:20] <@Eidolos> plugins should be able to unload themselves
+[04:19:32] <@doy> what makes it tricky?
+[04:19:34] <@Eidolos> but unloading is not very well supported
+[04:19:55] <@Eidolos> let me check Moose docs
+[04:20:00] <@Eidolos> it may be easy to uncompose a role
+[04:20:15] <@doy> also, debug messages would be a useful thing to have
+[04:20:31] <@Eidolos> don't think we can unload roles easily :/
+[04:20:33] <@Eidolos> yes
+[04:20:38] <@Eidolos> I intend to use Log::Log4perl
+[04:20:41] <@Eidolos> I hate its name but it's the best
+[04:20:42] <@doy> if we're rewriting everything anyway, would be nice to add all of that useful stuff
+[04:20:47] <@doy> how does it work?
+[04:21:06] <@Eidolos> well by default
+[04:21:12] <@Eidolos> it gives you 5 levels of log message
+[04:21:16] <@Eidolos> and it's incredibly configurable
+[04:21:23] <@Eidolos> so you can say errors go to terminal, everything else goes to file
+[04:21:34] <@Eidolos> or "I don't want to see debug messages"
+[04:21:49] <@doy> really, i just want a way to turn on debug mode and have everything that it does get written to a trace file
+[04:21:50] <@Eidolos> <@doy> if we're rewriting everything anyway, would be nice to add all of that useful stuff -> you mean unloading? or logging?
+[04:21:58] <@doy> logging
+[04:22:01] <@Eidolos> ok
+[04:22:03] <@doy> i don't know how possible unloading is
+[04:22:09] <@doy> but logging is definitely possible
+[04:22:14] <@Eidolos> :) yes
+[04:22:18] <@doy> and we should probably start doing it now
+[04:22:22] <@doy> before things get too big
+[04:22:23] <@Eidolos> yes
+[04:22:27] <@Eidolos> good thinking
+[04:22:34] <@doy> i could start adding that in
+[04:22:55] <@Eidolos> we want the five levels as methods in Interhack
+[04:23:01] <@Eidolos> or better yet, as a plugin
+[04:24:22] <@Eidolos> I'll add logging
+[04:24:24] <@doy> connect should be split out into a plugin
+[04:24:27] <@doy> okay
+[04:24:42] <@Eidolos> I don't think connect should be a plugin
+[04:24:49] <@Eidolos> 1) Interhack should be useful without any plugins :)
+[04:25:00] <@doy> well, we should have a modular connect system in any case
+[04:25:00] <@Eidolos> 2) you can write a plugin that just overrides connect
+[04:25:24] <@doy> probably the default should run a local game, once we have that working
+[04:25:33] <@Eidolos> sure
+[04:25:37] <@doy> and then we can have plugins for connecting to nao, to sporkhack, to devnull, etc
+[04:25:55] <@Eidolos> I think we'd just want one plugin that does all that but is configurable
+[04:26:13] <@doy> that's possible too
+[04:26:17] <@Eidolos> hmm, I'll just have the logging functions be in util
+[04:26:20] <@doy> like how i was doing it for 1.0
+[04:26:51] <@doy> but... the issue is that the methodology for connecting to all of those different types is a lot different
+[04:26:58] <@doy> ssh, telnet, local, etc
+[04:27:09] <@Eidolos> so two plugins + the default for IH
+[04:28:18] <@doy> yeah, i'm thinking like one for telnet and one for ssh to handle the actual connection
+[04:28:40] <@doy> and then a dgl one and a devnull one at least to handle things like autologin
+[04:28:43] <@doy> and whatnot
+[04:28:49] <@doy> pregame code
+[04:29:13] <@doy> the local nethack version shouldn't need that at all
+[04:29:20] <@doy> since it's always in game
+[04:29:41] <@doy> and the local connection stuff can be built into core, so that it's usable with no plugins
+[04:30:22] <@Eidolos> well, any way you like is probably fine :)
+[04:30:26] <@doy> (:
+[04:34:23] <@doy> does eidocolors do just items?
+[04:34:25] <@doy> or everything?
+[04:34:28] <@Eidolos> just items
+[04:36:45] <@doy> so pretty much all of the plugins you've written so far are stuff that was core before
+[04:36:48] <@doy> heh
+[04:36:58] <@Eidolos> or stuff that was impossible as a plugin in 1.x
+[04:37:01] <@doy> yeah
+[04:37:03] <@Eidolos> because that's what's interesting to me right now
+[04:38:00] <@doy> maybe i'll write the dgl plugin first
+[04:39:16] <@Eidolos> you forgot the ? on those groups :)
+[04:39:21] <@doy> ...oops
+[04:39:23] <@doy>  /:
+[04:39:27] <@Eidolos> sall good
+[04:39:54] <@Eidolos> pretty much all plugins will require Util
+[04:40:01] <@Eidolos> which is fine
+[04:40:23] <@doy> okay, so
+[04:40:32] <@doy> feel like giving me a rundown on how these plugins work?
+[04:40:49] <@Eidolos> sure
+[04:40:53] <@Eidolos> first read the primer :)
+[04:42:31] <@Eidolos> the further sections give more info :)
+[04:43:26] <@Eidolos> by the way, the tests are broken
+[04:43:28] <@Eidolos> :)
+[04:43:31] <@doy> okay
+[04:43:32] <@doy> (:
+[04:44:00] <@doy> how are you intending for them to work?
+[04:44:32] <@Eidolos> read them
+[04:44:41] <@Eidolos> t/ has all the tests
+[04:48:08] <@Eidolos> humorously enough the reason they fail is mostly because of plugin unloading being broken
+[04:48:33] <@doy> it's broken on the moose side?
+[04:49:07] <@Eidolos> I guess. we're using Moose in an odd way
+[04:49:16] <@doy> how so?
+[04:49:19] <@Eidolos> according to the author, we're the only ones who are using runtime role composition
+[04:49:25] <@Eidolos> = selective plugin loading
+[04:49:30] <@doy> hmmm
+[04:50:04] <@doy> it should be supported though?
+[04:50:16]  * Eidolos shrugs
+[04:50:30] <@Eidolos> cool, logging :)
+[04:50:52] <@doy> sweet
+[04:50:52] <@doy> (:
+[04:51:05] <@Eidolos> gonna see about getting better output
+[04:51:58] <@doy> hmmm, yeah, this doesn't look particularly supported to me(:
+[04:52:12] <@Eidolos> you can configure Log4perl to check its config file every N seconds and it'll take any changes into effect
+[04:52:14]  * Eidolos grins
+[04:52:15] <@Eidolos> yes
+[04:52:29] <@Eidolos> we're also using MooseX::Storage in an odd way
+[04:52:49] <@Eidolos> see Interhack.pm, /meta
+[04:53:02] <@Eidolos> not that
+[04:53:11] <@doy> oh right
+[04:53:15] <@Eidolos> hehe
+[04:53:20] <@doy> i remember you writing this
+[04:53:21] <@doy> (:
+[04:53:34] <@Eidolos> made me sad, but then I realized that yes, this is what meta-object programming is about
+[04:53:38] <@doy> hey, you do have a moose commit bit
+[04:53:41] <@doy> get writing!
+[04:53:42] <@doy> (:
+[04:53:46] <@Eidolos> O:)
+[04:53:57] <@Eidolos> I actually asked in #moose a little while ago if there were any low-hanging fruit
+[04:54:18] <@Eidolos> they suggested some stuff, but then I went and, I think, played Adventure instead
+[04:54:24] <@doy> sweet
+[04:54:24] <@doy> (:
+[04:56:22] <@doy> have i mentioned how sweet fingerprint scanner authentication is?
+[04:56:25] <@Eidolos> hehe
+[04:56:30] <@Eidolos> one of my coworkers use it, I am jealous
+[04:56:42] <@doy> you should totally get a thinkpad
+[04:56:46] <@Eidolos> :)
+[04:56:52] <@doy> they are seriously nice machines
+[04:57:07] <@doy> moose has lots of deps
+[04:57:11] <@Eidolos> yes
+[04:57:49] <@Eidolos> you can use perl Makefile.PL to test your deps
+[04:57:58] <@doy> how?
+[04:58:03] <@Eidolos> perl Makefile.PL :)
+[04:58:18] <@doy> that will just test them?
+[04:58:24] <@doy> and not install things?
+[04:58:24] <@Eidolos> it'll also write a Makefile
+[04:58:47] <@Eidolos> it will install when you run make and you have unmet deps
+[04:58:56] <@Eidolos> heh!
+[04:59:00] <@Eidolos> let me fix that, hang on
+[05:00:19] <@doy> where did these come from?
+[05:00:23] <@Eidolos> Module::Install
+[05:00:24] <@doy> the stuff in inc/
+[05:00:39] <@doy> it's not in cpan?
+[05:00:41] <@Eidolos> it's a standard installer module, we use it for everything at work
+[05:00:44] <@Eidolos> it is, but the idea is
+[05:00:54] <@Eidolos> not everyone will have Module::Install if it's just on the CPAN
+[05:01:06] <@Eidolos> so it comes bundled with your source (it's not that large)
+[05:01:11] <@doy> ah
+[05:01:19] <@doy> this way the makefile always just works
+[05:01:21] <@Eidolos> pull and try again
+[05:01:27] <@Eidolos> ya
+[05:02:12] <@Eidolos> :)
+[05:02:22] <@Eidolos> a little easier than
+[05:02:26] -!- jilles [i=jilles@unaffiliated/jilles] has joined #interhack
+[05:02:48] <@Eidolos> "ok try running Interhack. if you get a Could not find Foo/Bar/Baz.pm in @INC: garbage, run sudo cpan -i Foo::Bar::Baz. repeat until you get onto NAO"
+[05:03:00] <@doy> heh
+[05:03:13] <@Eidolos> you can make install too
+[05:03:22] <@Eidolos> it generates the Makefile
+[05:03:46] <@Eidolos> it's actually really nifty how Module::Install works
+[05:03:51] <@Eidolos> I just write this small Makefile.PL
+[05:03:56] <@Eidolos> the first time I run it it'll populate inc/
+[05:04:12] <@Eidolos> which I can then distribute
+[05:07:59] <@doy> so
+[05:08:03] <@doy> how are we going to do config
+[05:08:06] <@doy> for password stuff
+[05:08:22] <@Eidolos> any deficiencies in how we had it in 1?
+[05:08:29] <@doy> not particularly
+[05:08:33] <@Eidolos> k :)
+[05:08:37] <@Eidolos> for now we'll do that then
+[05:08:39] <@doy> want to use ~/.interhack2 for now?
+[05:08:44] <@Eidolos> sure
+[05:10:34] <@Eidolos> haha.
+[05:10:35] <@Eidolos> sl'd
+[05:11:08] <@doy> ?
+[05:11:12] <@Eidolos> that
+[05:11:14] <@doy> ah
+[05:11:15] <@doy> (:
+[05:11:21] <@Eidolos> first time I've actually typo'd ls
+[05:12:08] <@doy> that utility function should also match things like 'Sat'
+[05:12:16] <@Eidolos> yes
+[05:12:21] <@Eidolos> it's not a utility function though :)
+[05:12:26] <@Eidolos> it wants to be a utility function!
+[05:12:29] <@doy> irc is not the greatest todo list
+[05:12:31] <@Eidolos> preferably in Botl.pm
+[05:12:32] <@Eidolos> :q
+[05:12:41] <@Eidolos> I'd like to start using Hiveminder
+[05:12:52] <@Eidolos> you can interact with it via the web, a command line interface, or AIM
+[05:13:13] <@Eidolos> we can have an Interhack group, tasks have tags; due dates; priorities, we can push tasks off to one another
+[05:13:26] <@Eidolos> and we can add arbitrarily long comments
+[05:13:35] <@doy> yeah, some kind of actual todo/bug tracker would be sweet
+[05:13:46] <@Eidolos> as my boss likes to describe it, it's RT for your mom. but we don't need the full power of RT at all
+[05:14:00] <@doy> what's rt?
+[05:14:06] <@Eidolos> a ticketing system
+[05:14:11] <@Eidolos> an actual todo/bug tracker ;)
+[05:14:22] <@Eidolos> but it's kinda hard to set up, and slow
+[05:14:28] <@doy> (:
+[05:14:31] <@Eidolos> slower than HM for me anyway, since I have AIM right there!
+[05:14:45] <@doy> trac did look pretty awesome when you guys were using it for icfp
+[05:14:59] <@Eidolos> well.
+[05:15:01] <@doy> i used it in the past, and it wasn't very good
+[05:15:04] <@Eidolos> try hiveminder! :)
+[05:15:06] <@doy> but it's a lot better now
+[05:15:13] <@doy> and yeah, you keep bugging me to do that
+[05:15:13] <@doy> (:
+[05:15:14] <@Eidolos> I can probably get pro accounts for you and toft too
+[05:15:27] <@Eidolos> (it's normally $30 a year)
+[05:16:07] <@doy> yeah, i'm just kinda iffy on going with something that both requires payment and that we don't have full control over
+[05:16:16] <@doy> but it should work at least
+[05:16:16] <@Eidolos> doesn't require payment!
+[05:16:25] <@doy> 04:15 <@Eidolos> (it's normally $30 a year)
+[05:16:30] <@Eidolos> pro accounts are $30 a year
+[05:16:35] <@doy> what's the difference?
+[05:16:47] <@Eidolos> pro accounts get some little bells and whistles
+[05:16:55] <@Eidolos> but all the functionality we need is in basic accounts
+[05:17:02] <@Eidolos> we're actually trying to find pro features we can sell :)
+[05:18:39] <@Eidolos> "You've now invited jluehrs2@uiuc.edu to join Interhack."
+[05:18:47] <@Eidolos> I'll start creating tasks for 2.0
+[05:18:57] <@doy> you've done that what, like 4 or 5 times now?
+[05:18:57] <@doy> (:
+[05:19:06] <@Eidolos> this time you'll accept!
+[05:19:06] <@doy> i'll mess around with it tomorrow
+[05:19:09] <@Eidolos> ok
+[05:20:56] <@doy> what else can/should go here
+[05:21:07] <@Eidolos> pass?
+[05:21:16] <@Eidolos> it's also Str, not String
+[05:21:19] <@doy> no, like in an attribute declaration
+[05:21:19] <@Eidolos> (trips me up all the time)
+[05:21:22] <@Eidolos> oh
+[05:21:27] <@Eidolos> default => ''
+[05:21:37] <@Eidolos> when in doubt just copy something else
+[05:21:47] <@Eidolos> that should be enough though
+[05:22:09] <@doy> and what should be attributes?
+[05:22:20] <@doy> just things that should be externally settable?
+[05:22:28] <@doy> or retrievable?
+[05:22:38] <@Eidolos> any kind of state should be an attribute
+[05:22:40] <@doy> externally available i suppose is what i'm going for
+[05:22:57] <@doy> so externally available or needs to be stored then?
+[05:23:13] <@Eidolos> I guess, I'm not certain what you mean
+[05:23:41] <@doy> what do you mean by 'any kind of state'
+[05:24:09] <@Eidolos> any variables that can change
+[05:24:18] <@Eidolos> I guess :)
+[05:25:20] <@doy> what does 'isa' default to?
+[05:25:25] <@Eidolos> Any
+[05:25:30] <@Eidolos> which menas no type restriction
+[05:25:34] <@Eidolos> I wasn't sure of the type of the logger
+[05:25:37] <@doy> ah
+[05:25:38] <@Eidolos> meant to look at that :)
+[05:36:57] <@Eidolos> http://img392.imageshack.us/img392/7664/hm1tz9.png
+[05:37:11] <@Eidolos> http://img392.imageshack.us/img392/637/hm2vz7.png
+[05:37:19] <@Eidolos> if you look at FasterFox's timer you'll see why I prefer the IM interface :)
+[05:38:11] <@doy> what's the command line interface like?
+[05:38:38] <@Eidolos> http://hiveminder.com/static/tools/cli/todo.pl
+[05:38:40] <@Eidolos> I don't use it
+[05:39:06] <@Eidolos> it's probably useable for this
+[05:39:10] <@doy> i probably would
+[05:39:19] <@Eidolos> :)
+[05:39:20] <@doy> just so i don't have to keep switching desktops
+[05:39:26] <@Eidolos> sure
+[05:39:27] <@doy> that or install bitlbee
+[05:39:55] <@doy> or write a bridge bot between irc and aim
+[05:39:56] <@doy> (:
+[05:40:06] <@Eidolos> I was thinking about writing a bridge between cli and aim
+[05:40:13] <@Eidolos> much like the HM plugin for 1.0
+[05:40:31] <@doy> why, when you have the cli program already?
+[05:40:53] <@Eidolos> aim has more features
+[05:41:18] <@Eidolos> plus it can maintain a persistent connection so would be quicker
+[05:42:03] <@doy> on another note, why is vim autoindent for perl being stupid?
+[05:42:15] <@Eidolos> http://paste.husk.org/8911
+[05:42:17] <@Eidolos> shrug
+[05:42:22] <@Eidolos> it usually is :)
+[05:43:15] <@Eidolos> alexbobp: what's your email address?
+[05:43:21] <@Eidolos> I'll add you to the Hiveminder group
+[05:47:36] <@doy> Eidolos: what needs to happen here for this to be correct?
+[05:48:08] <@Eidolos> ref($new_server) == "string" is wrong in a lot of ways
+[05:48:17] <@doy> heh
+[05:48:22] <@doy> i'm going on vague memories here
+[05:48:25] <@Eidolos> what are you trying to check?
+[05:48:31] <@doy> the type
+[05:48:38] <@Eidolos> ok
+[05:48:39] <@Eidolos> don't :)
+[05:48:40] <@doy> so this function can take a hash like above or a string
+[05:48:44] <@Eidolos> ah
+[05:48:47] <@Eidolos> ok
+[05:48:52] <@Eidolos> so what I'd do is check the size of @_
+[05:48:56] <@Eidolos> if it's 1, assume it's a string
+[05:49:05] <@Eidolos> otherwise if it's 0, log a warning
+[05:49:11] <@Eidolos> otherwise, interpret as a hash
+[05:49:25] <@Eidolos> (you can also check for hashref)
+[05:49:32] <@Eidolos> ref($string) eq "HASH" is the correct check for that
+[05:49:38] <@Eidolos> finally
+[05:49:39] <@doy> oh, eq, right
+[05:49:48] <@Eidolos> we're using OOP now, so you need to shift off $self
+[05:50:05] <@doy> yeah, didn't know how to get $self
+[05:50:50] <@Eidolos> you'll want to return from the sub too
+[05:50:52] <@doy> is this right?
+[05:50:54] <@doy> ah, yeah
+[05:51:09] <@Eidolos> and not $logger, but $self->warn
+[05:51:14] <@Eidolos> that reminds me
+[05:51:20] <@Eidolos> MooseX::Log4perl :)
+[05:51:23]  * Eidolos will write that tomorrow
+[05:55:28]  * Eidolos stab router
+[05:55:47] <@Eidolos> $_[0] not @_[0]
+[05:56:20] <@Eidolos> $new_server = $servers{$_[0]} or do {
+[05:56:31] <@Eidolos>     $self->warn("Unknown server '$_[0]'");
+[05:56:33] <@Eidolos>     return; };
+[05:57:39] <@Eidolos> grumble, looks like I'm gonna be pinged oout
+--- Log closed Sun Aug 12 05:57:43 2007
+[05:57:46] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[05:57:46] -!- Irssi: #interhack: Total of 10 nicks [3 ops, 0 halfops, 0 voices, 7 normal]
+[05:57:48] < Eidolos_> >_<
+[05:57:55] < Eidolos_> [05:55:28]  * Eidolos stab router
+[05:57:55] < Eidolos_> [05:55:47] <@Eidolos> $_[0] not @_[0]
+[05:57:55] < Eidolos_> [05:56:20] <@Eidolos> $new_server = $servers{$_[0]} or do {
+[05:57:55] < Eidolos_> [05:56:31] <@Eidolos>     $self->warn("Unknown server '$_[0]'");
+[05:57:55] < Eidolos_> [05:56:33] <@Eidolos>     return; };
+[05:57:55] < Eidolos_> [05:57:39] <@Eidolos> grumble, looks like I'm gonna be pinged oout
+[05:59:09] -!- Irssi: Join to #interhack was synced in 85 secs
+[05:59:31] < Eidolos_> I should just run irssi on the colo box :)
+[05:59:41] <@doy> it's what i do
+[05:59:42] <@doy> (:
+[05:59:50] < Eidolos_> can you ^R for me?
+[05:59:57] < Eidolos_> or ^L, whatever
+[06:00:00] < Eidolos_> thanks
+[06:00:26] < Eidolos_> I think you want $new_server = \%@_
+[06:00:34] < Eidolos_> which I've never actually written before :)
+[06:00:40] < Eidolos_> it probably won't work
+[06:00:50] <@doy> doesn't look like it
+[06:01:08] < Eidolos_> $new_server = \do {my %args = @_};
+[06:01:34] < Eidolos_> vim's syntax highlighting sometimes is wrong, btw ;)
+[06:01:38] <@doy> true
+[06:01:41] <@doy> but it's usually right
+[06:01:42] <@doy> (:
+[06:01:49] < Eidolos_> doesn't get !! at all, which saddens me
+[06:02:00] <@doy> what should it do with !!?
+[06:02:05] < Eidolos_> same as it does with !
+[06:02:12] < Eidolos_> !!$x -> coerce $x to 0 or 1
+[06:02:31] < Eidolos_> hmm
+[06:02:34] <@doy> hmmm
+[06:02:36] < Eidolos_> that works for you
+[06:02:41] <@doy> what is it doing here
+[06:02:59] <@doy> i'm confused
+[06:03:17] <@doy> starting a string?
+[06:03:19] < Eidolos_> you don't want !!@_
+[06:03:19] < Eidolos_> :)
+[06:03:23] < Eidolos_> just @_
+[06:03:25] <@doy> i know
+[06:03:28] < Eidolos_> oh
+[06:03:30] <@doy> i was just trying out the syntax
+[06:03:37] < Eidolos_> I'm not sure what it's doing, maybe a regex
+[06:03:51] < Eidolos_> shrug
+[06:04:12] <@doy> how confusing
+[06:04:30] < Eidolos_> nope, that isn't broken :)
+[06:04:34] < Eidolos_> I know that syntax works
+[06:04:55] < Eidolos_> heh
+[06:05:06] <@doy> d:
+[06:05:11] < Eidolos_> now one last comment
+[06:05:15] < Eidolos_> you probably want to check all those keys
+[06:05:29] < Eidolos_> $self->name(...) or $self->warn("Server name not set.");
+[06:05:38] < Eidolos_> (don't need to return)
+[06:08:47] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[06:08:52] -!- You're now known as Eidolos
+[06:12:23] < Eidolos> ahhaa
+[06:12:26] < Eidolos> Carp::REPL doc :)
+[06:15:55] <@doy> where do we check command line args?
+[06:16:00] < Eidolos> don't yet
+[06:16:02] < Eidolos> but
+[06:16:07] < Eidolos> I think we'll use a Moose role for that
+[06:16:14] < Eidolos> but for now you can put @ARGV processing anywhere
+[06:16:17] <@doy> okay
+[06:16:24] < Eidolos> (there's already a GetOpt::Moose or something)
+[06:16:31] < Eidolos> but I don't feel like adding it just yet
+[06:16:33] <@doy> does everything have access to ARGV, or just the .pl file?
+[06:16:33] < Eidolos> tired
+[06:16:37] < Eidolos> everything
+[06:16:40] <@doy> okay
+[06:16:51] < Eidolos> you may have to specify @main::ARGV
+[06:17:05] < Eidolos> try without, see what happens :)
+[06:29:02]  * Eidolos heads to bed
+[06:29:19] <@doy> yeah, i'll be doing that soon
+[06:29:27] < Eidolos> by the way
+[06:29:30] < Eidolos> for calling methods
+[06:29:34] < Eidolos> we're almost always going to be using $self->
+[06:29:39] <@doy> okay
+[06:29:50] < Eidolos> that means autologin and clear_buffers :)
+[06:30:21] <@doy> ah, right
+[06:30:56] < Eidolos> load_all_config is what you want to rewrite :)
+[06:31:13] <@doy> can Config.pm have has declarations?
+[06:31:22] < Eidolos> hmm
+[06:31:23] < Eidolos> nope
+[06:31:24] <@doy> right now i just want to have a place to declare the config directory
+[06:31:34] <@doy> so that it's easily changable
+[06:31:39] < Eidolos> right, hmm
+[06:31:51] < Eidolos> config will probably be a role
+[06:31:55] < Eidolos> so it will end up there
+[06:32:02] <@doy> i'll stick it in Interhack.pm for now
+[06:32:08] < Eidolos> sure
+[06:32:11] <@doy> can change it later once we have actual config
+[06:32:16] < Eidolos> whenever we make temporary compromises like this
+[06:32:19] < Eidolos> put an XXX: comment in the code :)
+[06:32:23] <@doy> okay
+[06:32:57] < Eidolos> all too often we (as programmers) forget to fix such things
+[06:33:09] <@doy> what does required do?
+[06:33:22] < Eidolos> means it can never be undef
+[06:35:56] <@doy> this is how i access attributes, right?
+[06:37:01] < Eidolos> it's actually
+[06:37:02] < Eidolos> $self->name
+[06:37:04] < Eidolos> for what you have
+[06:37:13] <@doy> right, was about to change that
+[06:37:13] < Eidolos> I think what you really want is just one attribute, a hashref called server
+[06:37:17] <@doy> i meant for the config_dir
+[06:37:20] < Eidolos> oh. yes
+[06:37:24] <@doy> and that's possible
+[06:37:32] <@doy> i'll get around to refactoring once it works
+[06:37:33] <@doy> (:
+[06:37:36] < Eidolos> :)
+[06:38:00] < Eidolos> hmm
+[06:38:11] < Eidolos> you may want to do that refactoring sooner than that
+[06:38:12] <@doy> and it probably shouldn't be called name
+[06:38:16] < Eidolos> since $self->name is way too ambiguous
+[06:38:19] <@doy> yeah
+[06:38:21] < Eidolos> and may already be taken
+[07:06:51] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[07:23:03] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[11:23:33] < alexbobp> Eidolos: you have my email address.  Search your email for "Detection of not oil"
+[13:05:56] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[13:06:05] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[13:07:16] -!- ekiMbo is now known as ekiM
+[14:04:51] < Eidolos> don't have any hits
+[14:05:31] < Eidolos> doy: no-arg functions
+[14:05:38] < Eidolos> they cannot be interpolated
+[14:11:26] <@doy> Eidolos: you left a few eid1 lines in the initial-implementation thing
+[14:11:27] <@doy> (:
+[14:11:33]  * Eidolos laughs
+[14:13:41] <@doy> heh, sweet
+[14:13:47] < Eidolos> :)
+[14:13:59] < Eidolos> I have to make a nice display for it too
+[14:14:04] < Eidolos> and set up a scrolling windowe
+[14:14:04] <@doy> don't need to abuse extended commands anymore?
+[14:14:15] < Eidolos> I think we will
+[14:14:20] < Eidolos> this is more for debugging I guess
+[14:14:38] <@doy> should at least make all of the extended commands available through this
+[14:14:43] < Eidolos> sure
+[14:15:27] <@doy> nice display -> overwrite the whole screen with a gray version
+[14:15:33] <@doy> then do line-by-line
+[14:15:39] <@doy> scroll after half the screen or so
+[14:15:52] < Eidolos> I'd like to make it look just like the quake console!
+[14:16:01] < Eidolos> except not on a red bg, since that'd just be annoying
+[14:16:14] <@doy> i've only seen the hl console
+[14:16:22] <@doy> so i don't know what that's like
+[14:16:44] <@doy> but i think the pseudo-trans would look cool
+[14:16:44] <@doy> (:
+[14:16:51] < Eidolos> hmm. ok :)
+[14:16:52] < Eidolos> do-able
+[14:18:39] < Eidolos> by the way, the slow start up is Moose :/
+[14:19:37] < Eidolos> hee
+[14:19:48] <@doy> yeah, i was wondering about that
+[14:20:12] < Eidolos> I use the ->expecting_command which is usually right
+[14:20:21] < Eidolos> needs a little work, but altogether pretty nice
+[14:21:04] < Eidolos> hmmm
+[14:23:25] < Eidolos> I'll need to see how to set up a scrolling area
+[14:23:42] <@doy> just keep a list of the lines
+[14:23:55] <@doy> and redraw them on each output
+[14:24:24] <@doy> things like command history would also be useful
+[14:24:35]  * Eidolos nods
+[14:24:42] <@doy> and all of this should be persistent across ~ invocations
+[14:24:49] < Eidolos> yep
+[14:24:52] < Eidolos> and ~ will have logging info :)
+[14:24:55] <@doy> and the input line should always be in the same place
+[14:24:58] <@doy> yeah, that too
+[14:24:58] <@doy> (:
+[14:25:13] <@doy> why is moose so slow
+[14:25:17] <@doy> can we do anything about that?
+[14:25:38] < Eidolos> awesome
+[14:25:41] <@doy> sweet
+[14:25:56] <@doy> now just have the input always start at line 13
+[14:26:01] <@doy> or 12 or whatever
+[14:26:06] <@doy> and do scrolling from the start
+[14:26:16] < Eidolos> hmm
+[14:26:19] <@doy> heh
+[14:26:21] < Eidolos> still has some kinks :)
+[14:26:34] <@doy> reset
+[14:26:35] <@doy> d:
+[14:26:39] < Eidolos> need to see if this work
+[14:27:03] < Eidolos> ok
+[14:27:52] <@doy> can we do anything to make moose start up faster?
+[14:27:56] < Eidolos> don't think so
+[14:27:59] <@doy> because that's going to get irritating really fast
+[14:28:01] <@doy>  /:
+[14:28:02] < Eidolos> except wait for them to optimize stuff
+[14:28:18] <@doy> well, my machine should be significantly faster anyway
+[14:28:19] <@doy> (:
+[14:28:51] < Eidolos> wtf
+[14:28:57] < Eidolos> first monster I kill drops +2 [oMR??
+[14:28:58] <@doy> ?
+[14:29:01] <@doy> heh
+[14:29:07] <@doy> how do you know it's mr?
+[14:29:13] < Eidolos> everything else auto-IDs
+[14:29:35] <@doy> Eidolos: ?
+[14:29:56] < Eidolos> ln -vis log4perl.conf ~/.interhack2/log4perl.conf
+[14:30:05] < Eidolos> and pull again
+[14:30:07] < Eidolos> or wait
+[14:30:20] < Eidolos> it should've pulled the change to 2
+[14:30:23] < Eidolos> shrug
+[14:32:34] < Eidolos> ok, so that all works. yay
+[14:32:37] <@doy> i'm moving the logger conf location to ~/.interhack2
+[14:32:43] < Eidolos> I thought I did, but ok
+[14:32:50] <@doy> actually
+[14:33:15] <@doy> this should work, right?
+[14:33:18] < Eidolos> sure
+[14:33:26] < Eidolos> ah.
+[14:33:28] <@doy> heh
+[14:33:29] < Eidolos> I did just not push :)
+[14:34:52] <@doy> apparently that won't work
+[14:35:00] <@doy> do triggers get self args?
+[14:35:02] < Eidolos> o
+[14:35:08] < Eidolos> ohh
+[14:35:14] < Eidolos> I think so
+[14:35:19] < Eidolos> but maybe not
+[14:36:11] < Eidolos> :)
+[14:36:14] <@doy> bah
+[14:36:18] <@doy> symlinks are stupid
+[14:37:22] <@doy> nah, that's still pretty irritatingly slow
+[14:37:29] < Eidolos> :/
+[14:37:33] <@doy> you should work on that optimizing thing d:
+[14:38:38] <@doy> maybe run it under a profiler to see if we are doing anything unnecessary at init
+[14:38:46] < Eidolos> I'm pretty sure it's just Moose
+[14:39:15] <@doy> well, doing anything unnecessary with moose
+[14:39:34] < Eidolos> meh
+[14:39:37] <@doy> (:
+[14:42:07] <@doy> how slow is moose going to make things at runtime?
+[14:42:21] < Eidolos> should be fast, we're already doing a lot
+[14:42:44] < Eidolos> I was working on implementing a mini-Moose
+[14:42:55] < Eidolos> which just does some easy things without all the startup penalty of a MOP
+[14:43:06] <@doy> sweet
+[14:43:25] < Eidolos> now it doesn't even need to hit the server for ^R
+[14:43:34] < Eidolos> (once we get color working in restore_row then it'll be even better, heh)
+[14:43:34] <@doy> why?
+[14:43:44] <@doy> yeah, was going to say
+[14:43:50] < Eidolos> now theoretically we can enable the console any time
+[14:44:10] < Eidolos> ~ is a menu accelerator though
+[14:44:10] < Eidolos> hmm
+[14:44:23] <@doy> who really uses it though
+[14:44:23] <@doy> (:
+[14:44:46] < Eidolos> this is pretty nice. damn
+[14:46:14] <@doy> alright, have to go do some stuff at the moment, i'll be back in a bit to get dgl autologin tested and commited
+[14:46:18] < Eidolos> cool
+[14:46:22] <@doy> i finished writing it last night
+[14:46:24] <@doy> mostly copy/paste
+[14:46:30] <@doy> just need to make sure it works
+[14:46:34] < Eidolos> we're using darcs by the way, commit often! :)
+[14:47:10] <@doy> yeah, i just am against committing broken/untested stuff
+[14:47:11] <@doy> (:
+[14:47:23] <@doy> once i have some code that does *something* correctly, i'll commit
+[14:47:23] <@doy> (:
+[14:47:37] < Eidolos> it's all right, as long as you don't push that broken/untested stuff
+[14:47:55] <@doy> i suppose
+[14:51:12] <@doy> alright
+[14:51:16] <@doy> back in a little bit
+[14:51:18] < Eidolos> see ya
+[14:55:56] < Eidolos> pushed all the quakeconsole stuff :D
+[15:09:58] < Eidolos> >_>
+[15:10:05] < Eidolos> worth keeping? :)
+[15:10:23] < alexbobp> Eidolos: alexbobp@gmail.com
+[15:10:27] < Eidolos> ah
+[15:11:21] < Eidolos> sent you an invitation to Hiveminder
+[15:11:31] < alexbobp> So I'll be expecting my copy of Interhack Pro shortly?
+[15:11:35] < alexbobp> jk
+[15:11:37] < Eidolos> heh
+[15:11:47] < alexbobp> ooh, hiveminder!
+[15:11:55] < alexbobp> Does that allow us to communicate telepathically?
+[15:12:08] < Eidolos> it's a web 2.0 todo list :)
+[15:13:14] < Eidolos> it's what I spend most of my time coding, at my job
+[15:14:35] < alexbobp> ah, you work for hiveminder?
+[15:14:40] < alexbobp> how do I claim a task?
+[15:14:50] < Eidolos> I work for Best Practical, which does Hiveminder
+[15:14:52] < Eidolos> click Edit then Take
+[15:15:11] < Eidolos> there's also an AIM interface, all by me :)
+[15:18:06] < alexbobp> AIM interface?
+[15:18:09] < alexbobp> that sounds like fun
+[15:18:12] < alexbobp> what's the sn?
+[15:18:16] < Eidolos> HM Tasks
+[15:18:25] < Eidolos> you have to configure it a little, go to preferences -> IM
+[15:19:44] < alexbobp> Maybe I luse at internet, but i see no take'
+[15:20:24] < Eidolos> are you at "Up for grabs"?
+[15:20:39] < Eidolos> and did you click Edit? :)
+[15:20:46] < alexbobp> ish
+[15:21:54] < Eidolos> I'm gonna go lie down for a little bit
+--- Log closed Sun Aug 12 15:26:07 2007
+[15:35:27] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[15:35:27] -!- Irssi: #interhack: Total of 10 nicks [2 ops, 0 halfops, 0 voices, 8 normal]
+[15:35:41] < Eidolos_> grumble :)
+[15:36:43] -!- Irssi: Join to #interhack was synced in 78 secs
+[15:37:27] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[15:43:18] < Eidolos_> I hate this damn router
+--- Log closed Sun Aug 12 15:46:38 2007
+[15:51:40] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[15:51:40] -!- Irssi: #interhack: Total of 10 nicks [2 ops, 0 halfops, 0 voices, 8 normal]
+[15:51:41] -!- mode/#interhack [+o Eidolos] by ChanServ
+[15:51:52] <@Eidolos> >_<
+[15:52:52] -!- Irssi: Join to #interhack was synced in 74 secs
+--- Log closed Sun Aug 12 16:01:50 2007
+[18:33:03] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[18:33:03] -!- Irssi: #interhack: Total of 9 nicks [2 ops, 0 halfops, 0 voices, 7 normal]
+[18:33:04] -!- mode/#interhack [+o Eidolos] by ChanServ
+[18:33:06] <@doy> hey
+[18:33:08] <@Eidolos> hate. this. router!
+[18:33:09] <@doy> there he is
+[18:33:24] <@Eidolos> what's up?
+[18:33:56]  * doy points to termcast
+[18:34:19] -!- Irssi: Join to #interhack was synced in 78 secs
+[18:34:53] <@Eidolos> hmm
+[18:34:58] <@Eidolos> why $/ ?
+[18:35:10] <@doy> because that's what chomp uses?
+[18:35:12] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 104 (Connection reset by peer)]
+[18:35:24] <@Eidolos> but
+[18:35:43] <@Eidolos> why exactly are you trying to check?
+[18:35:45] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[18:36:01] <@doy> the line used to be 'chomp $self->pass;'
+[18:36:07] <@Eidolos> ok
+[18:36:08] <@doy> i was just trying to recreate that
+[18:36:14] <@Eidolos> that suggests you want to do
+[18:36:18] <@Eidolos> my $pass = do { ... }
+[18:36:22] <@Eidolos> chomp $pass
+[18:36:24] <@Eidolos> $self->pass($pass)
+[18:36:31] <@doy> okay
+[18:36:49] <@Eidolos> di( :)
+[18:37:31] <@doy> hmmm... there were some other things
+[18:37:35] <@doy> i don't remember
+[18:37:42] <@doy> i'll let you know
+[18:37:43] <@doy> (:
+[18:37:44] <@Eidolos> ok
+[18:37:48] <@Eidolos> (did you XXX:? :))
+[18:37:55] <@doy> maybe
+[18:37:56] <@doy> (:
+[18:38:51] <@doy> what does $text contain in toserver?
+[18:38:58] <@Eidolos> the keystrokes
+[18:38:59] <@doy> is it ever going to be more than a single char?
+[18:39:03] <@Eidolos> yes, in macros
+[18:39:07] <@doy> okay
+[18:39:10] <@doy> but not otherwise?
+[18:39:18] <@Eidolos> shrug, I make no guarantees
+[18:41:14] <@doy> we should write up explicit coding style notes
+[18:41:53] <@Eidolos> sure
+[18:45:55] <@Eidolos> damn readline.
+[18:45:58] <@doy> (:
+[18:46:37] <@Eidolos> another annoyance with readline is you have to press a key after you ^D
+[18:48:15] <@doy> console doesn't work at the login screen?
+[18:48:38] <@Eidolos> it only works when NH is expecting a command
+[18:48:59] <@doy> oh, also
+[18:49:22] <@doy> what's the difference between "around 'check_input'" and "before 'toserver'"
+[18:49:39] <@doy> why are both necessary
+[18:49:46] <@Eidolos> all 'before's are run before any 'around's
+[18:49:56] <@Eidolos> and before means "I'm not modifying the arguments. I'm not modifying the return value"
+[18:50:05] <@doy> oh
+[18:50:10] <@doy> well then
+[18:50:14] <@doy> that would explain some things
+[18:50:15] <@doy> (:
+[18:50:47] <@Eidolos> we don't really _need_ before or after (or even around, strictly speaking :)) but it encodes intent
+[18:51:13] <@doy> i thought before could affect args
+[18:51:16] <@doy> is all
+[18:51:21] <@Eidolos> it can if you're intent on doing it
+[18:51:31] <@Eidolos> (modifying the elements of @_ directly)
+[18:51:37] <@Eidolos> which is a feature
+[18:52:14] <@Eidolos> bah, I hate when changes are intermingled
+[18:52:18] <@Eidolos> hard to revert just some of them
+[18:53:52]  * Eidolos was bored :)
+[18:54:43] <@doy> hmmm
+[18:54:46] <@doy> why is this not working
+[18:55:15] <@Eidolos> are you sure that's what is broken>
+[18:55:51] <@doy> ooo
+[18:57:03] <@doy> can i just call $self->toscreen here?
+[18:57:09] <@doy> instead of print?
+[18:57:13] <@doy> and have it work?
+[18:57:23] <@Eidolos> yes. ack. we should be doing that everywhere
+[18:58:22] <@doy> this code just has a lot of it because i just copied and pasted large chunks of it from 1.0 code
+[19:00:14] <@doy> oh, also
+[19:00:23] <@doy> :0,$d deletes the whole file
+[19:00:28] <@Eidolos> :)
+[19:00:35] <@doy> instead of doing that stupid 1000dd thing
+[19:00:36] <@doy> (:
+[19:00:44] <@Eidolos> I usually do ggVGd
+[19:00:49] <@doy> me too
+[19:00:53]  * arcanehl does rm file
+[19:01:01] <@doy> d:
+[19:01:21] < arcanehl> from within vim, 0dG I guess
+[19:01:29] < arcanehl> err, ggdG
+[19:02:12] <@doy> i actually usually do 1GdG, but i've been trying to use gg more often
+[19:02:16] <@doy> because it's easier to type
+[19:03:31] < arcanehl> used to do that as well
+[19:03:39] < arcanehl> until I accidently found gg
+[19:04:55] <@Eidolos> heh!
+[19:04:57] <@Eidolos> as a fringe benefit
+[19:05:06] <@Eidolos> hitting an arrow key will trigger paste detection
+[19:05:14] <@doy> heh
+[19:06:13] <@doy> hmmm
+[19:06:19] <@doy> this is what i was worried about
+[19:06:33] <@doy> replacing all of them could lead to infinite loops
+[19:06:36] <@doy> sigh
+[19:07:12] <@Eidolos> :/
+[19:08:41] <@Eidolos> hmm
+[19:08:54] <@Eidolos> looks like urxvt doesn't understand \e[r
+[19:09:00] <@doy> what should that do?
+[19:09:04] <@Eidolos> scrolling
+[19:09:09]  * Eidolos is watching in an out-of-screen termcast and it's not working
+[19:09:16] <@Eidolos> ohw ell :)
+[19:09:17] <@doy> works for me
+[19:09:39] <@doy> what's not working?
+[19:09:46] <@Eidolos> I see 24 lines of ">"
+[19:09:50] <@doy> i don't
+[19:09:56] <@Eidolos> it's no big deal
+[19:10:14] <@Eidolos> since covering only half the screen is just nice
+[19:10:18] <@doy> yeah
+[19:10:33] <@Eidolos> and as soon as I ^D it flips back just fine
+[19:14:57] <@Eidolos> hey it's working on the urxvt now. bizarro
+[19:16:21] <@doy> hmmm
+[19:16:23] <@doy>  /:
+[19:18:42] < arcanehl> well, use a sane term!
+[19:22:51] < alexbobp> Is there any limit on the lenght of a name you can give to an item?
+[19:23:28] < arcanehl> yeah
+[19:23:33] < arcanehl> eventually you just crash the game
+[19:24:00] < alexbobp> oh.
+[19:24:28] < arcanehl> which is why you should name items short names
+[19:24:32] < alexbobp> I was thinking interhack could encode all the data it saves for a game into a string that it could name some item or something
+[19:24:33] < arcanehl> it adds up over the entire game
+[19:24:38] < arcanehl> if it gets too long, crash!
+[19:24:38] < alexbobp> I guess that would be a bad idea
+[19:24:53] <@Eidolos> heh
+[19:24:54] < alexbobp> can interhack save that data in commented info in the nethackrc file then?
+[19:24:57] <@Eidolos> no there's a limit of like 80 chars
+[19:25:08] <@doy> that limit isn't always respected though
+[19:25:09] <@Eidolos> it makes an interhack.yaml file in the current directly
+[19:25:10] < alexbobp> that way someone playing from two computers could keep the info
+[19:25:11] <@Eidolos> directory
+[19:25:13] < arcanehl> exactly 80 IIRC
+[19:25:21] <@Eidolos> (this is 2, not 1)
+[19:25:40] < alexbobp> right, but I play at home and at work
+[19:25:46] < arcanehl> memory!
+[19:25:47] <@Eidolos> oh
+[19:25:55] < arcanehl> oh, wait, that's OOB and is clearly cheating
+[19:25:57] <@Eidolos> nopaste your interhack.yaml when you're done playing or something
+[19:25:57] < alexbobp> sometimes my games actually last long enough for me to have them saved between thsoe
+[19:26:08] < alexbobp> nopaste?
+[19:26:21] <@Eidolos> http://rafb.net/paste/
+[19:26:27] < arcanehl> you could use a flash drive or something as well
+[19:26:41] < alexbobp> easiest thing would just be to scp them.
+[19:26:48] < arcanehl> definitely
+[19:26:49] < alexbobp> I was just thinking it would be a nice convenience feature
+[19:26:50]  * Eidolos nods
+[19:27:16] < alexbobp> unless those files are large enough to piss off the NAO admins for filling up their servers with crap data in the nethackrc files...
+[19:27:42] < alexbobp> arcanehl: what's OOB and what would be cheating?
+[19:27:52] <@doy> the main issue is that it doesn't really fit in with how we are doing config
+[19:27:53] < arcanehl> one ttyrec is probably larger than all of the rc files, combined
+[19:28:08] <@Eidolos> well even the little interhack.yaml we currently have, bzip2'd, is larger than the normal item name limit
+[19:28:09] <@doy> because the server connection stuff isn't core
+[19:28:39] <@doy> Eidolos: would it be hard to replace the config and reupdate after?
+[19:28:51] <@Eidolos> we don't even do config yet so I dunno
+[19:28:52] <@doy> i suppose the dgamelaunch plugin could do that
+[19:28:57] <@doy> no, i mean the yaml stuff
+[19:28:58] <@doy> the state
+[19:29:13] <@Eidolos> oh, yeah, that's already possible to reload yaml
+[19:29:45] <@doy> i suppose we could just have the dgamelaunch code do more stuff after connect
+[19:30:19] <@doy> well
+[19:30:23] < alexbobp> arcanehl: I klnow, but if we started putting interhack.yaml data in the nethackrc file, I don't know if that would make them too big
+[19:30:23] <@doy> updating it would be difficult
+[19:30:31] <@doy> alexbobp: it wouldn't
+[19:30:43] <@doy> but how would you update the yaml information after you save?
+[19:30:44] < alexbobp> okay, cool
+[19:30:55] < alexbobp> it would log back in and do it
+[19:30:58] <@doy> like writing it back to the rc file comments
+[19:31:03] <@doy> that would be... slow
+[19:31:07] < alexbobp> slow?
+[19:31:09] <@doy> possible i suppose
+[19:31:15] < alexbobp> it shouldn't take more than a second
+[19:31:19] <@Eidolos> I think it'd be best if you just handled it yourself :)
+[19:31:24] <@doy> yeah(:
+[19:31:24] <@Eidolos> (means less coding for me!
+[19:31:33] < arcanehl> if you've got a broadband connection and low latency link to NAO maybe
+[19:31:38] <@doy> alexbobp: try out local rc file editing on 1.0
+[19:31:47] <@doy> and you'll see what i mean
+[19:31:51] < alexbobp> does anybody play nethack online without a low-latency connection>
+[19:31:53] < alexbobp> that would suck
+[19:32:06] < arcanehl> plenty of people
+[19:32:41] < alexbobp> I tried local rc file editing
+[19:32:45] < arcanehl> and I mean <40 ms latency to make the rc yaml updating quick
+[19:32:52] < alexbobp> it's very fast
+[19:32:59] <@Eidolos> how big is your rc though
+[19:33:03] <@doy> alexbobp: even after you save it and it updates things?
+[19:33:21] < alexbobp> the normal size for an rc made with the webconfig with no special menucolors
+[19:33:22] <@doy> the updating itself is very fast because it's, well, local
+[19:33:29] < alexbobp> I don't need to use Eidocolors, since I use interhack'
+[19:33:38] <@doy> the saving back part takes several seconds
+[19:33:49] <@Eidolos> :D
+[19:33:50] < alexbobp> doy: saving it back takes me a lot less than one second
+[19:33:57] < alexbobp> and I have cheap dsl
+[19:34:01] <@doy> hmmm
+[19:34:03] <@doy> odd
+[19:34:08] <@Eidolos> it's probably all the () in eidocolors
+[19:34:08] < alexbobp> anyway, if the feature is optional, it shouldn't be a problem
+[19:34:14] <@doy> oh, right
+[19:34:18] <@Eidolos> since virus is like "hey bounce sleep 1 bounce sleep 1 bounce sleep 1"
+[19:34:23] <@doy> it bounces back and forth a lot on those, doesn't it
+[19:34:55] < alexbobp> ah, if I actually make a change, it takes a second to upload
+[19:35:07] <@Eidolos> yes, it detects that you didn't edit the file :)
+[19:35:11] < alexbobp> okay.
+[19:35:22] < alexbobp> well, still, a few seconds every time I quit interhack wouldn't be a big deal, imho
+[19:35:26] <@doy> yeah, it depends a lot on the number of braces/parentheses/brackets/etc
+[19:35:30] <@Eidolos> it's more a matter of coding
+[19:35:34] <@doy> alexbobp: patches are accepted!
+[19:35:35] <@doy> (:
+[19:35:56] < alexbobp> okay, I'll get interhack 2 and try to write a patch, or module, or whatever
+[19:36:07] <@doy> alexbobp: wait for me to finish up my dgl stuff
+[19:36:10] <@Eidolos> might want to wait, since you'll need autologin
+[19:36:12] <@doy> because it should go in there
+[19:36:31] < alexbobp> assuming the roll for willpower goes well
+[19:36:33] < alexbobp> what's dgl?
+[19:36:39] <@doy> dgamelaunch
+[19:36:53] < alexbobp> ah
+[19:37:35] < arcanehl> (offtopic) Eidolos: it's almost painful to watch Lucas code
+[19:37:40] <@Eidolos> hehe
+[19:37:41] < alexbobp> Is anybody here familiar with the autoexplore feature in Crawl?
+[19:37:53] <@Eidolos> of course
+[19:37:58] < arcanehl> they've all died in it
+[19:38:48] < alexbobp> Is something like that planned for interhack 2?
+[19:39:31] <@Eidolos> maybe
+[19:39:59] <@Eidolos> doy: join the damn HM group :|
+[19:40:35] <@doy> yeah, yeah
+[19:41:22] <@doy> Eidolos: how do you turn on debug output?
+[19:42:27] <@Eidolos> go into your log4perl.conf
+[19:42:45] < alexbobp> Eidolos: how does HiveMinder make money?  It hasn't asked me for money or shown me ads yet
+[19:42:52] <@Eidolos> alexbobp: it doesn't :) yet
+[19:43:02] <@Eidolos> we're about to release pro accounts though
+[19:43:10] <@Eidolos> doy: change that to DEBUG
+[19:43:12] < alexbobp> ooh, sounds fancy
+[19:43:17] < alexbobp> what features?
+[19:43:29] <@Eidolos> doy: be careful not to commit that change :) I don't even have it symlinked
+[19:43:48] <@Eidolos> alexbobp: saved searches, reports, some other stuff I guess
+[19:43:51] <@doy> Eidolos: ?
+[19:44:07] <@Eidolos> we want the default level to be warn, or maybe even error
+[19:45:28] <@doy> Eidolos: not working/:
+[19:45:53] <@Eidolos> check interhack.log
+[19:49:33] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[19:50:19] < alexbobp> Does Interhack 1 show hardcoded maps?
+[19:50:23] <@doy> yes
+[19:50:27] <@Eidolos> restoring rows works with color now :)
+[19:50:32] <@doy> #castle, #mimic, etc
+[19:50:41] <@doy> Eidolos: how?
+[19:50:45] <@Eidolos> row_attr
+[19:51:49] < alexbobp> ah, I see.  you call them specially
+[19:52:43] <@doy> alexbobp: yeah, most of them are impossible to detect
+[19:54:08] < alexbobp> it could detect them by matching parts of the screen
+[19:54:29] < alexbobp> for example, after seeing one wall of the oracle and a few statues, it is nearly guaranteed
+[19:54:42] < alexbobp> how about the "convulsive ravings"?
+[19:54:48] < alexbobp> that should activate #oracle
+[19:54:51] <@Eidolos> patches welcome! >_>
+[19:54:54] <@Eidolos> it's not as easy as you think
+[19:55:44] < alexbobp> I guess it's time to learn vim
+[19:57:33] <@Eidolos> doy: another use for 0.0
+[19:57:46] <@Eidolos> I can test new things like using IO::Pty
+[19:58:35] < alexbobp> Wow, hiveminder directly from nethack.  I didn't know that was there.
+[19:58:45] <@Eidolos> yeah :)
+[20:00:53] <@Eidolos> darcs: bug in darcs!
+[20:00:53] <@Eidolos> fromJust error at PatchViewing.lhs:69 compiled 13:44:50 Nov 20 2006
+[20:00:53] <@Eidolos> Please report this to bugs@darcs.net,
+[20:00:53] <@Eidolos> If possible include the output of 'darcs --exact-version'.
+[20:01:05] <@Eidolos> luckily I was doing something pretty weird
+[20:02:48] <@Eidolos> I love this console
+[20:02:57] < alexbobp> which console?
+[20:03:01] <@Eidolos> watch my termcast
+[20:03:08] < zubin> is Rodney3 dead?
+[20:03:16] <@Eidolos> I'll bring him back up in a sec
+[20:03:21] < zubin> okay.
+[20:03:37] <@Eidolos> alexbobp: watching?
+[20:04:36] < alexbobp> I will
+[20:04:55] <@Eidolos> ok, let me know when you are so I can demo it
+[20:05:04] < alexbobp> heh
+[20:05:08] < alexbobp> addition
+[20:05:57] < alexbobp> how do I do a termcast?
+[20:06:07] <@Eidolos> you first need ttyrewc
+[20:06:08] <@Eidolos> ttyrec
+[20:06:08] < alexbobp> it looks like fun.
+[20:06:16] <@Eidolos> which records a ttyrec
+[20:06:29] < alexbobp> I just installed ttyrec
+[20:06:33] <@Eidolos> ok
+[20:06:50] <@Eidolos> download this http://noway.ratry.ru/jsn/ttrtail.c
+[20:06:55] <@Eidolos> gcc -o ttrtail ttrtail.c
+[20:08:56] <@Eidolos> then you need to start recording your terminal
+[20:08:59] <@Eidolos> ttyrec termcast.ttyrec
+[20:09:03] <@Eidolos> then invoke ttrtail in a different terminal
+[20:13:34] < alexbobp> so I have to register on the termcast page
+[20:13:38] < alexbobp> how do Ido that?
+[20:14:07] <@Eidolos> just put in whatever name/pass and it'll register for you
+[20:15:11] < alexbobp> damn, now I have the default password.  How do I change that?
+[20:15:25] <@Eidolos> you have to use it or switch your nick
+[20:15:36] < alexbobp> oh well.  nobody impersonate me then.
+[20:16:39] < alexbobp> well, it works
+[20:16:40] < alexbobp> yay
+[20:16:42] <@Eidolos> cool
+[20:16:54] <@doy> Eidolos: the debug stuff should go up a level in the call stack
+[20:19:20] <@Eidolos> alexbobp: well do stuff :)
+[20:20:29] < arcanehl> porcupine eh?
+[20:22:56] <@doy> Eidolos: what here is turning $_ into a coderef?
+[20:23:00]  * doy is very confused
+[20:23:42] <@Eidolos> shrug, nothing there
+[20:23:58] < arcanehl> sure it's there?
+[20:24:10] <@doy> hmmm, unless $_ is lexically scoped by default?
+[20:24:15] <@Eidolos> nope
+[20:24:18] <@doy> do i need to declare it outside the block?
+[20:24:20] <@doy> hmmm
+[20:25:11] <@Eidolos> heh
+[20:25:15] <@Eidolos> move the print up
+[20:25:23] <@Eidolos> do a binary search :)
+[20:25:46] <@doy> it's probably just that recv doesn't change its second arg on failure
+[20:25:55] <@doy> and it's just never recving anything for some strange reason
+[20:26:11] <@doy> this was all working fine just a little bit ago
+[20:26:21] <@doy> and i don't think i changed anything that should affect this part of the code
+[20:26:23] <@doy> how irritating
+[20:26:24] <@Eidolos> try local $_ at the beginning of the sub
+[20:27:31] <@doy> yeah
+[20:27:33] <@doy> that's what it is
+[20:27:38] <@doy> i think i'll just revert everything
+[20:27:40] <@doy> and try again
+[20:29:15] <@Eidolos> ok, you got your fancy "correct" logfile :)
+[20:29:19] <@doy> (:
+[20:30:03] <@Eidolos> alexbobp: if you don't like plugins, disable them from your config
+[20:32:32] < alexbobp> but then i have to explicitly include the ones I do like, right?
+[20:32:36] < alexbobp> or can I exclude a plugin?
+[20:32:41] <@doy> look at my config
+[20:32:52] <@doy> for an example of how it works
+[20:33:17] <@Eidolos> you must have a giant terminal.. yuck :)
+[20:33:35] <@Eidolos> exclude "apply-oil";
+[20:34:46] < alexbobp> doy, what is ^V to DfV?
+[20:34:56] <@doy> alexbobp: well... look at the macro
+[20:34:59] <@doy> oh
+[20:35:00] <@doy> well
+[20:35:09] < alexbobp> I do have a giant terminal, is that bad?
+[20:35:11] <@doy> ??dfv in #nethack if you don't know what that is
+[20:35:17] <@Eidolos> 80x24 is the normal size
+[20:35:25] <@Eidolos> I can still watch, except when you're vimming
+[20:35:36] < alexbobp> oh, dig for victory.
+[20:35:39] < alexbobp> I know about those >_>
+[20:35:42] <@doy> (:
+[20:36:41] < alexbobp> so when doing a dig for victory, you frequently engrave elbereth a shitload of times, in other words
+[20:36:45] < alexbobp> that makes sense
+[20:36:49] <@doy> and then dig down, yes
+[20:37:17] < alexbobp> can somebody guide me to the part of the config file that excludes plugins?
+[20:37:32] <@doy> the part that includes lines like 'exclude_plugin'?
+[20:37:38] <@doy> i'd say that's a good place to start
+[20:38:09] <@doy> okay, just exclude
+[20:38:12] <@doy> but still
+[20:38:16] <@Eidolos> [20:33:35] <@Eidolos> exclude "apply-oil";
+[20:38:18] <@Eidolos> >_>
+[20:39:00]  * Eidolos ponders
+[20:39:11] < alexbobp> ah
+[20:39:12] <@Eidolos> I wonder if you were gettng a code ref because of 'around'
+[20:39:28] <@doy> doesn't really matter
+[20:39:28] <@Eidolos> in 'around' the first argument is always the code ref you're supposed to invoke
+[20:39:31]  * Eidolos nods
+[20:39:57] <@doy> it's equivalent to reading an undefined variable there anyway
+[20:40:08] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[20:40:15] < alexbobp> I think I got it!
+[20:40:54] <@doy> okay, back to working code
+[20:40:58] <@doy> let me push, actually
+[20:41:06] <@doy> since this part of it at least is working
+[20:42:31] <@doy> you should push the logger changes
+[20:43:01] <@doy> back in a second
+[20:43:31] <@Eidolos> 12 changes :/ push oftener!
+[20:43:43] <@Eidolos> (oh wait, I told you to commit oftener, nevermind :))
+[20:44:43] <@Eidolos> hmmmmm
+[20:45:10] <@Eidolos> if you have multiple games going on at once
+[20:45:18] <@Eidolos> Interhack will behave weirdly
+[20:45:24] <@Eidolos> will need to fix that, I guess
+[20:45:57] <@Eidolos> I think there's already an in_game, it's given by NewGame
+[20:47:05] <@Eidolos> yep, already an in_game
+[20:47:13] <@doy> oh, okay
+[20:47:30] < alexbobp> why is "satiated" red?
+[20:47:37] <@Eidolos> because it's a reminder not to eat
+[20:47:43] <@Eidolos> Interhack 2 does one better
+[20:49:02] <@Eidolos> You're satiated! Press tab to eat, any other key to cancel.      
+[20:51:04] < arcanehl> hmm
+[20:51:14] < arcanehl> what about a key to show how many turns ago you last ate?
+[20:51:18] <@doy> i know that print shouldn't be like that, but i was just getting back to a working implementation
+[20:51:30] <@doy> i'm going to try to fix that stuff now
+[20:51:33] <@Eidolos> arcanehl: sure, there'd be a general #stats I guess
+[20:51:38] <@Eidolos> last pray, last wish, etc
+[20:51:59] < arcanehl> now put it in the prompt
+[20:52:54] <@Eidolos> you can make an interhack task for anyone to take with [group: interhack] [owner: nobody]
+[20:55:26]  * Eidolos grumbles
+[20:55:30] <@Eidolos> you're the one who wanted a bug tracker doy :(
+[20:55:40] <@doy> Eidolos: i will!
+[20:55:43] <@doy> calm down!
+[20:55:44] <@doy> (:
+[20:55:55] <@doy> i'm programming at the moment, don't distract me d:
+[20:56:08] <@Eidolos> hehe
+[20:58:08] <@Eidolos> I'll make tasks for all the plugins
+--- Log closed Sun Aug 12 21:01:29 2007
+[21:01:48] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[21:01:48] -!- Irssi: #interhack: Total of 10 nicks [3 ops, 0 halfops, 0 voices, 7 normal]
+[21:01:51] < alexbobp> look at my termcast
+[21:01:52] < Eidolos_> fucking hate
+[21:02:14] <@doy> alexbobp: what about it?
+[21:02:18] < alexbobp> Eidolos_: are you having internet problems?
+[21:02:23] < alexbobp> What does "��!��" mean?
+[21:02:24] < Eidolos_> yes...
+[21:02:32] < Eidolos_> that's a known issue :)
+[21:02:40] <@doy> oh, different characters here
+[21:02:43] <@doy> that's why i was confused
+[21:03:08] -!- Irssi: Join to #interhack was synced in 82 secs
+[21:03:23] <@doy> and yeah, i'm working on fixing that stuff, i think
+[21:03:34] < alexbobp> ok
+[21:03:45] <@doy> are you using 2.0 or 1.0?
+[21:03:52] < Eidolos_> 1
+[21:03:55] < alexbobp> I'm going to go do some irl stuff.  I'll do more... uh, interhack testing... later.
+[21:03:58] <@doy> Eidolos: ...hmmm
+[21:04:01] < alexbobp> should i try 2?
+[21:04:04] <@doy> why is connect getting called multiple times
+[21:04:08] < Eidolos_> I'd wait on 2
+[21:04:10] <@doy> this is my issue
+[21:05:30] < Eidolos_> doy: I only see it being called once
+[21:05:56] <@doy> ...hmmm
+[21:06:02] <@doy> okay, that isn't it
+[21:06:03] <@doy> but...
+[21:06:31] < Eidolos_> try taking things in littler steps
+[21:06:35] < Eidolos_> first just get autologin
+[21:06:38] < Eidolos_> then we can have multiple servers
+[21:06:42] <@doy> i did
+[21:06:45] < Eidolos_> oh
+[21:06:57] <@doy> i'm working on the local rc editing right now
+[21:07:09] < Eidolos_> i c
+[21:08:40] < Eidolos_> hmm
+--- Log closed Sun Aug 12 21:12:58 2007
+[21:13:01] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[21:13:01] -!- Irssi: #interhack: Total of 10 nicks [2 ops, 0 halfops, 0 voices, 8 normal]
+[21:13:01] -!- mode/#interhack [+o Eidolos] by ChanServ
+[21:13:02] <@Eidolos> HATEEE
+[21:14:13] -!- Irssi: Join to #interhack was synced in 74 secs
+[21:16:24] <@doy> hmmm
+[21:16:26] < alexbobp> okay, I'm back from playing with a tank of propane and a lighter.
+[21:16:47] <@doy> the more i think about this, the more i feel like all of the stuff before we are in game should be handled in its own loop
+[21:16:59] <@doy> and the main interhack main loop should only handle ingame stuff
+[21:17:23] <@Eidolos> ok. sure
+[21:17:45] <@doy> so the dgl plugin should wrap connect and call its own loop
+[21:17:46] <@Eidolos> Interhack group has a ton of tasks now
+[21:17:50] <@doy> that exits once we enter the game
+[21:18:07] <@Eidolos> one for each unconverted 1.0 plugin, and one for the more interesting, tractable TODO items
+[21:18:38] <@doy> that way the core once it gets converted to use ptys and local executables, can just have the loop doing that
+[21:18:50] <@doy> and then we just move telnet negotiation into a plugin
+[21:18:56] <@doy> and dgl stuff is in a plugin already
+[21:19:04] <@Eidolos> all sounds good :)
+[21:19:06] <@doy> and all that stuff will have their own loops
+[21:19:16] <@Eidolos> (be nice if you made some of these into HM tasks! yarr!! anger)
+[21:19:23] <@doy> we are going to need actual module deps quite soon
+[21:19:33] <@Eidolos> ok. I'll do that now then
+[21:20:13] < alexbobp> can interhack be made to do automatic wand engrave IDing?
+[21:20:24] <@Eidolos> I'm kind of against automatic anything, alexbobp 
+[21:20:24] <@doy> it does
+[21:20:37] <@Eidolos> let me add a FAQ item for that
+[21:20:40] < alexbobp> if you're against automatic anything, what is interhack about then?
+[21:20:45] < alexbobp> doy: how?
+[21:20:45] <@Eidolos> :)
+[21:20:52] <@doy> alexbobp: you engrave with a wand
+[21:20:59] < alexbobp> yeah
+[21:21:01] <@doy> and it says 'press tab to name this wand blah blah'
+[21:21:08] < alexbobp> oh.  it didn't for "the bugs stop moving"
+[21:21:16] <@doy> assuming it's one that's easily engrave-testable
+[21:21:26] < alexbobp> it should name it sleep/death
+[21:21:27] <@doy> it might not do things that aren't exact matches
+[21:21:30] <@doy> i'm not sure
+[21:21:36] <@doy> it's been a while since i looked at it
+[21:21:51] <@doy> yeah
+[21:22:03] <@doy> the ones in my termcast are all that there's support for at the moment
+[21:22:22] <@Eidolos> oh hey
+[21:22:24] <@Eidolos> toft rocks
+[21:22:32] <@Eidolos> I wouldn't have used a closure for that :)
+[21:22:39] <@doy> (:
+[21:23:02] <@doy> silly python programmers
+[21:23:13] <@Eidolos> alexbobp: stop that >_>
+[21:23:22] <@Eidolos> hehe
+[21:23:27] < alexbobp> it was fun though
+[21:24:04] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[21:24:32] <@doy> also, is there something wrong with using my variables globally in a plugin?
+[21:24:44] <@doy> i think a lot of the server stuff doesn't need to be public
+[21:24:45] <@Eidolos> depends on what you're using the variable for
+[21:24:55] <@doy> and none of it needs state
+[21:24:59] <@Eidolos> server names can be 'my'
+[21:25:08] <@Eidolos> rather, server info
+[21:25:15] <@Eidolos> what did you have in mind, specifically?
+[21:25:37] <@doy> address, port, line1, line2, pass
+[21:25:52] <@doy> do_autologin
+[21:25:53] <@Eidolos> we definitely don't want pass in an attribute
+[21:26:16] <@doy> i can't imagine any of those other things being useful either
+[21:26:25] <@Eidolos> I think we do want server name, but for everything else we can just index into the server_info hash
+[21:26:27] <@doy> the server name should be enough to identify things
+[21:26:31] <@Eidolos> right
+[21:26:52] <@Eidolos> what is do_autologin used for? sounds like it is config, which we still need to think about
+[21:27:05] <@doy> rc_dir might want to be an attribute so that we can use it elsewhere
+[21:27:09] <@doy> like what alexbobp was talking about
+[21:27:19] <@Eidolos> yes, rc_dir
+[21:27:25] <@Eidolos> should be an attribute
+[21:27:36] <@doy> and do_autologin right now just tests to see if we found a nick on the command line, so we should try to autologin
+[21:27:41] <@doy> but that should probably be expanded
+[21:27:44] <@doy> once we get config
+[21:27:51] <@doy> so yeah, it should probably stay an attribute
+[21:28:41] <@doy> in any case, i'll be back in a bit
+[21:28:51] <@doy> have to go help other people with computer issues
+[21:28:55] <@Eidolos> fun :)
+[21:29:08] <@doy> i'm expecting topo sort deps for plugins when i get back!
+[21:29:09] <@doy> (:
+[21:29:18] <@Eidolos> only if you've joined HM
+[21:29:33] <@Eidolos> alexbobp: http://interhack.us/FAQ.html#automatic
+[21:30:04] <@doy> i'd do that while i was there, but i don't have ssh access to my house, since we are using the dsl modem as a router, which doesn't have any way to configure it
+[21:30:10] <@doy> but i'll do it later tonight
+[21:31:40] <@doy> actually
+[21:31:44] <@doy> let me just bring my laptop
+[21:31:48] <@Eidolos> :)
+[21:31:55] <@doy> i'm going to have lots of downtime while antivirus/etc runs
+[21:49:13] < alexbobp> well, Eidolos, interhack does ask you before it does stuff automatically.
+[21:49:20] < alexbobp> If you're fleeing a mind flayer, you can just not hit tab.
+[21:49:21] <@Eidolos> yes
+[21:49:27] <@Eidolos> that's what I want
+[21:50:07] < alexbobp> well, when I say do stuff automatically, I mean reduce the process to one button, not do it without confirmation
+[21:51:42] <@Eidolos> ok
+[21:53:06] <@Eidolos> doy: http://paste.husk.org/8912
+[21:53:07] <@Eidolos> :)
+[21:53:17] <@doy> i'm watching
+[21:53:17] <@doy> (:
+[21:53:44] <@Eidolos> ah ok
+[21:53:44] <@Eidolos> :)
+[21:54:17] <@Eidolos> great
+[21:54:22] <@Eidolos> this means, however
+[21:54:28] <@Eidolos> that you only get one plugin loading step
+[21:54:39] <@doy> what do you mean?
+[21:54:41] <@Eidolos> so calculate what plugins you want, then call load_plugins (in your config)
+[21:54:59] <@Eidolos> hmm
+[21:55:05] <@Eidolos> the problem is soft dependencies
+[21:55:12] <@Eidolos> PD is supposed to be loaded before M
+[21:55:18] <@Eidolos> so if you load M, wait, then load PD
+[21:55:25] <@Eidolos> it's a probably fatal error
+[21:56:22] <@doy> well, can just do it the same way as before
+[21:56:29] <@doy> but just have include and exclude working on a list
+[21:56:35] <@doy> and then have an additional 'load' command
+[21:56:41] <@Eidolos> aye
+[21:56:41] <@doy> to actually commit stuff
+[21:56:55] <@Eidolos> or just commit after config is read :)
+[21:56:59] <@doy> and i don't see a real need to load stuff later
+[21:57:01] <@doy> that too
+[21:57:08] <@doy> unloading later is useful
+[21:57:16] <@doy> but loading not so much
+[21:57:17] <@Eidolos> and much harder :|
+[21:57:22] <@doy> i don't think anyway
+[21:57:49] <@doy> but that stuff can be restricted to just stuff that doesn't break the topo sort order for now
+[21:57:56] <@doy> that would still be moderately useful
+[21:58:07] <@doy> since it's not like there will be all that many deps
+[21:58:24] <@doy> or rather, it's not like that many plugins will be deps of other plugins
+[21:58:37] <@doy> like most things will dep on util, but not many other things
+[22:01:45] <@Eidolos> oh!
+[22:01:45] <@Eidolos> right!
+[22:01:56] <@Eidolos> PasteDetection doesn't need a dep on Macros
+[22:02:12] <@Eidolos> because PasteDet looks at stdin
+[22:02:12] <@Eidolos> hrmmm
+[22:02:36] <@doy> the topo sort will also stop us from getting into stupid circular dep bugs
+[22:02:48] <@Eidolos> let's see what happens
+[22:03:09] < arcanehl> have it depend on itself
+[22:03:34] <@Eidolos> I bet it's doing an infinite loop. ugh
+[22:03:37] < arcanehl> QuakeConsole? so can I hit ~ for it?
+[22:03:38] <@Eidolos> new module
+[22:03:40] <@Eidolos> arcanehl: yep!
+[22:03:59] < arcanehl> Mac OS X has a program for that
+[22:04:06] < arcanehl> ~ bring down a third or half screen term
+[22:04:37] <@Eidolos> have you seen the quake console yet?
+[22:04:40] <@Eidolos> probably
+[22:04:41] <@Eidolos> :)
+[22:04:49] < arcanehl> no
+[22:04:59] < arcanehl> err, for Interhack, no
+[22:05:10] < arcanehl> (I was referring to the OS X program)
+[22:05:15] <@Eidolos> I know
+[22:05:23] < arcanehl> no history?
+[22:05:25] < arcanehl> for shame
+[22:05:29] <@Eidolos> Term::ReadLine hates
+[22:05:35] < arcanehl> it should include #commands as well
+[22:05:43] <@doy> Eidolos: yeah, i thought we were going to at least keep the last console lines up there
+[22:05:58] <@doy> if you hide it and bring it up again
+[22:06:02] <@Eidolos> yes..
+[22:06:10]  * Eidolos is working on more important things atm >_>
+[22:06:22] < arcanehl> nonsense
+[22:06:26] < arcanehl> nothing is more important than this
+[22:10:18] <@Eidolos> Please note that the class Algorithm::Dependency does NOT implement an ordering, for speed and simplicity reasons. That is, the schedule it provides is not in any particular order. If item 'A' depends on item 'B', it will not place B before A in the schedule. 
+[22:10:20] <@Eidolos> grasaahrh
+[22:10:49] < arcanehl> that, uh, bad?
+[22:11:03] <@doy> so... what does it do then?
+[22:11:03] <@Eidolos> yes, it means it too is unusable
+[22:11:06] <@doy> i'm confused
+[22:11:26] <@Eidolos> it might just be checking to see if all deps are met
+[22:12:23] <@Eidolos> heh
+[22:12:31] <@Eidolos> Module::Pluggable::Dependency does exactly what we want too..
+[22:12:50] <@Eidolos> maybe I'll write a MooseX::Role::Dependency
+[22:13:13] <@doy> Eidolos: hmmm... 'for' and 'by' seem to be switched on the hiveminder task list
+[22:13:42] <@Eidolos> this is a task for me, by you
+[22:13:43] <@doy> unless i'm confused about what it means
+[22:13:46] <@Eidolos> shruyg
+[22:13:55] <@Eidolos> just think requestor (= creator) and owner (= finisher)
+[22:14:00] <@doy> that's not what it seems to be saying
+[22:14:10] <@doy> screenshots is for shawn, by alex
+[22:14:46] <@Eidolos> oh well
+[22:14:46] <@doy> hmmm
+[22:14:53] <@doy> i guess that kind of makes sense
+[22:14:59] <@doy> i still think it's confusing
+[22:15:07] < arcanehl> if Alex is doing the submitting, makes sense
+[22:15:14] <@doy> he's not
+[22:15:19] <@Eidolos> I made all the tasks
+[22:15:22] <@doy> shawn submitted it, alex said he'd do it
+[22:15:29] < arcanehl> then it makes no sense
+[22:15:40] <@Eidolos> "I want you to do this for me".. *shrug*
+[22:15:57] < arcanehl> no, that still supports what doy is thinking
+[22:16:03] < arcanehl> the words are switched
+[22:16:13] <@Eidolos> but I created the task, the task is for me
+[22:16:16] <@doy> no, that way of thinking is wha'ts on the site
+[22:16:23] <@doy> but it's confusing
+[22:16:27] <@Eidolos> it's not that important >_>
+[22:16:35] <@doy> (:
+[22:16:37] <@Eidolos> the task is to be done by alex
+[22:16:50] < arcanehl> for you
+[22:17:04] < arcanehl> solution: don't use "for" and "by"
+[22:17:06] <@doy> right, that's what's on the site
+[22:17:29] <@doy> but my first thought was 'this task was submitted by alex, for shawn to do'
+[22:17:44] <@doy> which isn't what it actually means
+[22:17:45] <@Eidolos> :)
+[22:17:49] < arcanehl> I'm sure he'll bring it up at work tomorrow
+[22:17:53] < arcanehl> just to be shot down
+[22:18:18] <@Eidolos> I'm just going to commit this toposort and not worry about circular dependencies for now
+[22:18:21] <@doy> also, that's an irritating number of tickets
+[22:18:32] <@Eidolos> hehe
+[22:18:50] <@Eidolos> just take the ones that you feel like doing
+[22:18:57] <@doy> i have to find them first d:
+[22:19:08] <@Eidolos> there are some search features
+[22:19:16] <@Eidolos> in any case
+[22:19:18] <@doy> (this is why i like plain text todo files...)
+[22:19:19] <@doy> (:
+[22:19:34] <@doy> eh, i'll mess with it later
+[22:19:50] <@doy> do we have plugin deps now?
+[22:19:58] <@Eidolos> it's a lot easier to split things up when there are many of them.. if there was just one task "Convert interhack 1.0 plugins" then..
+[22:20:01] <@Eidolos> yeah
+[22:20:37] < arcanehl> FIXME is highlighted too by vim
+[22:20:42] <@Eidolos> as is TODO
+[22:20:51] < arcanehl> yeah, but I don't like TODO
+[22:21:09] <@Eidolos> doy: I do recommend the IM interface.. for one it's a lot snappier
+[22:21:18] <@Eidolos> but
+[22:21:21] <@Eidolos> it doesn't handle groups well!
+[22:21:26] <@Eidolos> :/
+[22:28:19] <@doy> hm...
+[22:29:26] <@doy> i wonder if there's a better way to generate a server loop
+[22:30:09] <@doy> i suppose sticking 0.0 inside the module wouldn't be horrible, since it's fairly short
+[22:30:17] <@doy> but i'd think there would be a better way to do it
+[22:32:45] <@Eidolos> I'm not sure
+[22:32:49] <@Eidolos> my $ret = $self->dgl_iterate until !$ret;
+[22:32:52] <@Eidolos> will do the right thing :)
+[22:33:45] <@doy> no, i mean the reading from the socket, patching up broken escape codes, writing to the screen, etc
+[22:34:04] <@Eidolos> oh, I'm just talking about that line specifically
+[22:34:10] <@Eidolos> my $ret = ... until !$ret
+[22:35:38] <@doy> i guess i could just reuse the main loop read_socket... but hmmm
+[22:35:57] <@doy> i don't want the plugins to do their around stuff on it
+[22:36:11] <@doy> or rather
+[22:36:17] <@doy> i want a separate set of around stuff
+[22:36:27] <@Eidolos> you can use a soft dep
+[22:36:31] <@Eidolos> around and don't call orig? shrug
+[22:36:32] <@doy> for things like local config file editing
+[22:36:46] <@doy> no, i want orig, but only orig
+[22:36:54] <@doy> not any plugin around stuff
+[22:37:07] <@doy> and then i want to be able to add... i guess i'll just duplicate it
+[22:37:12] <@Eidolos> wait
+[22:37:23] <@Eidolos> $self->SUPER::methodname(@args)
+[22:37:31] <@Eidolos> I think
+[22:37:34] <@doy> hmmm
+[22:37:36] <@Eidolos> well actually
+[22:37:42] <@Eidolos> let's look at some MOPpy
+[22:38:33] <@Eidolos> hmm
+[22:38:44] <@doy> like it would be sweet if i could just do like 'my dgl_read_socket = $self->read_socket' and then have a DGL_LocalConfigEdit.pm which wraps dgl_read_socket
+[22:38:55] <@doy> that's not going to work at all
+[22:39:00] <@doy> but i think you see what i'm trying to do
+[22:39:17] <@Eidolos> if nothing else we can split the methods we have up
+[22:39:35] <@Eidolos> so that there's the actual method that does the work
+[22:39:43] <@doy> or move things like read_socket and read_keyboard off into a util lib
+[22:39:50] <@Eidolos> and then a method that just calls that method
+[22:39:56] <@doy> yeah
+[22:40:11] <@Eidolos> but I guess my question is
+[22:40:16] <@Eidolos> why do you want to avoid other wrappers?
+[22:40:18] <@doy> lib/Interhack/Interface.pm or something
+[22:40:32] <@doy> because i don't want to have to test for in_game on all of the other plugins
+[22:40:44] <@doy> the other plugins should just only be called when we are actually in game
+[22:40:44] <@Eidolos> ahhh
+[22:41:00] <@Eidolos> yes, that makes sense
+[22:41:12] <@Eidolos> for now just ignore it though
+[22:41:13] <@doy> and the dgl specifig plugins should just only be called before we are in game, if we are on a dgl server
+[22:41:14] <@Eidolos> we can fix itlater
+[22:41:17] <@doy> okay
+[22:41:32] <@Eidolos> not too critical anyway
+[22:41:37] <@doy> yeah
+[23:05:22] <@doy> Eidolos: also, the issue seems to be that each plugin takes about a second to load
+[23:05:27] <@doy> this isn't going to scale well
+[23:08:18] <@Eidolos> yeah, I noticed that too
+[23:10:11] <@Eidolos> maybe we'll switch to Class::Method::Modifiers
+[23:10:26] <@doy> what do we lose by doing that?
+[23:10:38] <@Eidolos> a lot of the introspection that we probably don't need
+[23:10:47] <@Eidolos> the bigger issue is state
+[23:10:54] <@Eidolos> but I think it'll be OK :)
+[23:11:33] <@doy> will we lose MooseX::Storage?
+[23:12:02] <@Eidolos> yes, but we can reimplement what we need
+[23:12:10] <@Eidolos> MooseX::Storage barely works for our use case anyway
+[23:12:16] <@Eidolos> and I think we can have easier plugin unloading
+[23:12:31] <@doy> seems that most of moose barely works for our use case
+[23:12:32] <@doy> (:
+[23:12:36] <@Eidolos> true
+[23:12:39] <@Eidolos> but it's so nice! :)
+[23:12:42] <@doy> true
+[23:12:46] <@doy> ruby-like
+[23:12:48] <@Eidolos> maybe I will go forth with Calf then
+[23:12:59] <@doy> and the parts of ruby that i never really learned about
+[23:13:02] <@doy> so it's cool
+[23:13:42] <@Eidolos> I (perhaps subconsciously) just reimplemented most of the Moose we use in Interhack
+[23:14:03] <@Eidolos> http://sartak.org/code/cpan/Calf/
+[23:14:05] <@Eidolos> check out the tests
+[23:14:23] <@doy> what else needs to be implemented?
+[23:14:29] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Connection timed out]
+[23:15:00] <@Eidolos> hmm
+[23:15:06] <@Eidolos> not sure yetr
+[23:15:31] <@Eidolos> roles
+[23:15:47] <@Eidolos> method modifiers are done, I'll just bring in my CMM module :)
+[23:16:48] <@Eidolos> ok
+[23:16:51] <@Eidolos> we will switch over to Calf then
+[23:18:09] <@doy> it should be a dropin replacement?
+[23:18:20] <@Eidolos> ideally
+[23:21:12] <@Eidolos> let's see
+[23:21:17] <@Eidolos> I think roles just want to export their methods
+[23:21:26] <@Eidolos> and have their modifiers deferred until export time
+[23:21:39] <@Eidolos> (Calf::Role will provide a special set of modifiers)
+[23:21:45] <@Eidolos> one issue is CMM is slower than Moose
+[23:21:55] <@Eidolos> I may fork it, Class::Method::Modifiers::Fast
+[23:22:28] <@Eidolos> which assumes your usage is correct, and you're not doing any weird runtime tricks (like changing your inheritance tree)
+[23:24:00] <@Eidolos> well, good night :)
+[23:24:05] <@doy> sleep already?
+[23:24:06] <@doy> d:
+[23:24:11] <@Eidolos> yes
+[23:24:13] <@Eidolos> I'm tired
+[23:25:23] <@Eidolos> the code for Calf isn't too big
+[23:25:28] <@Eidolos> but it is dense
+[23:25:39] <@Eidolos> since a lot of it is symbol table fun
+[23:25:54] <@doy> yeah, i think i'll let you handle that end
+[23:25:55] <@doy> (:
+[23:26:03] <@Eidolos> hehe
+[23:26:13] <@Eidolos> for now keep hacking on Interhack with Moose
+[23:26:20] <@doy> yeah
+[23:26:25] <@Eidolos> I will too

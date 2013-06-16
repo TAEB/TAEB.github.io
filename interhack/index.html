@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Interhack</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+ </head>
+ <body>
+  <div id="header">
+   <h1>Interhack</h1>
+   <h2>The NetHack enhancement layer</h2>
+   <hr />
+  </div>
+  <div id="content">
+   <p><b>Interhack</b> is a program designed to enhance your NetHack experience. You can recolor any message or item, view any level you&#39;ve visited, and lots more. It&#39;s designed from the ground up to be very pluggable; you can have only what you want to have, and if you want something that no one has done before, it should be painless to add it. It&#39;s also designed for server play, especially <a href="http://alt.org/nethack">nethack.alt.org</a>.
+   </p>
+   <p>Interhack is written by <a href="http://sartak.org">Shawn M Moore</a> &#40;Eidolos/Sartak&#41;, <a href="http://jordanlewis.org/">Jordan Lewis</a> &#40;toft&#41;, and <a href="http://tozt.net/">Jesse Luehrs</a> &#40;doy&#41;. It is released under the MIT license, so you can do almost anything you&#39;d like with it. Of course, if you do something neat, we&#39;d love to hear about it.
+   </p>
+   <h2>Community</h2>
+   <p>The Interhack developers and users hang out in <b>#interhack on irc.freenode.org</b>. There&#39;s no mailing list, but if anyone turns out to be interested in this thing I&#39;ll set one up.
+   </p>
+   <h2>Features</h2>
+   <ul>
+    <li>
+     <a href="img/inventory3.png">Real menucolors &#40;per-character, not per-line&#41; including Eidocolors++</a>
+     <a href="img/inventory.png">&#40;2&#41;</a>
+     <a href="img/inventory2.png">&#40;3&#41;</a>
+    </li>
+    <li>
+     <a href="img/view.png">View the maps of any levels you&#39;ve visited</a>
+    </li>
+    <li>
+     <a href="img/automap2.png">Overlay a defined level&#39;s map onto your terminal</a>
+     <a href="img/automap3.png">&#40;2&#41;</a>
+     <a href="img/automap4.png">&#40;3&#41;</a>
+    </li>
+    <li>&#34;Force tabs&#34; ensure you don&#39;t miss important messages</li>
+    <li>
+     <a href="img/msg-color.png">Message recoloring</a>
+     <a href="img/msg-color2.png">&#40;2&#41;</a>
+    </li>
+    <li>
+     <a href="img/pow-newhp-mon.png">Improved HP monitor &#40;turns dark gray when you&#39;re pray-safe&#41;</a>
+    </li>
+    <li>
+     <a href="img/pow-newhp-mon.png">Power monitor</a>
+    </li>
+    <li>
+     <a href="img/mastermind.png">Built-in Mastermind solver</a>
+    </li>
+    <li>
+     <a href="img/geno-list.png">Remembers which species you&#39;ve genocided</a>
+    </li>
+    <li>
+     <a href="img/corpse-annotations.png">Tells you what intrinsics/bonuses/penalties a corpse will convey</a>
+    </li>
+    <li>
+     <a href="img/wish-menu.png">List common wishes and marker targets for easy input</a>
+     <a href="img/marker-menu.png">&#40;2&#41;</a>
+    </li>
+    <li>
+     <a href="img/wish-escape.png">Forces you to confirm escaping a wish</a>
+    </li>
+    <li>Define exactly what you want in your status lines</li>
+    <li>
+     <a href="img/status-color.png">Statuscolors</a>
+    </li>
+    <li>Keep track of the intrinsics you&#39;ve gained and lost</li>
+    <li>
+     <a href="img/keystrokes.png">Keep track of your keystrokes &#40;optionally logged to a file&#41; and realtime</a>
+    </li>
+    <li>Automatically #adjust items based on regular expressions</li>
+    <li>
+     <a href="img/price-id.png">Price IDing support &#40;currently buying only&#41;</a>
+    </li>
+    <li>ttyrec output</li>
+    <li>Grep ttyrec, which will give you dungeon level and turn number</li>
+    <li>
+     <a href="img/artifact-name.png">Object identification helping</a>
+    </li>
+    <li>Key macros &#40;e.g. ctrl-E for &#34;E-  Elbereth\n&#34;&#41;</li>
+    <li>Automatic <a href="http://noway.ratry.ru/jsn/termcast/">termcast</a> support
+    </li>
+    <li>
+     <a href="img/dual-sd.png">...and more!</a>
+    </li>
+   </ul>
+   <h2>Documentation</h2>
+   <p>See the <a href="FAQ.html">FAQ</a>.
+   </p>
+   <h2>Download</h2>
+   <p>The preferred way to get Interhack <i>used to be</i> through the bleeding-edge darcs repository. However, since development has stagnated, we recommend downloading a static <a href="http://interhack.us/interhack.tar.gz">tarball</a> since it&#39;s less hassle. You can still get a darcs checkout by running:
+   </p>
+   <p>
+    <tt>darcs get http://interhack.us/trunk interhack</tt>
+   </p>
+   <h2>Plugins</h2>
+   <p>Interhack has many plugins. The most useful ones are listed in the Features section.</p>
+   <p>There is also an <a href="plugins.html">exhaustive list</a>.
+   </p>
+   <h2>Development</h2>
+   <p>See <a href="development.html">the development page</a> for information on getting involved in Interhack development.
+   </p>
+   <h2>Trivia</h2>
+   <ul>
+    <li><a href="genesis-irc.txt">Initial conversation about Interhack &#40;IRC&#41;</a>
+    </li>
+    <li><a href="initial-implementation-irc.txt">Interhack starting out &#40;IRC&#41;</a>
+    </li>
+   </ul>
+  </div>
+  <div id="footer">
+   <hr />
+   <div id="gentime">Last generated at Mon Jan 24 23:59:13 2011.</div>
+  </div>
+ </body>
+</html>

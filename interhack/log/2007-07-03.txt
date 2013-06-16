@@ -1,0 +1,53 @@
+[06:12:00] -!- ekiMbo [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[06:16:49] -!- ek|M [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[06:18:30] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[06:18:32] -!- ek|M is now known as ekiM
+[06:31:40] -!- ekiMbo [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[13:23:11] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:25:11] -!- ekiMbo [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[13:37:14] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[13:42:05] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Connection timed out]
+[16:15:45] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[16:32:43] -!- ekiMbo [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Connection timed out]
+[18:14:29] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[18:19:14] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Client Quit]
+[22:57:41] -!- toft_ is now known as toft
+[23:00:02] <@Eidolos> toft: welcome back :)
+[23:00:37]  * Eidolos isn't in #nethack and others because he's in a bit of a Mood
+[23:00:46] <@Eidolos> the kind of Mood where I resort my bookshelf :)
+[23:05:46] <@toft> thanks
+[23:05:52] <@toft> oh yeah I see
+[23:05:59] <@toft> well that's ok I suppose, I hope you feel better
+[23:06:07] <@toft> I feel kind of shitty myself to be honest
+[23:06:22] <@Eidolos> :/
+[23:06:22] <@toft> I broke up with my girlfriend of a pretty long time last week
+[23:06:32] <@Eidolos> eek!
+[23:06:45] <@Eidolos> you two had been going out for years right?
+[23:06:48] <@toft> yeah
+[23:06:54] <@Eidolos> :(
+[23:07:05] <@toft> it was sort of inevitable because of college, but yeah
+[23:07:08] <@Eidolos> I'm just upset because nobody will play Go with me, you actually have a reason
+[23:07:13] <@toft> haha
+[23:08:15] <@toft> hmm
+[23:08:27] <@toft> who won the tourney I wonder
+[23:08:37] <@toft> and who was zipcode for that matter?
+[23:08:45] <@Eidolos> I wrote a nice post-mortem that promptly devolved into a discussion about whether realtime was a valid metric
+[23:08:52] <@Eidolos> he's in #nh now as N72891
+[23:09:00] <@Eidolos> he hasn't really explained himself at all though
+[23:09:03] <@toft> /one/ guy?
+[23:09:06] <@Eidolos> apparently
+[23:09:09] <@toft> damn
+[23:09:24] <@Eidolos> could be a ruse!
+[23:09:29] <@toft> also, theta got a full monty, wow
+[23:11:46] <@Eidolos> I know you have a lot to catch up on, but if you want to join http://sartak.katron.org/misc/muzak I'll be happy to add you
+[23:12:23] <@toft> maybe tomorrow
+[23:12:27] <@toft> but thanks!
+[23:12:28] <@Eidolos> nod
+[23:43:07] < arcanehl> oh, activity!
+[23:44:14] < arcanehl> did you and Jason end up playing?
+[23:44:39] <@toft> heya
+[23:46:37] < arcanehl> hello
+[23:48:37] <@Eidolos> yeah, he bailed out just as it was getting good to hang out with his girlfriend
+[23:48:54] < arcanehl> tsk
+[23:49:53] < arcanehl> yeah, I went to watch the game
+[23:49:57] < arcanehl> should've played Go...

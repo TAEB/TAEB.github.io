@@ -1,0 +1,18 @@
+[00:06:47] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[00:48:30] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[09:24:24] -!- ekiM [n=Mike@217.41.234.154] has joined #interhack
+[11:37:08] -!- ekiM [n=Mike@217.41.234.154] has quit []
+[11:37:22] -!- ekiM [n=Mike@217.41.234.154] has joined #interhack
+[13:35:41] <@Eidolos> m - a scroll labeled VELOX NEB (unpaid, 80 zorkmids).
+[13:35:42] <@Eidolos> Press tab to send the string: #name\nnmVELOX\n
+[13:35:43] <@Eidolos> O_o
+[13:36:09] <@Eidolos> probably due to the scroll-label plugin
+[13:36:14] <@Eidolos> yep, it is
+[13:36:17] <@Eidolos> I know how to fix though
+[13:37:18] < ekiM> with a spork
+[13:39:32] <@Eidolos> so.
+[15:15:41] -!- ekiM [n=Mike@217.41.234.154] has quit [Read error: 110 (Connection timed out)]
+[18:15:01] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[19:58:56] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[23:01:03] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+--- Log closed Sun Jul 01 00:54:19 2007

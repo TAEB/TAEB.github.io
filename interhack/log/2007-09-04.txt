@@ -1,0 +1,25 @@
+[00:46:00] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[01:54:51] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[06:49:27] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[07:28:19] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[13:37:40] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[13:37:47] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[13:41:22] -!- ekiMbo is now known as ekiM
+[15:13:15] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[15:13:24] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:15:04] -!- ekiMbo is now known as ekiM
+[16:01:10] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[16:31:16] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[16:31:25] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[16:32:05] -!- ekiMbo is now known as ekiM
+[17:52:35] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[18:09:44] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit ["Leaving."]
+[18:48:50] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[18:48:59] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[18:49:43] -!- ekiMbo is now known as ekiM
+[22:09:57] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[22:33:14] -!- alexbob1 [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[22:33:31] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit ["Leaving."]
+[22:44:44] -!- alexbob1 is now known as alexbobp
+[23:09:04] -!- alexbob1 [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[23:09:17] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit ["Leaving."]

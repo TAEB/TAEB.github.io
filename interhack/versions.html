@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Interhack - Versions</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+ </head>
+ <body>
+  <div id="header">
+   <h1>Interhack</h1>
+   <h2>Versions</h2>
+   <hr />
+  </div>
+  <div id="content">
+   <h3><a href="trunk">1.x</a>
+   </h3>
+   <p>The 1.x series of Interhack is the original version. I like to think of 1.x as a prototype that far outlived its deserved lifespan.</p>
+   <p>As soon as I got the basic filter &#40;stdin to NAO, NAO to monitor&#41; working, I knew I could implement a helluva lot. I just hacked on it without thinking hard about the implications.</p>
+   <p>Luckily 1.x is very featureful. Its downsides, however, led me to start &#40;from scratch&#41; 2.x.</p>
+   <ul>
+    <li>Written with very bad practices &#40;plugins are loaded with &#39;do&#39;, no use strict/warnings&#41;.</li>
+    <li>No ability to save state because state is strewn all about the place, a lot of the time in inaccessible lexical variables.</li>
+    <li>The core was starting to suffer from its hugeness. All plugin utility functions, like show_menu, lived in the core.</li>
+    <li>Due to the simple nature of plugins, a lot of useful ideas just weren&#39;t implementable as plugins. They were deferred, or worse, hacked right into the core.</li>
+    <li>Some important checks, like whether we were watching another person play, were just plain broken. This meant the eval plugin was a time bomb waiting to explode &#40;good thing only Eidolos used it&#41;.</li>
+    <li>Simply impossible to test, or run outside of the interhack/ directory, or CPAN-able</li>
+   </ul>
+   <p>Despite all these negatives, I still very much like 1.x.</p>
+   <p>1.x is currently the trunk because 2.x is not yet ready.</p>
+   <hr />
+   <h3><a href="branches/2.0">2.x</a>
+   </h3>
+   <p>2.x is a complete rewrite using <a href="http://search.cpan.org/search?query=Moose">Moose</a>, a modern object system.</p>
+   <p>One of the design decisions was that the core should remain completely free from new features. You should be able to use Interhack with no plugins and it should be exactly like telnetting in and playing normally.</p>
+   <p>The central concept for plugins is the idea of hooks. Interhack provides many small methods &#40;such as toserver, which sends a keystroke to the server; or check_input, which validates input -- always returns &#39;valid&#39; in the core&#41;. Plugins &#39;wrap&#39; these small methods to do whatever they like. For example, they Keystrokes plugin wraps the toserver method and increments an internal counter for each character in the text.</p>
+   <p>2.x lacks many of the plugins of 1.x, but it does have some new awesomeness that was impossible in 1.x.</p>
+   <ul>
+    <li><a href="branches/2.0/lib/Interhack/Plugin/InGame/Macros.pm">Macros</a> &#40;as a plugin!&#41;</li>
+    <li><a href="branches/2.0/lib/Interhack/Plugin/InGame/ConfirmDirection.pm">ConfirmDirection</a> &#40;makes sure you only type in a valid direction at &#39;In what direction?&#39; so you don&#39;t finger of death yourself &#40;hi Stevie&#41;</li>
+    <li><a href="branches/2.0/lib/Interhack/Plugin/InGame/Foodless.pm">Foodless</a> &#40;helps you maintain the foodless conduct by making you confirm every &#39;e&#39; command -- easy to disable for the rest of the game, in case you don&#39;t care about foodless&#41;</li>
+    <li><a href="branches/2.0/lib/Interhack/Plugin/InGame/PasteDetection.pm">PasteDetection</a> &#40;if it thinks you&#39;re pasting text, it&#39;ll force you to press tab to go through with the paste -- a feature borrowed from irssi&#41;</li>
+   </ul>
+   <hr />
+   <h3><a href="branches/0.0">0.x</a>
+   </h3>
+   <p>0.x is a minimal implementation that developers can toy with. It was written &#40;in only a few minutes&#41; after 2.x was started.</p>
+   <p>It&#39;s a useful starting off point if you just want to toy with it. Being so small, it should easily fit into your head. It&#39;s only 70 lines.</p>
+   <p>The &#39;control-E =&gt; write Elbereth&#39; macro is implemented, as well as coloring all Elbereths purple &#40;to make it easy to tell at a glance how well you&#39;re covered&#41;. These features are one line each.</p>
+   <p>We recommend 1.x &#40;or 2.x&#41; for all of our users, but some people may have fun toying with 0.x. :&#41;</p>
+  </div>
+  <div id="footer">
+   <hr />
+   <div id="gentime">Last generated at Sat Nov 15 14:25:43 2008.</div>
+  </div>
+ </body>
+</html>

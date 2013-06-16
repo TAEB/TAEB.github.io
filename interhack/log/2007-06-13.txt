@@ -1,0 +1,220 @@
+[00:01:06] < Eidolos> >_>
+[00:17:06] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[00:21:54] <@doy> wish notes are still broken
+[00:22:12] <@doy> every character typed in a wish or so gets marked as a new note
+[00:22:16] <@toft> its not that
+[00:22:20] <@toft> but approximate
+[00:22:28] < Eidolos> hmm
+[00:22:32] <@toft> oh I guess every non macro'd char
+[00:22:45] < Eidolos> how's the map/directions? :)
+[00:22:55] <@toft> ?
+[00:22:57] < Eidolos> pm
+[00:23:02] < Eidolos> oh bah
+[00:23:05] < Eidolos> not ided
+[00:23:07] <@toft> :)
+[00:23:13] < Eidolos> glad I asked
+[00:23:21] -!- mode/#interhack [+o Eidolos] by ChanServ
+[00:23:43] <@Eidolos> thar
+[00:24:18] <@toft> hehe very nice
+[00:24:33] <@toft> man
+[00:24:39] <@toft> i've never gotten such directions before
+[00:24:42] <@toft> pretty high quality
+[00:24:43] < arcanehl> so technical
+[00:24:48] < arcanehl> "swishy gates"
+[00:24:52] <@toft> 6) cross the street (there's a crosswalk)
+[00:24:56] <@toft> orly
+[00:25:11] <@Eidolos> I always find that, invariably, when someone gives me directions
+[00:25:14] <@Eidolos> they're so fucking ambiguous
+[00:25:28] <@toft> erm
+[00:25:30] <@toft> is that a floating eye?
+[00:25:36] < arcanehl> yeah
+[00:25:37] <@Eidolos> it's the laser eye surgery place
+[00:25:39] < arcanehl> that's what I was thinking
+[00:25:40] <@toft> hehehe
+[00:25:53] < arcanehl> "money, shade, eat, ....eye?"
+[00:26:04] <@Eidolos> nah the X is more "X marks the spot"
+[00:26:18] <@toft> shade = starving programmer
+[00:26:25] < arcanehl> bring the silver, or heavily enchanted sword;
+[00:26:38] <@Eidolos> neeeerds1
+[00:26:40] <@toft> i'll use my BoO
+[00:26:51] < arcanehl> it took a long ass time to kill a pair of shades with my dual set of +5/+0 swords
+[00:26:52] <@toft> named Eidolosbane
+[00:27:04] <@toft> shades are fucking buff
+[00:27:05] <@toft> its annoying
+[00:27:35] < arcanehl> well
+[00:27:54] < arcanehl> doesn't help that they have a code check to make damage done against them minimal
+[00:28:00] <@toft> da
+[00:28:18] < arcanehl> Subtotal A is set to zero if attacking a shade without silver.
+[00:29:17] < arcanehl> I'll just have you lead the way
+[00:29:26] <@Eidolos> nod
+[00:29:34] <@Eidolos> I gave the directions to all just in case, and for humor purposes
+[00:29:41] < arcanehl> I'll point and say touristy things
+[00:30:27] <@Eidolos> I expect nothing less
+[00:30:38] <@Eidolos> I'll also try to have System of the World finished by the 22nd
+[00:30:40] < arcanehl> and you'll get even less
+[00:30:43] <@Eidolos> i'm like 450 pages in
+[00:30:44] < arcanehl> you fucking better
+[00:31:03] <@Eidolos> I have about 3 solid hours of reading time these days 80
+[00:31:06] <@Eidolos> 80
+[00:31:08] <@Eidolos> ...
+[00:31:09] <@Eidolos> 8)
+[00:31:15] <@toft> *)
+[00:31:19] < arcanehl> -30-
+[00:31:28] <@Eidolos> right shift is shitty, left ctrl is shitty
+[00:31:44] < arcanehl> so, the reading on the train is working well then?
+[00:31:53] <@Eidolos> yep
+[00:31:58] < Zawk> 3 hours?
+[00:32:08] < Zawk> you commute 1.5 hours per day?
+[00:32:08] <@Eidolos> Zawk: commute :/
+[00:32:15] < Zawk> err
+[00:32:16] <@Eidolos> well, 3 hours round trip
+[00:32:17] < Zawk> each way
+[00:32:20] <@Eidolos> right
+[00:32:27] <@Eidolos> it's not so bad though
+[00:32:29] < Zawk> dayum
+[00:32:38] <@Eidolos> it's all public transportation so I can, as mentioned, read
+[00:32:49] < Zawk> still. that's 1.5 hours
+[00:32:59] <@Eidolos> trust me, I know :/
+[00:33:14] <@Eidolos> it's closer to 2 hours really
+[00:33:20] <@Eidolos> I leave at 6 and get home at 10
+[00:33:22] <@Eidolos> er
+[00:33:23] <@Eidolos> 8
+[00:33:27] <@Eidolos> 6 and 8
+[00:46:20] <@Eidolos> added rax's house to othe map
+[00:48:43] <@toft> add some d and @
+[00:48:47] <@Eidolos> hhe
+[00:49:26] <@Eidolos> going to bed now
+[00:49:33] <@toft> Eidonight
+[00:50:22] <@Eidolos> problems with server socket, restarting
+[00:50:26] <@Eidolos> that's swhy termcast died
+[00:50:32] <@toft> ooh
+[00:50:36] <@Eidolos> probably my connection hiccuped
+[00:50:45] <@toft> *hic*
+[00:50:58] <@toft> im lonely in the termcast server
+[00:50:59] <@toft> :'(
+[00:51:09] <@toft> only TV to keep me company
+[00:51:13] <@Eidolos> :)
+[00:51:19] <@toft> sounds oddly like life
+[00:51:26] <@toft> life before computers of course
+[00:51:29] <@toft> heh
+[00:51:31] <@toft> *ramble*
+[00:51:31] <@Eidolos> listen to Survivalism again!
+[00:51:33] <@Eidolos> it's awesome
+[00:51:45] <@Eidolos> especially really loudly on the subway
+[00:51:49] <@toft> he
+[00:51:50] <@toft> h
+[00:51:58] <@toft> kek jej heh geg fef
+[00:52:21] <@Eidolos> jej
+[00:55:02] <@Eidolos> <3 wireless
+[00:55:23] <@Eidolos> I'm not sure how the whole shower thing is gonna work out
+[00:55:33] <@Eidolos> I'm sure everyone will be able to take a quick one
+[00:55:45] < arcanehl> it's four days tops
+[00:55:48] <@toft> "But I can't live without my daily 45 minute shower"
+[00:55:54] <@Eidolos> :0
+[00:55:57] <@Eidolos> :)
+[00:55:58] <@toft> just kidding
+[00:56:03] <@toft> I agree with arcanehl though
+[00:56:05] <@toft> its no big deal
+[00:56:09] <@Eidolos> yeah I don't care if you shower or not, whatever's cool
+[00:56:30] < arcanehl> now backpacking in the mountains...
+[00:56:42] <@Eidolos> that's a daily shower activity
+[00:56:45] < arcanehl> had just one over a 12 day period
+[00:56:57] <@toft> are you an avid outdoorsman?
+[00:57:02] < arcanehl> somewhat
+[00:57:10] < arcanehl> used to be more, was easier
+[00:57:20] < arcanehl> now it's harder because I'm not available weekends
+[00:57:27] < arcanehl> though maybe I'll do my own thing during the week
+[00:58:01] <@toft> I'm an avid outdoorsman
+[00:58:03] < arcanehl> but I've camped in just about all seasons
+[00:58:05] < arcanehl> hot
+[00:58:13] < arcanehl> not a big fan of the winter camping
+[00:58:17] < arcanehl> last time was enough
+[00:58:39] < arcanehl> shoveling out two+ feet of snow to setup a tent at night was a pain
+[00:58:56] < arcanehl> although, that weekend was nice
+[00:58:59] <@toft> heh
+[00:59:03] <@toft> its all about the snow shelter
+[00:59:05] < arcanehl> 20's man!
+[00:59:07] <@toft> ever donw one?
+[00:59:14] < arcanehl> no
+[00:59:32] <@toft> while very intensive, they're Pretty Damn Sweet
+[00:59:43] < arcanehl> oh, I've made plenty of snow forts and stuff
+[00:59:54] <@toft> you find a big drift and do your block stomp test
+[00:59:54] < arcanehl> (with tunnels, man was it so much fun)
+[01:00:10] < arcanehl> had some friends build an igloo once
+[01:00:21] <@toft> there's a bunch of designs you can use... we did the 'tunnel to cavish thing'
+[01:00:27] < arcanehl> ahh
+[01:00:49] <@toft> I thought it was pretty sketchy, but it did not collapse and suffocate us
+[01:00:57] < arcanehl> oh, huh
+[01:01:05] <@toft> but yeah winter camping isn't all that fantastic... its cold man! :)
+[01:01:09] <@Eidolos> it was biding its time
+[01:01:25] < arcanehl> you being here kinda precludes the suffocating part though
+[01:01:31] <@toft> indeed
+[01:01:35] < arcanehl> unless
+[01:01:37] < arcanehl> zombie...
+[01:01:40] <@toft> unless i had one of those fancy avalanche beepers
+[01:01:42] <@toft> mwahaha
+[01:01:50] < arcanehl> my brain no tasty!
+[01:01:54] <@toft> CHOMP
+[01:02:34] <@toft> I used to have this thing that would /notice someone *Chomp* Thanks for the packet! when they ctcp ping'd me
+[02:40:10] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit ["Trillian (http://www.ceruleanstudios.com"]
+[03:35:53] -!- Didaskal0s [n=didaskal@198.62.73.67] has joined #interhack
+[03:42:27] -!- Didaskal0s [n=didaskal@198.62.73.67] has left #interhack []
+[11:52:26] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit []
+[11:57:42] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[12:37:44] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[13:46:18] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[15:29:35] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit [Read error: 110 (Connection timed out)]
+[15:32:41] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[15:33:29] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[15:33:33] -!- ekiMbo is now known as ekiM
+[17:25:10] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[17:59:31] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[19:42:23] <@doy> pull for some more todo items
+[19:42:45] < arcanehl> you're adding to the wrong list
+[19:43:44] <@Eidolos> goody
+[19:44:29] <@Eidolos> good stuff
+[19:44:37] <@Eidolos> eating while satiated should be easy
+[19:44:40] <@Eidolos> just look at confirm_confirm
+[19:44:47] <@Eidolos> leave that to a new dev though for now
+[19:45:04] <@Eidolos> it's nice to leave easy and not so critical functionality undone to get someone to join the project
+[19:45:07] <@Eidolos> low hanging fruit, etc
+[19:59:14] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit ["Trillian (http://www.ceruleanstudios.com"]
+[20:34:53] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[21:36:27] < raxvulpine> Leave a couple things like that for me to take a stab at next Friday, Eidolos. If I'm not engrossed in playing, anyway.
+[21:37:05] <@Eidolos> sure!
+[21:37:18] <@Eidolos> apparently like _everyone_ at bps knows i'm a nethacker
+[21:37:21] <@Eidolos> even former interns
+[21:37:48] <@doy> do they know how famous you are?
+[21:37:49] <@doy> (:
+[21:37:54] <@Eidolos> shrug!
+[21:38:10] <@Eidolos> also you're _really_ stretching "famous" there
+[21:38:10] < raxvulpine> Jesse does!
+[21:38:37] < raxvulpine> After that conducty0 incident!
+[21:38:51] <@Eidolos> :)
+[21:38:55] < raxvulpine> And once you post your YAQAP and Mr. Damerell goes apeshit on you!
+[21:43:00] <@Eidolos> we have two small tasks for new devs: confirm pressing y on eat more? when satiated, and making tabs ("Press tab to send the string <name the whistle tin>") for whistle messages
+[21:44:17] <@doy> there will be a few things to tab on for the eating thing
+[21:44:27] <@doy> different messages for stuff on the ground vs stuff in inventory
+[21:44:30] <@Eidolos> ah
+[21:44:39] <@Eidolos> well, let's let rax figure all that out :)
+[21:44:49] <@Eidolos> (or whoever)
+[21:44:53] <@doy> also, we should extend statuscolors a bit
+[21:44:59] <@Eidolos> how so?
+[21:45:15] <@doy> don't just color prefixes of words, actually replace the prefixes of words with the full words
+[21:45:24] <@Eidolos> hmmm
+[21:45:30] <@Eidolos> ok
+[21:45:56] <@doy> the only conflicts are strained/stressed and overloaded/overtaxed
+[21:45:57] <@doy> i think
+[21:46:11] <@doy> and those shouldn't matter too much if we get them wrong
+[22:09:21] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[22:13:41] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[22:27:25] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has joined #interhack
+[23:09:00] < zubin> idea: require tab acknowledgement when Rodney says hello. Or is that already in there?
+[23:09:21] <@Eidolos> sure is
+[23:09:27] < zubin> yay Rodney.
+[23:09:35] <@Eidolos> in fact
+[23:09:39] <@Eidolos> there was a mildly neat bug
+[23:10:01] <@Eidolos> where it would have you press tab before rodney showed up on the map
+[23:10:14] < zubin> heh
+[23:10:22] < zubin> Accept Rodney? (tab/n)
+[23:10:28] <@Eidolos> :D

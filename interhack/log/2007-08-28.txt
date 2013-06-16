@@ -1,0 +1,61 @@
+[00:34:59] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[00:41:25] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has joined #interhack
+[01:58:41] -!- Zawk_ [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[01:58:42] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit ["Reconnecting"]
+[01:58:54] -!- Zawk_ is now known as Zawk
+[02:23:47] -!- mindbend [n=Mindbend@c-68-43-149-219.hsd1.mi.comcast.net] has joined #interhack
+[02:26:34] -!- mindbend [n=Mindbend@c-68-43-149-219.hsd1.mi.comcast.net] has left #interhack []
+[03:22:19] < Zawk> so when is Instant Ascension mode appearing?
+[03:44:54] < alexbobp> From what I hear, it doesn't even have autoexplore yet.
+[03:45:07] < alexbobp> So I'd say at least a month.
+[03:45:44] <@Eidolos> autoexplore is hard :(
+[03:46:49] < arcanehl> heh, a month
+[03:46:59] < arcanehl> you did it in TAEB
+[03:50:32] < alexbobp> TAEB?
+[03:50:50] < alexbobp> Eidolos: Do you have a shortest path algorithm in Interhack yet?
+[03:51:33] <@Eidolos> nope, we don't even acknowledged the map yet
+[03:53:03] < alexbobp> Even in version 2?
+[03:53:18] <@Eidolos> right
+[03:53:20] < alexbobp> Interhack 2: Map?  What map?  >_>
+[03:57:53] <@Eidolos> shrug, we're doing fine
+[03:58:16] <@Eidolos> one of the most important things is to cause no extra lag to the player
+[04:02:06] <@doy> and really, any kind of acknowledgement of the map is going to be hard, and likely slow
+[04:02:23] <@doy> outside of really simple stuff
+[04:02:53] < alexbobp> No extra lag?  Does that mean no ;ing every object on the screen?
+[04:03:12] < arcanehl> just means doing it faster!
+[04:03:16] <@doy> also, no sending nethack commands automatically d:
+[04:04:44] <@doy> although that has been on the todo list since day one, as a command, not as an automatic thing
+[04:04:49] <@doy> to search for ghosts
+[04:05:15] <@doy> it's not an issue on nao, since you can just change the monsters option
+[04:05:30] <@doy> which is why people haven't really cared
+[04:05:36] <@doy> but it could be useful for devnull
+[04:08:05] <@Eidolos> heh
+[04:08:13] <@Eidolos> we could just s/ /X/g on the map
+[04:08:18] < alexbobp> Anyway, it would be a must for the "do obvious things until a difficult decision has to be made" feature that we will have
+[04:08:21] <@Eidolos> since rock is null I think
+[04:08:47] < alexbobp> What does s/ /X/g mean?
+[04:08:57] <@Eidolos> you're so naive!
+[04:09:02] <@Eidolos> replace all spaces with Xs
+[04:09:21] <@doy> oh, really?
+[04:09:26] <@doy> that would be useful
+[04:09:34] <@Eidolos> ya
+[04:10:01] < arcanehl> what about dark areas? namely when moving around with a light source
+[04:10:31] < alexbobp> oh, I see
+[04:11:24] < alexbobp> What would have to be done to distinguish dark but seen spaces from unseen spaces?
+[04:11:24] < alexbobp> It was the g that confused me.
+[04:11:28] < arcanehl> I believe you can change the tile string for that
+[04:14:37] <@doy> quakeconsole needs readline support
+[04:14:39] < alexbobp> How do I change that?  Can it be done in the nethackrc or do I have to recompile?
+[04:15:04] <@Eidolos> doy: it had readline support. it was buggy
+[04:15:13] < arcanehl> alexbobp: nethackrc
+[04:15:19] <@Eidolos> feel free to try again :) Term::ReadLine is the module
+[04:27:39] < alexbobp> arcanehl: what option, and how?
+[04:28:54] < arcanehl> read the guidebook
+[04:29:09] < arcanehl> off the top of my head, it's DUNGEON
+[04:29:48] < alexbobp> I'll check the guidebook
+[04:29:49] < alexbobp> thanks
+[06:15:14] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has quit ["Leaving."]
+[06:22:27] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[16:34:07] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit ["Leaving."]
+[16:34:14] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[21:18:31] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit ["leaving"]

@@ -1,0 +1,67 @@
+[00:07:11] < alexbobp> oh, hi.  I just heard my name.
+[00:07:36] < alexbobp> I see the domain name is not yet linked to an IP with a webserver on port 80.
+[01:54:24] -!- alexbobp is now known as alexbobp_away
+[02:40:41] -!- alexbobp_away [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit ["Leaving."]
+[06:01:20] -!- Netsplit kornbluth.freenode.net <-> irc.freenode.net quits: @toft
+[06:01:48] -!- Netsplit over, joins: @toft
+[09:25:38] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[10:33:38] -!- alexbobp [n=aponebsh@64.20.229.14] has quit [Read error: 104 (Connection reset by peer)]
+[10:33:59] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[10:38:37] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[10:38:48] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:40:13] < alexbobp> what is schemehack?
+[10:40:31] -!- ekiMbo is now known as ekiM
+[10:46:39] < billnye> interhack ported to scheme?
+[10:46:56] < alexbobp> okay.
+[10:47:36] < billnye> that's actually just a silly guess
+[10:48:52] < alexbobp> oh.
+[10:49:13] < alexbobp> well, from the current code, I'd put even odds on interhack ported to scheme or hack/nethack ported to scheme.
+[10:49:26] < alexbobp> But from the looks of it, it was abandoned quickly
+[11:25:41] <@Eidolos> heh :)
+[11:25:50] <@Eidolos> a roguelike written in scheme
+[11:32:39] < alexbobp> I want to see a roguelike in befunge.
+[11:32:49] <@Eidolos> hehe
+[11:33:10] < alexbobp> "The roguelike who's source code looks like a roguelike"
+[16:11:00] -!- Sniffer [n=fulera@200.142.187.242.cable.digizap.com.br] has joined #interhack
+[16:11:22] -!- Sniffer [n=fulera@200.142.187.242.cable.digizap.com.br] has left #interhack []
+[16:44:18] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[17:04:37] <@Eidolos> we've been sniffed!
+[17:04:43] <@toft> nooooo
+[17:19:12] < arcanehl> shrug, I took my shower!
+[17:35:06] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[19:29:36] <@Eidolos> this weekend is Interhack Devel Weekend for me :)
+[19:31:45] < arcanehl> so, does interhack.us work now?
+[19:32:01] < arcanehl> certainly resolves
+[19:33:21] < arcanehl> now to make it an actual site!
+[19:42:54] <@Eidolos> s'what I'm gonna do
+[20:02:12]  * Eidolos cackles
+[20:02:19] <@Eidolos> coercing Template::Declare to do my evil work is FUN
+[20:05:46] <@Eidolos> http://paste.husk.org/8907 produces http://paste.husk.org/8908
+[20:06:04] <@Eidolos> the header and footer of course can be arbitrarily complex
+[20:18:10] <@Eidolos> for now the site is at http://sartak.org/interhack/
+[20:33:15] <@Eidolos> hmm, need to fix the wish menu for ipbt, it doesn't understand \n
+[20:37:43] <@Eidolos> trying to find the perfect screenshot
+[20:37:51] <@Eidolos> where I can show a few interhack features in one go
+[20:38:04] <@Eidolos> oh well
+[22:03:52] <@Eidolos> toft, doy: How many total ascs do you two have?
+[22:04:10] <@Eidolos> so I can say "Interhack is written by three developers with N ascensions among them" :)
+[22:06:13] < arcanehl> ask R3?
+[22:06:21] <@Eidolos> but they have devnull ascs and whatnot
+[22:06:48] < arcanehl> so add "over"
+[22:07:04] <@Eidolos> or I can just ask and get a higher figure >_>
+[22:07:10] < arcanehl> over 100!
+[22:16:07] <@Eidolos> woooot! http://interhack.us/
+[22:17:15] < arcanehl> yay domain parking!
+[22:17:21] <@Eidolos> works here :)
+[22:17:29] < arcanehl> that's because it's cached here ;)
+[22:17:32]  * Eidolos nods
+[22:25:15] <@Eidolos> over 110
+[22:26:45] <@Eidolos> I'll start doing nightly tarballs, thanks to darcs dist
+[22:27:00] <@Eidolos> (as soon as we get a releasable 2.0)
+[22:30:06] < arcanehl> so... what I said you should do for 1.0?
+[22:30:24] <@Eidolos> eh?
+[22:30:37] < arcanehl> I said to create nightlies
+[22:30:43] <@Eidolos> oh
+[22:30:44] <@Eidolos> yes
+[22:41:45] <@Eidolos> make is hard
+[23:28:58] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]

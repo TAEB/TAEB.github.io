@@ -1,0 +1,24 @@
+[07:00:20] -!- ekiMbo is now known as ekiM
+[09:57:43] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[13:04:02] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[15:16:55] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[15:17:41] -!- stabwound [n=illbill@dsl145.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[15:17:58] -!- stabwound [n=illbill@dsl38.rba1.pppoe.execulink.com] has joined #interhack
+[15:18:07] < zubin> Services stabs stabwound. Stabwound dies!
+[15:48:59] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has quit [Read error: 54 (Connection reset by peer)]
+[15:49:24] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[17:18:18] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[17:51:12] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[17:53:04] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[18:06:16] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Connection timed out]
+[18:31:40] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[18:40:03] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[18:40:17] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[18:44:30] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit [Read error: 110 (Connection timed out)]
+[19:26:49] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[19:27:01] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[19:57:08] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[21:19:03] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit ["Trillian (http://www.ceruleanstudios.com"]
+[22:47:54] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[22:58:18] -!- stabwound [n=illbill@dsl38.rba1.pppoe.execulink.com] has quit []
+[23:20:46] -!- ekiMbo is now known as ekiM

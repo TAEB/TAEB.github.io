@@ -1,0 +1,21 @@
+[02:34:30] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[03:53:58] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[14:28:05] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[14:43:26] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[14:46:32] <@Eidolos> so if you're at the bottom of the map or the row above it
+[14:46:35] <@Eidolos> there are display errors
+[14:58:35] <@toft> yeah
+[16:02:53] <@Eidolos> .*? yanks .*? to the floor!
+[16:02:56] <@Eidolos> needs to be ZOMG FUCKING ACK
+[16:40:56] <@doy> ah, is that the issue?
+[16:40:59] <@doy> good to know
+[16:41:09] <@doy> also if a menu is 22 rows high
+[17:57:51] -!- CocaiNe_girL [n=vidieee@85.103.242.183] has joined #interhack
+[18:10:30] <@Eidolos> hi
+[18:10:34] <@Eidolos> u got the stuff?
+[18:11:10] < ekiM> the pig is in the poke
+[18:48:02] < billnye> I don't buy it.
+[19:01:27] -!- CocaiNe_girL [n=vidieee@85.103.242.183] has quit [Read error: 110 (Connection timed out)]
+[19:02:24] < arcanehl> so who's this toft dude? he's idled over two weeks on termcast
+[19:02:37] < billnye> window goto
+[21:59:47] <@Eidolos> No greencard found.. he was getting that error when setting up xmonad

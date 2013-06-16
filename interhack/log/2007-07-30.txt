@@ -1,0 +1,175 @@
+[02:28:00] -!- Ian-Keith [n=Ian@24-196-148-64.dhcp.mdsn.wi.charter.com] has joined #interhack
+[05:06:39] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[05:22:20] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[06:20:16] -!- ekiMbo is now known as ekiM
+[10:29:47] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[10:31:53] -!- jilles [i=jilles@unaffiliated/jilles] has quit [Read error: 104 (Connection reset by peer)]
+[10:32:53] -!- jilles [i=jilles@snail.stack.nl] has joined #interhack
+[10:51:15] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[10:59:37] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[11:00:15] < Zawk> ohnoes the hordes are upon us
+[11:00:32] < billnye> now now, maybe alexbobp is alliance
+[11:00:40] < Zawk> ...
+[11:00:47] <@Eidolos> yo
+[11:01:00] < billnye> (I don't even WoW, but I takes the jokes where I can gets 'em)
+[11:03:15] < alexbobp> technically, the horde is alliance
+[11:03:20] < alexbobp> *is an alliance
+[11:03:39] < alexbobp> (that, of course, is the kind of thinking that will get people pissed off at me if I ever play WoW)
+[11:05:16] < alexbobp> does InterHack have an autoexplore feature?
+[11:06:19] <@Eidolos> not yet
+[11:06:39] <@Eidolos> some kind of list of features would be nice.. for now just ls the plugin dir :)
+--- Log closed Mon Jul 30 11:16:12 2007
+[11:16:15] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[11:16:15] -!- Irssi: #interhack: Total of 12 nicks [3 ops, 0 halfops, 0 voices, 9 normal]
+[11:17:41] -!- Irssi: Join to #interhack was synced in 87 secs
+[11:18:39] < Zawk> maybe
+[11:27:19] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[11:51:13] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:52:07] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[11:52:09] -!- ekiMbo is now known as ekiM
+[12:57:10] -!- You're now known as Eidolos
+[14:45:15] -!- djavolo [n=djavolo@154216.uninet.lv] has joined #interhack
+[14:57:29] -!- djavolo [n=djavolo@154216.uninet.lv] has quit ["Ex-Chat"]
+[15:12:31] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:13:58] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[15:14:01] -!- ekiMbo is now known as ekiM
+[15:14:18] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[15:14:40] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:44:30] < alexbobp> do people not talk in here much?
+[15:47:46] < Ian-Keith> NOT ALLOWED
+[15:47:47] < Ian-Keith> /KICK
+[15:47:49] < Ian-Keith> /BAN
+[15:47:51] < Ian-Keith> /EATBABIES
+[15:56:32]  * Eidolos is at work
+[15:56:46] < Eidolos> but yes, it's a very quiet channel
+[15:57:21] < Eidolos> have you gotten it to work yet?
+[16:33:11] < alexbobp> where can I get some good interhack config files?
+[16:33:24] < alexbobp> yeah, I got it to work
+[16:33:25] < Ian-Keith> over there
+[16:33:27] <@doy> they come with the distribution
+[16:33:35] <@doy> doy-config, toft-config, eido-config
+[16:33:39] <@doy> pick one
+[16:34:16] < alexbobp> what are doy and toft short for?
+[16:34:49] < Ian-Keith> Doyisahugenoob and Toftisnot1337
+[16:34:54] <@doy> ...
+[16:34:58]  * doy points to my nick
+[16:34:59] < Ian-Keith> <3
+[16:35:23] < alexbobp> okay, so that one's not short.
+[16:36:09] < alexbobp> Okay, after careful research (!asc) I picked doy
+[16:36:45] < Eidolos> I have the coolest stuff though
+[16:37:09] < Eidolos> since  I'm the only one who has dedicated his life to Perl
+[16:37:23] < alexbobp> Which one has "push tab to do things that are obvious to a computer but not to alexbobp"?
+[16:37:33] < Eidolos> all
+[16:39:39] < alexbobp> I remember seeing a screenshot that gave messages about all the corpses, which one was that?
+[16:41:14] <@doy> the functionality is almost all in the plugins
+[16:41:25] <@doy> and all three of us use all of the useful plugins
+[16:41:54] <@doy> eido adds stuff on top of that, toft uses pretty much the default, and i disable most of the non-useful plugins
+[16:42:10] < alexbobp> okay.
+[16:42:19] < alexbobp> does the config file determine which plugins are loaded, or how do I do that?
+[16:42:29] < Eidolos> yes
+[16:42:32] <@doy> yeah
+[16:42:38] <@doy> open up one of the config files
+[16:42:41] <@doy> and look at it
+[16:42:43] < Eidolos> include "*"; IIRC
+[16:52:03] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[16:53:58] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[16:54:05] -!- ekiMbo is now known as ekiM
+[17:35:40] < alexbobp> is the IDing of foods automatic, or do I have to do something to activate it?
+[17:36:06] < Eidolos> you have to enable the plugin
+[17:36:14] < alexbobp> how?
+[17:37:02] < Eidolos> [16:42:38] <@doy> open up one of the config files
+[17:37:02] < Eidolos> [16:42:41] <@doy> and look at it
+[17:37:02] < Eidolos> [16:42:43] < Eidolos> include "*"; IIRC
+[17:38:42] < alexbobp> I think I found the problem
+[17:38:51] < alexbobp> the config file is supposed to be in my home directory.
+[17:39:09] < Eidolos> yeah
+[17:39:17] < Eidolos> sorry, it's not very well documeted
+[17:39:34] < Eidolos> since it's used by pretty much just us three
+[17:40:16] < alexbobp> well, I can't complain, since I paid nothing and it's a great tool
+[17:40:19] < alexbobp> and you guys are here to help
+[17:40:21] < alexbobp> thanks a lot
+[17:40:35] < alexbobp> I think I've got it including all the plugins now, since it wants more cpans.
+[17:41:01] < alexbobp> maybe one of these days when I learn perl and learn nethack I can help!
+[17:41:09] < alexbobp> (I almost typed "lern")
+[17:42:42] < Eidolos> :)
+[17:42:52] < Eidolos> I'm actually in the process of rewriting Interhack
+[17:42:55] <@doy> MY CPANS
+[17:42:58] <@doy> LET ME SHOW YOU THEM
+[17:43:39] < Eidolos> compare this: http://darcs.katron.org/~sartak/interhack/trunk/plugins/floating-eyes.pl
+[17:46:15] < Eidolos> with this: http://darcs.katron.org/~sartak/interhack/branches/2.0/lib/Interhack/Plugin/FloatingEye.pm (ugh fuckinglaptop0
+[17:46:30] < Eidolos> the second one is a lot more precise.. and less.. hacky
+[17:46:56] < Eidolos> and the setup of the second one provides us with a number of beneefits
+[17:46:57] < alexbobp> I'm sure I'd recognize the difference if I new regexen like I should...
+[17:47:07] < Eidolos> the regex is actually the same :)
+[17:47:11] < alexbobp> I got it working, btw, and it makes me happy
+[17:47:12] < alexbobp> thanks
+[17:47:29] < alexbobp> can't we just make all dark blue bright cyan?
+[17:47:41] < alexbobp> The dark blue is a pain in the ass if I don't run my terminal in fullscreen.
+[17:47:48] < Eidolos> the new Interhack will remember your stats between saves, let you update plugin code while it's still running, let you load and unload plugins on the fly
+[17:47:58] < alexbobp> that's so cool!
+[17:48:05] < Eidolos> if you want to make all dark blue bright cyan, that suggests you want to fiddle with your terminal options
+[17:48:05] < alexbobp> is there anything I can do to help with development?
+[17:48:06] <@doy> alexbobp: you could certainly write a plugin to do that
+[17:48:07] <@doy> (:
+[17:48:18] < alexbobp> I don't know perl, but I could probably learn
+[17:48:23] < Eidolos> floating eyes are 90% of the problem for people
+[17:48:34] < Eidolos> you could document stuff.. shrug :)
+[17:48:38] < alexbobp> how hard is perl to lern if I know PHP and Java?
+[17:48:43] < Eidolos> lern1
+[17:48:51] < alexbobp> I also have problems with the orcs that are dark blue
+[17:48:55] < Eidolos> shrug, I have no qualms with using complicated Perl, so..
+[17:49:00] < alexbobp> at least I did it on purpose that time...
+[17:49:04] < Eidolos> look at the code, see if you can figure stuff out
+[17:49:08] < alexbobp> okay.
+[17:49:23] < Eidolos> anyway, heading home from work
+[17:49:34] < Eidolos> have fun, and welcome baboard
+[17:49:36] < alexbobp> shit, I have to go ten minutes ago.
+[17:49:37] < Eidolos> ldkfjksdfh
+[17:49:38] < alexbobp> see you guys later!
+[17:49:39] <@doy> alexbobp: if you replace the e on line 10 in the floating eye plugin with a . it might do what you want
+[17:49:41] < Eidolos> :) bye
+[17:49:46] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[17:49:51] < Eidolos> you'd have to capture the . and use $1
+[17:49:58] < Eidolos> since it's hardcoded to use e in both places
+[17:50:09] <@doy> no
+[17:50:12] <@doy> it's a capture
+[17:50:24] < Eidolos> ohh right because of DEC
+[17:50:32]  * Eidolos was speaking from memeory
+[17:50:37] <@doy> (:
+[17:50:38] < Eidolos> FUCJKING FAKSDEYDWSBA KEYBOARD
+[17:58:21] < billnye> ale--gone
+[18:15:46] -!- alexbobp [n=alex@adsl-68-92-149-37.dsl.austtx.swbell.net] has joined #interhack
+[18:15:56] < alexbobp> Hi, I'm at my house now.
+[18:57:41] < billnye> alexbobp: adjust "dark blue" in your term
+[19:03:07] < alexbobp> do you know how to do that in Konsole?
+[19:03:55] < billnye> it's probably in a menu somewhre
+[19:05:13] < alexbobp> gee, thanks
+[19:05:18] < alexbobp> I'll look some more.
+[19:07:57] < billnye> google is your friend
+[19:08:17] < billnye> I haven't and don't use konsole
+[19:33:42] < Eidolos> it's possible in Konsole
+[19:37:06] < Eidolos> I recommend you upgrade to urxvt+screen though :)
+[19:53:01] < alexbobp> I got urxvty
+[19:53:04] < alexbobp> *urxvt
+[19:53:14] < alexbobp> it looks very basic, no menus, no tabs, etc
+[19:53:23] < Eidolos> doy: bah, just do a macro :)
+[19:53:41] < Eidolos> alexbobp: you can configure it through the command line options
+[19:53:53] < Eidolos> and screen takes care of tablessness (and more.. also provides macros)
+[19:54:07] < alexbobp> what is screen?
+[19:54:13] < alexbobp> how is this better than konsole?
+[19:54:13] < Eidolos> a very handy program
+[19:54:46] < Eidolos> for one it does unicode, and two you can script it with Perl, and three it's more configurable, and four it's what Discriminating Hackers use
+[19:55:19] < alexbobp> reason four seems like a result of on1e4444444
+[19:55:25] < alexbobp> damn cat on the keyboard
+[19:55:39] < alexbobp> reason four seems like a result of the other three
+[19:56:09] < alexbobp> ?> Discriminating Hackers
+[19:56:14] < alexbobp> right, no Rodney
+[20:22:47] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[20:44:52] -!- Ian-Keith [n=Ian@24-196-148-64.dhcp.mdsn.wi.charter.com] has quit ["You see here a wizard corpse named Ian-Keith."]
+[21:10:00] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has quit [Read error: 104 (Connection reset by peer)]
+[21:17:53] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[22:03:29] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[22:09:54] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[22:09:55] -!- ekiMbo is now known as ekiM
+[22:53:54] -!- jilles_ [i=jilles@snail.stack.nl] has joined #interhack
+[22:55:57] -!- jilles [i=jilles@unaffiliated/jilles] has quit [Read error: 104 (Connection reset by peer)]

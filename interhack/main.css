@@ -1,0 +1,29 @@
+#header
+{
+    text-align: center;
+}
+
+p
+{
+    text-align: justify;
+}
+
+#content
+{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#gentime
+{
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+}
+
+hr
+{
+    border: 0;
+    border-top: 1px solid #000000;
+}
+

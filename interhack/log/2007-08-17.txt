@@ -1,0 +1,298 @@
+[16:16:11] -!- Eidolos [n=sartak@sartak.akrasiac.org] has joined #interhack
+[16:16:11] -!- Irssi: #interhack: Total of 10 nicks [2 ops, 0 halfops, 0 voices, 8 normal]
+[16:16:11] -!- mode/#interhack [+o Eidolos] by ChanServ
+[16:17:14] -!- Irssi: Join to #interhack was synced in 65 secs
+[18:00:19] -!- legenda_ [n=legenda@83-131-187-96.adsl.net.t-com.hr] has joined #interhack
+[18:01:43] < legenda_> a good telnet guide
+[18:03:25] <@Eidolos> hi
+[18:04:39] < alexbobp> Why is it that people see a URL ending with ".ru", and immediately assume the website is hosted in Russia?
+[18:05:03] < legenda_> that's normal
+[18:05:19] < alexbobp> is that a request or something?
+[18:05:23] < alexbobp> Because I just see nouns.
+[18:05:35] < legenda_> That's normal.
+[18:06:09] < alexbobp> are you a native English speaker?
+[18:06:21] < alexbobp> nvm
+[18:07:03] < legenda_> Why you think that
+[18:07:36] < alexbobp> it was a question, I thought you weren't.  And then it was confirmed.
+[18:08:13] < legenda_> It's normal that people think that .ru is in Russia
+[18:08:36] < alexbobp> well, the domain, yes, but not necessarily the hosting
+[18:09:00] <@doy> um
+[18:09:01] <@doy> what
+[18:09:08] < alexbobp> Hi doy.
+[18:09:11] < alexbobp> I think he wants a telnet guide
+[18:09:13] < legenda_> that's right
+[18:09:32] < alexbobp> how about man?
+[18:09:40] < alexbobp> try "man telnet"
+[18:09:57] < legenda_> i tried that
+[18:10:28] < alexbobp> what OS are you using?
+[18:11:08] < legenda_> ubuntu
+[18:12:17] <@doy> Eidolos: http://search.cpan.org/~doy/IO-Pty-Easy-0.01/
+[18:13:23] < alexbobp> and it has no man page?  I'm sure I've seen the man page on Ubuntu
+[18:13:26] <@Eidolos> doy: cool :)
+[18:13:45] <@doy> it still doesn't seem to install yet
+[18:13:54] <@doy> but probably just have to wait for the mirrors to catch up
+[18:14:04] <@Eidolos> yep
+[18:14:45] < legenda_>  i have man telnet, i was searching for examples
+[18:15:05] <@Eidolos> ordinarily I'd say you're totally in the wrong channel
+[18:15:09] <@Eidolos> but you're probably not :)
+[18:15:38] <@Eidolos> have you tried googling for telnet? :P
+[18:16:05] < alexbobp> there's an example in the /topic ;)
+[18:16:37] < legenda_> i was googling
+[18:19:13] < legenda_> thank you guys
+[18:19:15] -!- legenda_ [n=legenda@83-131-187-96.adsl.net.t-com.hr] has left #interhack ["Leaving"]
+[19:09:13] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[19:09:22] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:09:44] -!- ekiMbo is now known as ekiM
+[19:10:44] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[19:11:31] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:54:59] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[20:00:44] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Read error: 104 (Connection reset by peer)]
+[20:00:49] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[20:25:44] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[20:37:27] -!- shachaf [n=shachaf@66.17.178.31] has joined #interhack
+[20:45:57] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[20:48:06] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[20:52:30] <@Eidolos> hi shachaf 
+[20:54:11] < shachaf> Eidolos: Hello.
+[20:54:49] <@Eidolos> were you the one lamenting the lack of NAO statuscolors? :)
+[20:55:46] < shachaf> Eidolos: Interhack looks interesting.
+[20:56:35]  * shachaf will look further into it.
+[20:56:35] <@Eidolos> yeah. we like it :)
+[20:56:42] <@Eidolos> cool, feel free to ask us any questions
+[20:56:50] < shachaf> Do people use it on NAO, then?
+[20:56:55] <@Eidolos> oh yes
+[20:56:58] < shachaf> It's not frowned upon?
+[20:57:12] <@Eidolos> some people frown upon it, but the admins don't mind it
+[20:58:02] < shachaf> If I use it, are there any changes I need to make to .nethackrc?
+[20:58:11] < shachaf> E.g., disable menucolors?
+[20:58:35] <@Eidolos> you don't need to disable menucolors -- there's a menucolors stripping plugin that we use, especially handy for watching other people
+[20:58:49] <@Eidolos> so you get your chosen menucolors instead of whomever you're watching likes
+[20:59:13] <@Eidolos> but other things may be incompatible
+[20:59:36] <@Eidolos> you're using my config indirectly, which means you're likely ok :)
+[20:59:49] <@Eidolos> DECgraphics are an issue, every now and then you'll get a display error
+[20:59:52] < shachaf> Eidolos: Are you in #haskell-blah?
+[20:59:59] <@Eidolos> nope
+[21:00:38] <@Eidolos> I'm friends with lament and he mentioned that he was (begrudgingly) pimping Interhack there :)
+[21:00:53] < shachaf> Oh.
+[21:01:22] <@Eidolos> (I'm convinced he just dislikes it because it's written in Perl)
+[21:02:14] < shachaf> This looks like a much better way of doing statuscolors/hpmon/menucolors/etc. than patching Nethack directly.
+[21:02:35] <@Eidolos> :)
+[21:04:00] < arcanehl> naw, he just hates you but has to admit that IH is the pinnacle of greatness
+[21:04:31] <@Eidolos> I can live with that
+[21:06:07] <@doy> Eidolos: will this do what i want?
+[21:07:17] <@Eidolos> nope, you can't stack statement modifiers like that
+[21:07:23] <@doy> lame
+[21:07:23] <@doy> (:
+[21:07:33] < arcanehl> indeed, would be nice if you could
+[21:07:43] <@Eidolos> you're both nuts :)
+[21:07:50] <@Eidolos> though
+[21:08:00] <@Eidolos> $nonblocking and do { 1 while $self->is_active }
+[21:08:07] <@doy> ugly!
+[21:08:38] <@Eidolos> hmm
+[21:08:42] <@Eidolos> $sig ||= "TERM"
+[21:08:50] <@Eidolos> that makes kill 0 into a nice surprise :)
+[21:09:02] <@doy> don't do that then
+[21:09:04] <@doy> (:
+[21:09:04] <@Eidolos> s/makes/turns/
+[21:09:13] <@Eidolos> you do it in one of your test files
+[21:09:18] <@doy> no
+[21:09:22] <@Eidolos> oh. right
+[21:09:26] <@doy> i use the builtin kill
+[21:09:38] <@Eidolos> I'd recommend $sig = "TERM" unless defined $sig
+[21:09:44] <@doy> yeah, i suppose
+[21:09:56] <@doy> is_active should handle that case though
+[21:10:06] <@Eidolos> Perl 5.9 gives // and //= which are the much more DWIMmy shortcuts
+[21:10:34] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[21:11:12] < shachaf> Hmm, would there be an easy way to use Interhack locally?
+[21:11:25] <@doy> shachaf: not for interhack 1.0
+[21:11:28] <@Eidolos> you mean on a local copy of NetHack? funny you should ask :)
+[21:11:30] < shachaf> I guess just running Nethack in a telnet session would work?
+[21:11:34] <@doy> but we are working on a rewrite which handles that
+[21:11:36] < shachaf> Why?
+[21:11:37] <@Eidolos> doy added support for that last night to the new branch
+[21:11:40] < shachaf> Oh.
+[21:11:57] < shachaf> Is the new branch (2.x?) usable yet?
+[21:12:01] <@doy> not yet
+[21:12:09] <@Eidolos> but it does have some very nice things :)
+[21:12:12] <@doy> eidolos still needs to write the config code for it!
+[21:12:13] <@doy> d:
+[21:12:22] <@Eidolos> and calf
+[21:12:32] <@doy> i thought calf was done
+[21:12:36] <@doy> for what we need
+[21:12:38] <@Eidolos> noo :)
+[21:12:42] <@Eidolos> it doesn't do roles yet at all
+[21:12:46] <@doy> ah
+[21:12:47] <@doy> well then
+[21:12:48] <@Eidolos> or serialization
+[21:12:56] <@doy> that too!
+[21:12:57] <@doy> (:
+[21:13:03] <@Eidolos> but.. but.. adventure
+[21:13:15] <@doy> that's less of a priority though, since moose does at least work
+[21:13:28] <@doy> how's adventure coming?
+[21:14:38] < shachaf> Would running Nethack in a telnet session work locally?
+[21:14:47] <@doy> probably
+[21:14:59] <@doy> might have to fiddle with some things
+[21:15:09] <@Eidolos> easiest just to use it on NAO
+[21:15:19] <@doy> 1.0 is reliant on a few dgamelaunch specific things
+[21:15:28] <@doy> which a local telnet session wouldn't provide
+[21:15:38] <@doy> but it should mostly work
+[21:15:47] <@doy> easier to just run on nao though
+[21:15:55] < shachaf> Probably.
+[21:16:10]  * shachaf detaches.
+[21:23:17] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[21:28:04] <@Eidolos> all right, I'll work on Calf tonight
+[21:30:51] <@Eidolos> yeah. right now the Calf code is doing practically nothing :)
+[21:30:56] <@doy> (:
+[21:31:13] <@Eidolos> all the magic, if such a thing can be said, is in the 'has' code
+[21:31:18] <@Eidolos> let's see..
+[21:31:29] <@Eidolos> we want dynamically loadable plugins
+[21:31:46] <@Eidolos> and as a matter of fact I was reading Advanced Perl Programming last weekend
+[21:31:57] <@Eidolos> and it gave a good way to have instance-specific methods (an idea from Ruby)
+[21:32:17] <@Eidolos> the idea is when you try to add a method to an instance, you:
+[21:32:30] <@Eidolos> 1) make a new class using the address of that instance (a value very unique to that instance)
+[21:32:37] <@Eidolos> 2) you set that class's parent to the original parent
+[21:32:41] <@Eidolos> 3) you add the method to that new class
+[21:32:48] <@Eidolos> I think that's precisely what we want for role composition
+[21:32:51] <@doy> intelligent
+[21:33:01] <@Eidolos> Simon Cozens is :)
+[21:34:21] <@doy> hmmm
+[21:34:28] <@doy> i don't see where this race condition could be
+[21:34:31] <@doy> frustrating
+[21:51:25] <@doy> Eidolos: that's something i was wondering about... is it acceptable to call orig more than once in a wrapper?
+[21:51:37] <@doy> it strikes me as bad practice
+[21:52:42] <@Eidolos> :)
+[21:52:54] <@Eidolos> I agree
+[21:53:01] <@Eidolos> but it's something Moose supports that CMM doesn't
+[21:53:11] <@doy> i'm doing it somewhere in the dgl plugin, just because it was easy
+[21:53:17] <@doy> but it's something i've been meaning to fix
+[21:53:18] <@Eidolos> bad!
+[21:57:56] <@Eidolos> http://search.cpan.org/~doy/ exists now, by the way :)
+[21:58:02] <@doy> yeah
+[21:58:11] <@Eidolos> \o/
+[21:58:31] <@doy> hrm
+[22:04:14] <@doy> is perl maybe optimizing things out in a bad way?
+[22:04:21] <@doy> that would be irritating...
+[22:05:07] <@Eidolos> no idea, your code is mostly unintellible to me
+[22:05:12] <@doy> (:
+[22:05:17] <@Eidolos> since it's doing something I have no experience with
+[22:05:48] <@doy> basically the issue is that if the signal handler gets called too early, setting $self->{pid} to undef seems to not do anything
+[22:05:53] <@doy> which is confusing
+[22:08:43] <@Eidolos> so basically roles
+[22:08:47] <@Eidolos> just redefine everything to mean
+[22:08:59] <@Eidolos> "when I'm composed into a class, actually do these things"
+[22:14:12] <@Eidolos> great!
+[22:14:21] <@doy> roles done?
+[22:14:27] <@Eidolos> roles can define modifiers
+[22:14:41] <@Eidolos> needs more tests though :)
+[22:15:37] <@doy> hmmm
+[22:15:51] <@doy> i guess i could scrap the SIGCHLD idea and turn is_active into a kill 0 call
+[22:16:03] <@doy> but that seems ugly and unnecessary
+[22:16:07] <@Eidolos> sounds more right
+[22:16:09] <@doy> but it's not working this way
+[22:16:45] <@doy> yeah, i'll do that when i get back... be back in about 20 minutes
+[22:16:50] <@Eidolos> ok
+[22:16:59] <@Eidolos> I'll think about serialization
+[22:17:49] <@Eidolos> so unlike Moose
+[22:17:54] <@Eidolos> roles are composed only into instances
+[22:17:59] <@Eidolos> this fits in better with Interhack
+[22:28:17] <@Eidolos> what next
+[22:28:53] <@Eidolos> ah yes, calling BUILD in roles
+[22:29:03] <@Eidolos> oh, and importing role methods
+[22:31:10] <@Eidolos> sweet deal
+[22:31:23] <@Eidolos> composing into instances totally just does the right thing <3 <3
+[22:33:52] <@Eidolos> this is precisely why tests were broken in Interhack: http://sartak.org/code/cpan/Calf/t/11-multi-with.t
+[22:34:00] <@Eidolos> I needed to test plugins being loaded in a different order
+[22:34:22] <@Eidolos> in the same script, since it was really testing different config
+[22:42:00] <@Eidolos> be easiest just to have a new syntax for declaring subs that get mixed in
+[22:42:02] <@Eidolos> for example
+[22:42:15] <@Eidolos> method new_macro => sub { ... }
+[22:42:20] <@Eidolos> a little more verbose but.. :)
+[22:44:52] <@Eidolos> no that's no good
+[22:45:08] <@Eidolos> I think just having Exporter semantics is the way to go
+[22:46:24] <@Eidolos> ok
+[22:46:26] <@Eidolos> implemented
+[22:46:33] <@Eidolos>     package Role;
+[22:46:33] <@Eidolos>     use Calf::Role;
+[22:46:33] <@Eidolos>     our @mixin = qw/xyzzy/;
+[22:46:41] <@Eidolos>     sub xyzzy { "Nothing happens." }
+[22:51:54] <@doy> so roles work completely now?
+[22:52:46] <@Eidolos> yeah
+[22:52:53] <@Eidolos> as completely as we need them to
+[22:52:55] <@doy> that was fast
+[22:52:56] <@doy> (:
+[22:53:01] <@Eidolos> they're not too difficult :)
+[22:53:13] <@Eidolos> at least in the very basic way we're using them
+[22:53:16] <@doy> so we just need serialization now?
+[22:54:26] <@Eidolos> I guess so
+[22:54:37] <@doy> how difficult is that going to be?
+[22:54:55] <@Eidolos> not very, Perl has some good s11n modules
+[22:55:25] <@Eidolos> it's probably going to be harder to just mark which attributes to serialize
+[22:55:31] <@Eidolos> (and even then not very :))
+[22:55:49] <@Eidolos> oh
+[22:55:54] <@Eidolos> I need to implement has for roles as well
+[23:03:10] <@Eidolos> ok
+[23:03:12] <@Eidolos> has for roles works :)
+[23:22:48] < billnye> hehe I hadn't ever seen "s11n" before
+[23:23:05] < billnye> Eid11s
+[23:23:30] <@doy> e5s
+[23:23:54] <@Eidolos> :)
+[23:24:39] < billnye> doy: yes, but that doesn't have a "one" joke in it
+[23:24:54] <@Eidolos> Eido111s
+[23:24:57] <@Eidolos> er
+[23:25:08] <@Eidolos> E311s
+[23:25:18] < billnye> Eido11s works, if it's 1,1
+[23:25:39] < billnye> maybe the joke is that Eido_os is substituting out "1" letter
+[23:25:51] <@Eidolos> yes, yes
+[23:25:55] < billnye> consider EidO_Os
+[23:33:06] <@Eidolos> I'll be damned if that's all I need to do :)
+[23:33:15]  * Eidolos CRINGES
+[23:33:25] <@Eidolos> this is awesome sauce
+[23:34:14] <@Eidolos> hmm
+[23:34:28] <@Eidolos> per_load => 1
+[23:34:29] <@Eidolos> versus
+[23:34:33] <@Eidolos> metaclass => 'DoNotSerialize'
+[23:34:34] <@Eidolos> :)
+[23:35:41] <@doy> so have you looked into the efficiency issues with Class::Method::Modifiers?
+[23:35:58] <@Eidolos> not yet
+[23:37:41] <@Eidolos> oo
+[23:41:03]  * Eidolos <3
+[23:41:08] <@Eidolos> I tink that's all
+[23:41:19] <@doy> start merging it into interhack then?
+[23:41:20] <@doy> (:
+[23:41:24] <@Eidolos> yeah
+[23:41:29] <@Eidolos> can you get it and run its tests?
+[23:41:41] <@Eidolos> darcs get http://sartak.org/code/cpan/Calf/
+[23:42:35] <@doy> parent?
+[23:42:47] <@Eidolos> for declaring subclasses
+[23:42:51] <@Eidolos> use parent 'Exporter'
+[23:42:56] <@Eidolos> use base has a number of issues with it
+[23:43:17] <@Eidolos> oo
+[23:43:24] <@Eidolos> did you see what file that was that wasn't listed in the manifest?
+[23:43:24] <@doy> hm?
+[23:43:29] <@Eidolos> for C:M:M
+[23:43:32] <@doy> no
+[23:43:39] <@Eidolos> ew, 0.03
+[23:43:41] <@Eidolos> you need 0.04 :/
+[23:43:58] <@doy> well, once 0.04 gets onto cpan...
+[23:44:04] <@Eidolos> because I added a way to let you push modifiers into a different package other than the one calling before/after/around
+[23:44:08] <@Eidolos> for role support
+[23:44:16] <@doy> and the manifest thing was a gentoo issue
+[23:44:32] <@Eidolos> since Calf has to call before/after/around on behalf of the package using the role
+[23:44:34] <@Eidolos> ok
+[23:44:51] <@Eidolos> you may want to run Calf-trunk for Interhack, but I dunno how difficult that will be for you
+[23:45:16] <@Eidolos> one way to do it is to put your path to Calf/lib in the PERL5LIB env variable
+[23:45:21] <@doy> okay
+[23:45:30] <@Eidolos> we'll worry about it later
+[23:45:34] <@doy> is Calf on cpan yet?
+[23:45:37] <@Eidolos> nope
+[23:45:39] <@Eidolos> needs docs and stuff
+[23:45:52] <@Eidolos> plus I need to work up an edge to fend off my friends in #moose :)
+[23:45:59] <@doy> (:
+[23:49:59] <@Eidolos> heading out for ~30
+[23:51:07] <@Eidolos> hm
+[23:51:12] <@Eidolos> we want a Calf::Plugin
+[23:51:16] <@Eidolos> which will do dep analysis for us
+[23:51:20] <@Eidolos> I'll work on that when I return
+[23:52:32] <@doy> well, my tests cover all statements in the module other than system call failures (pipe and sysread) and the winch code
+[23:53:07] <@doy> i should probably stick this back in interhack and make sure it still works
+[23:53:07] <@doy> (:

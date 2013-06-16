@@ -1,0 +1,6 @@
+[00:05:03] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[00:51:58] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[10:41:09] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[11:13:04] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[12:16:26] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[12:24:47] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack

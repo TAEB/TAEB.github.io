@@ -1,0 +1,20 @@
+[15:01:41] -!- alexbobp [n=alex@resnet-46-178.dorm.utexas.edu] has joined #interhack
+[17:21:30] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: arcanehl, billnye
+[17:22:27] -!- Netsplit over, joins: billnye, arcanehl
+[18:56:21] -!- alexbobp [n=alex@resnet-46-178.dorm.utexas.edu] has quit ["Leaving."]
+[19:12:34] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has joined #interhack
+[19:50:32] -!- maxlin [n=maxlin@82-162-180-7.gprs.akos.ru] has joined #interhack
+[20:01:31] < maxlin> hi for all! what is termcast?
+[20:01:49] <@Eidolos> hello
+[20:02:01] <@Eidolos> it's a service that lets you broadcast your terminal live
+[20:06:51] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has quit [Connection timed out]
+[20:09:31] -!- alexbobp [n=alex@resnet-46-178.dorm.utexas.edu] has joined #interhack
+[21:41:12] -!- maxlin [n=maxlin@82-162-180-7.gprs.akos.ru] has quit ["?????"]
+[22:08:33] -!- alexbobp [n=alex@resnet-46-178.dorm.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[22:11:57] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has joined #interhack
+[22:46:26] <@doy> Eidolos: going to get back to working on interhack at any point soon?
+[22:50:58] <@Eidolos> yeah
+[23:14:16] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[23:15:06] -!- alexbobp [n=alex@w-mob400-128-62-216-160.public.utexas.edu] has joined #interhack
+[23:46:24] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: jilles
+[23:47:03] -!- Netsplit over, joins: jilles

@@ -1,0 +1,38 @@
+[12:44:58] <@Eidolos> z - a clear potion (unpaid, 8 zorkmids).
+[12:44:58] <@Eidolos> Press tab to send the string: \e\e#name\nyzuncursed\n
+[12:44:59] <@Eidolos> good!
+[13:36:50] -!- stabwound [n=illbill@dsl2.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[13:37:05] -!- sadgsadg [n=illbill@dsl171.rbh1.pppoe.execulink.com] has joined #interhack
+[17:05:28] <@Eidolos> doy: having ignorable trap messages be the same color as malignant auras is no longer acceptable
+[17:05:43] <@Eidolos> malignant auras should probably be a force_tab anyway
+[18:01:56] <@toft> not a force tab, says I
+[18:02:43] <@Eidolos> well
+[18:02:45] <@toft> just a big red notification perhaps
+[18:02:47] <@Eidolos> I'll add it to my config then
+[18:02:51] <@toft> k:)
+[18:03:14] <@toft> force tabs are kind of broken for me anyway... they display before the message itself and other weird things
+[18:03:19] <@Eidolos> nod
+[18:03:28] <@Eidolos> I know why that is, I'll fix it some time
+[18:03:31] <@toft> k
+[18:12:48] <@Eidolos> C - a potion called water (unpaid, 6 zorkmids).
+[18:12:51] <@Eidolos> Press tab to send the string: \e\e#name\nnC water/water\n
+[18:12:52] <@Eidolos> :/
+[18:15:21] <@toft> heh
+[19:09:57] -!- greqrg [i=user@dialup-4.234.60.117.Dial1.Miami1.Level3.net] has joined #interhack
+[19:17:09] <@toft> I think I spend more time playing with vim than I do writing things in it
+[19:17:12] <@toft> well close anyway
+[19:20:36] < arcanehl> so, fixed that water IDing yet?
+[19:22:00] <@Eidolos> tried
+[19:22:12] <@Eidolos> I have a mostly working fix
+[19:22:16] <@Eidolos> doesn't handle the case I pasted abover
+[19:23:42] -!- sadgsadg is now known as stabwound
+[20:43:50] -!- greqrg [i=user@dialup-4.234.60.117.Dial1.Miami1.Level3.net] has quit ["Leaving."]
+[21:56:33] <@Eidolos> toft: think I fixed it
+[21:56:37] <@toft> cool
+[21:56:41] <@Eidolos> "it"
+[21:56:42] <@Eidolos> :)
+[21:56:44] <@toft> how od you increase level in wizmode again?
+[21:56:47] <@Eidolos> #levelchange
+[21:56:48] <@toft> i bet you mean the forcetab
+[21:56:53] <@Eidolos> I do!
+[21:58:22] <@toft> Weird weapon special attack.

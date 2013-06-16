@@ -1,0 +1,114 @@
+Thu Mar 08 2007
+[01:28:31] <Stevie-O> did you see last night? I had a perfectly ascendable wizard die cuz I didn't notice I was Fainting from hunger
+[01:29:02] <stumbly> i've splatted that way plenty of times
+[01:29:09] <stumbly> usually something dull like a valk
+[01:29:45] <Stevie-O> thus my new HungerMon wrapper :)
+[01:29:52] <stumbly> hehe
+[01:29:59] <stumbly> insert some ^G too
+[01:30:07] <stumbly> when it changes
+[01:30:10] <Stevie-O> no, the colors are good enough
+[01:30:32] <Stevie-O> although that would be an interesting thing to try
+[01:30:33] <Eidolos> Let's see the source to that HungerMon wrapper!
+[01:30:41] <Eidolos> might be something I'd use
+[01:30:46] <Eidolos> embrace and extend :)
+[01:30:49] <Stevie-O> it's a big ugly perl script that uses POE
+[01:30:55] <Eidolos> good!
+[01:31:10] <Stevie-O> oh, and it intercepts Putty's alt keys
+[01:31:18] <Eidolos> well, I don't use PuTTY, so
+[01:31:22] <Stevie-O> and replaces them with the kind Nethack wants
+[01:31:25] <stumbly> hrm, could use it to hpmon for devnull?
+[01:31:29] <Stevie-O> so Meta-Key works
+[01:31:31] <Eidolos> stumbly: and menucolors
+[01:31:38] <stumbly> right
+[01:31:43] <Stevie-O> stumbly: I see no reason why not
+[01:32:02] <stumbly> I insist Eid get to work on it immediately!
+[01:32:04] <Stevie-O> lemme provide my crap to the world
+[01:32:05] <stumbly> I will supervise.
+[01:32:07] <Stevie-O> hahaha
+[01:32:16] <Eidolos> heh
+[01:32:22] <Eidolos> I might roll my own, shrug
+[01:32:36] <Eidolos> have plenty of months to go first though
+[01:34:04] <Stevie-O> http://www.klozoff.ms11.net/nethack/helper/nethack-helper-pl.txt
+[01:34:06] <Stevie-O> that's the script I run
+[01:34:10] <Stevie-O> http://www.klozoff.ms11.net/nethack/helper/NethackHelperSession.pm
+[01:34:12] <Stevie-O> that's the real guts
+[01:35:34] <Stevie-O> oh
+[01:35:50] <Stevie-O> another thing: it eats arrow keys
+[01:36:08] <Eidolos> this could be a big hit
+[01:36:10] <Stevie-O> A pleasant side effect that helps avoid certain wish-related stupidity
+[01:36:27] <Eidolos> Could hack in a certain key to be E-  Elbereth\n too
+[01:36:39] <Stevie-O> yeah
+[01:36:42] <stumbly> well, it's a way to do a general tool-assist
+[01:36:43] <Eidolos> Like "b" for me since I don't use vi keys
+[01:36:44] <Stevie-O> That was on my list of things to do.
+[01:36:59] <Eidolos> though most ctrl keys aren't used
+[01:37:12] <Stevie-O> Ctrl-E
+[01:37:13] <Stevie-O> :D
+[01:37:29] <stumbly> i already have macros on my fcn keys
+[01:37:37] <stumbly> but smarter stuff could be cool
+[01:37:49] <stumbly> pickup thrown might be hard
+[01:37:57] <stumbly> well, would cost turn anyway
+[01:37:58] <Eidolos> If I were writing this today I'd use Term::ReadKey for user input and maybe print output directly from a two-way pipe with telnet nethack.alt.org
+[01:37:59] <stumbly> so bad idea
+[01:38:31] <stumbly> have to trick it into doing the terminal negotiation properly
+[01:38:53] <stumbly> so i think just a pipe might fail
+[01:38:56] <Eidolos> could get it to automap some levels like the Sanctum, Castle, quest end levels (you just press a key and type in what level you're on)
+[01:39:00] <Eidolos> oh, maybe
+[01:39:23] <Eidolos> well I did just write a whole lot of related code in Ruby so I wouldn't have any trouble rolling out yet another telnet module :)
+[01:39:37] <Stevie-O> well
+[01:39:42] <stumbly> that's why teeing the output off a real terminal is likely to work better
+[01:39:51] <stumbly> and filtering input
+[01:40:12] <stumbly> so basically a slave terminal off to the side
+[01:40:23] <stumbly> hrm....
+[01:41:54] <Stevie-O> When I initially wrote The Helper
+[01:42:12] <Stevie-O> I envisoned something that would detect floating eyes and give me a 'yes/no' confirmation if I accidentally tried to attack
+[01:42:20] <stumbly> nice
+[01:42:35] <Stevie-O> I have since gotten a lot better about them, although sometimes they still sneak up on me in the halls
+[01:42:44] <Eidolos> would certainly be possible to detect floating eyes, dunno how easy it'd be to get that confirmation
+[01:42:52] <Eidolos> of course you could add confirmations for just about all the conducts too
+[01:43:02] <Eidolos> oo
+[01:43:09] <Eidolos> I'd love a realtime display in my botl too :)
+[01:43:18] <Stevie-O> ?
+[01:43:22] * stumbly taps his foot.
+[01:43:23] <Eidolos> and automatic ttyrec support (easy enough to add)
+[01:43:25] <stumbly> why not done yet?
+[01:43:31] <Stevie-O> hahaha
+[01:43:40] <Eidolos> Stevie-O: Most of the time I play for quick realtime ascensions
+[01:43:48] <stumbly> daily morning meetings til you finish.
+[01:43:53] <Stevie-O> okay, i have fed
+[01:44:18] * Stevie-O resumes his game
+[01:44:58] <Stevie-O> okay, who cursed this spellbook
+[01:45:19] * stumbly looks around innocently.
+[01:45:41] <Eidolos> automatically save if you've been idle for a configurable amount of time
+[01:45:53] <Eidolos> though it'd have to be smart about that
+[01:46:13] <Eidolos> maybe not
+[01:46:37] <Eidolos> price IDing should become easier as well
+[01:46:45] <stumbly> hrm...
+[01:47:01] <Stevie-O> The invisible gnome lord puts on a mummy wrapping.
+[01:47:07] <stumbly> precomputing would be easy, not sure i want it to automate it fully tho
+[01:47:09] <Stevie-O> ... wtf?
+[01:47:14] <stumbly> hehe
+[01:47:26] <Stevie-O> okay
+[01:47:27] <Eidolos> stumbly: nod, that's the idea, just precompute and display what the price is on the next line
+[01:47:28] <Stevie-O> now I HAVE to know
+[01:47:38] <Eidolos> so it doesn't step on your feet
+[01:47:43] <Stevie-O> what would have happened if I did NOT see invisible
+[01:47:59] <Eidolos> Stevie-O: I bet he would not have put it on at all
+[01:48:05] <Eidolos> somehow monsters know when you have see invis
+[01:48:10] <stumbly> prolly
+[01:48:13] <Stevie-O> Eidolos: Whatever language you have
+[01:48:16] <stumbly> like priests
+[01:48:19] <jmr> I had an uruk hai do it once
+[01:48:21] <Stevie-O> if it has access to XPath
+[01:48:27] <Eidolos> Perl baby
+[01:49:03] <Stevie-O> I have a priceID implementation that works using xpath
+[01:49:11] <stumbly> eid- you could collect all the price info and automate the naming too, i guess
+[01:49:24] <Stevie-O> that's what I was getting at.
+[01:49:54] <Eidolos> I'm thinking it'd be best if the script doesn't send anything to NetHack of its own accord
+[01:50:09] <Eidolos> the script should just be an enhanced display with more juicy bits of info
+[01:50:27] <stumbly> yeah, like name with what it might be
+[01:50:31] <Eidolos> heh
+[01:50:32] <stumbly> given what's known
+[01:50:49] <Eidolos> well, ok, I wouldn't argue with a command that does the naming itself
+[01:50:54] <Eidolos> (like ^N or something)
+

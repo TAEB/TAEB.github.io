@@ -1,0 +1,506 @@
+[00:11:27] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[00:36:35] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[01:15:49] <@Eidolos> yay
+[01:15:53] <@Eidolos> I can continue work in Interhack 2.x
+[01:15:59] <@Eidolos> fixed all the Moose bugs Interhack uncovered :)
+[01:16:03] <@Eidolos> and the guy is cutting another release
+[11:36:01] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[11:55:23] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[13:35:02] < ekiM> plugin request : SpaceBot
+[13:35:16] <@Eidolos> heh
+[14:13:57] < billnye> hehe
+[15:33:25] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has quit [Read error: 104 (Connection reset by peer)]
+[15:35:50] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+[16:30:30] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[16:56:24] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[17:03:04] -!- alexbobp [n=alex@189.147.76.39] has joined #interhack
+[17:15:11] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[17:15:20] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[17:32:54] < alexbobp> Is it possible to use interhack for local games?
+[17:33:45] <@Eidolos> not yet
+[17:33:51] <@Eidolos> I'm waiting for someone to fix tht
+[17:35:29] < alexbobp> okay
+[17:38:51] < arcanehl> so am I
+[17:38:58] < arcanehl> namely waiting for Eidolos to fix it
+[17:39:15] < raxvulpine> Eidolos is a someone!
+[17:39:47] < alexbobp> so multiple people are waiting for eachother to fix it?
+[17:39:51] < alexbobp> great.
+[17:40:01]  * alexbobp takes a look at the code
+[17:40:34] < arcanehl> raxvulpine: I refuse to believe so
+[17:40:46] < raxvulpine> I've met him!
+[17:40:49] < raxvulpine> ...You've met him!
+[17:41:58] < arcanehl> still think that was Eido1os
+[17:43:44] <@Eidolos> it's hard to get NetHack talking to us on a socket, it wants a tty
+[17:44:01] <@Eidolos> I tried hacking together something with Expect but no goo
+[17:44:16] < arcanehl> heh
+[17:44:21] < arcanehl> shouln't be that hard
+[17:44:31] < arcanehl> it's quite simple in Tcl to get a two way pipe
+[17:45:01] <@Eidolos> Perl has such capabilities, but nethack specifically checks to see if there's a tty
+[17:45:21] <@Eidolos> echo foo | netack => You must play from a terminal.
+[17:45:40] < arcanehl> hm
+[17:45:57] < arcanehl> and you can't do a pty?
+[17:48:03] <@Eidolos> I didn't try very har,d admittedly
+[17:53:43] < jilles> try script(1) perhaps
+[17:54:48] < alexbobp> maybe if you run a loopback dgamelaunch server/
+[17:54:54] < alexbobp> How much modification to nethack does that require?
+[17:55:05] < arcanehl> that's way too much effort
+[17:55:15] < alexbobp> how much effort is it to make a fake tty?
+[17:55:20] < arcanehl> not much
+[17:55:32] < jilles> a pseudo tty
+[17:55:39] < arcanehl> depends on OS support, but in some cases, nothing more than a function call
+[17:55:54] < jilles> programs like script, telnetd, sshd, ttyrec, xterm use them
+[17:57:15] <@Eidolos> right
+[17:57:23] <@Eidolos> I know there's an IO::Pty
+[17:57:30] < jilles> that's another option
+[17:58:17] < jilles> it's not a standard module though
+[17:58:44] < arcanehl> but Interhack already uses non-standard modules
+[18:32:10] -!- toft [i=nobody@unaffiliated/crassworm] has quit ["leaving"]
+[18:33:14] -!- toft [n=jlewis@unaffiliated/crassworm] has joined #interhack
+[18:33:15] -!- mode/#interhack [+o toft] by ChanServ
+[18:37:55] -!- ekiMbo is now known as ekiM
+[19:29:50] <@Eidolos> right. as I say in the README, we (I) have no qualms with abusing the CPAN :)
+[19:49:46] <@Eidolos> so yeah. as soon as I can finally continue Interhack devel, NAO croaks. nice.
+[19:52:46] <@Eidolos> guess that means I fix the test suite instead
+[20:08:36] <@Eidolos> so yeah, Interhack will offer a lot more introspection
+[20:08:53] <@Eidolos> for example, there's a method that will use as much info as possible to guess whether NetHack is expecting a new command
+[20:09:01] <@Eidolos> so we can use that to implement some conduct blockers
+[20:09:36] <@Eidolos> basically all the stuff I learned from TAEB and others
+[20:34:16] <@Eidolos> actually, testing with Sporkhack works fine
+[20:43:38] <@Eidolos> ok so the only failure is a genuine one, which has to do with reloading plugins
+[20:43:57] <@Eidolos> since the trick I use to make sure we collect enough state is directly preventing me from unloading plugins
+[21:03:44] < arcanehl> Eidolos: Spork!
+[21:04:18] < arcanehl> ah, I see you are testing with it, nevermind ;)
+[21:04:47] <@Eidolos> :)
+[21:15:10] -!- alexbobp [n=alex@189.147.76.39] has quit ["Leaving."]
+[22:01:40] <@toft> erm
+[22:01:44] <@toft> ERM!
+[22:01:51] <@toft> I'm very behind on progress here
+[22:02:23] <@Eidolos> hi
+[22:02:28] <@toft> ho!
+[22:02:31] <@Eidolos> what's up?
+[22:02:34] <@toft> tom bombadillo
+[22:02:36] <@toft> not much
+[22:02:38] <@Eidolos> 6:)
+[22:02:49] <@Eidolos> what are you erming about in particular? :)
+[22:03:10] <@toft> well I'm pissed (not really) that interhack is mostly not easy to comprehend at once anymore =)
+[22:03:17] <@Eidolos> oh
+[22:03:40] <@Eidolos> let me write a primer to the code then
+[22:03:59] <@toft> you don't have to :)
+[22:04:05] <@Eidolos> but I do!
+[22:04:08] <@toft> ok!
+[22:04:12] <@Eidolos> I still want you two to contribute and have fun
+[22:04:29] <@toft> how kind :)
+[22:09:52] <@toft> arcanehl: around?
+[22:10:23] <@toft> I can't figure out why one of my machines can log into darcs.katron.org but not the other
+[22:10:35] <@Eidolos> missing a priv key?
+[22:10:56] <@Eidolos> also it could very well be his auto-ban setup O:)
+[22:10:57] <@toft> nope
+[22:11:01] <@toft> heh
+[22:11:10] <@Eidolos> it's for a good reason
+[22:11:33] <@Eidolos> katron was getting pounded with incoming ssh connections from strangers
+[22:11:40] <@toft> yikes
+[22:11:45] < arcanehl> yeah
+[22:11:47] < arcanehl> fuckers
+[22:12:22] < arcanehl> the IP bans block ~9.4MB a day
+[22:12:32] < arcanehl> the abusive ones are smaller, only ~130K
+[22:12:52] < arcanehl> hmm
+[22:13:38] < arcanehl> the server just passed the 6 million packets/day mark
+[22:13:55] <@Eidolos> I ought to check my apache logs, I wonder how many hits I'm getting
+[22:13:58] <@toft> think you could unban an IP for me? :)
+[22:14:05] < arcanehl> yeah, just need it ;)
+[22:14:12] <@toft> 69.25.196.248
+[22:14:45] < arcanehl> removed
+[22:14:48] <@toft> thanks
+[22:20:05] <@Eidolos> I'm too verbose
+[22:20:13] <@toft> cpan is going nuts!
+[22:20:20] <@Eidolos> installing Moose?
+[22:20:22] <@toft> yay installing 8 quadrillion modules
+[22:20:26] <@toft> Module::Install :)
+[22:20:28] <@Eidolos> ah
+[22:20:39] <@Eidolos> get ye on termcas
+[22:20:40] <@Eidolos> t
+[22:20:46] <@toft> yeah I should, because its borked :)
+[22:20:47] <@toft> one sec
+[22:27:52] <@toft> alright, up and running
+[22:29:21] <@toft> your termcast looks friggin nuts, by the way
+[22:30:56] <@toft>  but its my fault, apparently
+[22:31:01] <@toft> gotta get x11 running
+[22:34:19] <@toft> there we are
+[22:34:29] <@toft> ..how utterly foul
+[22:35:51] <@Eidolos> pooshed the primer
+[22:36:40] <@Eidolos> yeah, Interhack 2.x already has some plugins that 1.x simply can't have
+[22:36:46] <@toft> my cpan's utter failure is blazing a trail on termcast
+[22:36:57] <@Eidolos> ConfirmDirection, Foodless, Macros as a plugin
+[22:37:06] <@Eidolos> hm
+[22:37:38] <@Eidolos> ok
+[22:37:39] <@toft> this is on a fairly virgin debianish system
+[22:37:59] <@Eidolos> can you: (sudo) cpan -i Term::TtyRec::Plus
+[22:38:05] <@Eidolos> (I know it has no deps)
+[22:38:11] <@Eidolos> well, one dep
+[22:38:18] <@Eidolos> ugh :)
+[22:38:20] <@toft> hehehe
+[22:38:20] <@Eidolos> ok well keep at it
+[22:38:40] <@Eidolos> wait
+[22:38:43] <@Eidolos> oh
+[22:38:43] <@Eidolos> ok
+[22:38:47] <@Eidolos> you saw that :)
+[22:38:50] <@Eidolos> curl should work
+[22:38:56] <@toft> hm?
+[22:39:00] <@Eidolos> sudo apt-get install curl
+[22:39:04] <@Eidolos> curl - Get a file from an HTTP, HTTPS, FTP or GOPHER server
+[22:39:10] <@toft> i know what it is, hehe
+[22:39:12] <@Eidolos> :)
+[22:39:21] <@Eidolos> ok
+[22:39:24] <@Eidolos> the problem is
+[22:39:39] <@Eidolos> well
+[22:39:43] <@Eidolos> you need libwww-perl
+[22:39:45] <@Eidolos> a deb package
+[22:40:13] <@Eidolos> heh
+[22:40:19] <@Eidolos> ok wait
+[22:40:50] <@Eidolos> 'LICENSE' is not a known MakeMaker parameter name.
+[22:40:50] <@Eidolos> Writing Makefile for IO::Compress::Base -- NOT OK
+[22:40:51] <@toft> its hits LICENSE MakeMaker business
+[22:40:52] <@toft> yeah
+[22:41:07] <@Eidolos> you can probably force through it
+[22:41:09] < billnye> NOT OK
+[22:41:09] <@Eidolos> sudo cpan
+[22:41:14] <@Eidolos> force install IO::Compress::Base
+[22:41:24] <@Eidolos> ^U :)
+[22:41:35] <@Eidolos> ok. right.
+[22:41:45] <@Eidolos> let's try bumping MakeMaker
+[22:41:51] <@Eidolos> install ExtUtils::MakeMaker
+[22:42:15] < billnye> I bumped your mom's MakeMaker last night
+[22:42:27] <@Eidolos> the hell
+[22:42:43] <@toft> i don't know what I'm doing, if you couldn't tell :)
+[22:42:43] <@Eidolos> try sudo cpan -i parent
+[22:42:56] <@Eidolos> ok
+[22:43:07] <@Eidolos> the problem is it's not writing Makefiles at all
+[22:43:10] <@Eidolos> try typing
+[22:43:10] <@Eidolos> make
+[22:43:19] <@Eidolos> :)
+[22:43:23] <@Eidolos> build-essential or something
+[22:43:55] <@Eidolos> it's absolutely bonkers that neither Debian nor Ubuntu come with this stuff
+[22:43:58] <@toft> yes
+[22:44:04] <@Eidolos> get parent
+[22:44:06] <@Eidolos> it has no deps
+[22:44:08]  * Eidolos checked
+[22:44:09] <@Eidolos> :)
+[22:44:13] <@Eidolos> ok
+[22:44:14] <@toft> sigh
+[22:44:40] <@Eidolos> cd .cpan/build/parent-0.216
+[22:44:51] <@Eidolos> perl Makefile.PL
+[22:44:56] <@Eidolos> make
+[22:45:04] <@Eidolos> make test
+[22:45:09] <@Eidolos> sudo make install
+[22:45:18] <@Eidolos> ckjghsdk
+[22:45:21] <@Eidolos> ok
+[22:45:32] <@Eidolos> perl -MCPAN\ 999
+[22:45:43] <@Eidolos> 1.7602
+[22:45:53] <@Eidolos> I have 1.91023
+[22:45:54] <@Eidolos> I have 1.9102
+[22:46:00] <@Eidolos> that sounds like it could be an issue
+[22:46:01] <@toft> ah
+[22:46:06] <@Eidolos> try sudo cpan -i Bundle::CPAN
+[22:46:17] <@Eidolos> heh
+[22:46:27] <@toft> friggin package based distros :)
+[22:46:41] <@Eidolos> >_<
+[22:46:42] <@toft> hmm same problems though
+[22:46:55] <@Eidolos> I've never had things be this fucked
+[22:46:55] <@toft> should I just quit?
+[22:46:57] <@Eidolos> yea
+[22:47:10] <@Eidolos> what Debian version is this?
+[22:47:18] <@toft> I don't remember :)
+[22:47:22] <@Eidolos> is it ancient?
+[22:47:30] <@toft> I could check, but I don't know how
+[22:47:31] <@Eidolos> (it does seem to be awfully snappy)
+[22:47:39] <@Eidolos> shrug, not important I guess
+[22:48:01] <@Eidolos> hmm
+[22:48:06] < billnye> which one is Debian Snappy? ;)
+[22:48:07] <@Eidolos> I wonder if cpanp would be any better
+[22:48:44] <@Eidolos> try sudo cpan -i CPANPLUS
+[22:48:48] <@Eidolos> (I know.. :))
+[22:49:37] <@Eidolos> if this fails we can try to install CPANPLUS manually like we did with parent
+[22:49:46] <@Eidolos> yes, 5.8.8 is most recent maint
+[22:49:49] <@toft> it couldn't find the package
+[22:50:02] <@Eidolos> weird. it found parent, which is brand new
+[22:50:13] <@Eidolos> apt-cache search cpanp
+[22:50:22] <@Eidolos> ok
+[22:50:37] <@Eidolos> http://search.cpan.org/CPAN/authors/id/K/KA/KANE/CPANPLUS-0.80.tar.gz
+[22:50:42] <@Eidolos> wget that
+[22:51:12] <@Eidolos> ok..
+[22:51:19] <@Eidolos> sure
+[22:51:27] <@Eidolos> make test
+[22:51:34] <@Eidolos> heh yeah
+[22:51:40] <@Eidolos> ok..
+[22:51:44] <@Eidolos> fucking lame :)
+[22:51:51] <@toft> is the cpan bin part of perl?
+[22:51:59] <@toft> your machine will have the same problem i bet
+[22:52:15] <@Eidolos> what do you mean?
+[22:52:22] <@toft> your raxmachine
+[22:52:26] <@Eidolos> oh
+[22:52:30] <@Eidolos> I haven't logged in yet
+[22:52:42] <@toft> is the cpan bin distributed with perl?
+[22:52:47] < billnye> PERL Raxmachine.
+[22:52:55] <@Eidolos> vim `which cpan`
+[22:53:00] <@Eidolos> it should just be a simple Perl script
+[22:53:14] <@Eidolos> =
+[22:53:28] <@Eidolos> anyway
+[22:53:31] <@Eidolos> you could try
+[22:53:39] <@Eidolos> perl -MCPAN -e 'install Term::TtyRec::Plus'
+[22:53:44] <@Eidolos> but I doubt it'd fare any better :)
+[22:53:47] < billnye> which cpan? Run's cpan.
+[22:53:54] <@Eidolos> not TERM, Term
+[22:54:27] <@Eidolos> the prereq part is normal
+[22:54:32] <@toft> LICENSE
+[22:54:46] <@Eidolos> hehe
+[22:55:52] <@Eidolos> apt-get install fakeroot dpkg-dev
+[22:56:31] <@Eidolos> try sudo apt-get install dpkg-dev
+[22:56:39] <@Eidolos> alias i="sudo apt-get install"
+[22:56:42] <@Eidolos> will save you a lot of typing :)
+[22:56:46] <@Eidolos> ok
+[22:56:49] <@toft> heh, true
+[22:56:51] <@Eidolos> try installing something again
+[22:56:58] <@toft> cpan?
+[22:58:01] <@Eidolos> sudo apt-get install libc6-dev
+[22:58:16] <@Eidolos> KDWFHFD
+[22:58:22]  * Eidolos is googling for advice btw
+[22:58:23] < billnye> come on
+[22:58:28] <@toft> yeah myself as well
+[22:58:30] < billnye> FHQWHGADS
+[22:58:32] < raxvulpine> Then you can tell your terminal "i hate you" and you will get "hate: no such package found"
+[22:58:55] <@Eidolos> raxvulpine: can I get the root pw now? :) that way I can try things out to
+[22:58:56] <@Eidolos> too
+[23:00:18] < raxvulpine> Eidolos: Done and done.
+[23:00:57] <@Eidolos> what was the hostname again?
+[23:01:09] < raxvulpine> sartak.1ts.org
+[23:01:14] <@toft> Eidolos: termcast yourself when you get there pls :)
+[23:01:22] <@toft> ah you are
+[23:01:30] < raxvulpine> You should make it resolve to something you prefer later, probably. :)
+[23:01:37] <@Eidolos> yes
+[23:05:10] <@toft> <3 the sudo warning
+[23:05:25] <@Eidolos> oh right, I type in my user password. ugh :)
+[23:05:33] <@toft> haha
+[23:06:22] <@toft> justa dd yourself to %adm
+[23:06:45] <@Eidolos> the way I like root to work is
+[23:06:56] <@Eidolos> password is all you need, but you do need the root pw
+[23:07:04] <@toft> so then just use su
+[23:07:11] <@Eidolos> nein!
+[23:07:19] <@toft> crazy
+[23:07:32] <@toft> wtf
+[23:08:22] <@toft> try as su?
+[23:08:47] <@toft> oh, I think its because you're not in %adm
+[23:09:06] <@toft> no point in using sudo as su, silly :)
+[23:09:46] <@toft> Eidolos: usermod -aG adm sartak
+[23:09:47] <@toft> heh
+[23:09:59] <@Eidolos> bah
+[23:09:59] <@Eidolos> fine
+[23:10:11] <@toft> its probably silently failing because it hates you
+[23:10:30] <@toft> did you add yourself to %adm!
+[23:10:50] <@toft> check /etc/group
+[23:11:09] <@toft> :)
+[23:11:11] <@Eidolos> but
+[23:11:15] <@Eidolos> I didn't even have to type a password
+[23:11:26] <@toft> you messed with the settings
+[23:11:27] <@Eidolos> maybe the cache but I logged out for chrissakes
+[23:11:33] <@toft> you're stil logged in
+[23:11:47] <@toft> do sudk -K to find out
+[23:11:50] <@toft> sudo -K*
+[23:12:14] <@toft> do sudo -K
+[23:12:18] <@toft> now try sudo something
+[23:12:24] <@toft> :)
+[23:12:25] <@Eidolos> cool
+[23:12:25] <@Eidolos> thanks
+[23:12:28] <@toft> np
+[23:12:32] <@toft> haha
+[23:12:34] <@Eidolos> bye lecture
+[23:13:09] <@toft> you probably want to lower the timeout of sudo, since you're paranoid
+[23:13:10] <@Eidolos> great
+[23:13:17] <@Eidolos> nah
+[23:13:33] <@Eidolos> only a little paranoid
+[23:13:34] <@toft> oh right you use the root pw
+[23:13:56] <@Eidolos> ok, now to install all my toys
+[23:15:24] <@toft> screenrc too
+[23:15:36] <@Eidolos> nah
+[23:15:40] <@Eidolos> I don't screen remotely much
+[23:15:44] <@toft> ah
+[23:18:07] <@Eidolos> how did you fix these locale warnings, toft?
+[23:18:42] <@toft> I didn't get 'em..
+[23:18:46] <@Eidolos> o
+[23:18:52] <@toft> also I had cpan auto-setup
+[23:18:53] <@toft> maybe that's why
+[23:18:59] <@Eidolos> oo
+[23:19:04] <@Eidolos> Where is your make program? [/usr/bin/make] 
+[23:19:09] <@Eidolos> you need to redo the config
+[23:19:18] <@toft> how? rm .cpan?
+[23:19:21] <@Eidolos> no :)
+[23:19:36] <@Eidolos> o conf
+[23:19:42] <@Eidolos> it'll say how to reinit at the top
+[23:20:25] <@toft> is it /harmful/ to rm .cpan/ heh
+[23:20:37] <@Eidolos> probably not
+[23:21:09] <@toft> should .cpan in your home dir be owned by root? that seems grossly gross
+[23:21:11] <@Eidolos> cripes
+[23:21:13] <@toft> well stuff in .cpan
+[23:21:24] <@Eidolos> it seems to be working for me, except the locale shitfest
+[23:21:27] <@toft> oh
+[23:21:28] <@toft> heh
+[23:21:31] <@toft> my .zshrc fixes that
+[23:21:43] <@Eidolos> LANG=C ?
+[23:21:50] <@toft> or maybe not, hm
+[23:21:59] <@Eidolos> LANGUAGE or LC_ALL may fix it as well
+[23:22:41] <@Eidolos> I'll just export LANG=C
+[23:22:42] <@Eidolos> oh
+[23:22:45] <@Eidolos> it may be your .zshenv
+[23:23:31] < arcanehl> should've used bash!
+[23:24:58] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[23:25:05] <@toft> so um
+[23:25:07] <@toft> what did you do :)
+[23:25:34] <@Eidolos> LANG=C
+[23:25:37] <@toft> no no
+[23:25:39] <@toft> for cpan
+[23:25:41] <@toft> heh
+[23:25:48] <@Eidolos> I told you :) you have to reconfigure after getting make
+[23:25:50] <@toft> first of all I can't redo the init
+[23:26:05] <@Eidolos> o conf make /usr/bin/make
+[23:26:10] <@toft> oh
+[23:26:14] <@Eidolos> o conf commit
+[23:27:05] <@toft> awesome
+[23:27:06] <@toft> thanks
+[23:27:10] <@Eidolos> no prob
+[23:27:22] <@Eidolos> cpan *really* shouldn't let you shoot yourself in the foot like that
+[23:29:17] <@toft> I love how rax's machine has that apt-get cache thing
+[23:29:23] <@toft> serenity or whatever
+[23:29:25] <@toft> pretty darn sweet
+[23:29:27] <@Eidolos> that's a Debian thing
+[23:29:30] <@toft> ah
+[23:30:15] <@Eidolos> see, isn't CPAN nice when it all Just Works
+[23:30:40] <@toft> yes
+[23:30:50] <@Eidolos> you can just hit enter
+[23:31:00] <@toft> the default was 'n'
+[23:31:05] <@Eidolos> o
+[23:31:21] <@Eidolos> I'm going to try to get a Jifty app going :)
+[23:31:24] < raxvulpine> serenity is a machine on the same subnet that is a debian mirror, yeah.
+[23:31:31] < raxvulpine> That's Karl's fault, not mine.
+[23:31:37] <@toft> well its Kool
+[23:31:40] <@toft> Kool like Karl
+[23:31:41] < raxvulpine> (Karl being one of my colo co-conspirators)
+[23:31:44] <@Eidolos> haha
+[23:32:04] <@toft> Karl the Kool colo co-conspirator
+[23:32:08] < billnye> COLO Rax.
+[23:32:38] <@Eidolos> it's.. so.. fast.. :)
+[23:32:47] <@toft> hehe yesss
+[23:33:29] <@Eidolos> I dislike Module::Install
+[23:33:32] <@Eidolos> but it's the best we've got
+[23:33:39] < billnye> well it's colocated local to you, right EId?
+[23:33:43] <@Eidolos> also "sudo make" will follow deps
+[23:33:48] <@toft> yeah I did that
+[23:33:49] <@Eidolos> (but then your blib will be rooty)
+[23:33:50] <@toft> but it fucked up permissions
+[23:33:53]  * Eidolos nods
+[23:34:02] <@toft> /so/ annoying
+[23:34:08] <@Eidolos> it may write the Makefile with a make fixdeps or something, I'll have to check it out
+[23:34:21] <@Eidolos> billnye: I guess, but it's still a helluva lot faster. no crap on it, I guess
+[23:34:27] <@Eidolos> UNTIL NOW
+[23:35:09] <@toft> golgotha
+[23:35:13] <@toft> gorgoroth
+[23:35:14] <@toft> conspiracy
+[23:35:21] <@Eidolos> :P
+[23:35:28] <@Eidolos> gorgoroth is a place in mordor
+[23:36:21] <@toft> my vim was /fucked/
+[23:36:24] <@toft> but i fixed it somehow
+[23:36:31] <@Eidolos> probably just compiled with minimal settings
+[23:36:38] <@toft> well originally it was
+[23:36:43] <@toft> then I installed the new version
+[23:36:50] <@toft> but it couldn't find all the vim70 files or whatever
+[23:36:53] <@Eidolos> o
+[23:36:53] <@toft> it was wack
+[23:37:15] < arcanehl> Eidolos: it's probably just a beefy machine
+[23:38:04] <@toft> whoops
+[23:38:49] <@Eidolos> mookmo.net?
+[23:38:52] <@Eidolos> srsly
+[23:38:56] <@toft> hehe
+[23:38:59] <@toft> <3
+[23:39:00] <@Eidolos> you were right when you said you sucked at naming things ;)
+[23:39:07] <@toft> oh but its great
+[23:39:09] <@toft> you'll see one day
+[23:39:16] <@Eidolos> how many hoops did you have to jump through to get the domain?
+[23:39:20] <@toft> 1
+[23:39:30] <@Eidolos> mind describing the process a little? :)
+[23:39:35] <@toft> 1and1.com
+[23:39:39] <@toft> register domain
+[23:39:40] <@toft> click
+[23:39:41] <@toft> paypal
+[23:39:44] <@toft> wait 2 hours
+[23:39:51] <@toft> then enter some IP junk
+[23:39:54] <@toft> wait some more, done
+[23:39:57] <@Eidolos> great
+[23:42:01] <@Eidolos> interhack 2.x doesn't touch .interhack yet
+[23:42:04] <@Eidolos> just ./interhack.yaml
+[23:42:07] <@toft> ah
+[23:42:07] <@toft> ok
+[23:42:24] <@Eidolos> neat eh :)
+[23:42:29] <@toft> si
+[23:43:05] <@toft> what domain will you get?
+[23:43:09] <@Eidolos> sartak.org
+[23:43:10] <@Eidolos> for now
+[23:43:25] <@toft> Eidolos.com !!
+[23:43:29] <@toft> haha
+[23:43:30] <@Eidolos> nein
+[23:43:41] <@Eidolos> oh I know why your vim was broken for a little while
+[23:43:41] <@toft> http://eidolos.net/
+[23:43:42] <@toft> what the hell?
+[23:43:48] <@toft> its a naked chick
+[23:43:58] <@Eidolos> because your zsh was still pointing at /usr/bin/vim
+[23:44:03] <@Eidolos> which was a different version
+[23:44:08] <@toft> ah, probably
+[23:44:34] <@Eidolos> toft: did you register privately? or
+[23:44:38] <@toft> nope
+[23:44:40] <@Eidolos> I don't want my phone number displayed to the world :/
+[23:44:47] <@toft> yeah I know, but rax said it doesnt matter
+[23:44:56] <@Eidolos> ok, I guess
+[23:46:13]  * arcanehl wonders when katron.org will expire
+[23:48:18] <@Eidolos> ordered :3
+[23:48:27] <@toft> shouldn't take long
+[23:48:35] <@Eidolos> well it is midnight
+[23:48:44] <@toft> i think its automated..
+[23:48:47] <@Eidolos> o
+[23:49:03] <@Eidolos> thanks for being my guinea pig
+[23:49:27] <@toft> sweeto
+[23:49:43] <@toft> apache2 is pretty cool
+[23:49:44] < billnye> I get all my domains through godaddy
+[23:49:54] <@Eidolos> did you install apache2?
+[23:49:58] <@toft> yes
+[23:50:02] <@toft> i think its just apache2
+[23:50:04] < billnye> and I used to do all my hosting through 1and1 :<
+[23:50:14] <@toft> 1and1 used to be free up the butt
+[23:50:19] < arcanehl> I had some free hosting through them
+[23:50:25] <@toft> i had it for 6 months or so
+[23:50:27] <@toft> datasink.net
+[23:50:28] <@Eidolos> It works! :)
+[23:50:34] < arcanehl> just had to have a unique phone number and got three years free
+[23:50:42] <@toft> yeah I missed the 3 years thing.. :/
+[23:50:52] <@toft> they killed the promo down to 6 months by the time i found it
+[23:51:03] < arcanehl> yeah, that's why I no longer attend MSU ;)
+[23:51:37] <@Eidolos> toft: it's rxvt-unicode in Debian, might be there too
+[23:51:42] <@toft> haha probably
+[23:51:57] <@toft> yay
+[23:52:21] < billnye> I had it for a couple years
+[23:52:48] < billnye> they'd been threatening to cancel the promo for the past year and a half or more
+[23:53:46] < arcanehl> ran a personal suprnova mirror on it until it closed
+[23:54:09] < billnye> I just used it for shell and piddly hosting
+[23:54:19] <@toft> arcanehl: :D
+[23:54:22] < arcanehl> the shell kinda sucked IMO
+[23:54:35] <@toft> I totally forgot about suprnova
+[23:54:36] < arcanehl> especially since I had katron.org not long after
+[23:54:59] < billnye> arcanehl: file storage for me, mostly
+[23:55:02] < billnye> irc logs and shit
+[23:55:11] < arcanehl> that was our goal, but we didn't get enough
+[23:55:16] < arcanehl> only five or six I think
+[23:58:20] <@Eidolos> toft is showing us all of his stolen booty on termcast
+[23:58:27] <@toft> heh
+[23:58:48] <@toft> its not mine, i swear >_>
+[23:58:57] <@Eidolos> heh :)
+[23:59:10] <@toft> I haven't read any of it either, silly
+[23:59:28] <@toft> I think I rpobably found some huge gigabyte ebook collection on bittorrent once and grabbed it
+[23:59:43]  * Eidolos nods
+[23:59:52] <@Eidolos> if only that shit came in plaintext
+[23:59:58] <@toft> yeah

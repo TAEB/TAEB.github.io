@@ -1,0 +1,137 @@
+[00:07:09] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[09:10:05] -!- Magistarus [n=Magistar@78-59-11-126.ip.zebra.lt] has joined #interhack
+[09:10:39] < Magistarus> http://www.fu.xz.lt/ - I need this website admin ID & PW. Could you say, where should I start?
+[09:12:29] < raxvulpine> Contacting the site administrator is probably the best place to start.
+[09:12:47] < raxvulpine> Since they're the most likely person to have it.
+[09:18:34] < Magistarus> You know, what i mean.
+[09:35:07] < raxvulpine> You know, you should read the topic.
+[09:43:37] -!- Magistarus [n=Magistar@78-59-11-126.ip.zebra.lt] has left #interhack []
+[10:58:54]  * Eidolos chuckles
+[10:59:47] < billnye> it's your fault, Eid!
+[10:59:55] < billnye> you came up with the name!
+[11:00:12] <@Eidolos> it's a fine name..
+[11:00:15] < billnye> I think!
+[11:00:17] < jilles> and left it -s
+[11:00:24] < billnye> hehe jilles
+[11:02:23] < raxvulpine> *shrug* It gave me something to do while avoiding going to work :)
+[14:12:26] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[14:48:55] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[16:10:19] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[17:52:48] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:32:14] -!- Netsplit kornbluth.freenode.net <-> irc.freenode.net quits: jilles
+[20:32:24] -!- Netsplit kornbluth.freenode.net <-> irc.freenode.net quits: @doy, billnye, @toft, arcanehl, ekiM
+[20:32:51] -!- Netsplit over, joins: @doy, ekiM, billnye, jilles, arcanehl, @toft
+[20:50:16] <@doy> dingo is white, should be yellow
+[20:50:43] <@Eidolos> thanks :)
+[20:51:34] <@Eidolos> oh
+[20:51:41] <@Eidolos> I'm totally adding a Hiveminder plugin to Interhack
+[20:51:52] <@Eidolos> just so I can tell my boss I can make new tasks without leaving my NH game :)
+[20:54:03] <@Eidolos> let me do that now..
+[21:20:47] <@Eidolos> hmmm
+[21:20:48] <@Eidolos> it's signing in
+[21:20:52] <@Eidolos> not sure what's happening :)
+[21:21:33] <@Eidolos> oh, I wonder if Net::OSCAR is stealing my alarm
+[21:21:58] <@Eidolos> no
+[21:24:31] <@Eidolos> fell off the sub? current was: initializing oscar
+[21:24:34] <@Eidolos> well that's a start
+[21:27:51] -!- ofir24 [n=ofir@bzq-84-109-26-220.red.bezeqint.net] has joined #interhack
+[21:27:56] <@Eidolos> fell off the sub? current was: signing on :: waiting for signon callback
+[21:29:38] <@Eidolos> bet they're getting mad with my frequent signons :)
+[21:29:39] <@Eidolos> hi ofir24 
+[21:30:00] < ofir24> hello
+[21:30:01] < ofir24> anyone familiar with "eclipse"?
+[21:30:34] <@Eidolos> like when the moon blocks the sun?
+[21:31:10] < ofir24> like in the pinkfloyd album
+[21:31:20] < ofir24> naaa, the software
+[21:31:27] <@Eidolos> oh. that eclipse. yes
+[21:31:31] <@Eidolos> why sir
+[21:32:27] < ofir24> hmm,i cant get it work!
+[21:32:35] < ofir24> it gives me errors
+[21:32:45] <@Eidolos> I see
+[21:32:45] < ofir24> about the "launching"
+[21:32:59] <@Eidolos> so why are you here? why aren't you in an eclipse forum or mailing list
+[21:33:31] < ofir24> everybody sleeping
+[21:33:40] < ofir24> what this channel about?
+[21:33:48] <@Eidolos> eclipse
+[21:33:55] <@Eidolos> I was just pulling your leg earlier about why are you here
+[21:34:15] < ofir24> \:
+[21:34:28] <@Eidolos> it's not about hacking, and neither is #nethack
+[21:35:54] < ofir24> ok
+[21:35:56] < ofir24> tnx
+[21:35:58] < ofir24> bye bye
+[21:36:00] <@Eidolos> later
+[21:36:05] -!- ofir24 [n=ofir@bzq-84-109-26-220.red.bezeqint.net] has left #interhack ["Konversation terminated!"]
+[21:42:38] -!- phire [n=phire@202.36.179.65] has joined #interhack
+[21:42:43] <@Eidolos> hi phire 
+[21:42:54] < phire> hi Eidolos
+[21:45:14] -!- phire [n=phire@202.36.179.65] has left #interhack ["Leaving"]
+[21:50:53] <@Eidolos> must be the do_one_loop
+[22:07:33] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[22:07:50]  * Eidolos wonders if anyone else will use this Hiveminder support :)
+[22:29:20] <@toft> weiiird
+[22:29:28] <@toft> is phire == ofir24 i wonder
+[22:29:34] <@toft> and how is this channel name public?
+[22:31:37] <@doy> probably /list or something
+[22:32:28] <@toft> /list on freenode is quite unadvisable
+[22:32:33] <@toft> really on any major network
+[22:32:37] <@toft> it usually floods you out
+[22:34:12] <@Eidolos> I want it to snow
+[22:36:59] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[22:50:33] <@Eidolos> I'm pretty sure I've gotten it to work, just need to wait for AIM to stop yelling at me for freq conns
+[22:52:51] < zubin> darcs failed:  Not a repository: http://darcs.katron.org/~sartak/interhack
+[22:53:05] <@Eidolos> darcs pull http://darcs.katron.org/~sartak/interhack/trunk
+[22:53:06] <@doy> read the topic more closely
+[22:53:16] < zubin> psh, topics :)
+[22:53:24] <@Eidolos> he probably had a pre-trunk/branches checkout
+[22:53:35] < zubin> yup
+[22:53:50] <@Eidolos> I could add an empty repo at http://darcs.katron.org/~sartak/interhack with a message that tells you to point to the new repo BUT
+[22:54:04] <@Eidolos> not worth it for the one or two possible stragglers
+[22:54:10]  * zubin straggls
+[22:54:16] < zubin> 87 patches
+[22:59:29] < zubin> hrm, you broke my passwords file.
+[23:01:22] < zubin> ...oh yeah, I had a saved game!
+[23:01:24] < zubin> gosh
+[23:04:00] < zubin> neat!
+[23:04:02] < zubin> mm
+[23:04:54] <@Eidolos> neat? :)
+[23:05:16] < zubin> I stopped this game at the castle back in late May, when mastermind wasn't working right
+[23:05:26] < zubin> I just loaded it back up and it works great. neat!
+[23:07:09] < zubin> You destroy the rape golem! <-- wtf?
+[23:08:13] < zubin> what a horrible idea for a plugin.
+[23:08:28] <@doy> feel free to disable it
+[23:08:37] < zubin> yup, doing it :)
+[23:10:51] < zubin> Hmm, I can't see my cursor
+[23:11:01] < zubin> Oh, wait
+[23:11:07] < zubin> It seems to be stuck at the bottom right of my screen
+[23:11:29] <@doy> oh yeah, stay away from the bottom of the screen(:
+[23:11:38] <@doy> refreshing fixes it
+[23:11:49] < zubin> how do I refresh?
+[23:11:58] <@doy> ^L or ^R
+[23:12:07] <@doy> depending on something i'm not aware of
+[23:12:13] < zubin> hm.
+[23:12:24] < zubin> ok, ^R didn't work, and ^L just about drowned me :)
+[23:13:06] <@Eidolos> depending on vi keys
+[23:13:11] <@Eidolos> ^L is a movement command when vi keys is on
+[23:13:23] <@doy> ah, right
+[23:13:25] <@doy> (:
+[23:14:17] < zubin> just then my character vanished
+[23:14:28] <@doy> yeah, happens
+[23:14:34] < zubin> ok.
+[23:14:47] <@doy> just refresh and try not to hang out on the bottom of the screen
+[23:14:56] < zubin> I'm not able to refresh :(
+[23:15:41] < zubin> that's OK, going back to zubbdk
+[23:15:58]  * zubin goes bravely with Mars
+[23:28:03] <@Eidolos> pushed AIM/Hiveminder stuff
+[23:31:04] <@Eidolos> you'll need Net::OSCAR (which actually sucks, btw.. peek at its internals sometime) for it
+[23:31:26] <@Eidolos> [21:30:10] < Sartak> so Interhack now has a plugin that when you use "#c text" it will IM hmtasks and create a task. now I don't even need to leave my nethack window fo
+[23:31:30] <@Eidolos> [21:48:08] < obra> heh
+[23:31:30] <@Eidolos> [21:48:53] < jibsheet> #c text find wand of wishing
+[23:31:39] <@Eidolos> (obra is my boss, jibsheet a colleague :))
+[23:32:05] <@Eidolos> my line ended with "...window for making small tasks"
+[23:34:15] <@doy> yeah, Net::OSCAR was pretty horrible
+[23:34:19] <@doy> i tried to use it once
+[23:38:23] <@Eidolos> I ended up getting it do to everything I needed. it just wasn't nice to me at all
+[23:38:59] <@Eidolos> sadly the best we've got for Perl
+[23:56:37] <@Eidolos> tomorrow night and this weekend I'll work more on Interhack 2
+[23:57:06] <@Eidolos> I'd like to get it interacting with NAO, but that is a lot of milestones :)
+[23:58:17] <@Eidolos> any suggestions, questions about it?

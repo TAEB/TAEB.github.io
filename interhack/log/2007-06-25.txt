@@ -1,0 +1,28 @@
+[10:15:51] <@Eidolos> ooh
+[10:15:58] <@Eidolos> I have an idea for a decent plugin
+[10:16:20] <@Eidolos> graying out names in the to-watch list over x time idle
+[10:17:28]  * arcanehl estimates when it'll be written...never
+[10:18:37] < ekiM> make dgl sort by idle time then turncount!
+[10:23:08]  * Eidolos shakes a fist at curses
+[10:30:54] <@Eidolos> it sorta kinda works
+[10:32:30] < arcanehl> oh, you're actually doing it now?
+[10:32:32] < arcanehl> wow
+[10:33:29] <@Eidolos> got it
+[10:34:52] <@Eidolos> http://darcs.katron.org/~sartak/interhack/plugins/idle-gray.pl
+[10:35:53] <@Eidolos> can also color non 80x24 people
+[10:36:03] < arcanehl> who're eeeevvil
+[10:36:37] <@Eidolos> as long as your nethack is 80x24 it's good.. your terms can be bigger!
+[10:38:22] <@Eidolos> it works with people going idle or coming back when you're still on the watch screen (as soon as you refresh)
+[10:43:47] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[11:08:27] -!- ekiM [n=foobar@kopie.cs.bris.ac.uk] has joined #interhack
+[11:35:56] -!- ekiM [n=foobar@kopie.cs.bris.ac.uk] has quit [Remote closed the connection]
+[11:39:55] <@toft> Eidolos: nice
+--- Log closed Mon Jun 25 14:51:08 2007
+[15:23:17] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[15:23:17] -!- Irssi: #interhack: Total of 6 nicks [2 ops, 0 halfops, 0 voices, 4 normal]
+[15:23:17] -!- mode/#interhack [+o Eidolos] by ChanServ
+[15:24:31] -!- Irssi: Join to #interhack was synced in 76 secs
+[18:11:02] <@doy> hmmm, passwords are echoed in the interhack ttyrecs
+[18:11:06] <@doy> should probably fix that
+[18:11:57] <@Eidolos> huh, ok
+[23:19:52] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack

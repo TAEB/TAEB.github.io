@@ -1,0 +1,112 @@
+[00:02:40] <@Eidolos> thank you Eugene
+[00:02:52] <@toft> knew
+[00:03:21] <@Eidolos> this is a pretty sad samurai
+[00:04:27] <@toft> Samurowned
+[01:36:24] < Reiska> Eidolos, what's the format generally of $statusline in interhack config?
+[01:38:13] < Reiska> is it in plugins/stats.pl?
+[01:39:00] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[01:41:23] <@Eidolos> yep
+[01:42:20] < billnye> just another useless channel where people say stuff I'm interested in, and I sometimes respond >:|
+[01:42:27] <@Eidolos> :)
+[01:42:36] < Reiska> :P
+[02:13:11] < Reiska> Oooh!  A bug!
+[02:13:22] < Reiska> Although it's not yours.
+[02:13:23] < Reiska> :P
+[03:03:27] < Reiska> eid: how do you make the automap work?
+[03:39:02] -!- Netsplit anthony.freenode.net <-> irc.freenode.net quits: ekiM, raxvulpine, Reiska, @jilles, @toft, billnye, stabwound, @doy
+[03:41:15] -!- doy [n=doy@ppp-70-225-179-87.dsl.chmpil.ameritech.net] has joined #interhack
+[03:41:15] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[03:41:15] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[03:41:15] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has joined #interhack
+[03:41:15] -!- raxvulpine [n=rax@autumnfox.akrasiac.org] has joined #interhack
+[03:41:15] -!- stabwound [n=illbill@66.203.174.31] has joined #interhack
+[03:41:15] -!- toft [i=nobody@unaffiliated/crassworm] has joined #interhack
+[03:41:15] -!- jilles [i=jilles@unaffiliated/jilles] has joined #interhack
+[03:41:15] -!- ServerMode/#interhack [+ooo doy toft jilles] by irc.freenode.net
+[10:09:00] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[11:36:28] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has quit []
+[11:49:42] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[11:49:44] < Cheapy|> now i am!
+[11:50:06] <@Eidolos> ok
+[11:50:12] <@Eidolos> if you have any questions about ih ask here
+[11:50:51] < ekiM> do you guys have no shame?
+[11:50:53] <@Eidolos> what OS are you running?
+[11:51:07] <@Eidolos> I had shame once
+[11:51:10] < Cheapy|> ubuntu
+[11:51:15] <@Eidolos> ok good
+[11:51:25] <@Eidolos> we have Windows(cygwin) and Mac OS X users
+[11:51:28] < Cheapy|> Copying patch 200 of 708...
+[11:51:34] <@Eidolos> but Linux is the ideal platform
+[11:53:39] < Cheapy|> I need an 124M package for this?
+[11:53:53] <@Eidolos> which package is that?
+[11:54:14] < Cheapy|> there better be a guarantee of hawt chixxorz, longer ascension rate, and less down time!
+[11:54:17] < Cheapy|> ghc
+[11:54:23] < Cheapy|> the haskell compiler
+[11:54:24] <@Eidolos> you already had darcs?
+[11:54:27] < Cheapy|> oh.
+[11:54:43] <@Eidolos> darcs depends on ghc, so :)
+[11:54:57] < Cheapy|> k!
+[11:55:50] < Cheapy|> Can't locate Term/ReadKey.pm in @INC
+[11:56:22] < Cheapy|> oh well, I'll fix this later
+[11:59:43] <@Eidolos> sudo cpan -i Term::ReadKey
+[12:06:04] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has joined #interhack
+[12:07:24] <@Eidolos> yay sleep res
+[12:11:22] <@Eidolos> hah!
+[12:11:26] <@Eidolos> I never noticed this
+[12:11:30] <@Eidolos> but on the Rogue level, armor is ]
+[12:18:28] <@Eidolos> You destroy the wraith!  Welcome to experience level 11.
+[12:18:29] <@Eidolos> mwa haha
+[12:24:13] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[12:27:08] <@Eidolos> bah
+[12:46:30] < Cheapy|> Eidolos: wrong channel chief :)
+[12:46:40] < ekiM> need Inter-IRC
+[12:47:30] <@Eidolos> :)
+[13:08:42] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[13:11:57] -!- stabwound [n=illbill@66.203.174.31] has quit [Remote closed the connection]
+[13:12:27] -!- stabwound [n=illbill@dsl30.rba1.pppoe.execulink.com] has joined #interhack
+[13:33:35] -!- stabwound [n=illbill@dsl30.rba1.pppoe.execulink.com] has quit [Connection timed out]
+[15:50:42] < raxvulpine> Is #medusa2 an interhack command?
+[15:51:18] < ekiM> it maps medusa (2nd version)
+[15:51:24] < raxvulpine> Wow, awesome.
+[16:18:24] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[16:28:45] <@toft> hehe litle interhack bug
+[16:28:58] <@toft> when there's a lot of ice, picking up things sometimes colors them blue
+[16:30:29] < ekiM> well, they're all cold
+[16:36:09] <@Eidolos> probably a broken packet
+[16:36:16] <@Eidolos> my excuse for everything
+[16:44:04] -!- stabwound [n=illbill@dsl2.rbh1.pppoe.execulink.com] has joined #interhack
+[17:04:31] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[17:24:49] < Cheapy|> can't locate LWP/Simple.pm in @inc
+[17:24:51] < Cheapy|> curses
+[17:24:56] < Cheapy|> perl wasn't set up I guess
+[17:24:58] < Cheapy|> man cpan
+[17:25:01] < Cheapy|> ...
+[17:27:23] < Cheapy|> oh hai
+[17:27:25] < Cheapy|> there's a readme
+[17:36:04] < Cheapy|> yayayaayayayayayayayay
+[17:36:05] < Cheapy|> it works
+[17:36:21] < jasonmay> Perl ROCKS
+[17:37:25] < Cheapy|> although I don't know what it does for me
+[18:21:30] < jasonmay> you might not need it
+[18:21:36] < jasonmay> I've gone several days without coding in Perl before
+[18:50:28] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[19:41:49] <@Eidolos> yo
+[19:42:05] < zubin> hihi
+[20:41:45] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has quit [Read error: 54 (Connection reset by peer)]
+[20:42:05] -!- Cheapy| [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[22:13:19] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[22:52:55] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[23:19:20] < raxvulpine> OK, I need to try this shit...
+[23:22:06] <@Eidolos> :)
+[23:23:13] < raxvulpine> I don't know if I will actually use it, but I want to at least try it.
+[23:23:33] <@Eidolos> the readme link in the topic should get ya going
+[23:25:17] < raxvulpine> Yeah, I'm at the cpan stage, but now it's bedtime.
+[23:25:21] < raxvulpine> I'll play with it tomorrow.
+[23:25:24] <@Eidolos> okie
+[23:25:25] <@Eidolos> gnite
+[23:25:31] <@Eidolos> see ya Wednesday! :D
+[23:25:42] <@Eidolos> still need to figure out our meetup
+[23:35:17] < stabwound> is there something special you need to do to make the automapping work?
+[23:35:22] < stabwound> i've included all plugins in my config
+[23:36:51] < stabwound> nevermind
+[23:36:53] < stabwound> :P

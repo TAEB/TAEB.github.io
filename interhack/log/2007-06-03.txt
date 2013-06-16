@@ -1,0 +1,385 @@
+[00:57:08] <@Eidolos> did I mention how I know what's wrong with mm?
+[00:57:23] <@Eidolos> I guess I'll just go fix it :)
+[00:58:24] <@Eidolos> ok, that oughta do it
+[01:04:59] <@Eidolos> pushed the mastermind fix
+[01:05:09] <@Eidolos> with a huge changelog for that, describing the problem in detail
+[01:05:16] <@Eidolos> should read it if you're toft or doy :)
+[01:05:26] <@toft> hmm
+[01:05:29] <@Eidolos> (don't need to right now)
+[01:05:33] <@toft> im curious
+[01:05:35] <@toft> but later
+[01:05:36] <@toft> heh
+[01:05:41] <@Eidolos> :)
+[01:06:05] <@Eidolos> executive summary: moving to the VT introduced new problems
+[03:41:43] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[11:21:16] <@Eidolos> There are 2 killer bee corpses here; eat one? [ynq] (n)
+[11:22:46] <@Eidolos> lynx isn't colored
+[11:35:35] -!- beeull [i=billnye@unaffiliated/billnye] has joined #interhack
+[11:49:58] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 110 (Connection timed out)]
+[11:49:59] -!- beeull is now known as billnye
+[12:00:24] <@Eidolos> fixed
+[12:19:17] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[12:42:38] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[12:43:00] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[12:43:02] -!- ekiMbo is now known as ekiM
+[13:04:25] <@Eidolos> fixed HPmon sometimes not having color \o/
+--- Log closed Sun Jun 03 14:09:10 2007
+[17:24:09] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[17:24:09] -!- Irssi: #interhack: Total of 11 nicks [3 ops, 0 halfops, 0 voices, 8 normal]
+[17:24:09] -!- mode/#interhack [+o Eidolos] by ChanServ
+[17:24:09] -!- Irssi: Join to #interhack was synced in 0 secs
+[17:24:10] <@Eidolos> woopsies
+[17:24:53] < ekiM> what you missed :
+[17:24:54] < ekiM> <doy> i was actually wondering if that would turn out to be a problem
+[17:24:54] < ekiM> <doy> because i've noticed that delay thing in the past
+[17:25:33] <@Eidolos> :)
+[17:25:39] <@Eidolos> thanks!
+[17:27:33] < ekiM> don't ask me; i'm just a bot
+[17:28:29] <@doy> there's a bug... the price id plugin only checks for a numerical price when it checks for already named potions
+[17:28:48] <@doy> it should also check to see if the string it wants to use as the name is a substring of the current name
+[17:29:53] <@doy> it offers to name a 'potion called yellow acid/oil' ' acid/oil'
+[17:30:11] <@Eidolos> yeah
+[18:05:15] <@doy> a <red>giant</red> humanoid
+[18:07:00] <@Eidolos> :)
+[18:07:18] <@Eidolos> the few false positives pale in comparison to the neatness of having colored monster names imo
+[18:08:28] < billnye> "It's not a bug, it's a feat--hey, look! over there! *runs off*"
+[18:13:47] <@toft> XD
+[19:58:26] <@Eidolos> jasonmay might come to this meetup
+[19:58:48]  * Eidolos pokes jasonmay 
+[19:58:55] <@toft> cool
+[19:59:31] < jasonmay> boop
+[19:59:47] < jasonmay> I don't know much about NetHack though
+[19:59:55] < jasonmay> though I may be interested in any code for it
+[20:00:07] <@Eidolos> probably be interested in Interhack
+[20:00:20] <@Eidolos> at least its code :)
+[20:00:52] < jasonmay> and if there's the low chance that my girlfriend is available that day, she's a higher priority
+[20:01:01]  * Eidolos nods
+[20:01:26] < jasonmay> unfortunately she tells me things on short notice..
+[20:01:51] < jasonmay> but she said she wasn't going to be too available this summer since she is working a lot
+[20:02:14] <@Eidolos> well, keep us updated I guess
+[20:02:16] < jasonmay> it may sound strange but it's not strange when it's a 90 minute drive to her house
+[20:02:19] < jasonmay> I will
+[20:02:41] < jasonmay> toft: are you good at directing people where to go on the streets?
+[20:02:50] <@toft> ummm
+[20:02:58] <@Eidolos> jasonmay lives in PA
+[20:03:03] <@toft> well I don't live in boston :)
+[20:03:22] <@toft> what do you mean, jasonmay?
+[20:03:25] < jasonmay> I've been near Boston twice to visit Eidolos
+[20:03:31] < jasonmay> well I'm not good with directions
+[20:03:47] < jasonmay> and if you're on the way I could possibly pick you up
+[20:03:52] <@toft> ohhh
+[20:04:00] <@toft> hmm
+[20:04:32] <@toft> I will pull up googlemaps
+[20:04:36] <@Eidolos> might be an awkward car drive!
+[20:04:44] <@toft> quite possibly :)
+[20:05:00] <@toft> you live in philly?
+[20:05:45] <@toft> it /is/ on the way, but it might be a hassle... and the fung wah bus is like 15 bucks
+[20:05:54] <@toft> also I've never taken it, and I wanted to before I went to college :)
+[20:07:39] < jasonmay> I live in Dallastown
+[20:07:49] < jasonmay> so, right by Harrisburg
+[20:07:54] < jasonmay> a bus, eh?
+[20:07:55] < jasonmay> hmm
+[20:08:04] <@toft> gotcha
+[20:08:18] <@toft> also there are more direct routes from harrisburg to boston than through NY
+[20:08:19] <@toft> I dunno though
+[20:08:26] <@toft> I'll keep you posted, we still have a while
+[20:08:32] < jasonmay> 95 goes through NYC I think
+[20:08:57] < jasonmay> and I'd be going more eastward than any other direction
+[20:09:03] < jasonmay> and you're pretty eastward to me
+[20:09:06] <@toft> true
+[20:09:12] < jasonmay> but I'm goin got look at the bus idea
+[20:09:22] <@toft> I guess 78 goes directly too
+[20:09:33] <@toft> oh, the bus is from NYC
+[20:09:38] <@toft> but I think there's a cheap PA->NYC one too
+[20:10:46] <@Eidolos> (public transportation)++
+[20:10:57] < jasonmay> yeah but there might be a PA->Boston, that would be nice
+[20:11:45] < jasonmay> I'm not sure what I'd do to pass the time
+[20:12:00] < jasonmay> I can't really read, even if I'm looking out and far away, I still get motion sickness
+[20:12:33] < jasonmay> that's probably a six-hour trip for me
+[20:12:35] <@Eidolos> game boy?
+[20:12:38] <@Eidolos> sleep?
+[20:12:42] <@Eidolos> laptop?
+[20:12:49] < jasonmay> sickness, sickness, sickness
+[20:12:59] <@Eidolos> heh! get motion sickness even when sleeping?
+[20:13:06] < jasonmay> yeah
+[20:13:18] < jasonmay> well, I can't really just fall asleep like that
+[20:13:28] < jasonmay> takes me a good hour or two to fall asleep every night
+[20:13:35] < jasonmay> (I have issues)
+[20:13:56] < jasonmay> but don't worry, people love me!
+[20:42:03] -!- zubin [n=zubin@cpe-70-124-72-37.austin.res.rr.com] has joined #interhack
+[20:54:11] <@Eidolos> Interhack feature: keep track of conducts and highlight items differently whether you're doing the conduct or not
+[20:54:25] <@Eidolos> e.g. scrolls of scare monster would be purple iff illit
+[20:54:57] < zubin> Warning: hitting that h with your pickaxe will invalidate weaponless. Really attack?
+[20:55:05] <@Eidolos> and all other scrolls and spellbooks would be gray
+[20:55:11] <@Eidolos> that's a lot harder zubin :) but doable I think
+[20:56:04] <@Eidolos> essentially we need some way of knowing whether NH is ready for a new command, which is a hard problem
+[20:57:29] <@Eidolos> hmm
+[20:57:49] <@Eidolos> take one: if there's a --More-- or (\d+ of \d+) or (end) on the screen, then it's definitely not ready for a command
+[20:58:12] <@Eidolos> if the top left character is a # it's not ready for a command
+[20:58:23] <@Eidolos> if there's a prompt then it's not ready
+[20:58:24] <@Eidolos> etc etc
+[20:58:33] <@Eidolos> we may be able to enumerate all of these
+[20:58:51] < zubin> Could you take your cue from the player somehow?
+[20:59:04] <@Eidolos> heh
+[20:59:17] <@Eidolos> press tab before every command? :)
+[20:59:19] < zubin> You know when the game starts, it's ready for a command; keep track of what the player does and update your state
+[20:59:35] < zubin> Like, player hit a, so next command isn't going to be movement, etc
+[21:00:33] <@jilles> zubin, some commands abort immediately without asking if you don't have any appropriate item
+[21:00:58] <@Eidolos> I think my way will be fine
+[21:01:05] <@Eidolos> the only special cases that I can think of are travel commands
+[21:01:08] <@jilles> yeah
+[21:01:13] <@toft> heh
+[21:01:21] <@toft> the #nethackers are envious of my automap
+[21:01:27] <@Eidolos> just a smop
+[21:01:32] <@toft> smop??
+[21:01:51] <@Eidolos> simple matter of programming
+[21:01:54] <@toft> ah :)
+[21:01:58] <@toft> I like that, ehhe
+[21:02:04]  * Eidolos is about to give the channel name in #nethack
+[21:02:06] <@Eidolos> any objections?
+[21:02:13] < zubin> nooooooo
+[21:02:13] <@toft> nah, its fair
+[21:02:14] <@Eidolos> toft? doy?
+[21:02:19] < zubin> we'll need #interhack-elite :)
+[21:02:26] <@toft> nah
+[21:02:26] <@Eidolos> I really only care about those two because we're the coders 8)
+[21:02:32] <@doy> zubin: i was just about to say that
+[21:02:33] <@doy> (:
+[21:02:39] <@toft> why? it'll be fine
+[21:02:44] <@toft> just talk about pure interhack issues here
+[21:02:45] < zubin> (don't care myself) :)
+[21:02:50] <@doy> yeah, doesn't matter
+[21:02:56] <@Eidolos> done
+[21:02:58] <@Eidolos> zomgzomg
+[21:02:59] <@doy> going to mention in in your yaqap?
+[21:03:01] <@toft> zomgzomg
+[21:03:02] <@Eidolos> nope
+[21:03:13] <@doy>  /:
+[21:03:26] <@toft> no one loves us!! haha
+[21:03:29] <@Eidolos> I don't.. see #nh :)
+[21:03:44] <@toft> usually when I see a channel name I jump in
+[21:03:45] <@Eidolos> it's their own fault
+[21:03:53] <@Eidolos> we've said ##n-e in #nh before and no one comes
+[21:03:55] <@Eidolos> except zid once
+[21:03:58] <@toft> hah
+[21:04:02] -!- espritellipsis [n=esprit@ip68-9-90-254.ri.ri.cox.net] has joined #interhack
+[21:04:26] <@Eidolos> gruncible
+[21:04:27] <@Eidolos> hi espritellipsis 
+[21:04:44] <@doy> Eidolos: i just think that being secretive about it with stuff like that makes it lose some of its legitimacy
+[21:04:46] -!- Alborland [n=Alex@c-24-131-29-94.hsd1.ny.comcast.net] has joined #interhack
+[21:04:48] <@doy> but... eh
+[21:04:55] <@Eidolos> but rgrn will have another fit!
+[21:05:07] <@Eidolos> the only safe way is to just not post the yaqap 8)
+[21:05:15] <@Eidolos> what's UP guys
+[21:05:15] < espritellipsis> hi eidolos
+[21:05:17] < zubin> q? not f?
+[21:05:23]  * zubin doesn't know yaqap
+[21:05:25] <@toft> hmm, have you guys noticed the weird second-to-botl stuff?
+[21:05:26] <@toft> zubin: quick
+[21:05:28] < zubin> ah
+[21:05:29] < zubin> ty
+[21:06:37] <@Eidolos> toft: yes, that's doy's domain
+[21:06:53] <@toft> I agree with doy on the secrecy thing, btw
+[21:07:03] <@doy> Eidolos: and they'll have a huger fit once someone watches the ttyrec and figures it out
+[21:07:10] <@doy> also, toft, what weird stuff
+[21:07:13] <@doy> ?
+[21:07:16] <@toft> i'll show you in a sec
+[21:07:24] <@toft> well go to gehennom, and walk around on the very bottom
+[21:07:24] <@Eidolos> sometimes the cursor stays in the botl
+[21:07:31] <@doy> oh, that
+[21:07:32] <@toft> and things don't update properly, etc
+[21:07:38] <@Eidolos> sounds like you're not \e[s and \e[u ing properly
+[21:07:40] <@doy> yeah, not sure what's up there
+[21:07:49] <@doy> Eidolos: but i am
+[21:07:51] <@Eidolos> anyway, espritellipsis, Alborland: follow the README in the topic
+[21:07:54] <@Eidolos> clearly not !!
+[21:08:14] < espritellipsis> the README in caps tipped me off ;)
+[21:08:17] <@Eidolos> hehe
+[21:10:12] < Alborland> very nifty looking...
+[21:10:27] < espritellipsis> that is a lot of patches!
+[21:10:32] < espritellipsis> 724 of them, to be exact
+[21:10:34] <@doy> i think the most likely explanation is that i'm still letting a few cursor repositioning escapes through in my stripping code
+[21:10:47] <@doy> hmmm
+[21:10:52] <@Eidolos> espritellipsis: yep, we do atomic coding, which means indivisible patches
+[21:10:53] <@doy> actually, i don't know
+[21:11:12] <@Eidolos> doy: maybe two \e[s?
+[21:11:22] <@Eidolos> it's not a stack, you only get one register for cursor pos
+[21:11:35] <@doy> Eidolos: i know, and i'm only using \e[s in one place
+[21:11:39] <@Eidolos> ok
+[21:11:41] <@doy> and it's not recursive
+[21:11:44] <@Eidolos> what I'd do
+[21:11:52] <@Eidolos> is print an "\e[s" alone at the beginning of the iteration
+[21:11:55] <@Eidolos> and an "\e[u" at the end
+[21:12:02] <@Eidolos> actually
+[21:12:14] <@Eidolos> that should all be moved out into interhack.pl really
+[21:12:17] <@Eidolos> but for now
+[21:12:22] <@doy> why?
+[21:12:30] <@Eidolos> well
+[21:12:37] <@Eidolos> so the plugins don't have to worry about it
+[21:12:44] <@Eidolos> and so we can guarantee that the cursor will end up in the right place
+[21:12:54] <@doy> why do they have to worry about it now?
+[21:12:56] <@Eidolos> as long as no plugin uses \e[s and \e[u
+[21:13:03] <@Eidolos> uh
+[21:13:10] < Alborland> so interhack is an informational thing that doesnt actually change the gameplay?
+[21:13:15] <@toft> right
+[21:13:22] <@Eidolos> if a plugin moves the cursor it's responsible for moving it back
+[21:13:33] <@Eidolos> Alborland: there are some gameplay enhancements, like bright blue floating eyes
+[21:13:47] <@toft> but it doesn't change anything at an essential level
+[21:13:47] <@toft> because it can't :)
+[21:13:51] <@Eidolos> right
+[21:13:53] < Alborland> I mean it doesnt change the game
+[21:13:58] <@Eidolos> correct
+[21:14:01] <@toft> all interhack games are played on NAO
+[21:14:02] <@Eidolos> we're all playing with Interhack on NAO
+[21:14:04] <@Eidolos> :)
+[21:14:04] <@toft> its just a layer
+[21:14:16] <@Eidolos> and there'll be support for devnull come November (we have no way to test it currently)
+[21:14:28] <@Eidolos> doy: I'll write the fix for now, ok?
+[21:14:31] <@toft> that will have to be on a server by server basis, no?
+[21:14:42] <@Eidolos> depends on whether the server uses ssh or telnet
+[21:15:08] <@doy> ideally we will just have connection plugins
+[21:15:17] <@doy> and move all of the nao specific stuff out of interhack.pl
+[21:15:23] <@Eidolos> nod
+[21:15:23] <@toft> true
+[21:15:26] <@Eidolos> though
+[21:15:33] <@Eidolos> that requires a fair amount more plugin infrastructure :)
+[21:15:38] <@doy> true
+[21:15:40] <@Eidolos> maybe some kind of plugin hierarchy too..
+[21:16:04] <@Eidolos> pushed my proposed temporary change for botl
+[21:16:17] <@Eidolos> I'll move \e[s \e[u into interhack.pl soonish
+[21:16:30] <@doy> Eidolos: i don't particularly see how that will change anything, but okay
+[21:16:41] <@Eidolos> hehe
+[21:16:45] <@Eidolos> shrug!
+[21:17:05] -!- Matt_S [n=physics@CPE-69-76-158-195.kc.res.rr.com] has joined #interhack
+[21:17:10] <@Eidolos> hi Matt_S
+[21:17:42] <@Eidolos> well
+[21:17:47] < Alborland> i got an "unknown option -O"
+[21:17:50] <@Eidolos> I'll move \e[s into interhack.pl now then
+[21:17:57] <@Eidolos> Alborland: when doing what?
+[21:17:59] < Alborland> but it's continuing to copy the patches.  should I worry?
+[21:18:07] <@Eidolos> no idea!
+[21:18:21] < Alborland> we'll see if it works once it finishes
+[21:18:22] <@Eidolos> oh
+[21:18:26] <@Eidolos> I bet your wget is out of date
+[21:18:30] <@Eidolos> or something weird like that
+[21:18:42] <@Eidolos> darcs get uses wget which uses -O
+[21:18:44] < Alborland> I'm on windows XP actually
+[21:18:50] < Alborland> probably something to do with that
+[21:18:52] <@Eidolos> yeah, that'd do it :) hehe
+[21:18:58] <@Eidolos> using cygwin or no?
+[21:19:07] < Alborland> yes, cygwin
+[21:19:10] <@Eidolos> Interhack won't run natively on XP
+[21:19:11] <@Eidolos> oh ok good
+[21:19:17] <@Eidolos> other people have gotten it to work on cygwin, so
+[21:20:37] <@Eidolos> espritellipsis: let me know if you get it running
+[21:20:46] < espritellipsis> I'm trying ;)
+[21:20:48] <@Eidolos> oh god, if aristotle73 ever comes in here..
+[21:20:53] <@Eidolos> playing with CPAN yet?
+[21:21:17] < espritellipsis> I'm feeling rather slow
+[21:21:33] < espritellipsis> it took me a while to figure out that it was actually just compiling a mastermind solver
+[21:21:43] <@Eidolos> yes
+[21:21:44] < espritellipsis> and that interhack itself is not in fact compiled in c
+[21:21:55] < espritellipsis> er, you know what I mean
+[21:22:11]  * Eidolos nods
+[21:23:29] < Alborland> do i just compile the mastermind thing as I would anything?
+[21:23:34] <@Eidolos> just type "make"
+[21:24:13] < Alborland> into the cmd prompt?
+[21:24:16] <@Eidolos> yeah
+[21:24:21] <@Eidolos> in the interhack directory
+[21:25:51] <@Eidolos> how's this disclaimer
+[21:25:54] <@Eidolos> The Interhack development team is in no way responsible for what happens as a 
+[21:25:54] <@Eidolos> result of using Interhack. If pressing tab causes your character to drown, it 
+[21:25:54] <@Eidolos> sucks but it's your own fault (hopefully). That's precisely why Interhack tells
+[21:25:55] <@Eidolos> you exactly what characters it's going to send, and asks you to press tab.
+[21:26:20] < espritellipsis> hmm, the terminal is telling me I don't have permission to do ./interhack.pl
+[21:26:26] <@Eidolos> chmod +x interhack.pl
+[21:26:43] < espritellipsis> oh, yeah
+[21:26:57] < espritellipsis> I'm a terminal newbie so I don't actually know how to do things like that
+[21:26:59] <@Eidolos> :)
+[21:27:02] < espritellipsis> thanks :)
+[21:27:07] <@Eidolos> I'm fixing the readme for that, thanks
+[21:27:41] < espritellipsis> yep, now it's telling me things aren't there, time to play with CPAN!
+[21:27:45] <@Eidolos> hooray
+[21:34:45] -!- Matt_S [n=physics@CPE-69-76-158-195.kc.res.rr.com] has left #interhack []
+[21:39:53] < espritellipsis> shoot, one of those CPAN guys needs Perl 5.8.8, and I only have Perl 5.8.7
+[21:39:59] < espritellipsis> now I need to go install Perl 5.8.8!
+[21:40:57] < espritellipsis> I blame ubuntu completely
+[21:41:25] <@Eidolos> which CPAN guy needs 5.8.8? O_o
+[21:41:40] <@Eidolos> if it's Devel::EvalContext, that one is optional, and is really only for development
+[21:42:10] < espritellipsis> oh, cool, it _is_ Devel::EvalContext
+[21:42:16] <@Eidolos> :)
+[21:42:48] <@Eidolos> (should update to 5.8.8 anyway!!)
+[21:43:49] < espritellipsis> (my to-do list grows ever longer!)
+[21:44:35] <@Eidolos> oo, darcs 1.0.9 fixes that "unable to set buffering" or whatever issue
+[21:47:29] < espritellipsis> and cool, I've got it working!
+[21:47:32] < espritellipsis> thanks for the tips!
+[21:47:52] < Alborland> im getting the hang of this adding modules thing
+[21:48:00] < Alborland> I'm on my third missing module ;)
+[21:48:36] <@Eidolos> :)
+[21:48:47] <@Eidolos> espritellipsis: for config, just copy one of ours into ~/.interhack/
+[21:49:01] <@Eidolos> pluginless Interhack is very barebones
+[21:50:22] < espritellipsis> hmm, where can I find one of yours?
+[21:50:31] < espritellipsis> as I understood it, there files are stored locally
+[21:50:44] <@Eidolos> eido-config in the same directory as interhack.pl
+[21:50:59] < espritellipsis> oh, yeah <_<
+[21:51:21] <@Eidolos> copy it to ~/.interhack/config
+[21:51:28] <@Eidolos> the only caveat is setting or not setting $vi_keys
+[21:52:15] < espritellipsis> eidoconfig makes it complain about Devel::EvalContext
+[21:52:20] <@Eidolos> right, ok
+[21:52:28] <@Eidolos> remove any line with eval in it
+[21:52:35] <@Eidolos> should be near the top
+[21:53:18] <@doy> eido-config uses everything and then some, toft-config uses most of the default stuff, doy-config disables a lot of the fancier things, if you're curious about the different configuration options
+[21:53:29] < espritellipsis> ah, that's interesting
+[21:53:32] < espritellipsis> I'll have to check them out later
+[21:53:34] < Alborland> i cant locate io/uncompress/bunzip2.pm and cpan doesnt appear to have it
+[21:53:39] < espritellipsis> and then learn perl so I can edit them ;)
+[21:54:01] <@Eidolos> Alborland: oh, that's not the actual module name, weird
+[21:54:05] <@Eidolos> let me get it for you
+[21:54:16] <@Eidolos> weird
+[21:54:23] <@doy> perl knowledge isn't really required... most of it is just setting variables
+[21:54:28] <@Eidolos> installing Term::TtyRec::Plus shoulda got IO::Compress::Bz2 or whatever
+[21:55:15] < espritellipsis> ok I can't find Devel::EvalContext in there
+[21:55:21] < espritellipsis> and then I found amaroK and got really confused
+[21:55:34] <@Eidolos> ok
+[21:55:34] < Alborland> okay
+[21:55:42] < jasonmay> whoa
+[21:55:44] <@Eidolos> on second thought, just use toft's config
+[21:55:44] <@doy> espritellipsis: exclude "eval";
+[21:55:48] <@doy> add that line
+[21:55:52] <@doy> or just use toft, yeah
+[21:55:57] < espritellipsis> ah, ok
+[21:56:04] <@toft> "You feel used."
+[21:56:12] < espritellipsis> I'll just use this to test, then look at the different ones and steal things that I like
+[21:56:34] < espritellipsis> for instance I have a love of putting things I apply on asdf, so I'll modify it to do that
+[21:56:43] <@Eidolos> :)
+[21:58:16] < Alborland> okay, now it wants io/compress/base/common
+[21:58:33] < Alborland> nevermind, found it
+[21:58:55] < espritellipsis> got it working!
+[21:59:05] <@Eidolos> great
+[21:59:19] < espritellipsis> unfortunately it is too late for nethack where I am
+[21:59:25] < espritellipsis> but tomorrow I shall have much fun playing with it!
+[21:59:26] < espritellipsis> thank you!
+[21:59:31] <@Eidolos> enjoy!
+[21:59:43] -!- espritellipsis [n=esprit@ip68-9-90-254.ri.ri.cox.net] has left #interhack ["don't worry, I will"]
+[22:06:47] < Alborland> uh oh
+[22:06:53] < Alborland> it's missing something.ix
+[22:09:13] <@Eidolos> what's up?
+[22:09:40] < Alborland> having a problem installing one of the modules is all
+[22:11:07] <@Eidolos> o
+[22:12:26] < Alborland> missing auto/compress/raw/... and cpan doesnt have an "auto" folder under modules
+[22:12:49] <@Eidolos> it's goofy how these compression modules are freaking out
+[22:14:58] < Alborland> any idea where I could find that one?
+[22:15:20] <@Eidolos> hmm
+[22:15:33] < Alborland> it's asking for auto::compress::raw::Bzip2::autosplit.ix
+[22:15:34] <@Eidolos> try this:
+[22:15:44] <@Eidolos> cpan -i IO::Uncompress::Bunzip2
+[22:23:51] < Alborland> still misbehaving
+[22:23:59] < Alborland> ill keep trying to figure it out tomorrow
+[22:24:03] < Alborland> g'night
+[22:24:04] -!- Alborland [n=Alex@c-24-131-29-94.hsd1.ny.comcast.net] has quit ["Client Quit, beeyotch"]
+[22:25:54] <@doy> hmmm, looks like my original theory was correct
+[22:26:01] <@Eidolos> hehe
+[22:26:02] <@doy> look at where the cursor position is sitting here
+[22:26:05] <@Eidolos> yeah
+[22:45:43] -!- zubin [n=zubin@cpe-70-124-72-37.austin.res.rr.com] has quit []
+[23:29:05] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack

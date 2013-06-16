@@ -1,0 +1,22 @@
+[00:22:11] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[01:19:32] -!- Netsplit anthony.freenode.net <-> irc.freenode.net quits: arcanehl
+[01:21:10] -!- Netsplit over, joins: arcanehl
+[02:38:02] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[02:38:34] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[02:38:59] < zubin> #join #nethack
+[02:39:01] < zubin> er
+[02:39:25] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Client Quit]
+[03:52:02] -!- ekiM [n=Mike@217.41.238.168] has joined #interhack
+[05:40:46] -!- ekiMbo [n=Mike@217.41.238.168] has joined #interhack
+[05:48:49] -!- ekiMbo [n=Mike@217.41.238.168] has quit [Read error: 104 (Connection reset by peer)]
+[05:56:22] -!- ek|M [n=Mike@217.41.238.168] has joined #interhack
+[05:57:46] -!- ekiM [n=Mike@217.41.238.168] has quit [Read error: 110 (Connection timed out)]
+[06:00:16] -!- ekiM [n=Mike@217.41.238.168] has joined #interhack
+--- Log closed Fri Jun 29 06:05:29 2007
+[19:33:58] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[19:33:58] -!- Irssi: #interhack: Total of 7 nicks [2 ops, 0 halfops, 0 voices, 5 normal]
+[19:34:02] -!- mode/#interhack [+o Eidolos] by ChanServ
+[19:34:15] <@Eidolos> hai
+[19:35:10] -!- Irssi: Join to #interhack was synced in 74 secs
+[21:56:32] < billnye> HAIdolos
+[21:58:14] <@Eidolos> hai

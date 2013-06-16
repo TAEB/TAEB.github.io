@@ -1,0 +1,105 @@
+[00:10:32] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[01:31:10] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[02:47:39] -!- doy_ [n=doy@adsl-76-199-11-207.dsl.chmpil.sbcglobal.net] has joined #interhack
+[02:47:42] -!- mode/#interhack [+o doy_] by ChanServ
+[02:53:19] -!- doy [n=doy@adsl-76-199-1-111.dsl.chmpil.sbcglobal.net] has quit [Read error: 110 (Connection timed out)]
+[02:53:30] -!- doy_ is now known as doy
+[03:37:19] -!- doy [n=doy@adsl-76-199-11-207.dsl.chmpil.sbcglobal.net] has quit [Read error: 104 (Connection reset by peer)]
+[04:26:41] -!- doy [n=doy@adsl-76-199-4-46.dsl.chmpil.sbcglobal.net] has joined #interhack
+[04:26:44] -!- mode/#interhack [+o doy] by ChanServ
+[17:37:29] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[19:52:53] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[19:52:53] -!- Irssi: #interhack: Total of 8 nicks [2 ops, 0 halfops, 0 voices, 6 normal]
+[19:52:54] -!- mode/#interhack [+o Eidolos] by ChanServ
+[19:54:03] -!- Irssi: Join to #interhack was synced in 72 secs
+[20:52:03] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:48:52] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[22:57:29] <@Eidolos> one major thing we did was restructure the repo
+[22:57:31] <@toft> right
+[22:57:38] <@Eidolos> interhack/trunk/
+[22:57:38] <@toft> and i missed that ;)
+[22:57:41] <@toft> ah
+[22:57:49] <@Eidolos> just pull from there and it should just work
+[22:58:00] <@Eidolos> dp toft@darcs.katron.org:../sartak/interhack/trunk
+[22:58:22] <@Eidolos> hmm
+[22:58:39] <@doy> i also reorganized the server connection code
+[22:58:40] <@Eidolos> just edit your _darcs/prefs/*repo*
+[22:58:45] <@doy> so it now supports multiple servers
+[22:58:55] <@doy> probably want to read through those patches
+[22:59:16] <@Eidolos> you can get rid of that first repo :)
+[22:59:28] <@Eidolos> I've been planning the new plugin system
+[22:59:32] <@Eidolos> very exciting!
+[22:59:32] <@toft> it looked nuts
+[22:59:41] <@Eidolos> :D
+[22:59:45] <@Eidolos> a little nuts, but powerful
+[23:00:08] <@Eidolos> that's in source control too if you want to check that out and try to grok
+[23:00:15] <@Eidolos> you only need to try to grok the actual plugins
+[23:00:35] <@Eidolos> interhack/branches/uber-plugins/
+[23:01:02] <@Eidolos> or just look at them here: http://darcs.katron.org/~sartak/interhack/branches/uber-plugins/lib/Interhack/Plugin/
+[23:01:39] <@Eidolos> oh that's why your dp failed, because dp is darcs pull /and push/
+[23:03:12] <@Eidolos> you have to move things around a little in your ~/.interhack
+[23:03:16] <@toft> yeah I saw
+[23:03:26] <@Eidolos> ~/.interhack/servers/nao/passwords/*
+[23:04:33] <@toft> leave the keys and ttyrecs?
+[23:04:39] <@Eidolos> I believe so
+[23:04:41] <@Eidolos> I have :)
+[23:12:42] <@toft> does autologin work for y'all on spork?
+[23:19:53] <@toft> oh I see
+[23:20:02] <@toft> for some reason it doesn't accept command line arguments for the nick anymore
+[23:21:08] <@doy> ?
+[23:21:10] <@doy> it should
+[23:21:13] <@toft> check it
+[23:21:13] <@doy> "works for me"
+[23:21:33] <@doy> what args are you using?
+[23:21:38] <@toft> 'interhack toft'
+[23:21:43] <@toft>  Logged in as: Crassworm
+[23:21:52] <@toft> I'm on termcast, btw
+[23:21:59] <@doy> do you have a password file set up?
+[23:22:13] <@toft> they're in .interhack/servers/nao/passwords/
+[23:22:30] <@Eidolos> what's in each file?
+[23:22:33] <@toft> hehe
+[23:22:33] <@doy> well... are you connected to nao?
+[23:22:39] <@doy> *connecting
+[23:22:44] <@toft> yes
+[23:22:48] <@doy> hmmm
+[23:23:04] <@Eidolos> you could try reverting the past few changes and seeing if it's still breaking (but you'd have to move things back out of servers.. well, just cp)
+[23:23:16] <@doy> "works for me"
+[23:23:17] <@toft> it works for you guys?
+[23:23:29] <@toft> doy: but you've just been doing ./interhack
+[23:23:39] <@Eidolos>  Logged in as: Interhac3
+[23:23:47] <@doy> toft: i just tried it in another term
+[23:23:50] <@toft> hm
+[23:24:28]  * Eidolos heads to bed
+[23:24:34] <@toft> oh I see
+[23:24:37] <@toft> night Eidolos
+[23:25:05] <@doy> you see?
+[23:25:16] <@Eidolos> Interhack 2.0 will let you run Interhack from anywhere
+[23:25:25] <@Eidolos> (that's the plan anyway)
+[23:25:26] <@toft> ohhh right
+[23:25:27] <@toft> crap
+[23:25:30] <@toft> I wrote a shell script
+[23:25:31] <@toft> blah
+[23:26:01] <@Eidolos> #!/bin/zsh
+[23:26:07] <@Eidolos> pushd /home/jlewis/interhack/
+[23:26:10] <@Eidolos> ./interhack.pl
+[23:26:11] <@Eidolos> popd
+[23:26:11] <@Eidolos> :)
+[23:26:25] <@Eidolos> might need to use /usr/bin/zsh, I forget
+[23:26:40] <@Eidolos> you don't need to ; each line
+[23:26:45] <@doy> Eidolos: 'cd /home/jlewis/interhack && ./interhack.pl'
+[23:26:57] <@doy> no reason to use pushd and popd
+[23:27:01] <@Eidolos> does that leave you where you started though?
+[23:27:07] <@toft> yeah it doe
+[23:27:09] <@toft> s
+[23:27:12] <@Eidolos> fine!
+[23:27:14] <@doy> child processes don't affect the parent cwd
+[23:27:30] <@Eidolos> but pushd/popd have the coolness factor
+[23:28:03] <@Eidolos> $@
+[23:28:20] <@toft> :D
+[23:28:21] <@toft> <3
+[23:28:24]  * Eidolos light applause
+[23:28:50] <@Eidolos> now firefly/bed
+[23:29:00] <@toft> didnt know thta people had ascended a spork
+[23:29:05] <@doy> yup
+[23:43:47] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+--- Log closed Wed Jul 11 00:10:21 2007

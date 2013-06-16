@@ -1,0 +1,509 @@
+[00:31:57] <@toft> Eidolos: what the fuck
+[00:32:06] <@toft> i got like a billion emails
+[00:33:10] <@toft> but thats ok :)
+[00:33:22] <@doy> (:
+[00:33:28] <@doy> he went kinda crazy on hiveminder
+[00:35:04] -!- alexbobp is now known as alexbobp_away
+[00:36:05] <@toft> uy
+[00:36:08] < alexbobp_away> toft: I noticed that also
+[00:36:11] < alexbobp_away> i set up a mail filter
+[00:36:26] <@toft> heh, you noticed
+[00:36:27] <@toft> haha
+[00:36:32] <@doy> that's what you get when you sign up too early d:
+[00:36:34] < alexbobp_away> kind of hard not to notice
+[00:36:38] <@doy> i signed up after he did that
+[00:36:39] <@doy> (:
+[00:36:43] <@toft> nice job
+[00:36:45] < alexbobp_away> suddenly I see "Inbox (67)"
+[00:36:46] <@toft> i signed up ages ago
+[00:37:02] <@toft> alex ponebshek eh?
+[00:37:07] < alexbobp_away> and think "most of those are definitely from the same source"
+[00:37:09] <@toft> what's the bobp :)
+[00:37:10] < alexbobp_away> yes
+[00:37:15] < alexbobp_away> p is for ponebshek
+[00:37:17] <@toft> ah
+[00:37:49] < alexbobp_away> and Bob used to be my middle name.
+[00:37:55] < alexbobp_away> okay, actually it never was.
+[00:37:56] < alexbobp_away> but I use it.
+[00:38:25] <@toft> :)
+[00:39:18] <@doy> in other news, eid implemented plugin dependencies, and i implemented dgl autologin
+[00:39:26] <@toft> awesome
+[00:39:28] <@doy> eid also did other stuff i don't remember
+[00:39:37] <@doy> but you can pull to find out
+[00:39:40] <@toft> I'm going to start getting familiar with the 2.x codebase I think
+[00:40:35] <@doy> so far pretty much all of the 2.0 plugins are things that were either in core in 1.0 or would have had to be in core if they were even possible to be implemented
+[00:40:48] < alexbobp_away> are those bajillion todo items supposed to be for 2.0 or 1.0?
+[00:40:48] <@doy> like the only overlap is like floating eyes and eidocolors
+[00:40:49] <@toft> we don't have full 1.0 features yet, do we?
+[00:40:52] <@toft> alexbobp_away: 2.0
+[00:40:54] <@doy> not even close
+[00:40:57] <@toft> alexbobp_away: there's no more devel on 1.0
+[00:41:04] <@toft> alright cool
+[00:41:06] <@doy> all of the 1.0 plugins need to be converted
+[00:41:08] <@doy> pretty much
+[00:41:14] <@toft> fine, shouldn't be too hard
+[00:41:15] < alexbobp_away> okay
+[00:41:56] <@toft> doy: so as a laptop user, do you ttyrec on the lap;top and just make a new session each time you leave and come back?
+[00:42:27] <@toft> I'm used to having a persistent termcast session, so I don't really know how to do things
+[00:42:41] <@doy> i just use that pipe thing that i set up a while back
+[00:42:47] <@doy> and just run it wherever
+[00:42:50] <@toft> ah
+[00:47:13] <@toft> 72 patches
+[00:47:13] <@toft> good lord
+[00:48:03] < alexbobp_away> I have a great iea
+[00:48:05] < alexbobp_away> *idea
+[00:48:30] < alexbobp_away> I'll keep a persistent termcap, and while I'm not using it, I'll watch my own termcap
+[00:48:40] < alexbobp_away> keeps my idle time at bay
+[00:49:00] <@toft> eh?
+[00:49:16] < alexbobp_away> s/termcap/termcast/
+[00:49:32] <@toft> yeah I figured that, but... how would watching it keep your idle time at bay?
+[00:49:46] < alexbobp_away> take a look
+[00:49:55] <@toft> ohh, that
+[00:49:57] <@toft> feedback
+[00:50:00] <@toft> annoying :)
+[00:50:05] < alexbobp_away> except the text slowly degrades away
+[00:50:13] <@toft> what we do is make a castsaver
+[00:50:14] < alexbobp_away> in a few minutes, it will be flashing nothing, and then it will be boring
+[00:50:19] <@toft> mine is a little tetris thing, bot vs bot
+[00:50:20] <@toft> watch
+[00:50:43] < alexbobp_away> ah, I see
+[00:50:45] <@toft> that way its not totally dull :)
+[00:50:49] <@toft> you can also use the worms program
+[00:50:56] <@toft> or whatever
+[00:51:15] <@toft> Eidolos replays his old nethack ttyrecs
+[00:51:22] <@toft> doy too I think
+[00:51:32] < alexbobp_away> so that's why it looks like they play nethack constantly...
+[00:51:36] <@toft> :D
+[00:52:16] < alexbobp_away> ttyplay termcast.ttyrec
+[00:52:17] < alexbobp_away> there we go.
+[00:52:31] < alexbobp_away> Now it's like an infinite loop, except it also fills my hard drive!
+[00:53:02] <@doy> i don't
+[00:54:14] < alexbobp_away> Okay, I've got it.  The ultimate away termcast
+[00:54:50] <@toft> haha
+[00:54:56] <@toft> that's sort of amusing
+[00:56:47] < alexbobp_away> what was the command to do a termcast again?
+[00:56:57] <@toft> ttrtail username password in another term
+[00:57:15] < alexbobp_away> okay
+[00:57:22] <@toft> in the dir as the future ttyrec
+[00:57:52] <@toft> but please use two different nicks if you have two different casts :)
+[01:00:18] < alexbobp_away> like this?
+[01:00:56] <@toft> sure
+[01:01:24] < alexbobp_away> okay, now that I have two nicks, I have to try termcast pingpong
+[01:02:33] < alexbobp_away> nothing special
+[01:02:34] < alexbobp_away> oh well
+[01:10:13] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[01:29:32] -!- alexbobp_away [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[02:11:41] <@doy> so... i'm confused
+[02:12:02] <@doy> did using with statements to implement dependencies really cause *that* much slowdown?
+[02:12:19] <@doy> because it's quite a bit faster for me now
+[02:12:29] <@doy> and i don't see any other changes that would have caused it
+[02:21:32] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[03:55:02] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[04:30:15] <@doy> also, i really never looked at interhack.pl very much... man was it ugly
+[04:30:26] <@doy> i'm certainly glad we are doing 2.0
+[04:30:27] <@doy> (:
+[07:23:00] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[07:23:09] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[07:44:48] -!- ekiMbo is now known as ekiM
+[08:57:13] <@Eidolos> doy: probably!
+[08:57:30] <@Eidolos> maybe it was loading each plugin more than once. yuck :)
+[08:57:43] <@Eidolos> we still want our own Moose clone though
+[09:36:58] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[11:30:30] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[11:30:39] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:31:56] -!- ekiMbo is now known as ekiM
+[11:41:53] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[11:55:28] <@Eidolos> hi JSON
+[11:56:33] < jasonmay> hi...EDI?
+[11:57:24] < jasonmay> I should make an app that uses JSON just for fun
+[12:43:24] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[12:43:45] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[14:06:57] < alexbobp> Are you guy still in the business of fixing interhack 1 bugs?  The oil-tester doesn't work if there are no applyable items in the inventory.
+[14:08:01] <@Eidolos> the oil-tester plugin nees to die
+[14:20:23] < alexbobp> I agree with that
+[14:20:37] < alexbobp> I've never found it particularly useful.
+[14:20:51] < alexbobp> The only time it would have helped was that time I drank oil, and that only happened because I was an idiot.
+[14:21:02] < alexbobp> (today)
+[14:21:10] < billnye> we neeeds an idiot-tester plugin!
+[14:21:32] < alexbobp> I could get behind an idiot-rectifier plugin
+[14:21:58] < alexbobp> yay, I managed to pack the phrase "get behind" and a word etymologically related to "rectal" into one sentence
+[14:22:02]  * billnye hesitates to request an exact definition of "rectifier"
+[14:22:14] < alexbobp> rectify means fix, basically.
+[14:22:30] < alexbobp> or normalize.
+[14:22:38] < alexbobp> In electricity, a rectifier converts AC to DC
+[14:27:45] < billnye> alexbobp: /your/ particular definition of rectifier, I meant
+[14:27:54] < billnye> given the other multi-endendre involved
+[14:30:20] < alexbobp> well, that was one of those things I didn't notice until after I sent the message
+[14:30:50] < billnye> same here
+[14:31:03] < billnye> it wasn't until you'd sent the message that I caught the ambiguity, myself
+[14:31:11] < alexbobp> come to think of it, you can loosely interpret plugin in another way, too.  Making my message triplegay!
+[15:42:09] <@doy> hmmm
+[15:42:35] <@doy> i think the next thing that needs to happen is that the core needs to be converted to IO::Pty, and the telnet code needs to be split out into a module
+[15:43:02] <@Eidolos> I tried adding IO::Pty to 0.0 but it didn't work
+[15:43:12] <@doy> why not?
+[15:43:15] <@Eidolos> it wouldn't try to red text from me
+[15:46:43] < billnye> did you try adding it to o.0 or 0.o ?
+[15:47:05] <@Eidolos> 0...0
+[15:47:22] < billnye> don't push those together, or you'll regret it
+[15:48:37] <@doy> hmmm
+[16:05:19] <@doy> this is confusing
+[16:26:53] <@doy> Eidolos: so how much did you do with this?
+[16:26:58] <@doy> because it looks like it's a lot of work
+[16:27:07] <@doy> and i don't remember you spending that long on it
+[16:28:28] <@Eidolos> uhm :)
+[16:28:36] <@Eidolos> what makes you think it's a lot of work?
+[16:29:21] <@doy> just reading through the examples
+[16:30:02] <@doy> looks like at least it's going to require fork/execing a nethack process on one end and communicating with it over the pty from the other end
+[16:30:13] <@doy> and there's a lot of stuff i don't understand about how terminals work
+[16:30:17] <@doy> that i'm trying to learn
+[16:32:31] <@Eidolos> ok
+[16:32:40] <@Eidolos> try to get it working on 0.0 :)
+[16:32:44] <@doy> okay
+[16:36:22] < jasonmay> 0.o and o.0 remind me of Jumper Two
+[16:37:56] <@doy> what's the difference between 'print {$socket} $blah' and 'print $socket $blah'?
+[16:39:03] <@Eidolos> former is more clearly printing to  speciific filehndlee
+[16:39:27] <@doy> so there's no actual difference?
+[16:40:46] <@Eidolos> right
+[16:41:03] <@doy> i'm going to push some cleanup changes to 0.0
+[16:41:10] <@doy> makes it a bit longer, but more clear
+[16:41:27] <@doy> also easier to swap pieces out for my pty stuff
+[16:41:28] <@doy> (:
+[16:41:36] <@Eidolos> ok
+[16:41:53] <@doy> apparently i can
+[16:41:54] <@doy> 't
+[16:42:08] <@Eidolos> the site will update with the new linecount automatically.. that is, as soon as I push a changee to iit
+[16:42:09] <@Eidolos> llooking
+[16:42:13] <@doy> i don't have perms in 0.0
+[16:42:58] <@Eidolos> fixe
+[16:43:04] <@Eidolos> I forgot to chmod g+
+[16:43:05] <@Eidolos> w
+[16:43:09] <@doy> nope
+[16:44:00] <@Eidolos> 1s
+[16:44:12] <@Eidolos> try now
+[16:44:13] <@doy> need to chgrp
+[16:44:19] <@doy> there
+[16:44:22] <@Eidolos> :)
+[16:44:28] <@doy> okay
+[16:44:49] <@Eidolos> bah :)
+[16:44:57] <@doy> bah?
+[16:45:07] <@Eidolos> useless changes!
+[16:45:10] <@doy> (:
+[16:45:21] <@doy> it makes the main loop all nice and pretty
+[16:45:40] <@doy> and it also lets me easily swap out those four subs
+[16:46:48] <@Eidolos> ruining my code!
+[16:46:53] <@Eidolos> branch 0.0 for pty?
+[16:46:56] <@doy> yeah
+[16:46:58] <@doy> um
+[16:47:01] <@Eidolos> cp -R 0.0 0.0-pty
+[16:47:12] <@doy> how do permissions work in darcs repos?
+[16:47:26] <@Eidolos> they don't, they leave the user to it
+[16:47:29] <@Eidolos> just branch it locally
+[16:47:38] <@doy> like do ls -l in the 2.0 branch on interhack.us
+[16:48:48] <@Eidolos> oo
+[16:50:31] <@doy> that strikes me as something that's going to break in the future
+[16:52:09] <@Eidolos> any ideas for a fix?
+[16:52:13] <@Eidolos> oh
+[16:52:14] <@Eidolos> hmm
+[16:52:17] <@doy> well, i don't know why it's doing it
+[16:52:30] <@Eidolos> could have a posthook script that fixes perms
+[16:52:36] <@doy> that could work
+[16:52:44] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[16:53:21] <@doy> chown -R sartak:interhack /home/sartak/www/code/interhack
+[16:53:25] <@Eidolos> right
+[16:53:27] <@doy> should cover it
+[16:53:34] <@Eidolos> have to run it as root though
+[16:53:37] <@Eidolos> but tht's ok
+[16:53:39] <@doy> hmmm
+[16:53:51] <@doy> also, files are created with 644 perms
+[16:53:57] <@doy> they should be created with 664
+[16:54:04] <@doy> for this to work
+[16:54:58] < billnye> no, UMASK!
+[16:55:17] < billnye> (URFACE)
+[16:55:28] <@doy> (URMOMSFACE)
+[16:55:29] < jasonmay> with grease
+[16:55:49] < billnye> then you apply it, and get an exploitable bug
+[17:26:35] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[17:44:52] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[17:45:33] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Client Quit]
+[19:12:37] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Remote closed the connection]
+[19:12:41] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[19:17:49] <@toft> Eidolos: what plugin were you commenting on yesterday, about the closure that you wouldn't have done?
+[19:46:38] <@doy> toft: in wand-name
+[19:47:22] <@toft> oh yeah
+[19:47:35] <@toft> heh
+[19:54:32] <@toft> oh jeez
+[19:54:43] <@toft> my gentoo box is quickly becoming broken
+[19:59:58] < arcanehl> figured it'd be slowly
+[20:00:04] < arcanehl> considering how fast emerge world goes
+[20:00:15] <@toft> it thinks I don't have XML::Parser installed
+[20:00:17] <@toft> but I clearly do
+[20:01:11] < arcanehl> Eidolos: SGID bit!
+[20:01:24] < arcanehl> (I'm guessing the group was wrong)
+[20:02:12] < arcanehl> because user doesn't really matter
+[20:02:35] <@toft> checking whether we are using the GNU Fortran 77 compiler... yes
+[20:02:45] <@toft> excellent.
+[20:03:41] < arcanehl> yeah, a lot of code uses that!
+[20:05:08] <@toft> hooooly crap
+[20:05:18] <@toft> I'm going to have to re-emerge half of the damn packages on my system
+[20:05:26] <@toft> just bceause expat changed its .so's name... >_<
+[20:05:36] <@toft> whyyy
+[20:05:36] < arcanehl> hehe
+[20:06:29] <@toft> think I can just do a symlink thing? :)
+[20:06:32] <@toft> probably not
+[20:06:45] < arcanehl> depends
+[20:06:54] <@toft> its from 1.95.8 -> 2.0.1
+[20:06:55] < arcanehl> by "changed its name"
+[20:06:58] < arcanehl> yeah
+[20:07:08] < arcanehl> symlink if you want the most obscure pain imaginable
+[20:07:12] <@toft> hehe
+[20:07:14] <@toft> its like 70 packages
+[20:07:15] <@toft> wonderful
+[20:07:19] < arcanehl> bah!
+[20:07:19] <@doy> yeah
+[20:07:22] <@doy> it'll "work"
+[20:07:25] < arcanehl> I did 190 overnight two days ago
+[20:07:26] <@doy> until it doesn't
+[20:07:27] <@toft> I love how gentoo doesn't ask you before it upgrades, and doesn't tell you what the hell is the matter
+[20:07:30] <@doy> and it breaks portage
+[20:07:31] <@toft> fucking annoying
+[20:07:35] < arcanehl> doy: actually, it probably won't at all
+[20:07:38] <@doy> ...what are you talking about?
+[20:07:45] <@doy> arcanehl: eh, it might
+[20:07:46] <@doy> (:
+[20:07:49] < arcanehl> 1.x -> 2.x probably means a lot of ABI and API changes
+[20:07:56] <@toft> doy: I mean obviously it asks
+[20:08:01] <@toft> nevermind >_>
+[20:08:21] <@toft> hey I wonder if I can get my laptop to help compile.. heh
+[20:08:37] <@doy> you certianly can, as long as it's running the exact same toolchain
+[20:08:46] <@toft> the whole point is that its not :)
+[20:08:56] <@doy> well then, you can't
+[20:08:59] <@doy> (:
+[20:09:01] <@toft> but macs do have this weird Rosetta business, which as far as I can tell is PPC virtualization
+[20:09:12] <@doy> i'm currently busy breaking my system in pieces by messing with pam configuration
+[20:09:18] <@toft> termcast!
+[20:09:34] <@doy> i'm doing most of it in several root terminals that i have open
+[20:09:37] <@toft> nice
+[20:09:44] <@doy> so that i don't completely lock myself out of things
+[20:09:45] <@toft> why were you kerneling before?
+[20:09:54] <@doy> needed a module
+[20:09:59] <@toft> ah
+[20:10:02] <@toft> well good luck :)
+[20:10:13] < arcanehl> toft: yep
+[20:10:20] < arcanehl> Rosetta is fast PPC emulation
+[20:10:45] <@doy> supposedly the open source fingerprint scanner driver can work with xscreensaver
+[20:10:53] <@doy> but i'm not seeing it
+[20:11:04] < arcanehl> xscreensaver uses PAM though, right?
+[20:11:09] <@doy> yeah
+[20:11:12] < arcanehl> what're you using for the fingerprint scanner?
+[20:11:15] <@doy> pam
+[20:11:17] < arcanehl> what's the lib called
+[20:11:26] <@doy> i'm trying to use thinkfinger
+[20:11:32] < arcanehl> mkay
+[20:11:45] < arcanehl> that's what a friend was using and I managed to get it working with GDM
+[20:11:53] <@doy> tfm_fingerprint works with xscreensaver, except when xscreensaver crashes
+[20:11:59] < arcanehl> heh
+[20:12:04] <@doy> which kinda defeats the purpose
+[20:12:16] < arcanehl> does it crash when you scan your finger?
+[20:12:29] <@doy> no, it crashes when it starts up the program to grab the fingerprint
+[20:12:35] <@doy> not always
+[20:12:40] <@doy> just every once in a while
+[20:12:59] <@doy> so i figured i'd try out the other driver
+[20:13:05] <@doy> and it works a lot more nicely overall
+[20:13:25] <@doy> just that it xscreensaver doesn't seem to want to use it
+[20:14:14] < arcanehl> hmmmm
+[20:14:24] < arcanehl> guessing you looked at http://www.thinkwiki.org/wiki/How_to_enable_the_fingerprint_reader#Make_xscreensaver_use_the_scanner then?
+[20:15:06] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[20:15:15] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:15:29] <@doy> that's for tfm_fingerprint
+[20:15:37] <@doy> and xscreensaver-5.02 already includes that patch
+[20:16:18] <@doy> http://bbs.archlinux.org/viewtopic.php?id=36134 looked most promising
+[20:16:18] -!- ekiMbo is now known as ekiM
+[20:16:27] <@doy> but it doesn't seem to do anything
+[20:48:13] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has quit [Read error: 104 (Connection reset by peer)]
+[20:50:16] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+[20:54:53] <@doy> i suppose i'll stick with the binary driver for now
+[20:55:18] <@doy> at least when i run it under gdb in screen, it doesn't leave my system insecure when it crashes
+[20:55:22] <@doy> it's just irritating
+[21:01:01]  * Eidolos is playing NetHack without interhack
+[21:01:02] <@Eidolos> it's harsh :)
+[21:01:06] <@Eidolos> menucolors in particular
+[21:01:07] <@doy> gasp
+[21:01:16] <@doy> why would you do that
+[21:01:22] <@Eidolos> shrug :)
+[21:01:31] <@Eidolos> to remind me why I'm developing IH
+[21:01:33] <@doy> yeah, that's ugly
+[21:05:14] <@doy> i'm trying hard to understand this example code
+[21:05:22] <@doy> what does wrapping an exec() call in braces do?
+[21:05:29] <@Eidolos> nothing
+[21:05:35] <@Eidolos> maybe make it stand out more
+[21:05:43] <@Eidolos> since it ordinarily does not return
+[21:06:10] <@doy> oh... i think i see
+[21:06:29] <@doy> exec will close open filehandles?
+[21:06:37] <@Eidolos> it shouldn't
+[21:06:49] <@doy> hmmm
+[21:06:55] <@doy> then what is this doing
+[21:06:57] <@Eidolos> an old trick is to exec your own program
+[21:07:02] <@Eidolos> which keeps files open
+[21:07:07] <@doy> yeah
+[21:07:07] <@Eidolos> and you can load new code that way
+[21:07:18] <@doy> i didn't think it did... but then i don't know how this is working
+[21:07:22] <@Eidolos> :)
+[21:07:25] <@Eidolos> well
+[21:07:38] <@Eidolos> looks like it's redirecting the three std filehandles to $slave->fileno
+[21:07:45] <@doy> that's not the confusing part
+[21:07:49] <@doy> it sets up this pipe
+[21:07:57] <@doy> between STAT_RDR and STAT_WTR
+[21:08:28] <@doy> forks, then closes RDR on the child and closes WTR on the parent
+[21:08:40] <@doy> then exec()s on the child
+[21:08:50] <@Eidolos> well
+[21:09:02] <@doy> or maybe i have the parent/child swapped
+[21:09:05] <@doy> still
+[21:09:09] <@Eidolos> forking inherits filehandles
+[21:09:12] <@Eidolos> and
+[21:09:25] <@Eidolos> this just sets up a line of communication between parent and child
+[21:09:52] <@Eidolos> ostensibly :)
+[21:09:55] <@doy> right... but the only time something is written into the WTR end is if the exec fails
+[21:10:00]  * doy stares some more
+[21:10:16] <@doy> oh
+[21:10:18] <@doy> i see
+[21:10:33] <@doy> the filehandle is closed when the exec finishes
+[21:10:35] <@doy> that makes more sense
+[21:11:34] <@Eidolos> do you think all this could be extracted out
+[21:11:38] <@Eidolos> so that you could just say
+[21:11:52] <@Eidolos> my $expecty = IO::Pty::Easy->("nethack")
+[21:11:58] <@Eidolos> or whatever :)
+[21:12:01] <@doy> hmmm
+[21:12:01] <@doy> maybe
+[21:12:02] <@doy> (:
+[21:12:08] <@Eidolos> that'd totally be worth doing
+[21:12:11] <@doy> i just want to understand how this all works first
+[21:12:24] <@doy> and really, that's exactly what expect does
+[21:12:27] <@doy> so the answer is yes
+[21:12:31]  * Eidolos nods
+[21:12:44] <@doy> IO::Pty was developed so that expect would work
+[21:12:45] <@Eidolos> I don't think Expect itself is capable of NetHack but I could be wrong
+[21:13:10] <@doy> i don't think it is, which is why i'm still messing with IO::Pty
+[21:13:13] <@Eidolos> :D
+[21:13:14] <@doy> but i could also be wrong
+[21:13:14] <@doy> (:
+[21:13:43] <@doy> toft: feel like trying to get 0.0 working with expect?
+[21:13:47] <@doy> see if it's even possible?
+[21:15:52] <@Eidolos> so this code you have doy
+[21:15:58] <@Eidolos> what does it do when you run it? :)
+[21:16:05] <@doy> i... have no idea
+[21:16:06] <@doy> (:
+[21:16:11] <@doy> i knew at one point
+[21:16:34] <@Eidolos> that blib error
+[21:16:39] <@Eidolos> there's a "use blib" you can get rid of
+[21:16:40] <@Eidolos> right
+[21:16:48] <@Eidolos> ok
+[21:17:20] <@Eidolos> try nethack
+[21:17:50] <@Eidolos> hit enter :)
+[21:17:53] <@Eidolos> hehe
+[21:18:01] <@Eidolos> you should be able to just set_raw on the pty object
+[21:18:05] <@doy> yeah
+[21:18:07] <@Eidolos> and I think that should dtrt
+[21:18:52] <@doy> already done...
+[21:18:53] <@doy> hmmm
+[21:22:29] <@doy> actually, i'm not sure how this works again
+[21:22:53] <@Eidolos> fun
+[21:22:59] <@toft> expect?
+[21:23:01] <@toft> I was eating
+[21:23:14] <@Eidolos> you don't know Expect?
+[21:23:17] <@toft> no sir
+[21:23:30] <@Eidolos> it's a library for interacting with programs
+[21:23:47] <@Eidolos> originally written in Tcl
+[21:23:53] <@doy> it lets you script interactive programs even when they expect to be run on a tty
+[21:24:24] <@toft> ah
+[21:24:39] <@Eidolos> oh shit single rothe
+[21:24:48] <@doy> so... this program here
+[21:24:56] <@doy> does an exec in one process
+[21:25:08] <@doy> then waits for the exec to finish in the other?
+[21:25:12] <@doy> before doing anything?
+[21:25:18] <@Eidolos> no idea
+[21:25:23]  * doy is confused
+[21:28:26] <@doy> so that sysread isn't waiting for the exec to finish then
+[21:28:53] <@doy> which means that this pipe must be closed when the exec runs
+[21:29:05] <@doy> this code doesn't make any sense otherwise
+[21:29:39] <@doy>                On systems that support a close-on-exec flag on files, the flag
+[21:29:42] <@doy> aha
+[21:29:44] <@doy>                will be set for the newly opened file descriptors as determined
+[21:29:47] <@doy>                by the value of $^F.  See "$^F" in perlvar.
+[21:29:59] <@Eidolos> ah
+[21:30:44] <@doy> $^F is the highest number file descriptor that will be passed on to exec()ed processes
+[21:30:48] <@doy> and it defaults to 2
+[21:33:53] < arcanehl> so, the standard three are passed
+[21:34:44] <@doy> right
+[22:01:41] <@doy> oh
+[22:01:51] <@doy> maybe i need to be setting my own term into raw mode
+[22:02:26] <@doy> the cookedness is probably coming from the tty attached to my urxvt
+[22:03:21] <@Eidolos> perl -MTerm::ReadKey -e 'ReadMode 3'
+[22:03:26] <@Eidolos> that should set your term to raw
+[22:04:12] <@doy> sweet
+[22:04:16] <@doy> it's working
+[22:04:22] <@Eidolos> :)
+[22:04:26] <@Eidolos> try some output substitution
+[22:04:50] <@doy> i'm just going to hack this into the 0.0 codebase for now
+[22:04:53] <@doy> and see where i can go with that
+[22:04:57] <@Eidolos> sounds good
+[22:05:17] <@Eidolos> i'm just going to ..bed :)
+[22:05:24] <@doy> it's like 10pm
+[22:05:24] <@Eidolos> really tired today :/
+[22:05:25] <@doy> d:
+[22:08:10] < arcanehl> (wimp)
+[22:09:42] <@Eidolos> ;_;
+[22:31:33] -!- alexbob1 [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:31:57] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[22:36:07] -!- alexbob1 is now known as alexbobp
+[22:39:50] -!- alexbob1 [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:50:01] <@doy> ...wow
+[22:50:03] <@doy> that was easy
+[22:51:02] <@doy> interhack now works on local copies of nethack
+[22:51:16] <@doy> 0.0 anyway
+[22:51:37] <@doy> time to write that IO::Pty::Easy
+[22:52:07] <@doy> actually
+[22:52:13] <@doy> i know nothing about writing perl modules
+[22:52:22] <@doy> i suppose i could learn
+[22:54:39] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[23:00:56] < alexbob1> yay!
+[23:01:13] < alexbob1> next time I'm without Internets, I can use that
+[23:01:34] <@doy> the idea is that interhack will by default run on local nethack
+[23:01:49] <@doy> and then you can load modules to add things like telnet support
+[23:03:13] <@doy> right now i'm trying to encapsulate the reading/writing on the pty into a simple new()/read()/write() interface
+[23:03:20] <@doy> that i'll then stick into 2.0
+[23:04:02] <@doy> hopefully it will just be a dropin replacement for the print/recv that's there now
+[23:08:34] < alexbob1> is it possible to make modules that depend on other modules?
+[23:08:38] <@doy> sure is
+[23:09:43] < alexbob1> cool
+[23:09:49] < alexbob1> damn this nickname!
+[23:09:51] -!- alexbob1 is now known as alexbobp
+[23:10:00] < alexbobp> I keep forgetting do do that every time my connection resets
+[23:10:08] < alexbobp> (aka, every 15 minutes)
+[23:13:40] < alexbobp> I envision a plugin that keeps track of some things like what squares have been visited, and what various items on the ground are, and then it can act as an abstraction layer to other plugins so they don't have to parse console output directly'
+[23:13:52] <@doy> go for it(:
+[23:13:58] <@doy> it's harder than it sounds
+[23:14:01] < alexbobp> I know
+[23:14:10] < alexbobp> I'm still waiting for someone to tell me to upgrade to version 2.
+[23:14:15] <@doy> not yet
+[23:14:18] < alexbobp> I've been told to stick with 1
+[23:14:26] <@doy> well, you can, it's just not that useful yet
+[23:14:32] < arcanehl> 0.0 for life
+[23:14:38] <@doy> we're still at the building up the infrastructure stage
+[23:14:50] < alexbobp> I want to wait until the infrastructure is there, and then do plugins.
+[23:14:52] <@doy> once we start porting old modules over, it should become useful
+[23:15:00] < alexbobp> until then, I'll just pitch ideas
+[23:15:15] < alexbobp> does 0.0 have features?
+[23:15:20] <@doy> nope
+[23:15:20] <@doy> well
+[23:15:22] <@doy> sort of
+[23:15:42] <@doy> it's just intended to be an example of what the main loop of the program really looks like
+[23:16:10] <@doy> it has the ^E => Elbereth macro and the purple Elbereth highlighting just as examples
+[23:16:15] <@doy> to show how that stuff works
+[23:20:38] <@doy> aha, wrapping exec() in braces makes perl not whine about non-error commands following it
+[23:20:57] < alexbobp> I don't know what that means...
+[23:21:03]  * alexbobp peeks at screencast
+[23:21:07] <@doy> it was from earlier
+[23:21:23] < alexbobp> oh
+[23:21:39] < arcanehl> Eidolos and his obscure Perl knowledge
+[23:25:16] -!- jilles [i=jilles@unaffiliated/jilles] has quit [Read error: 104 (Connection reset by peer)]
+[23:25:26] -!- jilles [i=jilles@unaffiliated/jilles] has joined #interhack

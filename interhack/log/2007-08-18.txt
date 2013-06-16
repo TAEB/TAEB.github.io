@@ -1,0 +1,163 @@
+[01:00:34] <@Eidolos> so the nice thing is 
+[01:00:47] <@Eidolos> we can load plugins before we apply them to the instance
+[01:00:53] <@Eidolos> so we can have dependency info in the plugins themselves
+[01:01:32] <@Eidolos> which means there's nothing stopping someone from creating a, say, InterhackX::ItsblahColors
+[01:03:41] <@Eidolos> (and have it have an exlusive dependency with Interhack::Plugin::Eidocolors or something)
+[01:03:50] <@Eidolos> since it wouldn't need to touch plugins.txt
+[01:11:41] <@doy> that would certainly be more ideal than the plugins.txt thing we have going on now
+[01:12:18]  * Eidolos nods
+[01:12:27] <@Eidolos> so the name Calf
+[01:12:36] <@Eidolos> I chose it because the name for a young moose is "calf"
+[01:13:11] <@Eidolos> we will require a backronym of we stick with calf :)
+[01:13:14] < alexbobp> so is interhack 3 going to have moose plugins?
+[01:13:24] <@Eidolos> I was trying to think of something better in transit yesterday
+[01:13:47] <@Eidolos> alexbobp: interhack 2 has Moose plugins at the moment
+[01:13:58] <@Eidolos> I'm finishing my Moose clone that is well-suited for Interhack
+[01:14:02] <@Eidolos> because Moose is a poor fit
+[01:14:11] <@Eidolos> and I will convert IH 2 to use that instead
+[01:14:23] <@Eidolos> so we get instantaneous startups, and simpler code, and a working test suite, and
+[01:14:25] <@Eidolos> and and
+[01:14:30] <@Eidolos> :)
+[01:15:11] <@doy> i should write up a few more tests and release 0.02 for IO::Pty::Easy
+[01:15:25] <@Eidolos> hey!
+[01:15:29] <@Eidolos>     # 0 == undef? perl is ridiculous
+[01:15:34] <@doy> it's true!
+[01:15:35] <@Eidolos> no bashing Perl in Perl comments! :)
+[01:15:59] <@doy> hmmm
+[01:16:02] <@doy> you should pull
+[01:16:04] <@doy> that's out of date
+[01:16:08] <@Eidolos> ah yes
+[01:16:29] <@Eidolos> woo ha
+[01:17:01] <@Eidolos> calling orig() more than once is absolutely not good ever in CMM, it's not even a matter of "is this the right thing to do"
+[01:17:06] <@Eidolos> because it's just plain broken :)
+[01:17:11] <@doy> (:
+[01:17:19] <@doy> probably have to fix that before calf gets in then
+[01:17:23] <@Eidolos> yes
+[01:18:23] <@Eidolos> I haven't really even read your new code for all this Pty and telnet fixes
+[01:18:32] <@Eidolos> should do that soon.. :)
+[01:18:49] <@doy> (:
+[01:18:59] <@doy> i finally got it to a state i'm happy with
+[01:19:01] <@doy> so have at it
+[01:20:22] <@doy> i fixed that
+[01:20:29] <@Eidolos> :)
+[01:20:59] <@Eidolos> this doesn't work if the user has no util plugin
+[01:21:11] <@doy> meh
+[01:21:12] <@doy> you fix it
+[01:21:13] <@doy> (:
+[01:21:16] <@Eidolos> hehe
+[01:23:24] <@Eidolos> I'm pretty sure we'll always be doing it this way
+[01:23:32] <@doy> note "ideally"
+[01:23:33] <@doy> (:
+[01:23:36] <@Eidolos> aye
+[01:23:54] <@doy> mostly just a note to future maintainers to not use $ENV{TERM}
+[01:24:12] <@Eidolos> nod
+[01:24:34] <@Eidolos> is this something we want to port to 0.0?
+[01:24:58] <@Eidolos> (I really like termcast)
+[01:24:59] <@doy> probably
+[01:26:32] <@Eidolos> I'm going to branch 2.0 for Calf support when I feel Calf is ready
+[01:26:35] <@doy> okay
+[01:26:47] <@Eidolos> either tomorrow or Sunday I'm going to devote to Games::Adventure
+[01:26:53] <@Eidolos> the other day I'll work on Calf in Interhack :)
+[01:26:59] <@doy> (:
+[01:27:01] <@Eidolos> (really it depends on how I feel tomorrow)
+[01:27:35] <@doy> i'm not going to have time for programming tomorrow, and quite possibly sunday
+[01:27:49] <@Eidolos> boo
+[01:27:52] <@Eidolos> but ok
+[01:27:55] <@doy> so i want to get 0.02 released tonight
+[01:28:03] <@Eidolos> toft: you should like, be here :)
+[01:28:09] <@doy> so it can hit cpan by the time you start working
+[01:28:38] <@doy> i'll push changes to interhack to work with the new api, and stick the Easy.pm updates in lib/ for now
+[01:28:49] <@doy> you can remove lib/IO/ once it's in cpan
+[01:29:03] <@Eidolos> works for me
+[01:29:07] <@Eidolos> actually
+[01:29:16] <@Eidolos> is there already a lib/IO/Pty/Easy.pm in IH?
+[01:29:20] <@doy> yeah
+[01:29:23] <@Eidolos> ok
+[01:29:30] <@Eidolos> that works then
+[01:29:52] <@Eidolos> I'm going to think for about ten minutes about what else we need in Calf, and potential problems
+[01:29:59] <@doy> okay
+[01:30:07] <@Eidolos> 1) trigger (code to run when an attribute is set)
+[01:30:12] <@Eidolos> 2) plugin system
+[01:30:19] <@Eidolos> the rest, we'll see :)
+[01:42:39] <@Eidolos> we need a role for Module::Refresh
+[01:42:53] <@Eidolos> I can't think of anything else, really
+[01:57:26] <@doy> alright, 0.02 is uploaded
+[01:57:30] <@Eidolos> great
+[01:57:46] <@Eidolos> you can just remove it from the Interhack repo
+[01:57:47] <@doy> hopefully it will be mirrored by tomorrow
+[01:57:52] <@Eidolos> and have the 0.02 dep on Makefile.PL
+[01:57:54] <@doy> well, it's not installable yet
+[01:57:59] <@Eidolos> sok
+[01:57:59] <@doy> from cpan anyway
+[01:58:10] <@Eidolos> it takes 2 hours tops when you already have an account :)
+[01:58:18] <@doy> ah, sweet
+[01:58:18] <@doy> okay
+[01:58:21] <@Eidolos> and I'm just going be Calving
+[02:00:05] <@doy> done
+[02:00:33] <@Eidolos> \o/
+[03:15:49] <@Eidolos> this is the most annoying debugging I've done
+[03:23:05] <@Eidolos> finally!
+[03:23:10] <@Eidolos> the bug was in Class::Method::Modifiers
+[04:15:04] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: jilles, @toft, shachaf, arcanehl
+[04:15:27] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: @doy, raxvulpine, alexbobp, jasonmay, ekiM
+[04:15:41] -!- Netsplit over, joins: alexbobp, jasonmay, ekiM, arcanehl, raxvulpine
+[04:16:04] -!- Netsplit over, joins: @doy
+[04:16:07] -!- Netsplit over, joins: @toft, shachaf
+[04:16:32] -!- Netsplit over, joins: jilles
+[04:45:30] <@Eidolos> great
+[04:45:35] <@Eidolos> I think I'm done with the yak shaving :)
+[04:45:49] <@Eidolos> (= crap one has to do before one gets to the real/interesting task)
+[04:45:59] <@Eidolos> though don't get me wrong, I like working on Calf
+[04:48:05] <@Eidolos> IO::Pty::Easy is indeed at 0.02 now
+[04:48:39] <@Eidolos> doy: THIS is why I don't use vim's linebreak or whatever option: http://search.cpan.org/src/DOY/IO-Pty-Easy-0.02/README
+[04:48:40] <@Eidolos> :)
+[04:49:38] <@Eidolos> I think I'll call this 0.01 featurewise
+[05:46:19] <@Eidolos> ok
+[05:46:34] <@Eidolos> it's docced sufficiently too.. Calf.pm is anyway
+[06:06:15] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[06:41:35] <@Eidolos> I'll release 0.01 tomorrow I guess :)
+[06:42:00] <@Eidolos> in the meantime, zzz
+[06:50:41] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[06:51:37] -!- alexbobp is now known as alexbobp_away
+[13:46:17] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 104 (Connection reset by peer)]
+[13:46:21] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[16:22:07] <@Eidolos> moijn
+[16:22:59] <@Eidolos> doy: what I'd recommend is making a .perl/ in your home directory that contains modules like Interhack and Calf and IO::Pty::Easy
+[16:23:09] <@Eidolos> and set PERL5LIB to /home/doy/.perl/
+[17:09:45] <@Eidolos> ok! time to start the branch
+[17:37:14] <@Eidolos> I should've done this on the branch before you redid the connection code
+[17:37:32] <@Eidolos> because this kind of surgery + unknown code = bad :)
+[17:38:31] <@doy> maybe you should read through the existing code first
+[17:38:32] <@doy> (:
+[17:38:42] <@doy> and server() should also be public
+[17:39:00] <@doy> although i'm not quite sure what else is involved in the Role stuff
+[17:39:23] <@doy> in any case, i'm leaving now unless you have any immediate questions
+[17:39:28] <@Eidolos> see ya :)
+[17:40:05] <@Eidolos> we can re-apply these after I fix my code >_>
+[18:26:34] <@Eidolos> awesome
+[18:26:38] <@Eidolos> all tests pass
+[18:44:38] <@Eidolos> and now without warnings :)
+[18:46:17] <@Eidolos> hmm
+[18:46:24] <@Eidolos> this is going to be tricky I think
+[18:48:20] <@Eidolos> seems to be working good enough too. \o/
+[18:51:02] -!- alexbobp_away is now known as alexbobp
+[19:01:53] <@Eidolos> see, now I just pull from 2.0 and hope all goes well :)
+[19:10:24] <@Eidolos> ok!
+[19:10:26] <@Eidolos> 2.0 now uses Calf :D
+[19:10:31] <@Eidolos> (and has all your changes, doy)
+[19:10:51] <@Eidolos> darcs is so. awesome.
+[19:11:57] <@Eidolos> you'll have to fix the remaining conflicts, doy
+[19:12:09] <@Eidolos> I'm not sure where stuff belongs
+[19:12:32] <@Eidolos> all tests do pass, you just can't play :)
+[19:13:38] <@Eidolos> and it was working (I could play) before I applied your extensive dgl patches
+[19:13:56] <@Eidolos> oo
+[19:20:28] <@Eidolos> I probably got too delete-happy
+[19:20:32] <@Eidolos> I'll let you fix though :)
+[19:27:28] <@Eidolos> I think I've earned myself a few hours with the dragon book :)
+[21:39:32] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[21:39:41] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:41:35] -!- ekiMbo is now known as ekiM
+[22:40:13] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[22:40:22] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[23:04:12] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[23:19:20] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]

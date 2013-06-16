@@ -1,0 +1,42 @@
+[00:12:24] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[01:16:58] -!- doy_ [n=doy@adsl-76-199-1-111.dsl.chmpil.sbcglobal.net] has joined #interhack
+[01:21:35] -!- doy [n=doy@ppp-70-225-173-242.dsl.chmpil.ameritech.net] has quit [Read error: 104 (Connection reset by peer)]
+[04:48:22] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[06:19:56] -!- Ok_em_ve_dii [n=Ok_em_ve@210.245.33.253] has joined #interhack
+[06:25:09] -!- Ok_em_ve_dii [n=Ok_em_ve@210.245.33.253] has quit ["Leaving"]
+[09:55:48] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[09:56:52] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit [Client Quit]
+[09:56:58] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:33:43] -!- Zawk [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[10:34:06] -!- Zawk [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[10:56:51] -!- Zawk [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has quit [Remote closed the connection]
+[10:57:02] -!- Zawk [n=will@24-240-76-241.dhcp.mdsn.wi.charter.com] has joined #interhack
+[11:36:10] -!- Reiska [n=reiska@c-67-187-178-90.hsd1.ca.comcast.net] has quit [Read error: 104 (Connection reset by peer)]
+[12:02:30] -!- doy_ is now known as doy
+[12:50:28] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[13:00:42] -!- stabwound [n=illbill@dsl78.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[13:00:57] -!- stabwound_ [n=illbill@dsl235.rbh1.pppoe.execulink.com] has joined #interhack
+[13:12:47] -!- stabwound [n=illbill@dsl241.rbh1.pppoe.execulink.com] has joined #interhack
+[13:20:29] -!- stabwound_ [n=illbill@dsl235.rbh1.pppoe.execulink.com] has quit [Connection timed out]
+[13:28:46] -!- stabwound [n=illbill@dsl241.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[13:29:01] -!- stabwound_ [n=illbill@dsl189.rbh1.pppoe.execulink.com] has joined #interhack
+[13:37:35] -!- stabwound [n=illbill@dsl251.rbh1.pppoe.execulink.com] has joined #interhack
+[13:47:30] -!- stabwound_ [n=illbill@dsl189.rbh1.pppoe.execulink.com] has quit [Success]
+[13:47:43] -!- stabwound [n=illbill@dsl251.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[13:48:01] -!- stabwound [n=illbill@dsl252.rbh1.pppoe.execulink.com] has joined #interhack
+[14:04:14] -!- stabwound [n=illbill@dsl252.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[14:04:28] -!- stabwound_ [n=illbill@dsl251.rbh1.pppoe.execulink.com] has joined #interhack
+[14:16:15] -!- stabwound [n=illbill@dsl212.rbh1.pppoe.execulink.com] has joined #interhack
+[14:26:00] -!- stabwound_ [n=illbill@dsl251.rbh1.pppoe.execulink.com] has quit [Connection timed out]
+[15:33:17] -!- stabwound [n=illbill@dsl212.rbh1.pppoe.execulink.com] has quit [Nick collision from services.]
+[15:33:34] -!- stabwound [n=illbill@dsl145.rbh1.pppoe.execulink.com] has joined #interhack
+[17:04:03] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[17:56:02] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[19:44:45] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[20:39:03] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[20:39:17] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[21:19:36] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[21:58:51] -!- Zawk is now known as Cheapy|
+[22:59:08] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[23:16:00] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Connection timed out]
+[23:41:40] -!- mode/#interhack [+o doy] by ChanServ

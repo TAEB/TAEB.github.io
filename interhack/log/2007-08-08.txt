@@ -1,0 +1,306 @@
+[00:00:00] < arcanehl> yeah, apparently my brother has over 6000 songs too
+[00:00:11] < arcanehl> I wonder how much he's actually listened to
+[00:00:13] <@Eidolos> how'd he like his gift? :)
+[00:00:23] < arcanehl> reading it now, or at least was
+[00:00:26] <@Eidolos> \o/
+[00:01:00] <@Eidolos> midnight!
+[00:02:07] <@toft> 4.1 MB/s is not my money's worth for this damn router
+[00:02:07] < arcanehl> local transfer?
+[00:02:07] <@toft> yeah
+[00:02:07] < arcanehl> wired?
+[00:02:07] <@toft> its also saturating my /normal/ bandwidth, which is annoying
+[00:02:07] <@toft> yup
+[00:02:07] < arcanehl> lame
+[00:02:07] < arcanehl> though, is this scp?
+[00:02:07] <@toft> yes it is, good point
+[00:02:08] < arcanehl> what cipher?
+[00:02:18] < arcanehl> that means xkcd!
+[00:02:20] <@toft> I don't know
+[00:02:26] < arcanehl> blowfish is faster
+[00:02:27] <@toft> standard? heh
+[00:02:28] < arcanehl> -c blowfish
+[00:02:38] < arcanehl> (don't bother now)
+[00:02:40] <@toft> yeah :)
+[00:03:37] <@Eidolos> \o/
+[00:03:58] <@Eidolos> ok, well, I'm in the 1&1 control panel, let's figger this out
+[00:03:59] < arcanehl> 502MB memory? hah!
+[00:04:06] <@toft> arcanehl: on my other machine :P
+[00:05:08] < arcanehl> this top is hard to read ;\
+[00:05:15] <@toft> i don't have the fancy one yet
+[00:05:34] < arcanehl> 2G total?
+[00:05:37] <@toft> yeah
+[00:05:41] <@toft> dunno why its all used up!
+[00:05:50] < arcanehl> finally, fusion invented in my game
+[00:05:55] < arcanehl> not that I can afford it ;(
+[00:06:20] < arcanehl> well
+[00:06:26] < arcanehl> unused memory is wasted memory
+[00:06:43] < arcanehl> a lot of it was inactive anyway
+[00:06:47] <@toft> yeah true
+[00:06:50] <@toft> about 900 megs
+[00:06:55] <@toft> Eidolos: as root
+[00:07:04] <@Eidolos> you're a hawk :)
+[00:07:10] <@toft> i just spied it, heh
+[00:07:26] <@toft> the domain thing is sort of hard to figure out.. did you get it?
+[00:07:58] <@Eidolos> yes
+[00:08:04] <@toft> i believe you go to edit dns settings, ignore the scary warning, and put your ip under the advanced dns thing
+[00:08:07] <@toft> ok :)
+[00:09:43] < arcanehl> Eidolos: let me see the config
+[00:09:50] <@Eidolos> no you haxer
+[00:09:53] < arcanehl> I've setup Apache plenty of times
+[00:10:11] < arcanehl> G
+[00:10:17] < arcanehl> now go up
+[00:10:28] <@toft> Eidolos: also fix your damn timezone
+[00:10:35] <@Eidolos> nah
+[00:10:38] <@Eidolos> UTC is good
+[00:10:40] < arcanehl> find where the Servername is
+[00:10:58] <@toft> its sites-available
+[00:12:55] <@Eidolos> no big deal
+[00:13:10] < arcanehl> this on rax's colo?
+[00:13:12] <@Eidolos> yes
+[00:13:18] < arcanehl> one server not enough?
+[00:13:21] <@Eidolos> :)
+[00:13:26] <@Eidolos> i can has root!
+[00:13:45] <@Eidolos> plus I can forkbomb to meet any challenge
+[00:14:06] < arcanehl> I'm not sure she'd like that
+[00:14:10] <@toft> does that kill a ll the other virtual machines I wonder?
+[00:14:14] <@toft> I'll leave it to you to find out :P
+[00:14:16] < arcanehl> somewhat, yes
+[00:14:29] <@toft> I don't even know how virtual machines work
+[00:14:57] <@Eidolos> run top
+[00:15:02] < arcanehl> they're sorta like these machines, but virtual
+[00:15:13] <@Eidolos> i htop :)
+[00:15:38] <@Eidolos> so different cpus? shrug
+[00:15:47] <@Eidolos> or maybe it's just sliced up so it looks like yours is idle but mine isn't
+[00:16:48] <@toft> wget > curl
+[00:17:08] <@Eidolos> but wget is so.. old feeling
+[00:17:17] <@Eidolos> curl is like "we don't take shit from nobody"
+[00:17:17] <@toft> you have to do curl -o foo address
+[00:17:21] <@toft> which is just not worth it
+[00:17:26] <@Eidolos> details details :)
+[00:18:14] <@Eidolos> It is also worth mentioning here that NetHack 3.4 is a huge program.  If you intend to run it on a small machine, you'll have to make hard choices among the options available in config.h.
+[00:18:17]  * Eidolos giggles a little
+[00:18:20] <@toft> hehe :D
+[00:19:01] <@Eidolos> it's almost not even worth it to set up nh
+[00:19:26] <@toft> it totally isn't
+[00:19:29] <@toft> dunno why you are
+[00:20:05] <@Eidolos> meh
+[00:20:07] <@Eidolos> fine :)
+[00:20:10] < arcanehl> he's obsessed with running it on every computer
+[00:20:13] <@Eidolos> I *will* get ack though
+[00:20:14] <@toft> thaha
+[00:21:24] <@toft> xkcd+++++
+[00:21:33] <@Eidolos> yeah :)
+[00:23:00] <@Eidolos> yay committing
+[00:23:16] <@Eidolos> svk is weird, I like darcs better, but at least it's not svn
+[00:25:52] <@Eidolos> toft: NOW run top :)
+[00:26:15] <@toft> its magick
+[00:26:18] <@Eidolos> ew, mysql
+[00:26:22] <@Eidolos> why? :)
+[00:26:27] <@toft> not..sure..
+[00:26:34] <@toft> i think i installed it for something and it ran automatically
+[00:26:41] <@Eidolos> :(
+[00:26:43] <@Eidolos> mysql ftl
+[00:26:46] <@toft> shrug
+[00:26:52] <@toft> you like postgres betteR?
+[00:26:54] <@Eidolos> how long did it take for your domain name to resolve?
+[00:26:56] <@Eidolos> yes, and sqlite
+[00:26:59] <@toft> a while
+[00:27:06] <@toft> just forget about it; it'll be there by morning
+[00:27:10]  * Eidolos nods
+[00:27:23] <@toft> also it took longer on my home machine
+[00:27:55] <@toft> what is on your termcast?
+[00:28:08] <@Eidolos> svk
+[00:28:12] <@toft> weird
+[00:28:12] <@Eidolos> checking out Jifty
+[00:28:18] <@Eidolos> it just plays through all the commits
+[00:28:23] <@toft> weird
+[00:28:33] <@Eidolos> I guess
+[00:28:35] <@Eidolos> but it works :)
+[00:28:37] <@toft> :)
+[00:28:48] <@Eidolos> darcs does too, it just doesn't show you each commit
+[00:28:56] <@toft> yeah
+[00:29:21] <@Eidolos> so, gonna start putting your code online for the world to see? :)
+[00:29:27] <@toft> soon enough
+[00:29:29] <@Eidolos> \o/
+[00:29:55] <@toft> first I want to offload everything from my desktop since I won't be keeping it on at college
+[00:30:01] <@Eidolos> ahh
+[00:30:06] <@Eidolos> ohh
+[00:30:09] <@Eidolos> did you just get a macbook?
+[00:30:13] <@toft> yeah
+[00:30:15] <@Eidolos> :)
+[00:30:19] <@toft> i told you that
+[00:30:20] <@toft> its hawt
+[00:30:20] <@Eidolos> suddenly it's all clear
+[00:30:26] <@Eidolos> you know I don't pay much attention
+[00:30:29] <@Eidolos> I'm getting one too \o/
+[00:30:34] <@toft> hehe
+[00:30:35] <@Eidolos> except, for free!
+[00:30:36] <@toft> nice! what variety?
+[00:30:37] <@toft> !!
+[00:30:39] <@toft> >_<
+[00:30:50] <@Eidolos> dunno yet, we're gonna pick one out when the other interns go back to school
+[00:30:55] <@toft> awesome
+[00:30:59] <@Eidolos> I know!
+[00:31:30] <@toft> also I'm taking a trip in the time machine
+[00:31:36] <@Eidolos> :)
+[00:31:42] <@toft> I used to play around with povray like, 6 years ago or something
+[00:32:00] <@Eidolos> was wondering what you were up to
+[00:44:47] <@toft> damn roms
+[00:45:11] <@Eidolos> toft: sudo make installdeps
+[00:45:11] <@Eidolos> :)
+[00:45:18] <@toft> ?
+[00:45:28] <@toft> oh, for interhack? neta
+[00:45:34] <@Eidolos> for any Module::Install installer
+[00:45:41] <@toft> uah
+[00:45:42] <@Eidolos> and maybe most CPAN modules in general
+[00:47:17] <@toft> Eidolos: could you edit something in vim for me?
+[00:47:22] <@Eidolos> sure
+[00:47:29] <@toft> checking if urxvt works properly
+[00:47:32] <@Eidolos> we could use the ~ command to bring up an Interhack console \o/
+[00:47:42] <@toft> something with syntax
+[00:47:59] <@toft> excellente
+[00:48:00] <@toft> thank you
+[00:48:07] <@Eidolos> using the trillion color version?
+[00:48:11] <@toft> nah
+[00:48:24] <@toft> Terminal.app choked on vim stuff over termcast before
+[00:48:29] <@Eidolos> oo
+[00:48:51] <@toft> whooa
+[00:48:55] <@toft> saw that ascii art?
+[00:48:56] <@toft> hehe
+[00:49:00] <@Eidolos> weird :)
+[00:50:01] <@toft> anyway my employer bought all these imacs for me to install, so i did.. it turns out they all respond to one apple remote signal
+[00:50:29] <@toft> so it was an Awesome sight to see them all pull up the sexy front row interface with a touch of a button
+[00:50:33] <@Eidolos> :)
+[00:50:36] <@toft> with the neat noise
+[00:50:41] <@toft> its really like hollywoodOS
+[00:52:58] <@toft> wow there are a lot of super mario hacks
+[00:53:00] <@Eidolos> that's a lotta SMW
+[00:53:07] <@toft> >_>
+[00:53:17] <@Eidolos> probably all crap cept for TLC
+[00:53:22] <@toft> yup
+[00:53:27] <@Eidolos> must be on NES games :)
+[00:53:35] <@toft> yup
+[00:53:38] <@toft> the tiny ones
+[00:53:43] <@Eidolos> aye
+[00:53:43] <@toft> that are 7zipped
+[00:54:56] <@Eidolos> that reminds me
+[00:55:01] <@Eidolos> I have to check up on the giant tit p
+[00:55:06] <@toft> hehe
+[00:55:13] <@toft> what's up with him getting sick eh?
+[00:55:18] <@toft> need more comics
+[00:56:02]  * Eidolos nods
+[00:56:24] <@toft> I dislike this prestructured mac home folder business
+[00:56:31] <@toft> but I'm deathly afraid to fuck with it
+[00:56:52]  * Eidolos wonders how the heck you test Time::HiRes
+[00:57:00] <@toft> heh
+[00:57:05] <@toft> good question
+[00:59:19] <@Eidolos> All modules are up to date for /.*/
+[00:59:20] <@Eidolos> \o/
+[00:59:45] <@toft> ohyeah I used to try to write objective c stuff ro so x
+[00:59:49] <@toft> for os x
+[01:00:09] <@toft> xcode is weeeird
+[01:00:13] < arcanehl> Eidolos: with Time::HigherRes
+[01:01:30] <@toft> omg
+[01:01:32] <@toft> this is sweet
+[01:01:47] <@toft> bahah
+[01:07:01] <@Eidolos> let's hope the sendmail actually works
+[01:07:16] <@Eidolos> if not I'll have to write a Jifty plugin for accounts sans email addresses :)
+[01:07:36] <@toft> heh
+[01:07:58] <@toft> I just stumbled across this cocoa/applescript abomination I wrote once upon a very long time ago
+[01:08:12] <@toft> it patches into iChat and spams people with random generated shit
+[01:08:12] <@toft> XD
+[01:09:04] <@Eidolos> like Eidolos
+[01:09:26] <@toft> applescript is ridiculous
+[01:09:39] <@toft> "tell application "iChat" to set everyAccount to name of every account whose status is not equal to offline
+[01:09:43] <@toft> hahah
+[01:10:54] <@toft> oh boy
+[01:11:07] <@toft> tell application "iChat" to send "In A.D. 2101" to account Recipient
+[01:11:12] <@toft> it goes on.. mehehe
+[01:11:50] <@Eidolos> mee hee
+[01:12:28] <@Eidolos> put stuff on your wobsite!
+[01:12:33] <@toft> eventually
+[01:12:34] <@Eidolos> check out Template::Declare
+[01:12:41] <@toft> what's it do?
+[01:12:43] <@Eidolos> s'a Perl module
+[01:12:47] <@toft> ..declares stuff
+[01:12:47] <@Eidolos> really nice HTML generation
+[01:12:50] <@Eidolos> written by my boss
+[01:12:51] <@toft> cool
+[01:12:53] <@toft> :D
+[01:13:03] <@Eidolos> html {
+[01:13:05] <@Eidolos>     body {
+[01:13:11] <@Eidolos>         h1 { "foo" };
+[01:13:15] <@Eidolos>     };
+[01:13:15] <@Eidolos> };
+[01:13:29] <@Eidolos> 1) an HTML syntax error is a Perl syntax error, caught at compile time
+[01:13:33] <@Eidolos> 2) they're all closures
+[01:13:36] <@Eidolos> 3) mixins and inheritance
+[01:13:37] <@Eidolos> :)
+[01:13:45] <@toft> neato
+[01:13:56] <@Eidolos> ol { map { li { $_ } } @items };
+[01:14:09] <@toft> too leet for meee
+[01:14:30] <@Eidolos> it's a lot nicer than writing actual HTML, let me tell ya :)
+[01:14:36] <@Eidolos> it handles all the quoting too! woo
+[01:14:40] <@toft> writing HTML is the worst thing ever
+[01:14:57]  * Eidolos nods lots
+[01:15:51] < arcanehl> not worst, but definitely tedious
+[01:20:01] <@Eidolos> writing HTML is for silly sausages
+[01:20:14] <@toft> titular tufted titmouses
+[01:49:05] <@Eidolos> why does sendmail always go into /usr/sbin ?
+[01:52:56] <@Eidolos> raxvulpine: any idea how to get sendmail to work? I get "error when closing pipe to /usr/sbin/sendmail: No child processes" (feel free to escalate this one ;))
+[01:55:12] <@Eidolos> oh hey, it worked, but got filtered as spam. good enough, I guess
+[04:03:04] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[07:07:03] < raxvulpine> Eidolos: I use exim, personally.
+[07:34:01] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[07:34:10] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:20:28] -!- ekiMbo is now known as ekiM
+[09:32:12] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[09:32:21] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:34:21] -!- ekiMbo is now known as ekiM
+[10:34:46] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:45:56] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[12:26:17] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[12:43:04] <@Eidolos> sartak.org works, yay
+[12:47:41] < billnye> ooga?
+[13:25:46] < raxvulpine> Is that machine sartak.org now?
+[13:26:42] <@Eidolos> yes
+[13:29:52] < billnye> virtually.
+[13:30:10] < raxvulpine> Awesome.
+[14:40:45] <@doy> arcanehl: could you unblock 75.11.158.128 from darcs?
+[14:42:49] < arcanehl> what're you guys doing to trigger it..
+[14:43:00] <@Eidolos> darcs pull might be really inefficient
+[14:43:09] < arcanehl> but does it use ssh?
+[14:43:15] <@doy> scp
+[14:43:18] <@doy> so yeah
+[14:43:26] <@Eidolos> it can use http, but you can't push over http
+[14:43:40] < arcanehl> but it shouldn't be connecting multiple times
+[14:43:47] < arcanehl> it would go much much slower
+[14:43:53]  * Eidolos nods
+[14:44:01] < arcanehl> the problem might be the push/pull
+[14:44:09] < arcanehl> (or vice versa)
+[14:44:11] <@doy> i just pulled
+[14:44:17] <@doy> after not touching it for weeks
+[14:44:45] < billnye> shake it more than twice, you're playing with yourself.
+[15:28:07] <@doy> hmmm
+[15:28:16] <@doy> or is the issue that i can't access katron at all
+[15:28:20] <@doy> why would this be
+[15:28:30] <@Eidolos> b7'd
+[15:28:30] <@doy> i'm blocked from http access too
+[15:28:50] < arcanehl> -b7'd
+[15:28:52] < arcanehl> again
+[15:28:56] <@doy> there it goes
+[15:29:10] < arcanehl> the ban only triggers for ssh
+[15:29:44] < arcanehl> but it is server wide
+[15:36:00] <@doy> hmmm, i think it was just my internet dying
+[15:36:12] < arcanehl> I futzed with the rule a bit
+[15:36:27] <@doy> well, my internet also died at the same time
+[15:36:34] <@doy> so... we'll never know!
+[15:36:34] <@doy> (:
+[15:36:41] < arcanehl> oh, it was all your fault, yes
+[15:36:47] < arcanehl> but I futzed with the rule after that ;)
+[15:36:50] <@doy> (:
+[17:40:21] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[17:55:57] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[17:56:31] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[17:57:23] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Client Quit]
+[23:35:28] -!- alexbobp [n=alex@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack

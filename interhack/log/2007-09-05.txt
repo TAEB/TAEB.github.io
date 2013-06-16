@@ -1,0 +1,26 @@
+[00:53:30] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[01:02:02] -!- shachaf [n=shachaf@66.17.178.31] has quit [Read error: 113 (No route to host)]
+[01:18:38] -!- alexbob1 is now known as alexbobp
+[03:03:40] < alexbobp> It's been quiet in here
+[03:03:47] <@Eidolos> yeah
+[03:03:58] <@Eidolos> we've been busy in #python
+[03:04:14] < alexbobp> trolling?  I thought you dislike python.
+[03:04:20] <@Eidolos> O:)
+[04:11:56] -!- shachaf [n=shachaf@66.17.178.31] has joined #interhack
+[08:39:34] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:42:49] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[09:43:10] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:38:55] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[10:39:04] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:41:21] -!- ekiMbo is now known as ekiM
+[12:57:13] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[16:47:50] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[16:47:59] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[16:48:15] -!- ekiMbo is now known as ekiM
+[19:27:08] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has joined #interhack
+[21:19:53] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[21:20:02] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:49:16] -!- ekiMbo is now known as ekiM
+[22:33:44] -!- doy is now known as doy2
+[22:34:03] -!- doy2 is now known as doy
+[22:34:20] -!- stumbly [n=wlngnut@dialup-4.246.36.120.Dial1.SanJose1.Level3.net] has joined #interhack

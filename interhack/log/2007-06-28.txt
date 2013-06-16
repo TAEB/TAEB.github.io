@@ -1,0 +1,61 @@
+[00:13:59] -!- Netsplit anthony.freenode.net <-> irc.freenode.net quits: jilles
+[00:14:31] -!- Netsplit over, joins: jilles
+[05:36:19] -!- ekiM [n=Mike@217.41.227.236] has joined #interhack
+[05:49:06] -!- Netsplit anthony.freenode.net <-> irc.freenode.net quits: @toft
+[05:49:10] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[05:49:12] -!- mode/#interhack [+o toft_] by ChanServ
+[06:14:15] -!- ekiMbo [n=Mike@217.41.227.236] has joined #interhack
+[06:14:32] -!- ekiM [n=Mike@217.41.227.236] has quit [Nick collision from services.]
+[06:14:34] -!- ekiMbo is now known as ekiM
+[06:39:14] -!- mancubus [n=mbs@DLink3.Asvt.ru] has joined #interhack
+[06:52:10] -!- toft_ is now known as toft
+[07:27:20] -!- ekiM [n=Mike@217.41.227.236] has quit [Read error: 110 (Connection timed out)]
+[07:38:14] -!- ekiM [n=Mike@217.41.227.236] has joined #interhack
+[09:28:37] -!- mancubus [n=mbs@DLink3.Asvt.ru] has quit [Remote closed the connection]
+[09:51:24] -!- ekiM [n=Mike@217.41.227.236] has quit [Read error: 104 (Connection reset by peer)]
+[10:17:41] -!- ekiM [n=Mike@217.41.227.236] has joined #interhack
+[11:31:00] -!- ekiMbo [n=Mike@217.41.227.236] has joined #interhack
+[11:35:55] -!- ekiM [n=Mike@217.41.227.236] has quit [Nick collision from services.]
+[11:35:59] -!- ekiMbo is now known as ekiM
+[11:37:11] -!- ekiMbo [n=Mike@217.41.227.236] has joined #interhack
+[11:37:25] -!- ekiM [n=Mike@217.41.227.236] has quit [Nick collision from services.]
+[11:37:29] -!- ekiMbo is now known as ekiM
+[11:57:25] -!- Netsplit anthony.freenode.net <-> irc.freenode.net quits: jilles
+[11:59:27] -!- Netsplit over, joins: jilles
+[13:01:45] -!- ekiM [n=Mike@217.41.227.236] has quit [Connection timed out]
+[13:08:30] -!- ekiM [n=Mike@217.41.227.236] has joined #interhack
+[14:21:32] -!- ekiMbo [n=Mike@217.41.227.236] has joined #interhack
+[14:31:21] -!- ekiM [n=Mike@217.41.227.236] has quit [Nick collision from services.]
+[14:31:22] -!- ekiMbo is now known as ekiM
+[15:03:13] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 104 (Connection reset by peer)]
+[15:06:29] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[15:06:29] -!- mode/#interhack [+o toft_] by ChanServ
+[15:35:41] -!- ekiMbo [n=Mike@217.41.227.236] has joined #interhack
+[15:36:27] -!- ekiM [n=Mike@217.41.227.236] has quit [Nick collision from services.]
+[15:36:29] -!- ekiMbo is now known as ekiM
+[16:31:44] -!- ekiMbo [n=Mike@217.41.227.236] has joined #interhack
+[16:32:20] -!- ekiM [n=Mike@217.41.227.236] has quit [Nick collision from services.]
+[16:32:22] -!- ekiMbo is now known as ekiM
+[17:12:18] -!- ekiM [n=Mike@217.41.227.236] has quit [Connection timed out]
+[20:57:36] <@Eidolos> should never color smoky as crap
+[22:02:33] <@Eidolos> color qr/scrolls? labeled [A-Z ]+/ as green
+[22:02:44] <@Eidolos> [A-Z9 ] :)
+[22:03:35] <@Eidolos> I'll just use Hiveminder
+[22:04:09] <@doy> we have a TODO file
+[22:04:23] <@Eidolos> yes but these are so easy they should just skip the TODO file
+[22:04:32] <@Eidolos> and arguably we should be using something like Hiveminder instead of the TODO :)
+[22:04:42] <@Eidolos> corporate seekrit: I'm adding AIM support to Hiveminder
+[22:04:45] <@Eidolos> it's *sexily* convenient
+[22:22:17] <@Eidolos> haha
+[22:22:28] <@Eidolos> name a pet #eval
+[22:27:12] <@Eidolos> pushed
+[22:37:38] <@doy> ?
+[22:55:02] <@Eidolos> #eval is too insecure
+[22:55:18] <@doy> obviously
+[22:55:50] <@Eidolos> I figured we could solve it just by making sure we correctly detect when the user is playing
+[22:55:58] <@Eidolos> but pet names put the kibosh on that
+[22:56:04] <@Eidolos> especially \eful petnames
+[22:58:06] <@doy> what did you push?
+[22:58:36] <@Eidolos> labeled scrolls and making smoky never crappy
+[22:58:40] <@Eidolos> at least if smoky is in the name
+[22:58:54] <@Eidolos> oh hm, there is one place where it doesn't work, lemme fix

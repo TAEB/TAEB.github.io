@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Interhack - FAQ</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+ </head>
+ <body>
+  <div id="header">
+   <h1>Interhack</h1>
+   <h2>FAQ</h2>
+   <hr />
+  </div>
+  <div id="content">
+   <ol>
+    <li>
+     <a href="#cheating">Isn&#39;t this <b>CHEATING</b>?
+     </a>
+    </li>
+    <li>
+     <a href="#feelbad">Doesn&#39;t that make you feel bad?</a>
+    </li>
+    <li>
+     <a href="#how">How does it work?</a>
+    </li>
+    <li>
+     <a href="#why">Why would I want to use Interhack?</a>
+    </li>
+    <li>
+     <a href="#windows">How do I get it to work on Windows?</a>
+    </li>
+    <li>
+     <a href="#versions">What is this with all the versions?</a>
+    </li>
+    <li>
+     <a href="#devnull">Will it work in the devnull tournament?</a>
+    </li>
+    <li>
+     <a href="#why-interhack">Why the name &#39;Interhack&#39;?</a>
+    </li>
+    <li>
+     <a href="#dec">DEC graphics seem to not work</a>
+    </li>
+    <li>
+     <a href="#automatic">Interhack should <i>automatically</i> do X
+     </a>
+    </li>
+   </ol>
+   <hr />
+   <h3 id="cheating">1. Isn&#39;t this <b>CHEATING</b>?
+   </h3>
+   <p>Yes. It is.</p>
+   <hr />
+   <h3 id="feelbad">2. Doesn&#39;t that make you feel bad?</h3>
+   <p>Not particularly. We&#39;re in this to have fun.</p>
+   <p>Interhack just lets us play quicker. We don&#39;t need to consult spoilers, review ttyrecs, or slowly punch in keys to make sure we don&#39;t fatfinger.</p>
+   <p>Besides, we really like hacking on it.</p>
+   <p>If you feel uncomfortable using it, then don&#39;t use it. :&#41;</p>
+   <hr />
+   <h3 id="how">3. How does it work?</h3>
+   <p>It&#39;s just a very specialized telnet client. It connects to nethack.alt.org &#40;or your server of choice&#41; and waits for keypresses from you and input from the server. It just does a little Perl-style processing before forwarding that text to where it needs to go.</p>
+   <p>If you want a more detailed response, visit the <a href="development.html">development</a> page.
+   </p>
+   <hr />
+   <h3 id="why">4. Why would I want to use Interhack?</h3>
+   <p>Does anything on the <a href="plugins.html">plugins</a> page interest you?
+   </p>
+   <p>If so, then you&#39;re probably a &#40;future&#41; Interhack addict.</p>
+   <hr />
+   <h3 id="windows">5. How do I get it to work on Windows?</h3>
+   <p>Though Interhack was developed on and for UNIX systems, it can still work on Windows. It&#39;s a lot more annoying to install, requiring some sort of UNIX emulation layer. We recommend <a href="http://portableubuntu.demonccc.com.ar/">Portable Ubuntu</a>. Here are full installation instructions, provided by Lukano.
+   </p>
+   <ol>
+    <li>Download and install Portable Ubuntu.</li>
+    <li>Run Synaptic to get your installation up to date.</li>
+    <li>Fire up a terminal.</li>
+    <li>
+     <tt>sudo apt-get install darcs</tt>
+    </li>
+    <li>
+     <tt>sudo cpan -i Bundle::CPAN</tt>
+    </li>
+    <li>
+     <tt>darcs get http://interhack.us/trunk interhack</tt>
+    </li>
+    <li>
+     <tt>cd interhack</tt>
+    </li>
+    <li>
+     <tt>less README</tt> and follow the regular Interhack instructions.
+    </li>
+   </ol>
+   <p>If you&#39;re having trouble getting CPAN to connect to the internet, you may need to run 
+    <tt>sudo cpan</tt> then in that new shell, <tt>o conf init connect_to_internet_ok</tt> answer yes, then type 
+    <tt>o conf commit</tt> &#40;thanks PoopBridge&#41;
+   </p>
+   <p>More fool-proof instructions including Interhack setup would be appreciated. :&#41;</p>
+   <hr />
+   <h3 id="versions">6. What is this with all the versions?</h3>
+   <p><a href="versions.html">This one has its own page.</a>
+   </p>
+   <hr />
+   <h3 id="devnull">7. Will it work in the devnull tournament?</h3>
+   <p>Yes! Put the following line into your config file:</p>
+   <pre>server &#39;ih_server&#39;;</pre>
+   <p>Then when you start Interhack you should see something like the following:</p>
+   <pre>Waiting for a connection on port 9999. at ih-server.pl line 32.
+A client has connected. at ih-server.pl line 34.</pre>
+   <p>.. and then your usual shell prompt. What Interhack did was start a new shell. All the features of Interhack are available in this shell.</p>
+   <p>If you want to play with Interhack offline on a local copy of NetHack, just type <tt>nethack</tt> and off you go.
+   </p>
+   <p>To play in devnull, you can connect to a server almost as usual: <tt>ssh -t yourname@nethack1.devnull.net</tt>
+   </p>
+   <p><b>NOTE:</b> The <tt>-t</tt> option to <tt>ssh</tt> is necessary due to there being several layers of indirection.
+   </p>
+   <p>We&#39;re not sure if the devnull admins will be upset with us for this program. If they say &#39;no Interhack&#39; then please listen to them. The developers will. So far they have said nothing.</p>
+   <p>&#40;Interhack is perfectly fine in the June tourney! It better be, considering the admin of the June tourney is the primary Interhack developer :&#41;&#41;</p>
+   <hr />
+   <h3 id="why-interhack">8. Why the name &#39;Interhack&#39;?</h3>
+   <p>Interhack got its name from how it works -- by sitting between you and NetHack.</p>
+   <p>I was unaware of the &#40;defunct&#41; Interhack project for multiplayer when I came up with the name.</p>
+   <p>I did try to come up with a new name &#40;especially because interhack.org was taken&#41; but not only was I overruled by the other two developers, but I couldn&#39;t come up with anything better. :&#41;</p>
+   <p>As anyone who knows me would attest, I&#39;m a stickler for capitalization. Please don&#39;t call it InterHack. &#40;interhack is quite acceptable though&#41;. On that note, it&#39;s <i>never</i> spelled Nethack!
+   </p>
+   <hr />
+   <h3 id="dec">9. DEC graphics seem to not work</h3>
+   <p>Interhack doesn&#39;t officially support DEC graphics, due to how they work. Interhack just assumes that the only magical characters in the output are the escape codes &#40;which tell the cursor to move around, and change text color, etc&#41;. You can still play with DEC on and it will mostly work, but every now and then you&#39;ll get a &#40;usually nasty&#41; display error. Just hit ctrl-R to redraw the screen and all should be well again.</p>
+   <p>IBM graphics should work fine, because they work differently.</p>
+   <hr />
+   <h3 id="automatic">10. Interhack should <i>automatically</i> do X
+   </h3>
+   <p>My philosophy for Interhack is it should not do things <i>automatically</i> for you. This means things like automatically applying potions to test for oil, or automatically engraving with new wands to identify them.
+   </p>
+   <p>This is mostly because I don&#39;t trust my code. What if Interhack is <b>wrong</b> about what it thinks of the world? It wouldn&#39;t be difficult to find some case that Interhack handles poorly, especially if you play differently.
+   </p>
+   <p>Furthermore, Interhack will never be able to judge whether one action is more important than another. Say you&#39;re evading a master mind flayer. Do you really think that engrave-IDing a wand is more important than taking another step? Interhack wouldn&#39;t know any better.</p>
+  </div>
+  <div id="footer">
+   <hr />
+   <div id="gentime">Last generated at Tue Apr 21 19:52:17 2009.</div>
+  </div>
+ </body>
+</html>

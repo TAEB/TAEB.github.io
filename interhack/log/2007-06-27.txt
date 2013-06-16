@@ -1,0 +1,75 @@
+[01:05:54] -!- toft_ is now known as toft
+[01:53:12] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[01:57:16] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Client Quit]
+[03:29:07] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[03:34:04] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+--- Log closed Wed Jun 27 05:39:16 2007
+[05:47:28] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[05:47:28] -!- Irssi: #interhack: Total of 6 nicks [2 ops, 0 halfops, 0 voices, 4 normal]
+[05:47:28] -!- mode/#interhack [+o Eidolos] by ChanServ
+[05:48:38] -!- Irssi: Join to #interhack was synced in 72 secs
+[06:39:05] -!- astfgl [n=foobar@sevpie.cs.bris.ac.uk] has joined #interhack
+[06:44:48] -!- astfgl is now known as ekiM
+[08:04:24] < ekiM> some command that facilitates splitting stacks of water into individually named stacks
+[08:04:39] < ekiM> splitting up 22 stacks of water to make sure conf B?oRC works is.. tedious
+[08:04:45] < ekiM> uh, a stack of 22
+[08:04:49] < ekiM> and then remerging, ugh
+[09:49:38] <@Eidolos> hm
+[11:40:53] -!- ekiM [n=foobar@sevpie.cs.bris.ac.uk] has quit [Remote closed the connection]
+[12:55:44] -!- ekiM [n=Mike@217.41.234.128] has joined #interhack
+[14:49:44] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[15:20:29] <@Eidolos> hi zubin
+[15:20:39] < zubin> Hey Eider!
+[15:20:45] <@Eidolos> how are things?
+[15:20:49] < zubin> nao ate my pyec.
+[15:20:54] < zubin> (nom nom nom)
+[15:20:58] <@Eidolos> heh
+[15:21:04] < zubin> It totally did!
+[15:21:07] < raxvulpine> Ate your PYEC?
+[15:21:17] < zubin> Hey rax! Grats on your decaconduct
+[15:21:21] < raxvulpine> Thanks :)
+[15:21:52] < zubin> Yeah, I was putting things into a boh, and belatedly realized while watching the --More--'s slip by that I'd accidentally put all of my tools into the bag
+[15:22:02] < zubin> One of my tools was a sack with a /Cancel in it
+[15:22:07] < zubin> Oh shit, thought I, and d/c'ed
+[15:22:14] < zubin> (Cause I'm a lousy cheater)
+[15:22:21] < zubin> When I reconnected, everything seemed fine
+[15:22:22] <@Eidolos> ew :)
+[15:22:29] < zubin> Until I later discovered that I had no PYEC.
+[15:22:40] < raxvulpine> Whoah _weird_
+[15:22:42] < zubin> Checking the ttyrecs, I found that the PYEC was being placed into the boh when I d/c
+[15:22:44] <@Eidolos> good, cheater!
+[15:22:46] < raxvulpine> Hah!
+[15:22:47] < zubin> heh
+[15:22:50] < raxvulpine> Well that's better than it could be, I guess.
+[15:23:05] < zubin> But when I returned, it was neither in the bag nor in inv. Yes! It might have been the Bell of Opening
+[15:23:34] < zubin> So I muddled through without it, and did OK. I got flayed into oblivion, but luckily succeeded (as a L30 tou) in writing a +oID
+[15:23:58] < raxvulpine> Wow.
+[15:24:08] < zubin> I was slightly handicapped in that I'd relied on the PYEC enough to discard most wands, and didn't have any charging afterwards, but it turned out not to be a big deal.
+[15:24:36] < zubin> Had to melee Rodney twice near the planes, but he was a big wuss.
+[15:24:44] < raxvulpine> Rodney isn't _that_ bad.
+[15:24:46] < raxvulpine> Just annoying.
+[15:24:53] < zubin> This is fun, I've missed intelligent conversation about nethack :)
+[15:25:01] < zubin> I keep almost rejoining ##n-e
+[15:25:06] < zubin> heh
+[15:25:23] <@Eidolos> do it! :)
+[15:25:39] < raxvulpine> It's a shame that people are so adamant about mashing on people's discomfort buttons.
+[15:25:41] < zubin> I was worried about the riders, but I had jumping, and guessed right on the first altar. I just jumped right past ol' Pesty.
+[15:25:50] < raxvulpine> Jumping is _so awesome_
+[15:25:57] < zubin> Man, I am so sold on it
+[15:26:26] <@Eidolos> yaa
+[15:26:26] < zubin> I'd never given it a second thought until ##n-e folks brought it up
+[15:26:41] < zubin> It's like speed... on speed.
+[16:30:28] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[17:40:38] -!- ekiMbo [n=Mike@217.41.234.128] has joined #interhack
+[17:41:24] -!- ekiM [n=Mike@217.41.234.128] has quit [Nick collision from services.]
+[17:41:26] -!- ekiMbo is now known as ekiM
+[18:01:35] -!- ekiMbo [n=Mike@217.41.234.128] has joined #interhack
+[18:06:40] -!- ekiM [n=Mike@217.41.234.128] has quit [Nick collision from services.]
+[18:06:41] -!- ekiMbo is now known as ekiM
+[18:40:56] -!- ekiM [n=Mike@217.41.234.128] has quit [Read error: 110 (Connection timed out)]
+[19:43:25] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[22:09:53] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 104 (Connection reset by peer)]
+[22:09:58] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[22:09:58] -!- mode/#interhack [+o toft_] by ChanServ
+[23:07:55] -!- toft_ is now known as toft
+[23:43:39] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []

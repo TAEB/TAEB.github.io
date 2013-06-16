@@ -1,0 +1,392 @@
+[10:24:35] -!- ekiMbo [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[10:25:17] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Nick collision from services.]
+[10:25:19] -!- ekiMbo is now known as ekiM
+[11:26:11] < Zawk> any plans to disentangle interhack from NAO?
+[11:27:54] <@Eidolos> already done, somewhat
+[11:28:04] <@Eidolos> server 'sporkhack.nineball.org';
+[11:28:06] <@Eidolos> in your config
+[11:28:19] <@Eidolos> maybe $server = 'sporkhack.nineball.org';
+[11:28:21] < Zawk> yea, but there's still the RC file
+[11:28:26] <@Eidolos> meh
+[11:28:31] <@Eidolos> patches welcome
+[11:28:33] <@Eidolos> >_>
+[11:28:34] < Zawk> heh
+[11:29:18] < raxvulpine> Will you disentangle it for November?
+[11:29:38] <@Eidolos> yes
+[11:30:09] < Zawk> I think this is a case of "Can't be Arsed Right Now"
+[11:30:40] <@Eidolos> well
+[11:30:56] <@Eidolos> what is it that's broken? local rc edit?
+[11:31:28] < Zawk> it's just line 739 of interhack.pl
+[11:31:54] <@Eidolos> make it an option
+[12:50:40] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[12:55:20] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[13:03:06] -!- ekiMbo [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[13:16:33] -!- ekiM [n=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[14:11:28] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[14:28:36] -!- ekiMbo [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Connection timed out]
+[18:25:07] <@Eidolos> Module::Refresh
+[18:25:26] <@Eidolos> pretty sexy
+[19:16:08] <@doy> ?
+[19:20:54] <@Eidolos> lets you reload modules
+[19:21:04] <@Eidolos> I should.. ahem.. redesign Interhack :)
+[19:21:12] <@Eidolos> so that such things are not only possible, but automatic
+[20:28:01] <@doy> hmmm
+[20:34:34] <@doy> it's sending extra characters or something
+[20:35:20] <@doy> hmmm
+[20:35:26] <@doy> we are hardcoding in nao telnet responses
+[20:35:33] <@Eidolos> yep
+[20:35:38] <@doy> really we just need to modularize the server code a lot
+[20:35:49] <@Eidolos> that's arguably the only modular piece :)
+[20:35:57] <@Eidolos> (socket code anyway)
+[20:36:16] <@doy> nah, i mean connection information
+[20:42:38] <@Eidolos> lemme hack out a new plugin interface so we can have reloadable plugins and _state_
+[20:42:54] <@Eidolos> and inheritance
+[20:42:55] <@doy> i'm getting server information abstracted out at the moment
+[20:42:58] <@Eidolos> ok
+[20:43:22] <@Eidolos> these changes will be a good 2.0 milestone
+[20:44:04] <@Eidolos> we also need to rework the config
+[20:44:24] <@Eidolos> I no longer like loading everything and then explicitly blacklisting plugins
+[20:44:44] <@doy> i didn't like it to begin with(:
+[20:44:56] <@Eidolos> http://search.cpan.org/~stevan/Moose-0.24/lib/Moose.pm btw
+[20:44:56] <@Eidolos> nod
+[20:45:12] <@Eidolos> it was good from a KISS perspective
+[20:45:20] <@doy> yeah
+[20:48:23] <@Eidolos> by the way
+[20:48:27] <@Eidolos> I'm moving the repo slightly
+[20:48:36] <@Eidolos> it's now trunk/interhack instead of just interhack
+[20:48:39] <@doy> okay
+[20:48:39] <@Eidolos> er
+[20:48:42] <@Eidolos> interhack/trunk :)
+[20:48:45] <@doy> yeah
+[20:49:09] <@Eidolos> ugh, acl
+[20:49:21] <@doy> watching me on termcast?
+[20:49:32] <@Eidolos> nope, will now
+[20:49:37] <@Eidolos> I'll open a termcast up too
+[20:49:42] <@doy> can i do this better?
+[20:49:51] <@Eidolos> yes
+[20:49:52] <@doy> i don't know how the array context stuff works that well
+[20:49:54] <@Eidolos> my $new_server = @_
+[20:49:56] <@Eidolos> is wrong :)
+[20:50:03] <@doy> oh, with ()
+[20:50:10] <@Eidolos> that means "$new_server gets the number of arguments"
+[20:50:12] <@Eidolos> yes, that's fine
+[20:50:16] <@Eidolos> also my $new_server = shift
+[20:50:23] <@Eidolos> either works
+[20:50:48] <@Eidolos> sometimes you want to keep @_ intact for, say, wrappers
+[20:50:52] <@doy> also, should i be using $ there?
+[20:51:03] <@doy> if it's a hash
+[20:51:08] <@Eidolos> and sometimes you want to destructively update @_ so you can use "whatever's left in @_" afterwards
+[20:51:11] <@Eidolos> hmm
+[20:51:12] <@doy> like is that correct
+[20:51:21] <@Eidolos> which line are you asking about?
+[20:51:24] <@Eidolos> that is fine
+[20:51:25] <@doy> the highlighted one
+[20:51:32] <@doy> it will just get a ref?
+[20:51:38] <@doy> and it will just work?
+[20:51:42] <@Eidolos> oh, I see what the problem is
+[20:51:48] <@Eidolos> our %servers = {...};
+[20:51:51] <@Eidolos> you want to use
+[20:51:53] <@Eidolos> our %servers = (...);
+[20:52:03] <@doy> well, there's no problem yet
+[20:52:03] <@doy> (:
+[20:52:04] <@Eidolos> {...} constructs an anonymous hash
+[20:52:12] <@doy> i'm just wondering in general
+[20:52:18] <@doy> i haven't actually run anything
+[20:52:22] <@Eidolos> there will be, you'll get a complaint about odd-number of elements in a hash, I bet
+[20:52:40] <@Eidolos> you also have a few too many braces :)
+[20:52:43] <@doy> same here?
+[20:52:51] <@Eidolos> here's what it should look like
+[20:52:54] <@doy> braces where?
+[20:52:55] <@Eidolos> our %servers = (
+[20:52:59] <@Eidolos>    nao => { ... },
+[20:53:03] <@Eidolos>    sporkhack => { ... },
+[20:53:03] <@Eidolos> );
+[20:53:10] <@doy> isn't that what i have?
+[20:53:20] <@Eidolos> I see a bunch more, hit ^L?
+[20:53:30] <@Eidolos> yes, it was a display error, heh
+[20:53:32] <@doy> aha
+[20:53:33] <@doy> (:
+[20:53:33] <@Eidolos> looks fine now
+[20:53:51] <@Eidolos> this page all looks fine
+[20:53:58] <@doy> and then i use $server->{server} to access things?
+[20:54:06] <@Eidolos> no, $servers{nao} is correct
+[20:54:10] <@doy> no, later
+[20:54:14] <@Eidolos> oh
+[20:54:15] <@Eidolos> yes :D
+[20:54:17] <@doy> when i want 'nethack.alt.org'
+[20:54:18] <@doy> okay
+[20:54:27] <@Eidolos> sorry, I'm off in my own little world
+[20:54:34] <@doy> (:
+[20:55:17] <@doy> is there a regex flag to make it match everything literally?
+[20:55:22] <@Eidolos> \Q...\E
+[20:55:25] <@doy> okay
+[20:55:26] <@Eidolos> are you 80x24?
+[20:55:29] <@doy> yeah
+[20:55:37] <@Eidolos> bizarre that it's screwing up the display so much
+[20:56:16] <@doy> yeah, not sure what's up
+[20:56:21] <@Eidolos> I'm up on termcast now
+[20:56:28] <@doy> hmmm, that's really odd
+[20:57:37] <@doy> has termcast changed recently?
+[20:57:42] <@doy> do i need to update ttrtail?
+[20:57:43] <@Eidolos> not to my knowledge
+[21:01:21] <@Eidolos> anything else you want in my wishlist?
+[21:01:28] <@doy> probably
+[21:01:29] <@doy> (:
+[21:01:34] <@Eidolos> heh
+[21:01:37] <@Eidolos> ok then!
+[21:01:45] <@doy> i'll update it if i think of things
+[21:01:50] <@Eidolos> nod
+[21:02:06] <@doy> i'm moving around the .interhack directory to make certain things per server
+[21:02:09] <@doy> just so you know
+[21:02:16] <@Eidolos> s'all good
+[21:02:24] <@Eidolos> I'm not going to be touching the core Interhack code for a while
+[21:06:24] <@doy> Eidolos: what's wrong with this line?
+[21:06:38] <@Eidolos> looks fine
+[21:06:42] <@doy> syntax error at ./interhack.pl line 613, near "<$ENV{HOME}/.interhack/servers/$server->{server"
+[21:06:47] <@Eidolos> oh
+[21:06:59]  * Eidolos ponders
+[21:07:16] <@Eidolos> for (glob("$ENV{HOME}/.interhack/servers/$server->{server}/passwords/*"))
+[21:07:27] <@Eidolos> shame on me for actually using <...> as glob :)
+[21:08:24] <@doy> Eidolos: watching your termcast is messed up in similar ways
+[21:08:38] <@Eidolos> I'm watching it myself, looks fine
+[21:08:42] <@doy> hmmm
+[21:08:51] <@Eidolos> can I watch you watching me? ;)
+[21:09:18] <@doy> scroll up and down
+[21:09:42] <@doy> do you see the corruption?
+[21:09:45] <@doy> doy_eid
+[21:09:48] <@doy> on termcast
+[21:09:48] <@Eidolos> ya
+[21:10:05] <@Eidolos> problem is moving up
+[21:10:08] <@doy> yeah
+[21:10:13] <@Eidolos> annoying
+[21:10:20] <@Eidolos> urxvt in screen?
+[21:11:23] <@doy> doy_eid isn't in screen
+[21:11:29] <@Eidolos> put im in it
+[21:11:30] <@doy> problem is the same either way
+[21:11:35] <@Eidolos> oh
+[21:11:36] <@Eidolos> :(
+[21:14:42] < arcanehl> oh wow, look at all of the termcasts
+[21:14:51] <@doy> crazy
+[21:15:08] < arcanehl> of course, there's really only two
+[21:18:41] <@Eidolos> so yeah, check out what plugins will look like: http://darcs.katron.org/~sartak/interhack/branches/uber-plugins/wishlist.pl
+[21:19:02] <@Eidolos> the only part of that that isn't implemented is the 'saved' attributes
+[21:19:08] <@Eidolos> but I'm sure Moose lets you add them
+[21:20:09] < arcanehl> what're you adding to interhack?
+[21:20:15] <@Eidolos> a real plugin system
+[21:20:28] < arcanehl> oooo
+[21:20:34] < arcanehl> you mean you're working on R4?
+[21:20:44] <@Eidolos> no..
+[21:20:47] <@Eidolos> I2!
+[21:25:20] <@Eidolos>   subtype 'NaturalLessThanTen' 
+[21:25:20] <@Eidolos>       => as 'Natural'
+[21:25:20] <@Eidolos>       => where { $_ < 10 }
+[21:25:21] <@Eidolos>       => message { "This number ($_) is not less than ten!" };
+[21:25:22] <@Eidolos> :D
+[21:25:27] <@Eidolos> Moose is nice.
+[21:26:59] <@doy> Eidolos: how did i break password hiding
+[21:27:12] <@doy> does this regex look right?
+[21:28:10] <@Eidolos> yes
+[21:28:22] <@Eidolos> maybe you want to anchor it though?
+[21:28:28] <@Eidolos> er, no, you don't :)
+[21:28:30] <@doy> it wasn't anchored before
+[21:28:50] <@Eidolos> what does telnet_connected look like?
+[21:28:51] <@doy> how does this work, anyway
+[21:29:04] <@Eidolos> oh
+[21:29:05] <@Eidolos> heh
+[21:29:09] <@Eidolos> you want 'logged_in'
+[21:29:32] <@doy> it was using /zaphod\.alt\.org/ before
+[21:29:41] <@Eidolos> it wasn't perfect before!
+[21:29:44] <@doy> (:
+[21:29:52] <@doy> but it at least did something
+[21:29:53] <@doy> hmmm
+[21:29:55] <@doy> i'll try it
+[21:30:40] <@doy> like this?
+[21:30:46] <@Eidolos> no
+[21:30:53] <@Eidolos> /Logged in as:/
+[21:30:54] <@Eidolos> or something
+[21:30:58] <@doy> ah, okay
+[21:31:06] <@Eidolos> you also want to print $_ afterwards so we still see the login screen
+[21:31:08] <@doy> hmmm
+[21:31:10] <@doy> yeah
+[21:31:17] <@doy> hmmm
+[21:31:33] <@doy> if it requires multiple loops, that won't work though
+[21:32:02] <@Eidolos> I don't follow
+[21:32:16] <@Eidolos> until(...) is while(not ...)
+[21:32:19] <@doy> right
+[21:32:32] <@doy> so if it gets text in one loop iteration that doesn't match
+[21:32:36] <@doy> and then gets more that does
+[21:32:44] <@Eidolos> ohhh
+[21:32:45] <@doy> the first iteration's text gets lost
+[21:32:47] <@Eidolos> ok
+[21:32:54] <@Eidolos> that's fine IMO
+[21:32:59] <@Eidolos> you can also just print $_
+[21:33:15] <@Eidolos> newline :)
+[21:33:19] <@Eidolos> new line that is
+[21:33:19] <@doy> so what is this doing, anyway
+[21:33:25] <@Eidolos> while (1)
+[21:33:25] <@Eidolos> {
+[21:33:31] <@doy> how is this hiding the password
+[21:33:31] <@Eidolos>   next unless defined(recv..)
+[21:33:44] <@Eidolos>   last if /Logged in as/
+[21:33:53] <@doy> what echos the password, anyway
+[21:34:03] <@Eidolos> nao echoes it back
+[21:34:07] <@Eidolos> er
+[21:34:11] <@Eidolos> I don't even know :)
+[21:34:16] <@Eidolos> it shouldn't be echoing it back
+[21:34:19] <@doy> yeah
+[21:34:22] <@Eidolos> maybe it's a telnet negotiation thing we didn't do
+[21:34:34] <@Eidolos> all I know is with that in place I never saw my password on screen
+[21:34:35] <@doy> would be sweet if we could fix the actual problem
+[21:34:35] <@doy> (:
+[21:34:44] <@Eidolos> patches welcome! >_>
+[21:34:54] <@Eidolos> I'm going to work on the plugin system because that's more interesting and IMO more useful :)
+[21:34:58] <@doy> (:
+[21:41:02] <@doy> hmmm, it appears that nao is echoing it back
+[21:41:09] <@doy> and this appears to work
+[21:41:15] <@doy> i don't see any reason why
+[21:41:34] <@doy> if i print $_ every iteration, it prints the telnet negotiation, and echos the username and pass
+[21:42:38] <@Eidolos> our script is supposed to pay attention to telnet negotiation
+[21:42:39] <@doy> but there's no reason that the whole login screen has to be in one packet, or that you can't receive more than just the logged in screen in just one packet
+[21:42:44] <@Eidolos> and not echo back when we get DONT ECHO
+[21:43:21] <@Eidolos> you could stop recving when you match /\n$pass\n/ or something
+[21:43:39] <@Eidolos> just make sure it's strict enough that it won't trigger on "zaphod.alt.org" or something :)
+[21:43:53] <@doy> yeah, i'd prefer not to do that, for that reason
+[21:44:08] <@Eidolos> aye
+[21:46:55] <@doy> Eidolos: and how does it prevent echoing on DONT ECHO?
+[21:47:10] <@Eidolos> how does Interhack? it doesn't
+[21:47:33] <@Eidolos> how does NAO know we're not echoing? it doesn't, it's just like "hey if you know what's good for you quit echoing for a tick"
+[21:48:00] <@doy> oh, 'is supposed to' means 'you should write the code' rather than 'the code for that is broken'
+[21:48:20] <@Eidolos> yeah
+[21:48:58] <@doy> how do i change the echo mode?
+[21:50:34] <@Eidolos> uhhh :)
+[21:50:39] <@Eidolos> you avoid printing
+[21:50:59] <@doy> but... we don't
+[21:52:03] <@Eidolos> we're supposed to
+[21:52:12] <@Eidolos> remember how it doesn't work? right, that. :)
+[21:52:13] <@doy> no, we don't print things
+[21:52:17] <@doy> well
+[21:52:17] <@doy> hmmm
+[21:52:22] <@doy> oh, i see what you're saying
+[22:20:49] <@doy> Eidolos: so, should the connection start in noecho mode?
+[22:20:59] <@Eidolos> hmm, sure
+[22:21:08] <@doy> because we are sending all of the negotiation stuff
+[22:21:13] <@doy> hmmm
+[22:21:31] <@doy> strange, i don't think that stuff gets echoed
+[22:21:45] <@Eidolos> NAO sends it back at us
+[22:21:50] <@Eidolos> afaik
+[22:21:56] <@doy> i've never seen 'xterm-color' in the output
+[22:22:10] <@Eidolos> oh right
+[22:22:20] <@doy> the stuff after the telnet negotiation?
+[22:22:20] <@Eidolos> that's because you don't echo on telnet negotiation
+[22:22:33] <@Eidolos> s/on//
+[22:22:41] <@doy> but how is that implemented here?
+[22:23:02] <@Eidolos> that's just sending a bunch of telnet options to NAO.. what?
+[22:23:10]  * Eidolos is confused about your confusion :)
+[22:23:25] <@doy> so nao is echoing back the login/password to us, but not echoing back our telnet stuff
+[22:23:30] <@Eidolos> correct
+[22:23:32] <@doy> is that what you're saying?
+[22:23:32] <@doy> okay
+[22:23:39] <@Eidolos> you'd echo only the protocols on top of telnet
+[22:23:50] <@Eidolos> things would get confusing if you echo'd telnet :)
+[22:23:53] <@Eidolos> DONT ECHO
+[22:23:54] <@Eidolos> DONT ECHO
+[22:23:54] <@Eidolos> DONT ECHO
+[22:23:54] <@Eidolos> DONT ECHO
+[22:23:55] <@Eidolos> DONT ECHO
+[22:24:06] <@doy> but it is sending 'don't echo' commands before passwords and stuff
+[22:24:11] <@Eidolos> right
+[22:24:14] <@doy> okay
+[22:24:36] <@doy> is there anything else besides echo commands that we should be handling specially?
+[22:25:00] <@Eidolos> nothing I can think of
+[22:25:16] <@doy> also, what's the difference between $IAC$DO$ECHO and $IAC$WILL$ECHO?
+[22:25:23] <@Eidolos> do echo is a command
+[22:25:27] <@Eidolos> will echo is a statement
+[22:25:39] <@Eidolos> (will echo can also be a question)
+[22:25:50] <@Eidolos> one person sends DO or DONT, the other person sends back WILL or WONT
+[22:25:53] <@Eidolos> or vice versa
+[22:25:57] <@doy> okay
+[22:26:49] <@doy> so nao will send DONT ECHO and we respond with WONT ECHO then?
+[22:27:06] <@Eidolos> right
+[22:45:16] <@Eidolos> doy: $_ = shift is baad :)
+[22:45:33] <@doy> i had that feeling, but eh
+[22:45:34] <@doy> (:
+[22:45:37] <@doy> why?
+[22:45:39] <@Eidolos> local $_ = shift
+[22:45:40] <@Eidolos> is fine
+[22:45:55] <@Eidolos> know the difference between lexical and dynamic scope?
+[22:46:15] <@doy> yeah, didn't know $_ was subject to those rules though
+[22:46:15] <@doy> (:
+[22:46:26] <@Eidolos> yep. $_ is global
+[22:46:32] <@Eidolos> all the punctuation vars are
+[22:47:01] <@Eidolos> about once a month I expect $_ to be closed over and I get burned :)
+[22:47:48] <@doy> (:
+[22:50:38] <@Eidolos> I wonder how I should serialize data to disk
+[22:50:59] <@Eidolos> SQLite is overkill
+[22:51:07] <@Eidolos> something plaintext would be ideal, like YAML
+[22:51:42] <@doy> sqlite is fun(:
+[22:51:46] <@doy> hmmm
+[22:52:07] <@Eidolos> agreed
+[22:52:10] <@Eidolos> but overkill! :)
+[22:57:52] <@Eidolos> /foo/ && last works fine
+[22:58:06] <@Eidolos> though I imagine it won't remain like do {last;}; :)
+[23:00:25] <@doy> indeed
+[23:00:26] <@doy> (:
+[23:00:38] <@doy> i'm just following an example online
+[23:00:43] <@doy> for a switch statement
+[23:00:48] <@Eidolos> nod
+[23:14:33] <@doy> Eidolos: does this look reasonable?
+[23:14:51] <@Eidolos> "$ECHO" :)
+[23:15:23] <@doy> heh
+[23:15:29] <@Eidolos> your /$SB/ case is broken
+[23:15:38] <@Eidolos> I think the second $` wants to be a $'
+[23:15:49] <@doy> oh, stupid
+[23:15:58] <@doy> it wants to be the old $`
+[23:16:03] <@Eidolos> yeah you're using $` in a lot of places
+[23:16:06] <@doy> yeah
+[23:16:10] <@doy> hmmm
+[23:16:20] <@Eidolos> you just have them reversed
+[23:16:33] <@doy> i guess $` =~ blah doesn't really make sense if blah is a substitution
+[23:16:46] <@Eidolos> true
+[23:17:06] <@Eidolos> ok
+[23:17:11] <@Eidolos> $` is "before" $' is "after"
+[23:17:20] <@doy> wait, really?
+[23:17:21] <@Eidolos> you have themn reversed everywhere except where you just fixed
+[23:17:22] <@Eidolos> yes
+[23:17:39] <@doy> i thought they pointed in the obvious direction
+[23:17:53] <@Eidolos> `&'
+[23:17:53] <@Eidolos> :)
+[23:18:03] <@doy> aha
+[23:18:34] <@doy> that's the problem with doing things that make sense... it's possible for things to make sense in several different ways
+[23:18:37] <@doy> (:
+[23:18:45] <@Eidolos> aye
+[23:19:02] <@doy> hmmm
+[23:19:03] <@doy> actually
+[23:19:08] <@doy> these are all broken too
+[23:19:18] <@doy> because i'm doing another match for the switch itself
+[23:19:23] <@Eidolos> yep
+[23:19:37] <@Eidolos> just write a proper parser
+[23:19:41] <@doy> bah!
+[23:19:45] <@Eidolos> go through the input one char at a time
+[23:19:53] <@doy> lame
+[23:19:56] <@doy> (:
+[23:20:00] <@doy> this should be fine
+[23:20:02] <@Eidolos> you're the one who wants noecho support!
+[23:20:08] <@doy> it's not that hard
+[23:20:09] <@Eidolos> have fun debugging! :)
+[23:20:18] <@doy> as long as i get the regexes correct
+[23:26:21] <@doy> does $' update on failed matches?
+[23:26:40] <@Eidolos> dunno! :)
+[23:27:04] <@Eidolos> nope
+[23:27:25] <@Eidolos> there's actually an idiom for what you want, hold on
+[23:28:41]  * Eidolos ponders
+[23:31:48] <@Eidolos> http://paste.husk.org/8674
+[23:31:58] <@Eidolos> sickeningly untestewd
+[23:32:40] <@Eidolos> maybe it's a start, shrug :)
+[23:55:38] <@Eidolos> [23:48:52] < Sartak> how difficult would it be to add new attribute options?
+[23:55:38] <@Eidolos> [23:49:26] < Sartak> for my app, I'd like to be able to mark each attribute as 'make this persistent by serializing to disk'
+[23:55:38] <@Eidolos> [23:49:32] < Sartak> rather, the attributes that apply
+[23:55:38] <@Eidolos> [23:51:30] <@perigrin> not that bad, you'd need to make a new attribute metaclass
+[23:55:38] <@Eidolos> [23:51:34] <@perigrin> there are examples in the repo
+[23:55:39] <@Eidolos> :)
+[23:55:58] <@doy> go for it!
+[23:56:21] <@Eidolos> I sure am

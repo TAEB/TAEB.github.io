@@ -1,0 +1,110 @@
+[10:53:41] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[10:53:41] -!- Irssi: #interhack: Total of 10 nicks [3 ops, 0 halfops, 0 voices, 7 normal]
+[10:53:41] -!- mode/#interhack [+o Eidolos] by ChanServ
+[10:53:41] -!- Irssi: Join to #interhack was synced in 0 secs
+[11:53:13] -!- greqrg [n=greqrg@ip-66-80-171-57.atl.megapath.net] has joined #interhack
+[13:12:27] < greqrg> I almost have interhack working.
+[13:14:31] <@Eidolos> what's wrong?
+[13:15:00] < greqrg> How do you set up the password folder?
+[13:15:27] <@Eidolos> mkdir -p ~/.interhack/passwords
+[13:15:40] <@Eidolos> echo 'mypass' > ~/.interhack/passwords/greqrg
+[13:19:11] < greqrg> I'm getting this error:
+[13:19:26] < greqrg> oh, one moment
+[13:19:49] <@Eidolos> that's a weird error message ):)
+[13:22:10] < greqrg> "Can't open ~/.interhack/passwords/: No such file or directory at interhack.pl line 360."
+[13:22:18] <@Eidolos> ok
+[13:22:21] <@Eidolos> hm
+[13:22:37] <@Eidolos> sorry to make you do this but
+[13:22:40] <@Eidolos> open up interhack.pl
+[13:22:43] <@Eidolos> go to line 360 or so
+[13:22:50] <@Eidolos> and replace the ~ with $ENV{HOME}
+[13:22:51] <@Eidolos> :)
+[13:23:32] <@Eidolos> if the string with it is surrounded by single quotes
+[13:23:36] <@Eidolos> you'll haave to change them with double quotes
+[13:25:27] < greqrg> Nah, I fixed it.
+[13:25:53] < greqrg> It was looking for .interhack, but my windows folder is just interhack
+[13:26:05] < greqrg> So I made another folder, .interhack/passwords
+[13:26:13] < greqrg> Windows' fault
+[13:26:13] <@Eidolos> right
+[13:26:28] <@Eidolos> wait
+[13:26:33] <@Eidolos> are you not using cygwin?
+[13:26:41] < greqrg> I am using cygwin.
+[13:26:45] <@Eidolos> ok
+[13:27:41] < greqrg> Also, darcs didn't grab some tourist/shirt patch
+[13:29:18] <@Eidolos> huh
+[13:29:20] <@Eidolos> :)
+[13:34:29] < jasonmay> I haven't used cygwin in ages
+[13:34:33] < jasonmay> is it still being updated?
+[13:36:33] < greqrg> interhack doesn't seem to be working.
+[13:36:50] <@Eidolos> did you steal someone's config/
+[13:36:55] < greqrg> Yes.
+[13:37:03] <@Eidolos> ok well
+[13:37:25] <@Eidolos> I can't diagnose atm
+[13:37:56] < greqrg> k, I'll just screw around with it
+[13:41:15] <@Eidolos> type #rest
+[13:41:32] <@Eidolos> do you get unknown ext cmd?
+[13:41:41] < greqrg> I did with #geno
+[13:42:06] <@Eidolos> #geno is a plugin, #rest is built in
+[13:42:17] < greqrg> Oh, #rest does work.
+[13:42:29] <@Eidolos> so it's probabaly not finding plugins
+[13:42:45] <@Eidolos> are you running interhack in the interhack dir?
+[13:45:11] < greqrg> Oops.
+[13:45:42] <@Eidolos> that's a requirement for now
+[13:45:55] <@Eidolos> unless you copy all the plugins into your .interhack/plugin dir
+[13:46:05] < greqrg> Yea, it wasn't in the new .interhack I just made for passwords
+[13:46:20] <@Eidolos> nod
+[13:46:28] <@Eidolos> that plugin dir is empty by default
+[13:47:11] < greqrg> How long should the perl interhack.pl take to run once in the right directory?
+[13:47:27] < greqrg> Nevermind.
+[13:48:16] <@Eidolos> that's another bug
+[13:48:16] <@Eidolos> :)
+[13:48:22] <@Eidolos> it should start up very quickly
+[13:48:23] <@Eidolos> but
+[13:48:31] <@Eidolos> we're a little too strict on the initial input
+[13:48:40] <@Eidolos> we try our hardest to never let the password be displayed
+[13:48:46] <@Eidolos> since we play on termcast
+[13:49:34] < greqrg> Groovy, it's working.
+[13:49:46] <@Eidolos> noice
+[13:50:18] < greqrg> I need to set up configs now, but it works.  Thanks for the help!
+[13:50:35] < greqrg> I'm surprised on the progress I made alone.
+[13:50:40] <@Eidolos> :)
+[13:50:59] <@Eidolos> did you use the README or duke it out yourself?
+[13:52:09] < greqrg> The readme, but having no prior knowledge of unix, linux, or cygwin, it was difficult.
+[13:52:57] <@Eidolos> nod
+[13:53:05] <@Eidolos> anything in particular unclear?
+[13:53:17] < greqrg> The problem was cygwin didn't recognize darcs.
+[13:53:20] < greqrg> So I did the initial darcs get with the windows command prompt
+[13:53:23] < greqrg> big mistake
+[13:53:26] <@Eidolos> ahh
+[13:54:07] < greqrg> No, everything was perfectly clear once I knew what I was doing.
+[13:54:16] <@Eidolos> cool
+[13:57:03] < greqrg> This is a real convenience.
+[13:57:17] < greqrg> So where is the "hit tab to ascend." prompt?  :)
+[13:58:24] <@Eidolos> :)
+[14:01:43] < arcanehl> on the todo list
+[14:06:46] < jasonmay> judging by all the people having problems, your interhack thing doesn't appear to be too user-friendly
+[14:07:33] <@doy> well, we don't have an installer, no
+[14:07:57] <@doy> and the problems are mostly for people using cygwin
+[14:08:00] <@Eidolos> plus there's no real incentive to make the install easy when there are still low hanging fruit for functionality
+[14:08:02] <@doy> none of us do
+[14:08:31] <@doy> if some cygwin user wants to send in patches that make it easier to install/use/whatever...
+[14:08:34] <@doy> (:
+[14:08:39] <@Eidolos> :)
+[14:08:47] <@Eidolos> stumbly had something but he never used darcs send
+[14:09:02] <@doy> oh, yeah, windows doesn't like : in filenames
+[14:09:08] < greqrg> Personally, I feel that it was easy to set up.
+[15:12:57] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[15:20:29] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit ["leaving"]
+[19:36:36] <@doy> idea: elbereth protection - toggle with #fight, and it will catch all movement commands and prefix them with an F
+[19:36:47] <@doy> there are some issues with that, but could be useful
+[20:31:50] <@Eidolos> go for it :)
+[21:04:31] < arcanehl> can add in #pacifist too!
+[21:23:07] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 110 (Connection timed out)]
+[21:57:18] <@Eidolos> someone needs to fix price iding water
+[22:32:54] < greqrg> I just ran into that bug.
+[22:33:01] <@Eidolos> s/rope golem/rape golem/g?
+[22:33:02] <@Eidolos> :)
+[22:35:38] <@Eidolos> hmm
+[22:35:40] <@Eidolos> leocrotta
+[22:35:42] <@Eidolos> mumakrotta
+[22:35:54] <@Eidolos> mumakrota works

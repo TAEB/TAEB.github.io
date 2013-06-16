@@ -1,0 +1,40 @@
+[01:27:47] -!- ek|M [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[01:44:56] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Connection timed out]
+[02:50:02] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[03:00:45] -!- ek|M [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[05:52:49] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[06:25:34] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:10:00] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has quit [Remote closed the connection]
+[11:10:06] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+[12:20:35]  * Eidolos works on two new plugins for 1.x
+[12:30:03] <@Eidolos> #rest could very much be an entire plugin
+[12:30:25] <@Eidolos> whereas it needs to be implemented within the core in 1.x :)
+[12:33:07] <@Eidolos> sweet
+[12:33:19] <@Eidolos> heh
+[12:33:36] <@Eidolos> not quite perfect but better than it was
+[12:35:46] <@Eidolos> Izchak offers 5 gold pieces for your oil lamp.  Sell it? [ynaq] (y) 
+[12:35:47] <@Eidolos> Press tab to really sell, any other key to cancel! 
+[12:35:56] <@Eidolos> this only force-tabs if you hit space or enter
+[13:55:57] <@Eidolos> trying to get it so you can hold ^A to wrest a directional wand
+[13:56:10] <@Eidolos> but I don't think it'll work
+[13:56:16] <@Eidolos> it may work sometimes, if you're slow
+[13:56:25] <@Eidolos> let me try that
+[13:57:02] <@Eidolos> yep
+[13:57:21] <@Eidolos> nope.. :)
+[14:30:39] <@Eidolos> wonder why confirm_eat isn't being serialized. grrar
+[14:53:38] <@Eidolos> I think I just got a commit bit on Moose :)
+[14:53:56] <@Eidolos> (I figured out why confirm_eat didn't work, serializing false values is broken)
+[19:12:18] < arcanehl> why not have a #wrest
+[19:25:08] <@Eidolos> shrug
+[19:25:09] <@Eidolos> maybe
+--- Log closed Sat Aug 04 20:42:09 2007
+[20:42:14] -!- Eidolos_ [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[20:42:14] -!- Irssi: #interhack: Total of 10 nicks [3 ops, 0 halfops, 0 voices, 7 normal]
+[20:43:20] -!- Irssi: Join to #interhack was synced in 68 secs
+[20:52:59] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[20:57:28] -!- You're now known as Eidolos
+[22:36:10] < Eidolos> http://poe.perl.org/?POE_Cookbook/Child_Processes hah
+[22:36:21] < Eidolos> This sample program, however, is much simpler than all that. It manages a single [nethack] session, piping user input to the child process and child output back to the user's terminal. It also adds a little value to the game. Check out the comments!
+[22:36:32] < Eidolos> we could use it for Interhack I suppose, but too late :)
+[22:36:38] < Eidolos> (doesn't give us much anyway)
+[23:58:58] -!- alexbobp [n=alex@189.147.76.39] has joined #interhack

@@ -1,0 +1,61 @@
+[00:15:38] <@Eidolos> doy: the concept of tying is practically identical to Lua's idea of metatables
+[00:16:12] <@Eidolos> tying lets you run code when a regular variable is interacted with
+[00:16:42] <@Eidolos> see http://search.cpan.org/~sartak/Tie-Scalar-Random-0.01/lib/Tie/Scalar/Random.pm
+[00:16:55] <@Eidolos> http://search.cpan.org/src/SARTAK/Tie-Scalar-Random-0.01/lib/Tie/Scalar/Random.pm as well :)
+[01:38:21] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Remote closed the connection]
+[01:39:01] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[06:20:07] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has quit [Read error: 110 (Connection timed out)]
+[06:55:33] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has joined #interhack
+[07:13:45] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has quit [Read error: 110 (Connection timed out)]
+[07:22:25] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[14:24:19] -!- lhadie [n=asdf@adsl-68-125-110-97.dsl.scrm01.pacbell.net] has joined #interhack
+[14:48:01] <@Eidolos> doy: I'll be able to test IO::Pty::Easy on my macbook this afternoon
+[14:48:27] <@doy> okay
+[14:48:47] <@doy> i should be available after 3:30
+[17:51:02] <@Eidolos> so mac os x's macports (a package manager) seems a lot like gentoo's portage
+[17:51:18] <@Eidolos> probably no accident either :P
+[18:05:46] < billnye> erm
+[18:05:55] < billnye> that's because they're both based on BSD ports ;)
+[18:06:10] < billnye> macports a little more directly descended, I'm sure
+[18:18:55] <@Eidolos> yep
+[18:30:06] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[18:30:29] -!- alexbobp [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[18:34:23] -!- alexbob1 [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[18:34:30] -!- alexbobp [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[18:35:10] -!- alexbob1 is now known as alexbobp
+[18:36:03] -!- alexbobp [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[18:36:12] -!- alexbobp [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[20:57:37] -!- alexbobp [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[21:16:46] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[21:18:41]  * Eidolos installs IO::Pty::Easy from CPAN
+[21:21:29] <@Eidolos> undefined-program is taking an awfully long time
+[21:22:17] <@doy> yeah, that's supposedly where it hangs
+[21:22:24] <@doy> and i don't know why
+[21:23:16] <@Eidolos> well
+[21:23:32] <@Eidolos> come up with a version of IO::Pty::Easy that has a lot of debugging statements
+[21:23:35] <@Eidolos> and I'll try it
+[21:25:01] <@Eidolos> read-write passes fine
+[21:30:51]  * doy adds lots of debugging
+[21:31:49] <@Eidolos> :)
+[21:32:08] <@Eidolos> unless you get it to me in ~20 minutes it'll have to wait until I get home
+[21:32:15] <@doy> yeah, almost done
+[21:32:36] < arcanehl> you should get a data plan for your cellphone!
+[21:33:21] <@Eidolos> ooh. I think macports wants me to build ghc
+[21:33:28] <@Eidolos> I guess I'll have to wait on getting darcs :)
+[21:35:44] <@Eidolos> just send me a make dist tarball
+[21:35:59] <@doy> eh, i'll just send you the updated .pm
+[21:36:19] <@Eidolos> ok
+[21:37:23] <@doy> http://tozt.jjaro.net/Easy.pm
+[21:37:36] <@doy> i just stuck warns all over the place
+[21:37:47] <@doy> i don't know how that interacts with eval
+[21:38:01] <@doy> you might have to unwrap the spawn call in 004-*.t
+[21:48:53] <@Eidolos> http://paste.husk.org/8959
+[21:50:45] <@doy> so... now it doesn't hang?
+[21:50:54] <@Eidolos> it does sometimes
+[21:51:08] <@doy> what does it look like when it does hang?
+[21:52:24] <@Eidolos> http://paste.husk.org/8960
+[21:54:05] <@doy> it hangs there?
+[21:54:11] <@doy> that's 003
+[21:54:15] <@doy> hmmm
+[23:52:52] <@Eidolos> it's obviously nondeterministic
+[23:52:59] <@Eidolos> suggestive of a race condition

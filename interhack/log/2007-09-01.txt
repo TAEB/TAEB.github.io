@@ -1,0 +1,15 @@
+[00:49:50] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[06:39:36] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[06:41:10] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has joined #interhack
+[07:06:26] -!- SteamMachine [n=lestat@CPE-124-190-162-61.vic.bigpond.net.au] has joined #interhack
+[07:15:07] -!- SteamMachine [n=lestat@CPE-124-190-162-61.vic.bigpond.net.au] has left #interhack ["Konversation terminated!"]
+[15:53:22] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[18:00:44] -!- alexbobp [n=alex@w-mob101-128-62-86-224.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[19:13:27] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[20:02:54] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[20:03:56] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:21:05] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[22:26:57] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:28:45] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Client Quit]
+[23:42:30] -!- alexbobp [n=alex@cpe-66-68-153-5.austin.res.rr.com] has joined #interhack
+[23:57:51] -!- alexbobp [n=alex@cpe-66-68-153-5.austin.res.rr.com] has quit ["Leaving."]

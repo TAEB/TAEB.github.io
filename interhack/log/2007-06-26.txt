@@ -1,0 +1,33 @@
+[00:28:47] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[01:00:36] <@doy> also, corpse annotations don't protect against ^P
+[01:11:18] <@doy> hmmm, same with make_tab
+[01:11:21] <@doy> which is more annoying
+[01:37:20] < arcanehl> it's a travesty
+[09:02:44] <@Eidolos> they should! don't they use the top row only?
+[09:09:09] <@doy> ^P can use the top row too
+[10:25:43] -!- astfgl [n=foobar@sevpie.cs.bris.ac.uk] has joined #interhack
+[10:43:42] -!- astfgl is now known as ekiM
+[10:44:28] <@Eidolos> oh, on second or third pages
+[10:44:33] <@Eidolos> not such a big deal :)
+[10:47:13] <@doy> it's annoying when i skip to the second page and then it makes me press tab d:
+[10:47:21] <@Eidolos> yeah
+[10:47:48] <@doy> should just be able to test of the botl is being displayed
+[10:48:04] <@Eidolos> sounds good!
+[10:48:24] <@Eidolos> can you modify the appropriate plugin to say whether it's fully displayed?
+[10:48:34] <@Eidolos> botl.pl I guess
+[10:49:21] <@doy> $show_botl
+[10:49:22] <@doy> ?
+[10:49:28] <@doy> it should already be there
+[10:49:33] <@Eidolos> ah
+[10:49:47] <@doy> stats.pl sets it, then botl.pl checks it to see if it should be displaying it
+[10:49:59] <@doy> other things check it too
+[10:50:05] <@doy> although i don't remember what
+[10:50:06] <@Eidolos> okie
+[11:41:49] -!- ekiM [n=foobar@sevpie.cs.bris.ac.uk] has quit [Remote closed the connection]
+[14:56:23] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 104 (Connection reset by peer)]
+[14:56:28] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[14:56:29] -!- mode/#interhack [+o toft_] by ChanServ
+[14:57:45] -!- doy is now known as doy_
+[14:58:33] -!- doy_ is now known as doy
+[15:28:54] -!- You're now known as CheapZawkPipeZaw
+[15:29:29] -!- You're now known as Eidolos

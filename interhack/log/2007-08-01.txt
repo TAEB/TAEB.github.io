@@ -1,0 +1,64 @@
+[00:04:06] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[00:06:23] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit ["I can kick stuff off a planet"]
+[00:06:27] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Client Quit]
+[00:06:40] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[00:06:53] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[00:07:17] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Client Quit]
+[00:08:12] -!- ekiMbo is now known as ekiM
+[00:24:09] -!- alexbobp [n=alex@adsl-68-92-149-37.dsl.austtx.swbell.net] has left #interhack []
+[00:25:26] -!- alexbobp [n=alex@adsl-68-92-149-37.dsl.austtx.swbell.net] has joined #interhack
+[00:26:36] -!- alexbobp is now known as alexbobp_sleep
+[01:55:32] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[02:26:19] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[02:26:19] -!- mode/#interhack [+o toft_] by ChanServ
+[02:27:39] -!- toft [i=nobody@unaffiliated/crassworm] has quit [Read error: 104 (Connection reset by peer)]
+[04:54:29] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[08:16:26] -!- alexbobp_sleep [n=alex@adsl-68-92-149-37.dsl.austtx.swbell.net] has quit ["Leaving."]
+[09:29:17] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[09:30:55] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[09:30:56] -!- ekiMbo is now known as ekiM
+[10:53:55] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:09:19] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[11:25:32] <@Eidolos> I see
+[11:39:56] -!- ekiMbo is now known as ekiM
+[11:53:40] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:08:10] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[15:55:57] -!- toft_ is now known as toft
+[16:44:41] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[16:45:24] < alexbobp> Can interhack be made to set the poison intrinsic flag if you eat a poisonous corpse and don't get a message?
+[16:46:05] <@Eidolos> no
+[16:46:10] <@Eidolos> because that's nondeterministic
+[16:56:49] < alexbobp> oh
+[16:56:52] < alexbobp> never mind then.
+[16:57:02] < alexbobp> by the way, you need to make interhack better.
+[16:57:07] < alexbobp> It still can't save me from my own stupidity.
+[16:58:33] <@Eidolos> uh
+[16:58:38] <@Eidolos> sorry?
+[16:58:51] < alexbobp> it was a joke.
+[16:59:07] < alexbobp> you're an expert in ascending with weird conducts, right?
+[17:00:57] < alexbobp> How difficult/feasible would it be to ascend with your starting pet (as in, next to you on the altar when you ascend)?
+[17:03:46] <@Eidolos> people do it a lot
+[17:07:22] < alexbobp> well then how about without ever polymorphing the pet?
+[17:33:27] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[17:44:06] < arcanehl> this channel is about interhack, not weird conducts
+[17:45:33] < alexbobp> sorry
+[17:59:44] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[18:10:30] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit [Read error: 104 (Connection reset by peer)]
+[18:52:59] -!- alexbobp [n=Owner@adsl-68-92-149-37.dsl.austtx.swbell.net] has joined #interhack
+[18:55:18] -!- alexbobp [n=Owner@adsl-68-92-149-37.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[18:57:09] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[18:58:15] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[18:59:03] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[19:10:49] -!- alexbob1 [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[19:10:49] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[19:11:22] -!- alexbob1 is now known as alexbobp
+[19:34:08] -!- alexbob1 [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack
+[19:34:22] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[19:34:41] -!- alexbob1 is now known as alexbobp
+[19:36:26] -!- ekiMbo is now known as ekiM
+[21:16:03] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:16:42] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[21:16:44] -!- ekiMbo is now known as ekiM
+[21:29:31] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit ["I can kick stuff off a planet"]
+[22:48:12] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has quit [Read error: 104 (Connection reset by peer)]
+[22:48:27] -!- alexbobp [n=Owner@ppp-70-250-152-133.dsl.austtx.swbell.net] has joined #interhack

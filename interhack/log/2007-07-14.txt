@@ -1,0 +1,8 @@
+[12:27:16] -!- Eidolos [n=sartak@c-75-67-53-71.hsd1.ma.comcast.net] has joined #interhack
+[12:27:16] -!- Irssi: #interhack: Total of 8 nicks [2 ops, 0 halfops, 0 voices, 6 normal]
+[12:27:18] -!- mode/#interhack [+o Eidolos] by ChanServ
+[12:28:32] -!- Irssi: Join to #interhack was synced in 77 secs
+[15:18:35] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[16:26:36] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[20:43:10] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:38:24] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []

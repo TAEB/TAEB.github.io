@@ -1,0 +1,31 @@
+[02:13:16] <@doy> what bug is this?
+[02:20:27] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[08:54:13] <@Eidolos> doy: interhack was saying 6 hp was safe to pray
+[08:54:17] <@Eidolos> when it's 5
+[11:27:59] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has quit [Read error: 110 (Connection timed out)]
+[12:35:40] -!- jilles [i=jilles@unaffiliated/jilles] has quit ["reboot"]
+[13:44:16] -!- jilles [i=jilles@unaffiliated/jilles] has joined #interhack
+[14:42:25] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[14:48:38] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 60 (Operation timed out)]
+[14:58:14] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[15:00:14] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit [Client Quit]
+[15:00:19] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[15:00:32] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit [Remote closed the connection]
+[15:00:37] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[15:27:13] -!- Netsplit calvino.freenode.net <-> irc.freenode.net quits: @doy, zubin
+[15:27:22] -!- Netsplit over, joins: @doy, zubin
+[15:28:10] -!- Netsplit calvino.freenode.net <-> irc.freenode.net quits: ekiM
+[15:28:24] -!- Netsplit over, joins: ekiM
+[15:29:34] -!- doy [n=doy@adsl-76-199-1-111.dsl.chmpil.sbcglobal.net] has quit [Success]
+[15:39:04] -!- doy [n=doy@adsl-76-199-1-111.dsl.chmpil.sbcglobal.net] has joined #interhack
+[15:39:04] -!- mode/#interhack [+o doy] by ChanServ
+[17:52:19] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[19:39:26] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[19:53:18] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[19:54:46] -!- ekiMbo [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[20:03:41] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+[20:13:55] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[20:45:40] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:06:29] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[21:06:42] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[22:43:00] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []

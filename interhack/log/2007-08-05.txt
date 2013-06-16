@@ -1,0 +1,18 @@
+[00:00:31] -!- alexbobp [n=alex@189.147.76.39] has quit [Client Quit]
+[00:06:48] -!- alexbobp [n=alex@189.147.76.39] has joined #interhack
+[00:12:57] -!- alexbobp [n=alex@189.147.76.39] has left #interhack []
+[05:41:27] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[06:43:12] < Eidolos> so I implemented method modifiers totally outside of Moose.. :)
+[06:43:17] < Eidolos> Class::Method::Modifiers
+[06:43:20] < Eidolos> \o/
+[07:29:04] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:02:39] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:18:05] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[12:43:54] -!- ekiMbo is now known as ekiM
+[17:03:49] -!- alexbobp [n=alex@189.147.76.39] has joined #interhack
+[18:21:09] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[18:22:43] -!- alexbobp [n=alex@189.147.76.39] has quit ["Leaving."]
+[18:52:26] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:26:16] -!- mode/#interhack [+o Eidolos] by ChanServ
+[22:36:20] -!- alexbobp [n=alex@189.147.76.39] has joined #interhack
+[23:12:55] -!- alexbobp [n=alex@189.147.76.39] has left #interhack []

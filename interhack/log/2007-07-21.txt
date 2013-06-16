@@ -1,0 +1,15 @@
+[01:18:42] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[09:50:28] -!- ekiM [i=Mike@82-33-100-42.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 110 (Connection timed out)]
+[10:44:10] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[12:04:34] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[14:44:07] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[15:27:12] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[16:52:35] -!- MrKacuklav [n=mrkacukl@p54996E42.dip.t-dialin.net] has joined #interhack
+[16:52:55] < MrKacuklav> huhu
+[16:53:12] -!- MrKacuklav [n=mrkacukl@p54996E42.dip.t-dialin.net] has left #interhack []
+[17:22:25] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[19:32:31] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[20:18:45] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit []
+[21:31:11] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
+[21:39:21] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[23:28:59] < Zawk> argh. I keep on getting that DEC Bug

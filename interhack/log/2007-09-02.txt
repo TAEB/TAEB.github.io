@@ -1,0 +1,54 @@
+[00:06:31] -!- alexbobp [n=alex@cpe-66-68-153-5.austin.res.rr.com] has joined #interhack
+[02:14:00] -!- alexbobp [n=alex@cpe-66-68-153-5.austin.res.rr.com] has quit ["Leaving."]
+[03:41:50] -!- alexbobp [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[04:20:18] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[05:21:43] -!- alexbobp [n=Owner@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[05:28:01] <@doy> is that interhack code i see?
+[05:28:34] <@Eidolos> heh :)
+[05:28:42] <@Eidolos> not working on it
+[05:28:56] <@Eidolos> helping a friend learn Perl, I suggested he look at some existing Perl code before he try to write his own
+[05:29:02] <@Eidolos> and the second script was ih 0.0
+[05:30:31] <@doy> yeah, caught that much
+[05:30:34] <@doy> '$tonao'
+[05:34:01] <@Eidolos> there's my Interhack dev for the weekend!
+[05:34:06] <@Eidolos> actually though
+[05:34:10] <@Eidolos> I'm working on NetHack::Menu
+[05:34:15] <@Eidolos> or was, earlier
+[05:34:18] <@Eidolos> and Test::Curses
+[05:34:19] <@Eidolos> :)
+[05:35:16] <@Eidolos> and!
+[05:35:33] <@Eidolos> I cpanned a new module today, Term::VT102::ZeroBased
+[05:35:46] <@Eidolos> so it's practically like I've been working on Interhack
+[05:38:04] <@doy> NetHack::Menu isn't interhack related though
+[05:38:07] <@doy> d:
+[05:38:40] <@Eidolos> it might end up being useful
+[05:38:56] <@Eidolos> since I could make it alternatively not use curses and just print escape codes
+[05:39:10] <@Eidolos> so then we get real menus for Interhack
+[05:39:11] <@Eidolos> so there!
+[06:49:43] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[07:49:27] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[07:49:36] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[08:08:44] -!- ekiMbo is now known as ekiM
+[08:48:56] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[08:49:05] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[08:51:34] -!- ekiMbo is now known as ekiM
+[11:18:59] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[11:19:08] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:19:28] -!- ekiMbo is now known as ekiM
+[18:43:15] -!- lhadie [n=asdf@adsl-68-126-135-192.dsl.scrm01.pacbell.net] has joined #interhack
+[19:35:27] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[19:35:36] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:06:51] -!- ekiMbo is now known as ekiM
+[20:20:21] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[20:20:30] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:24:11] -!- ekiMbo is now known as ekiM
+[20:47:35] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[20:47:45] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:49:08] -!- ekiMbo is now known as ekiM
+[20:54:57] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[20:55:06] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:12:45] -!- ekiMbo is now known as ekiM
+[21:21:32] -!- lhadie [n=asdf@adsl-68-126-135-192.dsl.scrm01.pacbell.net] has quit []
+[21:37:27] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[21:37:36] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[21:39:46] -!- ekiMbo is now known as ekiM

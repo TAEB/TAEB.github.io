@@ -1,0 +1,477 @@
+[01:42:53] <@doy> hmmm, apparently there are other issues with the telnet code
+[01:42:55]  * doy looks
+[01:44:05] <@Eidolos> I should've just had you resolve the conflicts that this made in your code
+[01:44:50] <@doy> yeah, i'll have to look over this stuff more carefully soon
+[01:44:57] <@Eidolos> nod
+[01:45:01] <@doy> the problem here is that you were still using $self->pass
+[01:45:58] <@doy> and... you removed all of the attributes from the dgl plugin
+[01:46:00] <@doy> hmmm
+[01:46:03] <@Eidolos> heh
+[01:46:26] <@Eidolos> that's just stupidity on my part
+[01:52:38] <@doy> hmmm
+[01:52:50] <@doy> this is something that might actually be an issue
+[01:53:17] <@doy> moose let roles define new methods that other roles could then modify
+[01:53:25] <@doy> apparently calf doesn't allow that
+[01:54:04] <@Eidolos> hm
+[01:54:11] <@Eidolos> class::method::modifiers doesn't allow that
+[01:54:12] <@Eidolos> but I can fix
+[01:54:25] <@doy> this is an issue i was planning on rewriting eventually anyway, but i don't know when i'll get to that
+[01:54:37] <@Eidolos> the problem is essentially that you're defining a sub and modifying it in the same package
+[01:54:43] <@doy> yeah
+[01:54:55] <@doy> it breaks fortune and localconfig
+[01:55:15] <@Eidolos> I know how to work around that limitation.. if we have no modifiers defined and there's already a sub in place, then we know we're trying to wrap a real sub
+[01:55:25] <@doy> so just not loading those for now should be fine if it breaks other parts of how you want the modules to work
+[01:55:26] <@Eidolos> but instead we can just move the real sub off into a cache
+[01:55:46] <@Eidolos> it is something I want to support, I just haven't gotten around to coding it
+[01:55:54] <@doy> okay
+[01:56:12] <@doy> i'll just unload fortune and localconfig for now then
+[01:56:15] <@Eidolos> ok
+[01:56:27] <@Eidolos> I must say I'm not entirely happy with the DGL_* namespace
+[01:56:36] <@Eidolos> just looks ugly.. :)
+[01:56:50] <@doy> you're free to change it(:
+[01:56:51] <@Eidolos> you can have Interhack::Plugin::DGameLaunch::Config, etc
+[01:57:05] <@Eidolos> I just might!
+[01:57:07] <@doy> hmmm, that's a possibility
+[01:58:46] <@doy> also, i've given some thought about how connection configuration should be set up
+[01:58:54] <@doy> and i think that's going to be the next thing i implement
+[01:58:58] <@doy> once i get some time
+[01:59:07] <@Eidolos> ok :)
+[02:02:14] <@doy> alright, it seems to be running now, at least
+[02:03:26] <@doy> hmmm
+[02:03:41] <@Eidolos> great
+[02:03:47] <@Eidolos> can you do: prove -l t
+[02:04:02] <@doy> autologin might be broken in general, or it might be broken on very slow connections like the one i'm using now
+[02:04:07] <@doy> you should test it
+[02:04:37]  * doy points to termcast
+[02:05:31] <@Eidolos> ah
+[02:05:38] <@Eidolos> you need to get C:M:M from darcs :)
+[02:05:40] <@Eidolos> and calf too probably
+[02:05:52] <@doy> calf is from darcs
+[02:05:58] <@doy> c:m:m is 0.04
+[02:06:17] <@Eidolos> yeah
+[02:06:21] <@Eidolos> I think I released 0.05
+[02:06:23] <@Eidolos> and made further changes
+[02:06:36] <@Eidolos> yeah, that would do it
+[02:06:48] <@Eidolos> because I fixed the new "wipe out" function :)
+[02:07:55] < arcanehl> did it involve Animal?
+[02:08:16] <@Eidolos> don't grok
+[02:08:28] < arcanehl> ;(
+[02:08:35] < arcanehl> you have a deprived childhood
+[02:08:43] < arcanehl> the Muppets!
+[02:09:20] < arcanehl> and, stick to your own term on termcast
+[02:10:20] <@doy> hmmm
+[02:10:25] <@doy> i updated c:m:c
+[02:10:27] <@Eidolos> it's the only term I have open :)
+[02:10:27] <@doy> c:m:m
+[02:10:34] <@Eidolos> you need to get it from darcs probably
+[02:10:35] <@doy> and it's still broken
+[02:10:38] <@doy> meh
+[02:10:44] <@doy> i'll do that later
+[02:10:51] <@Eidolos> hm
+[02:10:55] <@doy> ...or just wait for you to release
+[02:10:56] <@doy> (:
+[02:11:07] <@Eidolos> well it's part of the package we're writing really
+[02:11:20] <@doy> for now, i'm leaving again for a while
+[02:11:23] <@Eidolos> ok
+[02:11:58] <@doy> alright, pushed to 2.0
+[02:11:59] <@Eidolos> wow
+[02:12:08] <@Eidolos> had a lot of unpushed and even unrecorded changes in CMM
+[02:12:23] <@doy> i'll read through the code sometime soon and try to make sure that other things aren't broken
+[02:12:32] <@doy> for now, see ya later
+[02:12:38] <@Eidolos> see ya, have fun with whatever :)
+[02:12:39] < arcanehl> what's Calf?
+[02:12:52] <@Eidolos> my clone of Moose
+[02:12:55] <@Eidolos> designed for Interhack
+[02:13:16] < arcanehl> ..why?
+[02:13:29] <@doy> hmmm, apparently i'm not leaving yet
+[02:13:41] <@Eidolos> Moose isn't a great fit
+[02:13:50] <@Eidolos> runtime plugins cause a lot of problems
+[02:13:54] < arcanehl> so you needed something smaller
+[02:14:13] <@Eidolos> we don't actually use a lot of Moose
+[02:14:51] < arcanehl> so literally and figuratively smaller
+[02:16:00] <@Eidolos> it looks a lot like Moose on the surface
+[02:16:10] <@Eidolos> shrug
+[02:16:14] <@doy> for what it's worth, calf is significantly faster than moose
+[02:16:19] <@Eidolos> yeah
+[02:16:25] <@Eidolos> the MOP causes slowness in Moose
+[02:16:29] <@Eidolos> that was another part of why we switched
+[02:16:35] <@Eidolos> at one point each plugin was taking like a second to add
+[02:16:39] <@Eidolos> and we have over a dozen plugins
+[02:16:51] <@Eidolos> AND we couldn't have the test suite we needed with Moose
+[02:16:53] <@Eidolos> Calf fixes all this stuff
+[02:17:01] <@Eidolos> at the cost of being implemented by a halfwit
+[02:17:31] < arcanehl> should take half the time then
+[02:24:33] <@doy> wow
+[02:24:56] < arcanehl> back already? that was quick
+[02:24:58] <@doy> http://cpantesters.perl.org/show/IO-Pty-Easy.html#IO-Pty-Easy-0.02
+[02:25:05] <@doy> 21:13 <@doy> hmmm, apparently i'm not leaving yet
+[02:25:18] < arcanehl> sheesh, no sense of humor!
+[02:25:36] < arcanehl> ouch, lot of failures
+[02:26:22] < arcanehl> well, I can test the FBSD 6.2 easily enough
+[02:26:32] <@Eidolos> #                   'Given filehandle is not a tty in clone_winsize_from, called at /usr/home/cpan/.cpanplus/5.8.8/build/IO-Pty-Easy-0.02/blib/lib/IO/Pty/Easy.pm line 137
+[02:26:38] <@Eidolos> seems that's the big one
+[02:26:42] <@doy> yeah
+[02:27:44] <@doy> that and how it's failing the 'runs subprocess in a pty'
+[02:27:52] <@doy> which i'm assuming is somewhat related
+[02:28:14] <@doy> i think there are weirdnesses about how STDIN/STDOUT are being handled here
+[02:28:47] <@doy> hmmm, the darwin/netbsd stuff might be because i'm catching the wrong signal
+[02:29:02] <@doy> the docs mentioned that some systems use SIGCLD rather than SIGCHLD
+[02:30:42] < arcanehl> it's SIGCHLD on NetBSD at least
+[02:31:43] < arcanehl> and Darwin
+[02:31:48] <@Eidolos> I'd worry most about the linux 5.8.8 ones
+[02:31:55] <@Eidolos> since those are what we're running
+[02:31:55] <@doy> hmmm, it seems like that shouldn't be an issue anyway for recent systems
+[02:32:02] <@doy> yeah
+[02:34:12] <@doy> yeah, i think i'm just making assumptions about how STDIN/STDOUT work that aren't really portable at all
+[02:39:49] <@doy> ooh, that might be it
+[02:46:41] <@doy> hmmm
+[02:46:43] < arcanehl> you know, most people write code to pass tests, not make the tests pass the code
+[02:46:51] <@doy> d:
+[02:47:19] <@doy> no, the test was wrong in this case, i think
+[02:47:50] <@doy> the read call was returning eof because the process had ended
+[02:48:07] <@doy> it wasn't picking up the output of the process
+[02:48:09] <@doy> hmmm
+[02:48:30] <@doy> actually, that probably should be fixed
+[02:48:43] <@doy> it would probably lead to issues later
+[02:49:36] <@Eidolos> can't be any worse than Carp::REPL
+[02:49:42] <@doy> (:
+[02:49:43] <@doy> how so?
+[02:49:44] <@Eidolos> version 0.01 had its dependencies mis-set
+[02:49:51] <@Eidolos> ie none
+[02:49:55] <@doy> heh
+[02:49:57] <@Eidolos> so all failures
+[02:50:13] <@Eidolos> and now that it has its dependencies, one of which requires C compilation (PadWalker)
+[02:50:16] <@Eidolos> nobody will test it :)
+[02:50:30] <@Eidolos> so everyone sees all failures, but it's for an old version of the module, and not really failures
+[03:49:27] < Zawk> failure.
+[04:58:58] <@doy> hmmm, nope
+[04:59:04] <@doy> can't realy fi it
+[04:59:05] <@doy> fix
+[04:59:20] <@doy> because the data in the bfufer goes away when the process dies
+[05:00:00] <@doy> so the current behaior is probably correct
+[05:00:11] <@doy> although i don't particularly need to chec for it i guess
+[05:02:19] <@doy> becuae by the time it catches it it's probably just going to habve that effect anyway
+[05:03:01] <@doy> shoud ad soem tiests for that tohughh
+[05:03:52] <@doy> hmmm i should wathc then i type
+[05:09:29] < Zawk> doy: having troubles?
+[05:09:31] < Zawk> :/
+[05:11:09] <@doy> meh, alcohol
+[05:11:12] <@doy> it hapends
+[05:12:41] < Zawk> I figured
+[05:12:50] < Zawk> you might not wanna edit interhack while drunk :)
+[05:12:59] <@doy> bah!
+[05:13:05] <@doy> i could tootally do it
+[05:13:21] < Zawk> not when you can't spell the words right :)
+[05:13:26] < Zawk> perl is confusing enough!
+[05:13:34] <@doy> that's what the syntyzx chaeckcer is for
+[05:13:45] < Zawk> hehe
+[05:41:59] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[06:18:41] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:50:47] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: arcanehl
+[10:51:31] -!- Netsplit over, joins: arcanehl
+[11:35:33] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: arcanehl
+[11:35:43] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: jilles, Zawk
+[11:36:00] -!- Netsplit simmons.freenode.net <-> irc.freenode.net quits: @doy, billnye, raxvulpine, @toft, alexbobp, shachaf, jasonmay, ekiM
+[11:39:09] -!- toft [n=jlewis@unaffiliated/crassworm] has joined #interhack
+[11:39:09] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[11:39:09] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[11:39:09] -!- Zawk [n=will@24-183-56-111.dhcp.mdsn.wi.charter.com] has joined #interhack
+[11:39:09] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[11:39:09] -!- jilles [i=jilles@unaffiliated/jilles] has joined #interhack
+[11:39:09] -!- shachaf [n=shachaf@66.17.178.31] has joined #interhack
+[11:39:09] -!- doy [n=doy@69.25.196.247] has joined #interhack
+[11:39:09] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[11:39:09] -!- raxvulpine [n=rax@autumnfox.akrasiac.org] has joined #interhack
+[11:39:09] -!- ServerMode/#interhack [+oo toft doy] by irc.freenode.net
+[11:50:08] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Read error: 110 (Connection timed out)]
+[11:51:43] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Connection timed out]
+[11:53:10] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[11:53:19] -!- arcanehl [n=hl@c-66-41-105-165.hsd1.mn.comcast.net] has joined #interhack
+[12:05:33] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:25:05] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has left #interhack []
+[12:28:43] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[12:28:50] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:42:45] -!- ekiMbo is now known as ekiM
+[12:54:14] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[12:54:24] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[13:17:14]  * Eidolos laughs
+[13:27:54] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[13:35:28] -!- ekiMbo is now known as ekiM
+[14:47:23] <@doy> what's there to laugh about at 8am
+[14:47:24] <@doy> seriously
+[15:01:25] < Zawk> he's Eidolol. Does he need a reason?
+[15:02:08] <@doy> LOL Eido.
+[15:03:52] < Zawk> LOL Eido.
+[15:05:45] < alexbobp> LOL Eido.
+[15:06:10] < alexbobp> just thought I'd get in on the action
+[15:06:15] < alexbobp> what's Eido laughing about?
+[15:10:04] <@Eidolos> drunken coding
+[15:11:38] < alexbobp> sounds good
+[15:12:56] <@Eidolos> I haven't had a chance to look at doy's patches yet, if he did produce anything
+[15:15:43] <@doy> other than the stuff i told you about yesterday afternoon, i've just been looking at IO::Pty::Easy
+[15:16:15] <@doy> and i didn't come up with anything working there
+[15:16:28] <@doy> although i think i figured out what the issue is
+[15:16:37] <@doy> for part of it anyway
+[15:23:27]  * Eidolos nods
+[16:38:03] <@doy> does anyone have access to a netbsd/darwin system that can test IO::Pty::Easy?
+[16:38:19] <@doy> because i'm curious why it's hanging there
+[16:40:36] <@Eidolos> hmm
+[16:41:11] <@Eidolos> I can probably test it on a darwin system some time this week, maybe before I leave wor
+[16:41:21] <@Eidolos> there's a spare macbook but it's being used
+[16:41:37] <@Eidolos> so when that guy heads home I can use it :)
+[16:41:56] <@doy> well, i meant for a more interactive sort of testing(:
+[16:41:57] < alexbobp> lol
+[16:42:25] <@doy> i have test results from those systems, but they don't give me any kind of useful information
+[16:42:59] <@Eidolos> I can bee [B[Bhmm
+[16:42:59] <@Eidolos> well
+[16:43:08] <@Eidolos> I can be your proxy
+[16:43:10] <@Eidolos> :)
+[16:43:17] <@Eidolos> I'll set up termcast too I guess
+[16:45:30] < alexbobp> who wants to test it with the Windows version of Perl and Darwine?
+[16:46:29] <@Eidolos> that i can't do
+[17:23:38] < alexbobp> Is it okay to let non-interhack-users use that termcast reflector?
+[17:23:45] <@Eidolos> of course :)
+[17:23:48] < alexbobp> okay
+[17:23:54] < alexbobp> I'll give it to the person in #nethack in Norway
+[17:24:02] <@Eidolos> someone used to play Angband on termcast
+[17:24:16] < alexbobp> heh
+[17:24:25] < alexbobp> blasphemy!
+[17:24:27] <@doy> termcast was originally set up for devnull
+[17:24:32] <@doy> long before interhack
+[17:24:49] <@Eidolos> aye
+[17:24:50] < alexbobp> that specific server?
+[17:24:59] < alexbobp> I assumed it was Interhack's termcast server and there are others
+[17:25:09] < alexbobp> Has anybody gotten a termcast to work on Windows?
+[17:25:14] <@Eidolos> heh
+[17:25:30] <@Eidolos> there's only the one termcast server
+[17:25:37] <@doy> termcast was written specifically for devnull
+[17:25:38] <@doy> (:
+[17:25:51] <@doy> you could host another termcast server if you really wanted to
+[17:25:56] <@doy> but there's not usually a point
+[17:26:20] <@Eidolos> only if you've got something to hidde
+[17:26:36] <@doy> and termcast works on cygwin
+[17:30:20] <@doy> it would be pretty sweet if we could get more random people using termcast
+[17:30:48] <@Eidolos> yeah
+[17:31:05] <@doy> specifically open source developers
+[17:31:06] <@doy> (:
+[17:31:20] <@doy> watching other people program is occasionally enlightening
+[17:31:31] <@Eidolos> LucasOman is a friend of arcanehl and me
+[17:31:40] <@Eidolos> he likes PHP, but we forgive him
+[17:31:47] <@doy> yeah, i noticed that
+[17:35:00] <@doy> but popularizing it among some more prominent developers (mozilla, kernel, gnome, etc) would be pretty sweet
+[17:37:17] <@Eidolos> that would be pretty awesome
+[19:14:02] < alexbobp> doy: termcast on cygwin?  I tried compiling the program on cygwin, but I had problems
+[19:14:15] < alexbobp> does anybody have binaries made that I could have?
+[19:15:22] <@doy> Eidolos: who uses it on cygwin? stumbly?
+[19:15:37] <@Eidolos> shrug :) you were the one who said it worked onwindows :)
+[19:15:47] <@Eidolos> I've never seen stumbly termcast
+[19:16:05] <@doy> yeah, i'm pretty sure he had it working
+[19:20:13] < alexbobp> who's stumbly?
+[19:20:34] < alexbobp> what's wrong with liking PHP?
+[19:20:55] <@Eidolos> why so many questions?
+[19:23:20] < billnye> what do you mean, Eid?
+[19:23:28] < billnye> do you have something against questions?
+[19:25:00] <@Eidolos> eh?
+[19:26:05] < billnye> foul, no grunts
+[19:26:22] < billnye> (are grunthacks okay?)
+[19:28:37] < alexbobp> grunthacks?
+[19:32:44] -!- GreyKnight [n=chatzill@86.112.250.209] has joined #Interhack
+[19:34:53] < billnye> "foul, no grunts" is a line from the Questions Game in Rosencrantz and Guildenstern Are Dead
+[19:35:05] < alexbobp> ah
+[19:35:10] < alexbobp> I don't remember that line
+[19:35:12] < alexbobp> goodbye
+[19:35:14] -!- alexbobp [n=aponebsh@64.20.229.14] has left #interhack []
+[19:35:44] < billnye> hehe
+[19:35:49] <@Eidolos> GreyKnight: I wasn't intentionally ignoring you the other day
+[19:35:55] <@Eidolos> I was busy
+[19:35:58] < billnye> "Alexbop Is Dead Too"
+[19:36:12] <@Eidolos> [16:56:12] -!- GreyKnight [n=chatzill@86.112.250.209] has quit ["gone!"]
+[19:36:12] <@Eidolos> [16:57:27]  * Eidolos was reading
+[19:36:12] <@Eidolos> [16:57:59] <@Eidolos> even though he won't read this:
+[19:36:12] <@Eidolos> [16:58:11] <@Eidolos> floating eye works incredibly well, haven't had any misses with it
+[19:36:12] <@Eidolos> [16:58:17] <@Eidolos> and vault scanner.. meh :) maybe
+[19:36:32] < GreyKnight> okay
+[19:36:35] <@Eidolos> hehe
+[19:36:52] < GreyKnight> my floating-eye related question I've actually given up on due to Too Much Effort, it needs a simpler approach :-)
+[19:37:29] <@Eidolos> what was your ide?
+[19:37:32] <@Eidolos> idea
+[19:37:54] < GreyKnight> I was going to make a "stoner conduct" plugin that would filter the incoming game to give the appearance of permanent hallucination, as an interesting challenge for you expert players :-)
+[19:38:09] <@Eidolos> haha
+[19:38:15] <@Eidolos> do-able!
+[19:38:23] <@doy> that wouldn't be all that hard
+[19:39:12] <@doy> the floating eye plugin works well, and that would handle redrawing monsters
+[19:39:24] < GreyKnight> duplicating the floating eye code 350 times for every monster isn't the way to go, though, and I was in work at the time, so I didn't spend any effort finding the Right Way
+[19:39:50] < GreyKnight> you need to rewrite monster names too, but I think there's a comedy plugin that does something like that already?
+[19:40:03] <@doy> that's just tweaking the regex
+[19:40:04] <@doy> and yeah
+[19:40:35] <@doy> although rewriting monster names would take a small amount of effort
+[19:40:49] <@doy> because you can't safely replace strings with longer strings
+[19:40:58] <@doy> without causing occasional display errors
+[19:41:24] < GreyKnight> oh, hmm
+[19:41:49] < GreyKnight> There's no Standard Solution to that particular problem yet, then?
+[19:42:01] < GreyKnight> I think I saw a mention of it on the site somewhere
+[19:42:06] < GreyKnight> (maybe in the IRC logs)
+[19:42:14] < GreyKnight> I guess it's Hard
+[19:42:21] <@doy> yeah, it was one of the first things eid coded
+[19:42:24] <@doy> but yeah, hard
+[19:43:21] <@doy> one possible solution would just be to choose randomly from the list of hallucination monsters with names shorter than the actual monster name length
+[19:44:08] <@doy> replacing monster names would also be somewhat tricky, since they can appear in lots of contexts
+[19:44:21] <@doy> so either find each one, or list all possible monster names
+[19:44:40] <@doy> both would require irritating gruntwork
+[19:45:01] <@Eidolos> "fox"
+[19:45:02] <@doy> although the second is basically done already for the monster recolor plugin in 1.0
+[19:45:19] <@doy> "xan"
+[19:45:39] < billnye> "the OMG hits"
+[19:45:44] <@doy> you'd probably have to lean towards shorter names overall for the list
+[19:45:57] <@Eidolos> hell just get rid of monster names altogether
+[19:46:04] <@Eidolos> "the ??? hits!"
+[19:46:30] <@doy> but that's boring!
+[19:46:30] <@doy> (:
+[19:47:01] <@Eidolos> yes..
+[19:48:14] < GreyKnight> And of course you have to implement flying phones in this :-)
+[19:49:27] <@Eidolos> heh
+[19:49:51] <@Eidolos> Interhack::Plugin::FixGrammar
+[19:50:05] <@Eidolos> nazguls -> nazgul, wumpuses -> wumpodes
+[19:50:35] < GreyKnight> http://methpilot.ath.cx/yasd/?88
+[19:55:00] <@doy> i believe zruties -> zruty was also decided on
+[19:55:04] <@doy> but i'm not sure
+[19:55:54] -!- GreyKnight [n=chatzill@86.112.250.209] has quit ["back later"]
+[20:00:36] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Connection timed out]
+[20:08:58] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[20:34:00] -!- GreyKnight [n=chatzill@86.112.250.209] has joined #Interhack
+[20:45:57] < Zawk> didn't Eidolos try to make a RL once
+[20:46:24] <@Eidolos> "once"
+[20:46:51] < Zawk> and there were numbers trying to hit you or something
+[20:47:03] <@Eidolos> yep
+[20:47:07] < GreyKnight> oh, you should have to try to solve an equation with them to hit :-D
+[20:47:08] <@Eidolos> nanorogue and microrogue
+[20:47:14] < GreyKnight> edutainmentRL
+[20:48:06] < GreyKnight> I don't actually know these nanorogue/microrogue, linky?
+[20:48:39] <@Eidolos> http://sartak.katron.org/nanorogue/
+[20:48:47] <@Eidolos> microrogue  is.. somewhere else
+[20:48:52] <@doy> they were perl golf attempts
+[20:48:58] <@Eidolos> I'll put it somewhere when I get home
+[20:49:16] < GreyKnight> "somewhere"
+[20:49:16] <@Eidolos> nano is <1kb, micro is a little over 2kb but I want to squeeze it down more
+[20:49:35] <@doy> microrogue actually had reasonable gameplay
+[20:49:39] <@doy> which was impressive
+[20:49:53] <@doy> nanorogue you mostly just walked around
+[20:49:54] <@doy> (:
+[20:50:36] <@Eidolos> microrogue is fov and stuff
+[20:50:39] <@Eidolos> and blood splatter
+[20:51:56] <@doy> # Written by Shawn M Moore on 25 Nov 11.
+[20:51:58] <@doy> ?
+[20:52:39] <@Eidolos> haha
+[20:52:50] < Zawk> He's a quiet sort of lunatic. The type everyone always says "was such a nice kid" after they find like, twenty human faces in his freezer.
+[20:52:53] < Zawk> err
+[20:53:03] < Zawk> meant to open up a link
+[20:53:42] <@Eidolos> talking about me again?
+[20:54:10] < Zawk> ...of course not...
+[20:54:39] < Zawk> god. what a small piece of code
+[20:54:46] < Zawk> perl is nutz
+[20:55:36] < Zawk> you can only go down...wow...
+[20:56:23] < Zawk> Worst. Game. Evar.
+[20:56:28] < GreyKnight> replacing "Splat!" with "Argh!" could save an entire character, Eidolos
+[20:56:30] <@Eidolos> :(
+[20:56:42] <@Eidolos> Ow!
+[20:56:58] < Zawk> or even getting rid of it
+[20:57:10] < Zawk> when the monster disappears, who needs a message
+[20:57:15] <@doy> yeah, who needs text at all
+[20:57:33] < billnye> "blissful" #conduct
+[20:57:55] < GreyKnight> flavour text is for Quake weenies
+[20:58:03] < Zawk> ya, weenies!
+[20:58:03] < GreyKnight> real roguers
+[20:58:04] <@doy> now that would be easy to write as an interhack plugin
+[20:58:07] < billnye> display the inventory letter and nothing else, as you pick up items
+[20:58:07] <@doy> (:
+[20:58:20] < Zawk> doy: we don't want interhack with a built in roguelike
+[20:58:26] < Zawk> that's emacs' job
+[21:02:03] <@toft> according to the mathematics genealogy project, my calc II teacher's advisor's advisor's advisor was Alonzo Church
+[21:02:06] <@toft> that's crazy
+[21:02:34] < GreyKnight> :-o
+[21:02:55] <@toft> http://genealogy.math.ndsu.nodak.edu/html/id.phtml?id=6200
+[21:03:19] <@doy> around 'from_nethack' => { my ($o, $s, $t) = @_; $t =~ s/\e\[(\d+(;\d+))H.*?\e/\e/; $s->topline = ''; $o->($s, $t); }
+[21:03:24] <@doy> or something similar
+[21:03:27] <@Eidolos> according to my family genealogy project, my dad's dad's dad's dad was Gonzo the Muppet
+[21:04:07] <@Eidolos> hmm
+[21:04:18] <@toft> heh
+[21:04:21] < GreyKnight> Eidolos: that does not surprise
+[21:04:24] <@Eidolos> not sure that would work at all, doy
+[21:04:57] <@Eidolos> well
+[21:04:58] <@Eidolos> mfjsf
+[21:05:22] <@doy> probably wouldn't
+[21:06:12] <@doy> maybe something like $t .= "\e[s\e[H\e[K\e[u"
+[21:06:22] <@Eidolos> hehe
+[21:06:25] <@Eidolos> there ya go
+[21:06:57] <@Eidolos> plus $t .= "--More--" if $t =~ /--More--/
+[21:07:02] <@Eidolos> (before \e[u
+[21:07:04] <@Eidolos> )
+[21:07:26] <@doy> and $s->vt->process($that_string_we_appended) rather than manually setting topline
+[21:08:18] <@doy> (does that work?)
+[21:08:26] <@doy> hmmm
+[21:08:32] <@doy> $s->parse($blah)
+[21:08:41] <@doy> i don't remember this part of the code very well
+[21:09:21] <@Eidolos> neither do I, it was the first thing I wrote
+[21:12:56] <@doy> toft: my set theory professor's advisor's advisor was stephen kleene
+[21:13:06] <@doy> (kleene's advisor was also alonzo church)
+[21:13:08] <@doy> (:
+[21:13:48] <@toft> neato
+[21:13:51] <@doy> http://genealogy.math.ndsu.nodak.edu/html/id.phtml?id=10497
+[21:14:15] <@Eidolos> but what are their erdos numbers
+[21:14:23] <@toft> there's a site for that too
+[21:14:24] <@toft> i believe
+[21:16:09] <@doy> and my calc 3 professor's advisor's advisor was G. H. Hardy
+[21:16:23] <@doy> nifty site
+[21:16:41] < GreyKnight> doy's claim to fame
+[21:16:42] <@doy> hmmm, throw in one more "advisor's"
+[21:16:43] <@doy> (:
+[21:16:44] <@Eidolos> i can has ramanujan??
+[21:17:42] < GreyKnight> i can has meme?
+[21:18:05] <@Eidolos> no!
+[21:18:09] <@doy> my roommate's real analysis professor's advisor was royden
+[21:18:41] <@Eidolos> don't know that one
+[21:19:35] <@toft> my analysis prof next year has an eyepatch, two prosthetic legs, and is 84
+[21:19:36] <@toft> bahah
+[21:19:57] < GreyKnight> o_O
+[21:20:02] <@toft> http://en.wikipedia.org/wiki/Paul_Sally
+[21:20:05] < GreyKnight> Does... does he have a hook hand?
+[21:20:17] <@toft> no, but he licks his chalk before he uses it
+[21:20:21] < billnye> gk: no, no, x_O
+[21:20:21] <@doy> Eidolos: http://www.amazon.com/Real-Analysis-3rd-Halsey-Royden/dp/0024041513/ref=pd_bbs_sr_1/104-7248008-7319962?ie=UTF8&s=books&qid=1187644800&sr=8-1
+[21:20:25] <@toft> I've sat in on a class.. its insane or something
+[21:20:28] < GreyKnight> :-D
+[21:20:35] <@doy> supposedly one of the best real analysis books out there
+[21:20:38] < GreyKnight> or maybe a chalk-holder hand, that'd be pretty cool
+[21:20:44] <@toft> yeah
+[21:20:48] <@toft> he uses those /huge/ chalk sticks
+[21:21:02] < billnye> the pointer with the chalk holder at the end?
+[21:21:09] <@toft> no, its just a large cylinder of chalk
+[21:21:14] < billnye> hehe
+[21:21:21] <@Eidolos> 'the skullcrusher'
+[21:27:57] <@doy> toft: hey, your calc teacher had the same advisor as my graph theory professor
+[21:28:17] <@toft> wow, small world!
+[21:28:31] <@Eidolos> heh
+[21:28:44] <@Eidolos> haven't you ever heard of the six degrees of separation?
+[21:28:57] <@toft> sure, but its neat to see it in action
+[21:38:36] -!- GreyKnight [n=chatzill@86.112.250.209] has quit ["GreyKnight suddenly falls asleep!"]
+[21:54:47] <@Eidolos> free !
+[22:02:40] < Zawk> Free the bangs?
+[22:02:54] < Zawk> or free bangs?
+[22:02:59] < Zawk> I'm not sure I'd want one from ya
+[22:06:39] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:22:52] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[22:23:01] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[22:28:24] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[22:28:31] -!- ekiMbo is now known as ekiM
+[22:39:28] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[22:47:31] < alexbobp> Why is apply-oil up for grabs on the hiveminder?
+[22:47:36] < alexbobp> I thought that was a bad idea
+[22:52:52] <@doy> no real reason not to
+[22:53:04] <@doy> it's mildly useful and hardly any code
+[22:53:22] < alexbobp> well, in my experience, every time I find something that _is_ oil, it sets it on fire
+[23:03:41] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[23:07:21] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[23:20:18] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit [Remote closed the connection]
+[23:25:16] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[23:31:09] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[23:51:38] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack

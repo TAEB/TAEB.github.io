@@ -1,0 +1,87 @@
+[00:50:04] -!- stumbly_ [i=wlngnut@dialup-4.246.45.239.Dial1.SanJose1.Level3.net] has joined #interhack
+[01:08:51] -!- stumbly [i=wlngnut@dialup-4.246.45.143.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[03:22:59] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[03:35:43] <@Eidolos> I'm going to write a module for reading NetHack options files
+[03:35:46] <@Eidolos> this will be useful for Interhack
+[03:36:23] <@Eidolos> we can detect if you're running with numpad or vi keys
+[03:36:28] <@Eidolos> which will matter
+[03:37:00] <@Eidolos> will write it this weekend
+[03:37:03] <@Eidolos> as I'm going to bed now
+[04:28:35] -!- stumbly [i=wlngnut@dialup-4.246.36.104.Dial1.SanJose1.Level3.net] has joined #interhack
+[04:45:11] -!- stumbly_ [i=wlngnut@dialup-4.246.45.239.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[07:14:28] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[07:17:25] -!- stumbly [i=wlngnut@dialup-4.246.36.104.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[10:45:46] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[10:45:55] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[12:15:22] -!- stumbly [i=wlngnut@dialup-4.246.45.40.Dial1.SanJose1.Level3.net] has joined #interhack
+[12:33:45] -!- alexbobp [n=alex@w-mob101-128-62-87-96.public.utexas.edu] has quit ["Leaving."]
+[13:24:36] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[13:40:47] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 110 (Connection timed out)]
+[13:43:19] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Connection timed out]
+[15:22:31] -!- stumbly [i=wlngnut@dialup-4.246.45.40.Dial1.SanJose1.Level3.net] has quit [Read error: 110 (Connection timed out)]
+[15:26:16] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[15:35:45] -!- alexbobp [n=alex@wireless-128-62-174-74.public.utexas.edu] has joined #interhack
+[15:42:37] < alexbobp> I started using screen
+[15:42:40] < alexbobp> it's pretty awesome
+[15:43:00] < alexbobp> Is there a way to change the display name of a window in the window list?
+[15:44:13] <@Eidolos> ^A A
+[15:44:21] <@Eidolos> and yes, screen is super
+[15:46:12] <@toft> SUPAH
+[15:46:17] <@toft> superbad
+[15:46:21] <@toft> yo that movie was funneh
+[15:46:32] <@Eidolos> eek
+[15:46:52] <@toft> are you cowering at my powerful words?
+[15:48:09] <@Eidolos> we'll say.... yes :)
+[15:48:42] <@toft> awesome. I'll add it to my resume.
+[15:57:48] < alexbobp> thanks
+[15:58:37] -!- alexbobp [n=alex@wireless-128-62-174-74.public.utexas.edu] has quit ["Leaving."]
+[16:08:51] -!- alexbobp [n=alex@w-cent-71-135.public.utexas.edu] has joined #interhack
+[16:15:46] -!- alexbob1 [n=alex@w-cent-71-135.public.utexas.edu] has joined #interhack
+[16:16:06] -!- alexbobp [n=alex@w-cent-71-135.public.utexas.edu] has quit ["Leaving."]
+[16:17:13] -!- alexbob1 is now known as alexbobp
+[17:23:42] -!- alexbobp [n=alex@w-cent-71-135.public.utexas.edu] has quit [Connection timed out]
+[17:25:03] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[17:59:42] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has quit [Read error: 110 (Connection timed out)]
+[19:55:21] -!- stumbly [i=wlngnut@dialup-4.246.45.195.Dial1.SanJose1.Level3.net] has joined #interhack
+[21:37:35] -!- alexbobp [n=alex@w-central-233-57.public.utexas.edu] has joined #interhack
+[22:57:11] <@doy> Eidolos: my new project: http://lua.pastey.net/73564
+[23:02:23] < arcanehl> pure trouble
+[23:03:41] <@doy> (:
+[23:03:58] <@doy> that code is currently functional
+[23:04:37] < arcanehl> well sure, but there's not exactly much to it
+[23:04:45] <@doy> (:
+[23:05:22] <@doy> i've never used curses before this
+[23:05:23] <@doy> so...
+[23:05:24] <@doy> (:
+[23:05:40] < arcanehl> so, you sure are happy judging by all of the smilies
+[23:05:48] < arcanehl> there's not much to curses really
+[23:05:57] < arcanehl> what you have is about it
+[23:06:23] < arcanehl> although, there are quite a few supplemental libraries for it (panels is a cool one IMO)
+[23:06:52] <@doy> yeah, i'm planning on supporting those once the base is done
+[23:30:46] <@Eidolos> curses++
+[23:30:53] <@Eidolos> gonna try a roguelike?
+[23:31:00] <@Eidolos> or just a general cursesy project
+[23:41:46] <@doy> just general for now
+[23:42:29] <@doy> the only curses lib for lua right now is written for lua5.0 and is just an incredibly basic wrapper over the c api
+[23:43:03] < arcanehl> so you're going to extend it?
+[23:43:10] <@doy> i'm going to make it more lua-like
+[23:43:19] <@doy> writing c in lua is just ugly
+[23:44:18] <@Eidolos> there's not much you can do to abstract away the cursesy things
+[23:44:29] <@Eidolos> except to unify wmvaddch and crap
+[23:44:32] <@doy> yeah
+[23:44:35] <@doy> that's a big one
+[23:44:51] <@doy> there's no reason to have like 8 different functions that do the same thing, just with different arguments
+[23:44:58] <@doy> unless you're writing in c
+[23:45:09] <@Eidolos> right
+[23:45:28] <@doy> and stuff like using strings rather than predefined constants
+[23:45:42] <@doy> there's no reason to use numerical constants in lua
+[23:45:53] <@doy> and it just makes things ugly
+[23:47:33] <@Eidolos> gotcha
+[23:47:49] <@doy> lua is actually faster in most cases using strings
+[23:48:04] <@doy> using string literals anyway
+[23:48:28] <@doy> it starts to break down when you do massive amounts of concatenation, but that's not incredibly common
+[23:52:09] -!- ekiM is now known as CheckPoint
+[23:52:19] -!- CheckPoint is now known as ekiM
+[23:57:06] <@Eidolos> first order of business is to polish off CSS::Moonfall a little more and CPAN it
+[23:57:09] <@Eidolos> then NetHack::Options
+[23:58:26] < arcanehl> what's it do?

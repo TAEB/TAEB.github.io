@@ -1,0 +1,80 @@
+[04:26:03] -!- ekiMbo is now known as ekiM
+[05:39:10] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[05:39:19] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[07:42:25] -!- ekiMbo is now known as ekiM
+[08:25:28] < billnye> recursive acceleration? sounds dangerous
+[08:30:46] <@Eidolos> doy: hmm
+[08:52:07] <@Eidolos> doy: I'm envisioning config just being a plugin
+[08:52:15] <@Eidolos> but that could easily just not work
+[09:26:38] <@Eidolos> doy: that's literally: ack 'XXX|FIXME|TODO'
+[09:26:45] <@Eidolos> only more right
+[09:26:52] <@Eidolos> er. less right
+[09:26:52] <@Eidolos> :)
+[09:29:52] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has quit ["Leaving."]
+[10:27:49] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Nick collision from services.]
+[10:27:59] -!- ekiMbo [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has joined #interhack
+[10:44:58] -!- ekiMbo is now known as ekiM
+[11:11:09] -!- alexbobp [n=aponebsh@64.20.229.14] has joined #interhack
+[12:25:25] <@Eidolos> mpd is reeeaaally pissing me off
+[12:31:33] < arcanehl> should've used Winamp
+[12:31:49] <@Eidolos> heh yeah
+[12:32:51] < alexbobp> Winamp doesn't run well on Linux
+[12:32:59] < alexbobp> mpd is what?
+[12:33:27] < ekiM> multiple personality disorder
+[12:33:52] <@Eidolos> mpd is ..oh hey look a wikipedia!
+[12:33:56]  * Eidolos runs
+[12:34:18] < ekiM> don't worry, he's in his manic phase right now
+[12:42:42] < alexbobp> I'll go with Music Player Daemon, given the context of Winamp
+[12:42:56] < alexbobp> the other software alternatives wouldn't make sense
+[12:43:07] < alexbobp> and Multiple Personality Disorder, which is what I usually think when I see mpd, doesn't fit
+[13:08:27] < alexbobp> seems kind of silly to color deities if you're just going to have random deity colors
+[13:08:31] < alexbobp> does interhack 2 do that also?
+[13:09:08] <@Eidolos> not yet
+[13:15:49] < alexbobp> so it's going to?
+[13:15:59] <@Eidolos> yes. no. I dunno
+[13:16:07] < alexbobp> can you make it color the gods by alignment then, instead of by random?
+[13:16:11] < alexbobp> because then it would be useful
+[16:25:40] -!- Netsplit clarke.freenode.net <-> irc.freenode.net quits: alexbobp, billnye
+[16:25:43] -!- Netsplit clarke.freenode.net <-> irc.freenode.net quits: jilles, @toft, jasonmay, arcanehl
+[16:25:49] -!- Netsplit clarke.freenode.net <-> irc.freenode.net quits: @doy, Flipper1, raxvulpine, ekiM
+[16:26:13] -!- Netsplit over, joins: @toft, alexbobp, ekiM, Flipper1, jilles, arcanehl, jasonmay, billnye, raxvulpine, @doy
+[16:33:55] < jasonmay> there's already an interhack 2 coming out?
+[16:34:08] <@Eidolos> it's a reimplementation
+[16:34:13] <@Eidolos> because the first one is so badly coded :)
+[16:34:18] < jasonmay> oh
+[16:34:22] < jasonmay> sounds like a plan
+[17:31:36] <@doy> it's actually really close to being usable
+[17:31:42] <@doy> just need to implement config
+[17:31:53] <@doy> and then port over a few useful modules
+[17:32:16] <@doy> getting full functionality back is still a ways off, but it's certainly getting there
+[18:55:59] -!- alexbobp [n=aponebsh@64.20.229.14] has quit ["Leaving."]
+[19:24:19] -!- billnye [i=billnye@unaffiliated/billnye] has quit [Read error: 104 (Connection reset by peer)]
+[19:24:23] -!- billnye [i=billnye@unaffiliated/billnye] has joined #interhack
+[20:34:20] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has joined #interhack
+[21:22:01] -!- alexbobp [n=alex@adsl-67-67-221-246.dsl.austtx.swbell.net] has left #interhack []
+[21:33:48] <@doy> i guess that hardcoding of xterm-color was actually important
+[21:34:47] <@Eidolos> yeah
+[21:34:56] <@Eidolos> was a lot of fun trying to figure out why I wasn't getting color with my bots :)
+[21:35:21] <@doy> for some reason it sends \e[J to clear the screen for rxvt rather than \e[2J
+[21:35:34] <@doy> other random things like that
+[21:35:59] <@doy> really, we should be using ncurses instead of trying to use raw terminal codes
+[21:36:05] <@doy> but that's hard
+[21:36:14] <@Eidolos> yeah
+[21:36:28] <@Eidolos> I think we're fine doing what we're doing
+[21:36:32] <@doy> yeah
+[21:36:44] <@Eidolos> try to abstract things out though :)
+[21:36:47] <@doy> (:
+[21:36:52] <@Eidolos> like I did with print_row and goto
+[21:36:56] <@doy> i'll just leave this for now
+[21:37:06] <@Eidolos> so if we ever need to support something that doesn't understand us then it wouldn't be too hard
+[21:37:21] <@doy> i was just trying to see if we could actually use $TERM instead of hardcoding xterm-color
+[21:37:27] <@doy> turns out we can't
+[21:40:59] <@Eidolos> ah
+[21:42:09] -!- jasonmay [n=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has quit [Read error: 104 (Connection reset by peer)]
+[21:42:13] -!- jasonmay [i=jasonmay@c-71-207-20-166.hsd1.pa.comcast.net] has joined #interhack
+[22:09:23] -!- ekiM [n=Mike@cpc1-cmbg4-0-0-cust524.cmbg.cable.ntl.com] has quit [Read error: 104 (Connection reset by peer)]
+[22:21:19] -!- You're now known as HMTasks
+[22:22:04] -!- You're now known as Eidolos
+[23:38:11] <@doy> Eidolos: can wrappers be used dynamically?
+[23:42:05] <@Eidolos> probably
+[23:42:08] <@Eidolos> I know they can in CMM

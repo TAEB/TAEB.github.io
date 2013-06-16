@@ -1,0 +1,80 @@
+[08:39:01] -!- Netsplit brown.freenode.net <-> irc.freenode.net quits: @toft
+[08:40:46] -!- toft_ [i=nobody@unaffiliated/crassworm] has joined #interhack
+[08:40:46] -!- mode/#interhack [+o toft_] by ChanServ
+[08:46:27] -!- Netsplit over, joins: @toft
+[08:54:20] -!- Netsplit brown.freenode.net <-> irc.freenode.net quits: @toft
+[09:51:40] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[11:31:51] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[11:32:31] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[12:05:56] <@Eidolos> hmm
+[12:06:00] <@Eidolos> looking at the SVK source
+[12:06:01] <@Eidolos> I see
+[12:06:19] <@Eidolos> Term::ReadKey::GetControlChars.. hmm!
+[12:06:20] <@Eidolos> :)
+[12:20:29] -!- toft_ is now known as toft
+[12:49:12] -!- simo_ [n=simo@217.201.38.249] has joined #interhack
+[12:49:30] < simo_> hi
+[12:49:50] < simo_> im a wannabe
+[12:50:20] < ekiM> what do you wannabe?
+[12:50:39] < simo_> hacker
+[12:50:49] < ekiM> wrong channel, sorry
+[12:50:50] < simo_> not malicious hacker
+[12:51:05] < simo_> what channel is?
+[12:51:14] < ekiM> I don't know
+[12:51:18] < ekiM> sorry
+[12:51:20] < simo_> ok
+[12:51:22] < simo_> ty
+[12:51:30] < ekiM> good luck
+[12:51:35] -!- simo_ [n=simo@217.201.38.249] has left #interhack ["Konversation terminated!"]
+[12:51:44] < ekiM> what a nice chap
+[13:02:57] < stabwound> lol
+[13:05:56] -!- mode/#interhack [+s] by Eidolos
+[13:05:59] -!- mode/#interhack [-s] by ChanServ
+[13:05:59] <@Eidolos> is that the one?
+[13:06:02] <@Eidolos> eh
+[13:06:06] <@Eidolos> someone else can figure that out :)
+[13:40:08] < zubin> Eidohoo!
+[13:40:24] < zubin> Does "richest ascension" include value of artifacts and gems, or only cash money?
+[13:40:31] <@Eidolos> only cash
+[13:40:32] <@Eidolos> gold
+[13:40:42] < zubin> woot.
+[13:40:48]  * zubin ignores gems
+[13:40:54] < ekiM> cold, hard, cash
+[13:41:08]  * zubin zaps wand of cold at his stash
+[13:41:24]  * zubin does not have wand of hard
+[13:41:36]  * zubin awaits your mom joke
+[13:43:49] < billnye> your mom didn't have to wait long for my joke last night!
+[13:43:53] < billnye> oh, wait...
+[14:17:59] -!- zubin [n=zubin@blue.cee.utexas.edu] has quit ["Wizard needs food, badly!"]
+[17:12:46] <@Eidolos> almost interhack time
+[18:49:16] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[18:59:01] <@Eidolos> pushed the 'confirm confirm' changes :)
+[19:16:05] <@doy> Eidolos: how's it going?
+[19:16:12] <@Eidolos> good!
+[19:16:21] <@Eidolos> I'm building a #grep :)
+[19:16:26] <@doy> nice(:
+[19:16:30] <@doy> termcast!
+[19:17:42] <@Eidolos> it'll require that you 
+[19:17:50] <@Eidolos> record ttyrec
+[19:18:23] <@doy> fair enough
+[19:18:47] <@doy> hmmm, should have an option to append to the previous ttyrec
+[19:19:27] <@doy> also, i don't understand force_tab_yn
+[19:19:35] <@Eidolos> if you press tab it's a "yes"
+[19:19:40] <@Eidolos> if you press anything else it's a "no"
+[19:42:08] <@doy> hmmm, the ability to specify an alternate config file would be nice
+[20:06:54] <@Eidolos> sure
+[20:37:35] <@Eidolos> #grep works pretty well
+[20:38:37] < billnye> "you are now talking in #grep"
+[20:42:33] <@Eidolos> pushed grep :D
+[21:11:59] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has quit []
+[23:00:06] -!- doy [n=doy@ppp-70-225-175-183.dsl.chmpil.ameritech.net] has quit [Read error: 104 (Connection reset by peer)]
+[23:00:35] -!- doy [n=doy@ppp-70-225-175-183.dsl.chmpil.ameritech.net] has joined #interhack
+[23:00:36] -!- mode/#interhack [+o doy] by ChanServ
+[23:10:43] -!- zubin [n=zubin@cpe-72-179-59-113.austin.res.rr.com] has joined #interhack
+[23:39:42] <@Eidolos> doy: pull and you'll get some nice things
+[23:40:01] <@doy> Eidolos: okay
+[23:40:10] <@doy> concentrating on my game at the moment
+[23:40:14] <@Eidolos> nodnod
+[23:40:19] <@doy> really don't want to mess this one up
+[23:40:34] <@doy> i've had like 5 high scoring splats over the past week or so, and it's getting old
+[23:40:39] <@Eidolos> yeah, sucks

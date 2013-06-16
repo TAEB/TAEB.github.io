@@ -1,0 +1,56 @@
+[05:52:47] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[05:52:58] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[06:37:31] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Connection timed out]
+[07:35:56] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[10:34:17] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[10:57:57] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[11:15:50] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[12:14:17] < Eidolos> interhack plugin, for watching someone else
+[12:14:24] < Eidolos> just print the top line
+[12:14:30] < Eidolos> and maybe the botl
+[12:14:34] < Eidolos> or parts of the botl
+[12:14:51] < Eidolos> so you can watch a game in a terminal and it looks like an ordinary make from a few feet away
+[12:15:11] < Eidolos> I'll implement that this weekend! :)
+[12:16:43] < ekiM> why not implement it at work
+[12:16:49] < ekiM> you know, in the spirit of the thing
+[12:17:07] < Eidolos> hehe
+[12:33:45] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[12:51:06] <@toft> >_<
+[12:51:09] < Eidolos> heya
+[12:51:23] <@toft> ridiculou!
+[12:51:27] <@toft> s
+[12:51:38] < Eidolos> what is?
+[12:51:45] <@toft> 12:14 < Eidolos> so you can watch a game in a terminal and it looks like an ordinary make from a few feet away
+[12:51:49] <@toft> hehe
+[12:52:03] < Eidolos> :)
+[12:52:31] < Eidolos> not sure if it should be an interhack plugin or a separate script
+[12:52:38] < Eidolos> I'm leaning towards latter
+[12:52:40] <@toft> I say separate script
+[12:52:41] <@toft> :)
+[12:52:54] < Eidolos> fun
+[12:52:58] <@toft> I was thinking
+[12:53:20] <@toft> is it possible to somehow tail the ttyrecs on the server and watch that way?
+[12:53:30] <@toft> I guess it probably isn't unless you were on the server
+[12:53:37] < Eidolos> that's exactly how dgl live playback works
+[12:54:00] <@toft> yeah
+[12:54:14] <@toft> I meant externally.. but I guess its silly because all you're getting is a lamer version of dgl
+[12:54:32] <@doy> you could just flood the server with wget -c requests
+[12:54:34] <@doy> but...
+[12:54:35] <@doy> (:
+[12:54:37] <@toft> eheh
+[12:55:50] < jilles> just set up a dgl session and listen to that
+[12:56:49] < Eidolos> right, that's how I was going to do it
+[12:56:56] <@doy> Eidolos: it would probably be easier to do interhack
+[12:57:06] <@doy> since you'd get things like statuscolors for free
+[12:57:26] < Eidolos> but I don't think I'd want colors
+[12:57:27] <@toft> if you want it to look like a make, then you dont really want fancy colors that look like a game :)
+[12:57:27] < Eidolos> :)
+[12:57:35] <@doy> i suppose
+[12:57:36] <@doy> (:
+[12:57:49] < Eidolos> this makes sense as a new script
+[12:59:50] <@toft> the rainDROPS the rainDROPS
+[14:29:30] -!- zubin [n=zubin@blue.cee.utexas.edu] has joined #interhack
+[16:29:03] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has quit [Read error: 104 (Connection reset by peer)]
+[16:29:14] -!- ekiM [n=Mike@82-33-101-38.cable.ubr10.azte.blueyonder.co.uk] has joined #interhack
+[18:20:59] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has quit ["Wizard needs food, badly!"]
+[19:52:55] -!- zubin [n=zubin@pdpc/supporter/active/zubin] has joined #interhack
