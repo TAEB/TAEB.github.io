@@ -29,7 +29,7 @@
    <hr />
    <h3><a href="https://github.com/taeb/interhack2">2.x</a>
    </h3>
-   <p>2.x is a complete rewrite using <a href="http://search.cpan.org/search?query=Moose">Moose</a>, a modern object system.</p>
+   <p>2.x is a complete rewrite using <a href="http://moose.perl.org">Moose</a>, a modern object system.</p>
    <p>One of the design decisions was that the core should remain completely free from new features. You should be able to use Interhack with no plugins and it should be exactly like telnetting in and playing normally.</p>
    <p>The central concept for plugins is the idea of hooks. Interhack provides many small methods &#40;such as toserver, which sends a keystroke to the server; or check_input, which validates input -- always returns &#39;valid&#39; in the core&#41;. Plugins &#39;wrap&#39; these small methods to do whatever they like. For example, they Keystrokes plugin wraps the toserver method and increments an internal counter for each character in the text.</p>
    <p>2.x lacks many of the plugins of 1.x, but it does have some new awesomeness that was impossible in 1.x.</p>

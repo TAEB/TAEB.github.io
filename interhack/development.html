@@ -14,7 +14,7 @@
    <p>Interhack is really just a filter. It reads from stdin and a socket, and when input arrives, Interhack mangles it and sends it where it needs to go. See <a href="https://github.com/taeb/interhack0">Interhack 0.0</a> for a minimalist implementation of Interhack &#40;70 lines&#41;.</p>
    <p>You can also read some specific information about <a href="versions.html">the different Interhack versions</a>.</p>
    <hr />
-   <p>Interhack is written in object-oriented Perl, using <a href="http://search.cpan.org/search?query=Moose">Moose</a> and as much of the CPAN as we can leverage.</p>
+   <p>Interhack is written in object-oriented Perl, using <a href="http://moose.perl.org">Moose</a> and as much of the CPAN as we can leverage.</p>
    <p>Plugins are implemented by &#39;wrapping&#39; Interhack methods &#40;such as toscreen and read_keyboard&#41;, a concept from CLOS. This means the Interhack core need not know anything about plugins &#40;except how to load them&#41;. It also leads to very modular plugins &#40;see Interhack 1.0 for a good example of poorly-designed plugins&#41;.</p>
    <p>See <a href="https://github.com/taeb/interhack2/blob/master/lib/Interhack/Plugin/InGame/Foodless.pm">the Foodless plugin</a> for the implementation of a typical plugin.</p>
    <hr />
