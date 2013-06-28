@@ -79,14 +79,6 @@ th.headerSortDown {
     background-image:url(../image/up.png);
 }
 
-td.yes {
-    background-color:#AAF5AA;
-}
-
-td.no {
-    background-color:#F5AAAA;
-}
-
 #nav a {
     color:#00f;
 }
