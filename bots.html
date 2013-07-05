@@ -1,290 +1,247 @@
-<!DOCTYPE html>
-<html>
+---
+title: TAEB - Other Bots
+layout: default
+---
+<h1>TAEB - Other Bots</h1>
 
-<head>
-    <title>TAEB - Other Bots</title>
-    <link rel="stylesheet" type="text/css" href="style/main.css" />
-    <link rel="icon" type="image/png" href="image/taeb-icon.png" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(
-                function() {
-                    $("#nh_bots").tablesorter({ sortList: [[1, 0]] });
-                }
-        );
-    </script>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-</head>
+<h2>Rogue</h2>
+<ul>
+    <li><a href="http://www.cs.princeton.edu/~appel/papers/rogomatic.html">Rog-o-matic</a></li>
+</ul>
 
-<body>
-    <div id="main">
-        <div id="content">
-            <h1>TAEB - Other Bots</h1>
+<h2>Angband</h2>
+<ul>
+    <li><a href="http://www.itctel.com/~apwhite/andrew.html#C0">Angband Borg</a></li>
+</ul>
 
-            <h2>Rogue</h2>
-            <ul>
-                <li><a href="http://www.cs.princeton.edu/~appel/papers/rogomatic.html">Rog-o-matic</a></li>
-            </ul>
+<h2>NetHack</h2>
+<ul>
+    <li><a href="bot-pour-le-jeu-nethack.pdf">Bot pour le jeu NetHack</a></li>
+</ul>
 
-            <h2>Angband</h2>
-            <ul>
-                <li><a href="http://www.itctel.com/~apwhite/andrew.html#C0">Angband Borg</a></li>
-            </ul>
+<table id="nh_bots">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Creation</th>
+        <th>Last Activity</th>
+        <th>Author</th>
+        <th>Language</th>
+        <th>High score</th>
+        <th>Max dlvl</th>
+        <th>Code</th>
+        <th>Achievements</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Bottie</td>
+        <td>2004-01-01</td>
+        <td></td>
+        <td>Tim Newsome</td>
+        <td>Python</td>
+        <td></td>
+        <td></td>
+        <td><a href="https://github.com/TAEB/Bottie">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=nHackBot&sort=1">nHackBot</a></td>
+        <td>2005-11-26</td>
+        <td>2006-03-15</td>
+        <td>HanClinto</td>
+        <td>C#</td>
+        <td>18432</td>
+        <td>10</td>
+        <td><a href="https://github.com/TAEB/nHackBot">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=nhbot&sort=1">nhbot</a></td>
+        <td>2005-12-09</td>
+        <td>2006-02-18</td>
+        <td>Eidolos</td>
+        <td>Perl</td>
+        <td>15185</td>
+        <td>3</td>
+        <td><a href="https://github.com/TAEB/nhbot">git</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=rascal&sort=1">rascal</a></td>
+        <td>2005-12-22</td>
+        <td></td>
+        <td>nekrom</td>
+        <td>PHP</td>
+        <td>9936</td>
+        <td>1</td>
+        <td><a href="https://github.com/TAEB/rascal">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=EliteBot&sort=1">EliteBot</a></td>
+        <td>2006-10-02</td>
+        <td>2006-11-14</td>
+        <td>HanClinto, Eidolos, GreyKnight</td>
+        <td>Ruby</td>
+        <td>172</td>
+        <td>3</td>
+        <td><a href="https://github.com/TAEB/EliteBot">git</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=TAEB&sort=1">RubyTAEB</a></td>
+        <td>2007-03-04</td>
+        <td>2007-03-23</td>
+        <td>Eidolos</td>
+        <td>Ruby</td>
+        <td>6166</td>
+        <td>10</td>
+        <td><a href="https://github.com/TAEB/RubyTAEB">git</a></td>
+    <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=moomaster&sort=1">moomaster</a></td>
+        <td>2007-05-14</td>
+        <td></td>
+        <td>moomast3r</td>
+        <td>C</td>
+        <td>65160</td>
+        <td>23</td>
+        <td><a href="https://github.com/TAEB/moomaster">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=doytaeb&sort=1">TAEB (Behavioral)</a></td>
+        <td>2007-11-04</td>
+        <td>2013-06-28</td>
+        <td>Eidolos, doy, arcanehl</td>
+        <td>Perl</td>
+        <td>417613</td>
+        <td>28</td>
+        <td><a href="https://github.com/TAEB/TAEB-AI-Behavioral">git</a></td>
+        <td>Reached Medusa</td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=april&sort=1">april</a></td>
+        <td>2007-11-17</td>
+        <td>2008-12-25</td>
+        <td>moomast3r</td>
+        <td>C</td>
+        <td>154669</td>
+        <td>20</td>
+        <td><a href="https://github.com/TAEB/moomaster">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=roomba&sort=1">roomba</a></td>
+        <td>2007-12-16</td>
+        <td>2008-01-06</td>
+        <td>switch</td>
+        <td>Python</td>
+        <td>32025</td>
+        <td>16</td>
+        <td><a href="https://github.com/TAEB/roomba">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>bridey</td>
+        <td>2008-01-12</td>
+        <td>2008-04-04</td>
+        <td>futilius</td>
+        <td>Scheme</td>
+        <td></td>
+        <td></td>
+        <td><a href="https://github.com/TAEB/bridey">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>anna</td>
+        <td>2008-03-07</td>
+        <td>2008-07-10</td>
+        <td>alexbobp, djemscheed</td>
+        <td>Java</td>
+        <td></td>
+        <td></td>
+        <td><a href="https://github.com/TAEB/anna">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=Eeek&sort=1">Eeek</a></td>
+        <td>2008-03-22</td>
+        <td>2009-02-18</td>
+        <td>helge</td>
+        <td>Python</td>
+        <td>9132</td>
+        <td>6</td>
+        <td><a href="https://github.com/TAEB/Eeek">git (mirror)</a>
+        <td></td>
+    </td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=saiph&sort=1">saiph</a></td>
+        <td>2008-03-28</td>
+        <td>2012-01-09</td>
+        <td>canidae</td>
+        <td>C++</td>
+        <td>645039</td>
+        <td>29</td>
+        <td><a href="https://github.com/canidae/saiph">git</a></td>
+        <td>Reached Castle; killed Medusa; finished Quest</td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=demonia&sort=1">demonia</a></td>
+        <td>2008-07-08</td>
+        <td>2013-04-27</td>
+        <td>spazm</td>
+        <td>Perl</td>
+        <td>19050</td>
+        <td>10</td>
+        <td><a href="https://github.com/TAEB/demonia">git (mirror)</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=TAEB523&sort=1">TAEB (Planar)</a></td>
+        <td>2008-12-22</td>
+        <td>2011-12-03</td>
+        <td>ais523, sorear</td>
+        <td>Perl</td>
+        <td>137086</td>
+        <td>22</td>
+        <td><a href="http://patch-tag.com/r/ais523/taeb-ai-planar/home">darcs</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Megaman</td>
+        <td>2012-10-09</td>
+        <td>2012-10-29</td>
+        <td>Adeon</td>
+        <td>Haskell</td>
+        <td></td>
+        <td></td>
+        <td><a href="https://github.com/Noeda/Megaman">git</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="http://alt.org/nethack/player-all.php?player=MagusTAEB&sort=1">TAEB (Magus)</a></td>
+        <td>2013-06-28</td>
+        <td>2013-06-29</td>
+        <td>Eidolos</td>
+        <td>Perl</td>
+        <td>16579</td>
+        <td>9</td>
+        <td><a href="https://github.com/TAEB/TAEB-AI-Magus">git</a></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
 
-            <h2>NetHack</h2>
-            <ul>
-                <li><a href="bot-pour-le-jeu-nethack.pdf">Bot pour le jeu NetHack</a></li>
-            </ul>
-
-            <table id="nh_bots">
-             <thead>
-              <tr>
-               <th>Name</th>
-               <th>Creation</th>
-               <th>Last Activity</th>
-               <th>Author</th>
-               <th>Language</th>
-               <th>High score</th>
-               <th>Max dlvl</th>
-               <th>Code</th>
-               <th>Achievements</th>
-              </tr>
-             </thead>
-             <tbody>
-              <tr>
-               <td>Bottie</td>
-               <td>2004-01-01</td>
-               <td></td>
-               <td>Tim Newsome</td>
-               <td>Python</td>
-               <td></td>
-               <td></td>
-               <td><a href="https://github.com/TAEB/Bottie">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=nHackBot&sort=1">nHackBot</a></td>
-               <td>2005-11-26</td>
-               <td>2006-03-15</td>
-               <td>HanClinto</td>
-               <td>C#</td>
-               <td>18432</td>
-               <td>10</td>
-               <td><a href="https://github.com/TAEB/nHackBot">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=nhbot&sort=1">nhbot</a></td>
-               <td>2005-12-09</td>
-               <td>2006-02-18</td>
-               <td>Eidolos</td>
-               <td>Perl</td>
-               <td>15185</td>
-               <td>3</td>
-               <td><a href="https://github.com/TAEB/nhbot">git</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=rascal&sort=1">rascal</a></td>
-               <td>2005-12-22</td>
-               <td></td>
-               <td>nekrom</td>
-               <td>PHP</td>
-               <td>9936</td>
-               <td>1</td>
-               <td><a href="https://github.com/TAEB/rascal">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=EliteBot&sort=1">EliteBot</a></td>
-               <td>2006-10-02</td>
-               <td>2006-11-14</td>
-               <td>HanClinto, Eidolos, GreyKnight</td>
-               <td>Ruby</td>
-               <td>172</td>
-               <td>3</td>
-               <td><a href="https://github.com/TAEB/EliteBot">git</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a
-                       href="http://alt.org/nethack/player-all.php?player=TAEB&sort=1">RubyTAEB</a></td>
-               <td>2007-03-04</td>
-               <td>2007-03-23</td>
-               <td>Eidolos</td>
-               <td>Ruby</td>
-               <td>6166</td>
-               <td>10</td>
-               <td><a href="https://github.com/TAEB/RubyTAEB">git</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=moomaster&sort=1">moomaster</a></td>
-               <td>2007-05-14</td>
-               <td></td>
-               <td>moomast3r</td>
-               <td>C</td>
-               <td>65160</td>
-               <td>23</td>
-               <td><a href="https://github.com/TAEB/moomaster">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=doytaeb&sort=1">TAEB (Behavioral)</a></td>
-               <td>2007-11-04</td>
-               <td>2013-06-28</td>
-               <td>Eidolos, doy, arcanehl</td>
-               <td>Perl</td>
-               <td>417613</td>
-               <td>28</td>
-               <td><a href="https://github.com/TAEB/TAEB-AI-Behavioral">git</a></td>
-               <td>Reached Medusa</td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=april&sort=1">april</a></td>
-               <td>2007-11-17</td>
-               <td>2008-12-25</td>
-               <td>moomast3r</td>
-               <td>C</td>
-               <td>154669</td>
-               <td>20</td>
-               <td><a href="https://github.com/TAEB/moomaster">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=roomba&sort=1">roomba</a></td>
-               <td>2007-12-16</td>
-               <td>2008-01-06</td>
-               <td>switch</td>
-               <td>Python</td>
-               <td>32025</td>
-               <td>16</td>
-               <td><a href="https://github.com/TAEB/roomba">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td>bridey</td>
-               <td>2008-01-12</td>
-               <td>2008-04-04</td>
-               <td>futilius</td>
-               <td>Scheme</td>
-               <td></td>
-               <td></td>
-               <td><a href="https://github.com/TAEB/bridey">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td>anna</td>
-               <td>2008-03-07</td>
-               <td>2008-07-10</td>
-               <td>alexbobp, djemscheed</td>
-               <td>Java</td>
-               <td></td>
-               <td></td>
-               <td><a href="https://github.com/TAEB/anna">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=Eeek&sort=1">Eeek</a></td>
-               <td>2008-03-22</td>
-               <td>2009-02-18</td>
-               <td>helge</td>
-               <td>Python</td>
-               <td>9132</td>
-               <td>6</td>
-               <td><a href="https://github.com/TAEB/Eeek">git (mirror)</a>
-               <td></td>
-               </td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=saiph&sort=1">saiph</a></td>
-               <td>2008-03-28</td>
-               <td>2012-01-09</td>
-               <td>canidae</td>
-               <td>C++</td>
-               <td>645039</td>
-               <td>29</td>
-               <td><a href="https://github.com/canidae/saiph">git</a></td>
-               <td>Reached Castle; killed Medusa; finished Quest</td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=demonia&sort=1">demonia</a></td>
-               <td>2008-07-08</td>
-               <td>2013-04-27</td>
-               <td>spazm</td>
-               <td>Perl</td>
-               <td>19050</td>
-               <td>10</td>
-               <td><a href="https://github.com/TAEB/demonia">git (mirror)</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=TAEB523&sort=1">TAEB (Planar)</a></td>
-               <td>2008-12-22</td>
-               <td>2011-12-03</td>
-               <td>ais523, sorear</td>
-               <td>Perl</td>
-               <td>137086</td>
-               <td>22</td>
-               <td><a href="http://patch-tag.com/r/ais523/taeb-ai-planar/home">darcs</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td>Megaman</td>
-               <td>2012-10-09</td>
-               <td>2012-10-29</td>
-               <td>Adeon</td>
-               <td>Haskell</td>
-               <td></td>
-               <td></td>
-               <td><a href="https://github.com/Noeda/Megaman">git</a></td>
-               <td></td>
-              </tr>
-              <tr>
-               <td><a href="http://alt.org/nethack/player-all.php?player=MagusTAEB&sort=1">TAEB (Magus)</a></td>
-               <td>2013-06-28</td>
-               <td>2013-06-29</td>
-               <td>Eidolos</td>
-               <td>Perl</td>
-               <td>16579</td>
-               <td>9</td>
-               <td><a href="https://github.com/TAEB/TAEB-AI-Magus">git</a></td>
-               <td></td>
-              </tr>
-             </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div id="sidebar">
-        <div id="nav">
-            <h3>TAEB</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="history.html">History</a></li>
-                <li><a href="design.html">Design</a></li>
-                <li><a href="future.html">Future directions</a></li>
-                <li><a href="bugs.html">Bugs and limitations</a></li>
-                <li><a href="bots.html">Other bots</a></li>
-                <li><a href="http://taeb-nethack.blogspot.com/">Design and development blog</a></li>
-                <li><a href="http://taeb.github.io/interhack">Interhack</a></li>
-                <li><a href="https://github.com/TAEB/TAEB">Browse code</a></li>
-            </ul>
-
-            <h3>Developers</h3>
-            <ul>
-                <li><a href="http://sartak.org">Shawn M Moore (sartak)</a></li>
-                <li><a href="http://tozt.net">Jesse Luehrs (doy)</a></li>
-                <li>Stefan O'Rear (sorear)</li>
-                <li><a href="http://mathemaniac.org/">Sebastian P. (Sebbe)</a></li>
-                <li><a href="http://katron.org">Sean Kelly (arcanehl)</a></li>
-                <li>Anthony Boyd (sawtooth)</li>
-                <li>Alex Smith (ais523)</li>
-            </ul>
-        </div>
-    </div>
-</body>
-</html>
-<!-- vim: set tw=70 si: -->
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+            function() {
+                $("#nh_bots").tablesorter({ sortList: [[1, 0]] });
+            }
+    );
+</script>
