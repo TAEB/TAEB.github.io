@@ -1,6 +1,6 @@
 ---
 title: Solving NetHack's Mastermind
-layout: default
+layout: post
 ---
 Note: This article was originally written in 2006. It is published here for posterity.
 
