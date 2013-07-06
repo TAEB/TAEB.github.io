@@ -1,3 +1,7 @@
+---
+title: Predicting and controlling NetHack's randomness
+layout: post
+---
 <p>NetHack, being a single-player game of imperfect knowledge, incorporates a large element of randomness. Random numbers control how much damage that minotaur will deal you, what the identity of each purple-red potion is, whether dipping into that fountain will net you a wish, etc. To generate random numbers, NetHack employs a pseudorandom number generator. Wikipedia says:</p>
 <blockquote>A <a href="http://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number generator</a> (PRNG) is an algorithm for generating a sequence of numbers that approximates the properties of random numbers. The sequence is not truly random in that it is completely determined by a relatively small set of initial values, called the PRNG's [seed].</blockquote>
 <p>Because NetHack uses a PRNG, providing identical input to two separate games, sharing the same seed and PRNG algorithm, will lead to the same results in each game. This should not be surprising as this is a property fundamental to PRNGs. The input must be identical for both games, otherwise the games will diverge; on the same turn, casting a spell in game <i>A</i> will do a different amount of damage than simple melee in game <i>B</i>. Since the two actions use a different amount of random numbers, it would be annoying (but not difficult) to reconcile the two games.</p>

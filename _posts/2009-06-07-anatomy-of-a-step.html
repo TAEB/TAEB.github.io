@@ -1,3 +1,7 @@
+---
+title: Anatomy of a Step
+layout: post
+---
 <p>Several people have asked to see more articles about TAEB's architecture. Even after working with the codebase for a year and a half, I am still very happy with the design. My previous attempts at writing a NetHack bot lasted only a month or two before collapsing under their limitations. However, I think we finally got it <em>right</em> with TAEB, so I enjoy sharing what we have created.</p>
 
 <p>To introduce the important components of TAEB, I am going to walk through TAEB's "main loop". We call each iteration of the main loop a "step". Each step vaguely resembles iterations of NetHack's own main loop. Note that this is <em>completely</em> unrelated to NetHack's turn counter. Due to the speed system, command repetition ("search for twenty turns"), and even paralysis, steps do not correspond with turns. The only similarity is that both counters increase monotonically. Today, we care only about steps, not turns.</p>

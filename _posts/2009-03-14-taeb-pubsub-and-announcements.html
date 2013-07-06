@@ -1,3 +1,7 @@
+---
+title: TAEB, pubsub, and announcements
+layout: post
+---
 <p>TAEB is a decently-sized, componentized program. Components need to be able to communicate with each other. For example, the Senses component (which tracks the state of TAEB's character) needs to know when we are indebted to a shopkeeper so that it can respond to the AI when it asks if TAEB is in debt, and for how much. The Cartographer component (which tracks the state of the dungeon map) needs to know when TAEB <i>becomes</i> indebted so it can mark the current room as a shop. In general, we want <i>any</i> component to be able to listen for <i>any</i> update. This will let us remain flexible and extensible; the completely-separate AI can listen for any update that the framework can.</p>
 
 <p>We use the <a href="http://en.wikipedia.org/wiki/Publish-subscribe">publish-subscribe pattern</a> to control this complexity. Pubsub decouples those who generate updates (publishers) from those who listen for updates (subscribers). TAEB has been using pubsub for a long time now (since 2008-01-06, according to darcs trackdown). To publish a message, anything in the program can call <tt>TAEB-&gt;enqueue_message("foo" => @arguments)</tt>. This will call the <tt>msg_foo</tt> method on all subscribers with arguments <tt>@arguments</tt>. We have a component, Publisher, that acts as message broker.</p>
