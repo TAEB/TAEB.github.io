@@ -112,6 +112,10 @@ h1 {
     text-align: center;
 }
 
+ul.post-list {
+    list-style-type: none;
+}
+
 /**** fonts ****/
 body {
     font-family: Droid Serif, Gentium, serif;
