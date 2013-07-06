@@ -1,6 +1,7 @@
 ---
 title: TAEB, pubsub, and announcements
 layout: post
+date: 2009-03-14 12:00:00
 ---
 <p>TAEB is a decently-sized, componentized program. Components need to be able to communicate with each other. For example, the Senses component (which tracks the state of TAEB's character) needs to know when we are indebted to a shopkeeper so that it can respond to the AI when it asks if TAEB is in debt, and for how much. The Cartographer component (which tracks the state of the dungeon map) needs to know when TAEB <i>becomes</i> indebted so it can mark the current room as a shop. In general, we want <i>any</i> component to be able to listen for <i>any</i> update. This will let us remain flexible and extensible; the completely-separate AI can listen for any update that the framework can.</p>
 
