@@ -1,0 +1,49 @@
+While working on TAEB, the authors have worked on several other projects to
+add features and fixes, as well as start new projects. Here's a list of new
+modules written by TAEB hackers to make TAEB better:
+<ul>
+<li><a href="http://search.cpan.org/dist/MooseX-Singleton">MooseX::Singleton</a>
+<p>Sartak rewrote MooseX::Singleton from its unreleased "around new" state; others have built upon it. TAEB has since moved to MooseX::ClassAttribute due it be being faster and better.</p></li>
+
+<li><a href="http://search.cpan.org/dist/MooseX-Role-Matcher">MooseX::Role::Matcher</a>
+<p>doy wrote MooseX::Role::Matcher as a generalization of old item match code.</p></li>
+
+<li><a href="http://search.cpan.org/dist/Tie-Handle-TtyRec">Tie::Handle::TtyRec</a>
+<p>Sartak wrote this to give TAEB ttyrec output without having to worry about the ttyrec format.</p></li>
+
+<li><a href="http://search.cpan.org/dist/Games-Mastermind-Cracker">Games::Mastermind::Cracker</a>
+<p>Sartak wrote this so that TAEB wouldn't have to use his original C program to open the castle drawbridge.</p></li>
+
+<li><a href="http://search.cpan.org/dist/Log-Dispatch-Twitter">Log::Dispatch::Twitter</a>
+<p>Sartak wrote this to automatically tweet <a href="http://twitter.com/TAEB_errors">TAEB errors</a> and <a href="http://twitter.com/TAEB_deaths">TAEB deaths</a>.</p></li>
+
+<li><a href="http://search.cpan.org/dist/Log-Dispatch-Channels">Log::Dispatch::Channels</a>
+<p>doy wrote this to give TAEB an arbitrary number of logfiles with no fuss. Simply writing to a new log name creates a new logfile.</p></li>
+
+<li><a href="http://search.cpan.org/dist/NetHack-Item">NetHack::Item</a></li>
+<li><a href="http://search.cpan.org/dist/NetHack-Menu">NetHack::Menu</a></li>
+<li><a href="http://search.cpan.org/dist/NetHack-FOV">NetHack::FOV</a></li>
+<li><a href="http://search.cpan.org/dist/NetHack-Monster-Spoiler">NetHack::Monster::Spoiler</a></li>
+<p>All written for expressly TAEB. They've been factored out so that they could have sane test suites and be useful to other projects. NetHack::Item in particular is a gargantuan redesign of TAEB's old item code to fix a number of flaws.</p>
+</ul>
+<p>And now a list of modules improved by TAEB hackers for TAEB:</p>
+<ul>
+<li><a href="http://moose.perl.org">Moose</a>
+<p>Sartak and doy have contributed a lot to Moose just for TAEB. (TAEB was Sartak's first Moose application, even)</p></li>
+
+<li><a href="http://search.cpan.org/dist/Devel-REPL">Devel::REPL</a>
+<p>Sartak added quite a few plugins to make TAEB's debug REPL better.</p></li>
+
+<li><a href="http://search.cpan.org/dist/IO-Socket-Telnet">IO::Socket::Telnet</a>
+<p>Sartak wrote the original version for <a href="http://interhack.us">Interhack</a>. Added callbacks and made some improvements on day one of TAEB development.</p></li>
+
+<li><a href="http://search.cpan.org/dist/IO-Pty-Easy">IO::Pty::Easy</a>
+<p>doy wrote the original version for Interhack. Made many fixes found through constant use by TAEB.</p></li>
+
+<li><a href="http://continuity.tlt42.org/">Continuity</a>
+<p>Sartak made the debug logging pluggable to put debug messages from Continuity into TAEB's logfiles.</p></li>
+
+<li><a href="http://search.cpan.org/dist/PadWalker">PadWalker</a>
+<p>doy submitted a patch to PadWalker (<a href="http://rt.cpan.org/Public/Bug/Display.html?id=41710">rt.cpan.org #41710</a>) to fix a crashbug tickled a lot in TAEB's REPL.</p></li>
+
+</ul>

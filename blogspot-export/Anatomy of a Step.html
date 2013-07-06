@@ -1,0 +1,74 @@
+<p>Several people have asked to see more articles about TAEB's architecture. Even after working with the codebase for a year and a half, I am still very happy with the design. My previous attempts at writing a NetHack bot lasted only a month or two before collapsing under their limitations. However, I think we finally got it <em>right</em> with TAEB, so I enjoy sharing what we have created.</p>
+
+<p>To introduce the important components of TAEB, I am going to walk through TAEB's "main loop". We call each iteration of the main loop a "step". Each step vaguely resembles iterations of NetHack's own main loop. Note that this is <em>completely</em> unrelated to NetHack's turn counter. Due to the speed system, command repetition ("search for twenty turns"), and even paralysis, steps do not correspond with turns. The only similarity is that both counters increase monotonically. Today, we care only about steps, not turns.</p>
+
+<h3>Input</h3>
+
+<p>The first thing TAEB does is read input from NetHack. This can involve reading from a socket (as in <tt>TAEB::Interface::Telnet</tt>) or reading from a pseudo-terminal (as in <tt>TAEB::Interface::Local</tt>). I will eventually write a post about the mechanics of simply deciding when NetHack is done sending data. It is not at all trivial. (update: <a href="http://taeb-blog.sartak.org/2009/06/synchronizing-with-nethack.html">here's that post</a>)</p>
+
+<p>NetHack prints a stream of characters. Since it provides a full text user interface with two-dimensional maps and colors, NetHack prints <i>escape sequences</i>. These escape sequences encode commands such as "change the pen color to red" (<tt>\e[31m</tt>) or "go to cell (5, 12)" (<tt>\e[12;5H</tt>). We run all input through <a href="http://search.cpan.org/perldoc?Term::VT102"><tt>Term::VT102</tt></a> to parse and handle these escape sequences. <tt>Term::VT102</tt> then lets us ask high-level questions like "what is the text of row 23?" or "what color is cell (59, 6)"? We have a subclass <tt>TAEB::VT</tt> that lets us ask additional questions, such as "is the text 'Hit return to continue:' present on the terminal?"</p>
+
+<p>We now have something resembling what the player would see (a two-dimensional, colored block of text). The next task is to <em>understand</em> what is on the screen. Consider the following NetHack terminal:</p>
+
+<img src="http://sartak.org/misc/blog/taeb/screenscraper.png" />
+
+<p class="aside">As a human, you can figure out a lot of what is going on, even if you have never played NetHack. You can see that the player is in combat with a goblin. From the bottom lines, you can guess that the player is stuffed with food, and probably the character's name. If you have played NetHack, you can recognize several more things. The character is a wizard (evidenced by the <i>Evoker</i> title). There is a general store in the top left room. The character is currently on the bottom of the screen, with a goblin just north of him. You can identify the seven <i>rooms</i> of the level, and the features of the dungeon (like stairs, a fountain, and many doors).</p>
+
+<p>Such analysis is the job of two components, <tt>TAEB::ScreenScraper</tt> and <tt>TAEB::World::Cartographer</tt>. The Cartographer analyzes the map to populate internal level and tile information, while the ScreenScraper handles other input (mostly English text). The ScreenScraper runs first, parsing messages to publish <a href="http://taeb-nethack.blogspot.com/2009/03/taeb-pubsub-and-announcements.html">announcements</a>. The rest of the system does not have to worry about the content of messages, each component just listens for particular high-level events.</p>
+
+<p>Thankfully, English text appears in fixed places on the screen; TAEB never has to guess which text is prose and which represents the map. Most of the time, text only appears on the top and bottom lines. However, menus can appear in more places on the screen.</p>
+
+<img src="http://sartak.org/misc/blog/taeb/identify.png" />
+
+<p class="aside">Here we have an "identify" menu. The ScreenScraper can detect that there is a menu by looking at the text preceding the cursor. If it is "(end)" or "(# of #)" then TAEB knows a menu is on the screen.</p>
+
+<p>Menus are interesting because they demand input from the rest of the system. The ScreenScraper does not know what items should be identified &mdash; it has to ask the AI component. Since there can be many menus in a particular step (such as identifying several items, one at a time), the ScreenScraper has its own loop for parsing different kinds of input. The various kinds of input include menus, prompts ("Eat what?"), location requests ("To what position do you want to be teleported?"), and ordinary top-line messages.</p>
+
+<p>The ScreenScraper and NetHack may communicate several times before the next step is started. What is vital is that the ScreenScraper leaves NetHack in "action mode". There are no unresolved prompts, menus, <tt>--More--</tt> messages, etc. This means that the Cartographer can assume that the cursor is on TAEB. This invariant makes TAEB cope perfectly with having a different character glyph due to polymorph or invisibility. Other bots (such as "moomaster") have struggled with this, since they guessed that the white <tt>@</tt> on the screen was the character.</p>
+
+<p>Since the ScreenScraper leaves NetHack in action mode, the Cartographer knows that every character between lines 2 and 22 inclusive are the map. If there were a menu on screen, TAEB would get massively confused, thinking there are suddenly hundreds of monsters floating in a void on the right side of the screen.</p>
+
+<p>The Cartographer looks at each cell on the virtual terminal to update each tile in TAEB's internal map. It uses cell glyph and color to determine what is on each tile. For example, a gray <tt>{</tt> is a sink.<a href="#20090607_1"><sup>1</sup></a><a name="20090607_1-top"></a> The sink is mapped to a <tt>TAEB::World::Tile::Sink</tt> object. This sink object of course knows things every tile knows, such as how many times it has been stepped on by the character, what items are on the tile, and what engraving is on the tile. In addition, sinks know whether they have produced a black pudding, ring, or foocubus through kicking.</p>
+
+<p>One curiosity is that the map is updated <em>after</em> we publish messages from the ScreenScraper. If TAEB moves and receives the message "You see here an opal ring", the ScreenScraper sees that and announces that there is an opal ring on the current tile. However, since the Cartographer has not run, the current tile has not been updated yet, so the item would be incorrectly added to the previous tile. The crude solution we currently use is to freeze the publisher until after the map has been updated. We are not yet sure of a better solution to this.</p>
+
+<h3>Output</h3>
+
+<p>At this point, the map has been updated, all input from NetHack has been parsed, and the appropriate announcements have been published. We then redraw the screen for the users watching the bot play. We also check if the user typed a key. TAEB has many debug commands, such as <tt>~</tt> to open up an interactive REPL to inspect and change TAEB's internal state.</p>
+
+<p>Finally, it is time to involve the AI. TAEB simply asks the AI "what now?" This can involve arbitrarily complex calculations. One of my favorite features of TAEB's design is that its AI is <em>pluggable</em>. TAEB requires only a few methods be implemented by the AI, and we are working to trim that down to just "what now?"</p>
+
+<p>There are currently two AIs being developed: Behavioral (by most of the core team) and Planar (by ais523). Both are worthy of many posts. We hope to entice more developers to work on TAEB AIs! One of our future projects will be <a href="http://interhack.us">Interhack</a> on top of TAEB. The intelligence of a <tt>TAEB::AI::Interhack</tt> would not actually be "artificial", of course.</p>
+
+<p>Since TAEB is a <em>framework</em>, the AI will inevitably be tightly-bound to TAEB (though, as explained, the converse is not true). The AI is expected to call all sorts of methods on TAEB objects, such as "am I currently blind?" (<tt>TAEB-&gt;is_blind</tt>), "do I know the identify spell?" (<tt>TAEB-&gt;find_spell("identify")</tt>), "is there a fountain on this level?" (<tt>TAEB-&gt;current_level-&gt;has_type("fountain")</tt>), and so on. We think this is a huge boon to developers seeking to write NetHack bots &mdash; they can focus solely on the interesting bits of artificial intelligence. We handle the <em>programmatic NetHack</em>.</p>
+
+<p>The AI tells TAEB what to do each step through <tt>TAEB::Action</tt> objects. These abstract away the details of interacting with prompts and menus. The AI can say:</p>
+
+<pre>
+    sub next_action {
+        # ...
+        if (my $lizard_corpse = TAEB-&gt;find_item("lizard corpse")) {
+            return TAEB::Action::Eat-&gt;new(
+                food =&gt; $lizard_corpse,
+            );
+        }
+        # ...
+    }
+</pre>
+
+<p>The action will take care of responding to the "Eat what?" prompt with <tt>$lizard_corpse</tt>'s inventory letter. The action will also respond to <em>unexpected</em> prompts, such as "There is a fox corpse here; eat it?". This <em>declarative</em> nature pervades TAEB's design to great effect.</p>
+
+<p>Finally, we send the keystrokes for the current action (such as "<tt>e</tt>" for eat) to NetHack.</p>
+
+<p>The action will participate in the next iteration of the main loop to respond to prompts and listen for events caused by the action. For example, if TAEB receives the message "You stop eating the lizard corpse", then the action will know not to remove the lizard corpse from the inventory.</p>
+
+<h3>Conclusion</h3>
+
+<p>The design of TAEB's main loop has had a significant impact on its (relative) longevity. The design of handling all of the input from NetHack as soon as possible drove much of the system's design in very positive ways. It encouraged the reification of Actions, which has been immeasurably useful. It even encouraged the addition of the pubsub system <em>and</em> its later enhancement to announcements. Though there are still some lingering quirks caused by this main loop design (such as teleportation traps), none seem insurmountable.</p>
+
+<hr />
+
+<h4>Footnotes</h4>
+<ol>
+    <li><a name="20090607_1"></a>TAEB remaps some dungeon features to avoid conflicts; in core NetHack, sinks are gray <tt>#</tt>, but so are corridors. Eventually we may be able to remove some remappings due to increasing Cartographer sophistication, but there's no rush. TAEB does not change too many characters as to render its NetHack screens unfamiliar. <a href="#20090607_1-top">(back)</a></li>
+</ol>

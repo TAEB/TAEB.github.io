@@ -1,0 +1,915 @@
+<p><i>Note: This article was originally written in 2006. It is published here for posterity.</i></p>
+
+<p>NetHack's Mastermind is very similar to the real Mastermind, with three changes:</p>
+<ul>
+    <li>Instead of five colors, there are seven notes (<b>A</b>, <b>B</b>, <b>C</b>, <b>D</b>, <b>E</b>, <b>F</b>, and <b>G</b>).</li>
+    <li>There are five positions, not four.</li>
+    <li>You can give partial solutions (such as <b>AB</b> even though the solution is five notes long).</li>
+</ul>
+
+<p>A <em>gear</em> represents a note in the correct position. A <em>tumbler</em> represents a note in an incorrect position. So, for example, if you're trying to find the tune <b>FFAAB</b> and you guess <b>AFAFB</b>, you'll get three gears and two tumblers. If you guess <b>CA</b> you'll get one tumbler. If you guess <b>BBBBB</b> you'll get one gear. If you guess <b>DDDDD</b> you'll get silence (in other words, no gears and no tumblers).</p>
+
+<p>This document describes my attempts at optimizing a NetHack Mastermind solver (with help from Sean Kelly and papers from Don Knuth and Barteld Kooi). The first, naïve algorithm finds the solution on average within 15 turns, possibly taking up to 21. The last, most effective algorithm finds the solution on average within 4 turns, possibly taking up to only 6. This is an important result because in NetHack, the level where you play Mastermind is one of the most dangerous, so you have a strong incentive (your own survival) to find the solution as quickly as possible.</p>
+
+<hr />
+
+<h2 id="naive1">Algorithm: Naïve 1</h2>
+<p>The first tune we always test is <b>A</b>. If that's a gear, then we're done with the first position. We don't know if any more <b>A</b>s are in the tune, so our next stab is <b>AA</b>. Back to the first play though: if <b>A</b> produces a tumbler, then we skip it for now and move on to <b>B</b>. If we get silence, then we know <b>A</b> is not in the tune at all, so we remove it from any further consideration. Repeat this until we have found the tune.</p>
+<p>This basic algorithm is straightforward and works well enough. This is roughly what I do when I am playing NetHack, since it can be done without assistance.</p>
+
+<p>So let's use this algorithm to try to find a particular tune:</p>
+<ol>
+    <li><b>A</b>: one tumbler <i>(we know there's an A but not in the first position, so skip A for a while)</i></li>
+    <li><b>B</b>: one tumbler <i>(ditto. skip B for a while)</i></li>
+    <li><b>C</b>: one gear <i>(great! first position is C. Try C again)</i></li>
+    <li><b>CC</b>: one gear <i>(now we know there are no more Cs in this tune)</i></li>
+    <li><b>CD</b>: two gears <i>(second position is D. try D again)</i></li>
+    <li><b>CDD</b>: two gears <i>(now we know there are no more Ds in this tune)</i></li>
+    <li><b>CDE</b>: two gears <i>(now we know there are no Es in this tune)</i></li>
+    <li><b>CDF</b>: three gears <i>(third position is F. try F again)</i></li>
+    <li><b>CDFF</b>: three gears <i>(so we know there are no more Fs in this tune)</i></li>
+    <li><b>CDFG</b>: three gears <i>(so we know there are no Gs in this tune)</i></li>
+    <li><b>CDFA</b>: three gears, one tumbler <i>(we know there's an A but not in the fourth position, so skip A for a while)</i></li>
+    <li><b>CDFB</b>: four gears <i>(fourth position is B. try B again)</i></li>
+    <li><b>CDFBB</b>: four gears <i>(so we know there are no more Bs in this tune)</i></li>
+    <li><b>CDFBA</b>: five gears <i>(nailed it!)</i></li>
+</ol>
+
+<p>This first algorithm looks like this in pseudocode:</p>
+
+<pre>
+  notes = A, B, C, D, E, F, G
+  tune  = ""
+
+  while tune.length &lt; 5
+    try tune + notes[0]
+
+    if tumblers
+      # move this note to the end of the note list
+      # we're guaranteed to see the correct note before we see this one again
+      note = notes.delete_at[0]
+      notes.push(note)
+    elsif gears &gt; tune.length
+      # correct note
+      tune += notes[0]
+    else
+      notes.delete_at[0]
+  end
+</pre>
+
+<p>Here are its results:</p>
+
+<ul>
+    <li>Average turns per tune: 14.69 (246880 turns to solve all tunes / 16807 tunes)</li>
+</ul>
+
+<hr />
+
+<h2 id="naive2">Algorithm: Naïve 2</h2>
+
+<p>The first optimization we can make is that, if at any time we have exactly one possible note left, the rest of the tune most consist solely of that note.</p>
+
+<pre>
+  notes = A, B, C, D, E, F, G
+  tune  = ""
+
+  while tune.length &lt; 5
+    <span style="color: green; font-weight: bold">if notes.size == 1
+      tune += notes[0] while tune.length &lt; 5
+      last
+    end</span>
+
+    try tune + notes[0]
+
+    if any tumblers
+      # move this note to the end of the note list
+      # we're guaranteed to see the correct note before we see this one again
+      notes.push(notes.delete_at[0])
+    elsif gears &gt; tune.length
+      # correct note
+      tune += notes[0]
+    else
+      notes.delete_at[0]
+  end
+</pre>
+
+<ul>
+    <li>Average turns per tune: 13.55 (227729 turns / 16807 tunes)</li>
+    <li>Average turn savings: 1.14</li>
+</ul>
+
+<hr />
+
+<h2 id="naive3">Algorithm: Naïve 3</h2>
+
+<p>The next savings (which will be minor compared to the previous one) is if we've seen five distinct notes, we can rule out any notes not among those five:</p>
+
+<pre>
+  notes = A, B, C, D, E, F, G
+  tune  = ""
+  seen  = nil
+
+  while tune.length &lt; 5
+    <span style="color: green; font-weight: bold">if seen.size == 5
+      foreach element in notes
+        delete it if it's not in seen
+      end
+    end</span>
+
+    if notes.size == 1
+      tune += notes[0] while tune.length &lt; 5
+      last
+    end
+
+    try tune + notes[0]
+
+    if any tumblers
+      <span style="color: green; font-weight: bold">seen.add(notes[0]) unless seen.contains(notes[0])</span>
+      # move this note to the end of the note list
+      # we're guaranteed to see the correct note before we see this one again
+      notes.push(notes.delete_at[0])
+    elsif gears &gt; tune.length
+      # correct note
+      tune += notes[0]
+      <span style="color: green; font-weight: bold">seen.add(notes[0]) unless seen.contains(notes[0])</span>
+    else
+      notes.delete_at[0]
+  end
+</pre>
+
+<ul>
+    <li>Average turns per tune: 13.50 (226896 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.05</li>
+</ul>
+
+<hr />
+
+<h2 id="naive4">Algorithm: Naïve 4</h2>
+
+<p>So much for the obvious optimizations. Let's try tweaking some details of the algorithm a bit just to see if it helps or hurts.</p>
+<p>You know how when we get a tumbler we move the first note to the last position? Let's try doing that when we get a gear, too. Turns out this saves us almost .25 turns.</p>
+
+<pre>
+  notes = A, B, C, D, E, F, G
+  tune  = ""
+  seen  = nil
+
+  while tune.length &lt; 5
+    if seen.size == 5
+      foreach element in notes
+        delete it if it's not in seen
+      end
+    end
+
+    if notes.size == 1
+      tune += notes[0] while tune.length &lt; 5
+      last
+    end
+
+    try tune + notes[0]
+
+    if any tumblers
+      seen.add(notes[0]) unless seen.contains(notes[0])
+      # move this note to the end of the note list
+      # we're guaranteed to see the correct note before we see this one again
+      notes.push(notes.delete_at[0])
+    elsif gears &gt; tune.length
+      # correct note
+      tune += notes[0]
+      seen.add(notes[0]) unless seen.contains(notes[0])
+      <span style="color: green; font-weight: bold">notes.push(notes.delete_at[0])</span>
+    else
+      notes.delete_at[0]
+  end
+</pre>
+
+<ul>
+    <li>Average turns per tune: 13.27 (223060 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.23</li>
+</ul>
+<hr />
+<h2 id="knuth1">Algorithm: Knuth 1</h2>
+
+<p>Due to <a href="http://katron.org">arcanehl</a>'s constant (yet ever friendly) <a href="http://katron.org/nh/mastermind.html">prodding</a>, I picked this code up again. He started implementing Knuth's Mastermind algorithm, which, while slower, is much more effective. The average turns to solve a tune goes down from 13 to just 5!</p>
+<p>It's a radical change from the algorithm used above, so allow me to explain. The basic idea is after a guess, we eliminate any possibilities that would not produce the same score. For example, if we try <b>AAABB</b> and get 2 gears, 0 tumblers, then we can eliminate any possibility that does not produce 2 gears and 0 tumblers against <b>AAABB</b> (such as <b>CCCCC</b> which would produce 0 gears and 0 tumblers). The initial guess is hardcoded to be <b>AAABB</b> though it could be something entirely different. The next guess is (currently) taken arbitrarily; we use the first possibility.</p>
+<p>I changed from Perl to C during testing for speed: arcanehl's Ruby implementation of this algorithm takes hours, mine takes less than twenty-five seconds. Of course, these are the results of timing <em>every</em> possible tune (there are 16807 of them). Going through the algorithm for just one tune will be fast enough at a hundredth the speed.</p>
+
+<pre>
+    possibilities = ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AAABB"
+    else
+        guess = possibilities[0]
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+
+<ul>
+    <li>Average turns per tune: 5.5 (93103 turns / 16807 tunes)</li>
+    <li>Average turn savings: 7.7</li>
+</ul>
+
+<hr />
+
+<h2 id="knuth2">Algorithm: Knuth 2</h2>
+
+<p>About the only possible improvement we can make is to generate a better guess than always using the first possible tune. I figured the median tune (or close enough to it) would be better than the first, and I was right, saving over half a turn.</p>
+
+<pre>
+    possibilities = ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AAABB"
+    else
+        guess = possibilities[<span style="color: green; font-weight: bold">possibilities.size/2</span>]
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+
+<ul>
+    <li>Average turns per tune: 4.92 (82643 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.62</li>
+</ul>
+
+<hr />
+
+<h2 id="knuth3">Algorithm: Knuth 3</h2>
+
+<p>Mysteriously, we find that the best initial tune is <b>AABBC</b>, not <b>AAABB</b>. (that's called foreshadowing)</p>
+<p>This is the algorithm that is used in Rodney3. To save memory, all he remembers for each player is the results of each tune. Naturally there's a fair amount of reprocessing, but a 16807-element array would be kind of large to save for each person (and I'm afraid of Perl bitfields).</p>
+
+<pre>
+    possibilities = ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "<span style="color: green; font-weight: bold">AABBC</span>"
+    else
+        guess = possibilities[possibilities.size/2]
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+
+<ul>
+    <li>Average turns per tune: 4.85 (81446 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.07</li>
+</ul>
+
+<hr/>
+
+<h2 id="knuth4">Algorithm: Knuth 4</h2>
+<p>Enough goofing around. Time to implement the rest of Knuth's algorithm: at each step, guess the possibility that would eliminate the most possibilities in the worst case. This means that no matter what the response is for the guess, we'll eliminate a maximum number of possibilities. The way I implement it has time complexity <tt>O(n^2)</tt> where <var>n</var> is the number of tunes left; I don't know if there's a more efficient solution. For each guess <var>i</var> we score each possible tune <var>j</var>. The worst case for <var>i</var> is equal to the largest number of remaining tunes after playing it (given all possible responses, such as three tumblers and one gear). Then we find the smallest worst case (ie, smallest remaining number of tunes) over all <var>i</var> and we play it!</p>
+<p>This takes hours even in my somewhat tuned C implementation. Using the median element as above may be more appropriate if you're playing all 16807 tunes, since this extra processing is probably not worth the turn savings. Otherwise, if you're just finding one tune as in an actual game of NetHack, you'll of course want to use the best algorithm available.</p>
+<p>Note: we found the best first tune (<b>AABBC</b>) by running this code without the hardcoded first guess. The code obviously produces the same results without the hardcoded first guess, but there's no reason to do all that processing (which is a <em>lot</em> for all 16807 tunes) when we know the first best guess is always <b>AABBC</b>.</p>
+
+<pre>
+    possibilities = ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AABBC"
+    else
+<span style="color: green; font-weight: bold">          best_worst_case = possibilities.size + 100
+        foreach i in possibilities
+        remaining = []
+
+        foreach j in possibilities
+            score = score(j, i)
+            remaining[score] += 1
+        end
+
+        worst_case = remaining.max
+        if worst_case &lt; best_worst_case
+            best_worst_case = worst_case
+            guess = i
+        end
+        end</span>
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+<ul>
+    <li>Average turns per tune: 4.61 (77422 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.24</li>
+</ul>
+
+<hr />
+
+<h2 id="breadth1">Algorithm: Breadth 1</h2>
+<p>I was talking in <tt>#nethack</tt> and someone brought up Mastermind. So that revived this whole thing. I was idly searching on the <a href="http://www.arxiv.org/">arXiv</a> for Mastermind papers, and only found the one that proves Mastermind is NP-complete, which while good to know, doesn't directly help me improve my solving algorithms. However, I then remembered <a href="http://scholar.google.com/">Google Scholar</a> and searched for Knuth's paper. I couldn't find it, but it did return a few dozen papers that referenced Knuth's; including one by a Mr. Barteld Kooi. The paper, "Yet Another Mastermind Strategy," is available <a href="http://www.philos.rug.nl/~barteld/master.pdf">here</a>. The gist of the algorithm is that instead of taking the best worst case scenario (as we do in Knuth's algorithm), take the tune that would produce the largest number of unique responses. So a tune that can return six unique responses is valued over a tune that can only return three unique responses. In the author's words, "[In this strategy, o]ne only looks at the 'breadth' of a partition. On the other side of the spectrum one finds Knuth's worst case strategy, which only looks at the 'depth' of a partition." This next algorithm implements exactly that; looking at only the breadth.</p>
+<p>Also, I've rerun the algorithm without the hardcoded first guess, but it guessed <b>AABBC</b> anyway, which is a convenient result.</p>
+<pre>
+    possibilities = ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AABBC"
+    else
+        <span style="color: green; font-weight: bold">best = 0</span>
+        foreach i in possibilities
+        <span style="color: green; font-weight: bold">responses</span> = []
+
+        foreach j in possibilities
+            score = score(j, i)
+            <span style="color: green; font-weight: bold">responses</span>[score] += 1
+        end
+
+        <span style="color: green; font-weight: bold">cnt = 0
+        foreach response in responses
+            if response &gt; 0
+            cnt += 1
+            end
+        end</span>
+
+        if <span style="color: green; font-weight: bold">cnt &gt; best
+            best = cnt</span>
+            guess = i
+        end
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+<ul>
+    <li>Average turns per tune: 4.5 (76038 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.08</li>
+</ul>
+
+<hr />
+
+<h2 id="breadth2">Algorithm: Breadth 2</h2>
+<p>A <em>consistent</em> guess is one that has a chance of being correct; that is, it's consistent with the tunes we've played so far. When figuring out the next tune to play, we discard any inconsistent guesses. Well, let's see what happens when we keep them!</p>
+<pre>
+    possibilities = <span style="color: green; font-weight: bold">all_tunes =</span> ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AABBC"
+    else
+        best = 0
+        foreach i in <span style="color: green; font-weight: bold">all_tunes</span>
+        responses = []
+
+        foreach j in possibilities
+            score = score(j, i)
+            responses[score] += 1
+        end
+
+        cnt = 0
+        foreach response in responses
+            if response &gt; 0
+            cnt += 1
+            end
+        end
+
+        if cnt &gt; best
+            best = cnt
+            guess = i
+        end
+        end
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+<ul>
+    <li>Average turns per tune: 4.4 (73803 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.13</li>
+</ul>
+
+<hr/>
+
+<h2 id="knuth5">Algorithm: Knuth 5</h2>
+<p>Let's apply the same change to Knuth's algorithm, just in case it ends up being better than <a href="#breadth2">Breadth 2</a>. Turns out it isn't. The "average turn savings" below is in relation to the <a href="#knuth4">Knuth 4</a> algorithm, not Breadth 2.</p>
+<pre>
+    possibilities = <span style="color: green; font-weight: bold">all_tunes =</span> ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AABBC"
+    else
+        best_worst_case = possibilities.size + 100
+        foreach i in <span style="color: green; font-weight: bold">all_tunes</span>
+        remaining = []
+
+        foreach j in possibilities
+            score = score(j, i)
+            remaining[score] += 1
+        end
+
+        worst_case = remaining.max
+        if worst_case &lt; best_worst_case
+            best_worst_case = worst_case
+            guess = i
+        end
+        end
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+<ul>
+    <li>Average turns per tune: 4.58 (76911 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.03</li>
+</ul>
+
+<hr />
+
+<h2 id="breadth3">Algorithm: Breadth 3</h2>
+<p>Let's prefer to guess consistently over inconsistently when able. As of Breadth 2 we take the first tune that produces the maximum partition set size, even if that guess is inconsistent. If two tunes produce the same (maximum) partition set size, and one is consistent and the other is not, we should definitely pick the consistent one, because we might stumble upon the answer. One possible area of improvement is listing every tune that produces the maximum partition set size and picking the median one. Also, say an inconsistent tune produces a partition set size of 9 while a consistent guess produces a partition set size of 8. Should we play the consistent one?</p>
+<pre>
+    possibilities = all_tunes = ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AABBC"
+    else
+        best = 0
+        <span style="color: green; font-weight: bold">best_is_consistent = false</span>
+
+        foreach i in all_tunes
+        responses = []
+
+        foreach j in possibilities
+            score = score(j, i)
+            responses[score] += 1
+        end
+
+        cnt = 0
+        foreach response in responses
+            if response &gt; 0
+            cnt += 1
+            end
+        end
+
+        if cnt &gt; best <span style="color: green; font-weight: bold">or (!best_is_consistent and i_is_consistent and cnt == best)</span>
+            best = cnt
+            guess = i
+            <span style="color: green; font-weight: bold">best_is_consistent = i_is_consistent</span>
+        end
+        end
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+<ul>
+    <li>Average turns per tune: 4.38 (73622 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.01</li>
+</ul>
+
+<hr/>
+
+<h2 id="knuth6">Algorithm: Knuth 6</h2>
+<p>Let's again apply the same change to Knuth's algorithm, just on the off-chance it ends up being better than <a href="#breadth3">Breadth 3</a>. Turns out it isn't. The "average turn savings" below is in relation to the <a href="#knuth5">Knuth 5</a> algorithm, not Breadth 3.</p>
+<pre>
+    possibilities = all_tunes = ... # each possible tune
+    while possibilities.size &gt; 1
+    if possibilities.size == 16807  # first guess
+        guess = "AABBC"
+    else
+        best_worst_case = possibilities.size + 100
+        <span style="color: green; font-weight: bold">best_is_consistent = false</span>
+
+        foreach i in all_tunes
+        remaining = []
+
+        foreach j in possibilities
+            score = score(j, i)
+            remaining[score] += 1
+        end
+
+        worst_case = remaining.max
+        if worst_case &lt; best_worst_case <span style="color: green; font-weight: bold">or (!best_is_consistent and i_is_consistent and worst_case == best_worst_case)</span>
+            best_worst_case = worst_case
+            guess = i
+            <span style="color: green; font-weight: bold">best_is_consistent = i_is_consistent</span>
+        end
+        end
+    end
+
+    real_score = try guess
+
+    possibilities.delete_if {|possibility| score(possibility, guess) != real_score}
+    end
+</pre>
+<ul>
+    <li>Average tunes per turn: 4.51 (75864 turns / 16807 tunes)</li>
+    <li>Average turn savings: 0.06</li>
+</ul>
+
+<hr />
+
+<h2>Results</h2>
+
+<p>Here are the exact results of each algorithm.</p>
+<ol>
+    <li><a href="#naive1">Naïve 1</a>: Guess notes in turn, remove note if silence, keep track of tune so far</li>
+    <li><a href="#naive2">Naïve 2</a>: If one note left, fill rest of tune with it</li>
+    <li><a href="#naive3">Naïve 3</a>: If five notes seen, eliminate others</li>
+    <li><a href="#naive4">Naïve 4</a>: Rotate notes on gear</li>
+    <li><a href="#knuth1">Knuth 1</a>: Eliminate impossible tunes, guess first possibility</li>
+    <li><a href="#knuth2">Knuth 2</a>: Guess median possibility, not first</li>
+    <li><a href="#knuth3">Knuth 3</a>: Start with <b>AABBC</b> not <b>AAABB</b></li>
+    <li><a href="#knuth4">Knuth 4</a>: Greedily guess best possibility</li>
+    <li><a href="#knuth5">Knuth 5</a>: Allow inconsistent guesses</li>
+    <li><a href="#knuth6">Knuth 6</a>: Prefer consistent guesses</li>
+    <li><a href="#breadth1">Breadth 1</a>: Guess tune that would give the most unique answers</li>
+    <li><a href="#breadth2">Breadth 2</a>: Allow inconsistent guesses</li>
+    <li><a href="#breadth3">Breadth 3</a>: Prefer consistent guesses</li>
+</ol>
+
+<h3>Naïve</h3>
+
+<table style="text-align: center">
+    <thead>
+        <tr>
+            <th>turns</th>
+            <th><a href="#naive1">Naïve 1</a></th>
+            <th><a href="#naive2">Naïve 2</a></th>
+            <th><a href="#naive3">Naïve 3</a></th>
+            <th><a href="#naive4">Naïve 4</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>5</td>
+            <td>6</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>15</td>
+            <td>21</td>
+            <td>21</td>
+            <td>28</td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>35</td>
+            <td>77</td>
+            <td>77</td>
+            <td>85</td>
+        </tr>
+        <tr>
+            <th>9</th>
+            <td>70</td>
+            <td>238</td>
+            <td>242</td>
+            <td>275</td>
+        </tr>
+        <tr>
+            <th>10</th>
+            <td>126</td>
+            <td>721</td>
+            <td>750</td>
+            <td>825</td>
+        </tr>
+        <tr>
+            <th>11</th>
+            <td>210</td>
+            <td>1596</td>
+            <td>1632</td>
+            <td>1934</td>
+        </tr>
+        <tr>
+            <th>12</th>
+            <td>1519</td>
+            <td>2576</td>
+            <td>2617</td>
+            <td>2903</td>
+        </tr>
+        <tr>
+            <th>13</th>
+            <td>2709</td>
+            <td>3164</td>
+            <td>3196</td>
+            <td>3364</td>
+        </tr>
+        <tr>
+            <th>14</th>
+            <td>3395</td>
+            <td>3066</td>
+            <td>3076</td>
+            <td>2972</td>
+        </tr>
+        <tr>
+            <th>15</th>
+            <td>3241</td>
+            <td>2422</td>
+            <td>2405</td>
+            <td>2127</td>
+        </tr>
+        <tr>
+            <th>16</th>
+            <td>2527</td>
+            <td>1575</td>
+            <td>1539</td>
+            <td>1287</td>
+        </tr>
+        <tr>
+            <th>17</th>
+            <td>1610</td>
+            <td>840</td>
+            <td>799</td>
+            <td>638</td>
+        </tr>
+        <tr>
+            <th>18</th>
+            <td>840</td>
+            <td>364</td>
+            <td>331</td>
+            <td>261</td>
+        <tr>
+            <th>19</th>
+            <td>364</td>
+            <td>119</td>
+            <td>100</td>
+            <td>85</td>
+        </tr>
+        <tr>
+            <th>20</th>
+            <td>119</td>
+            <td>21</td>
+            <td>15</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>21</th>
+            <td>21</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>total</th>
+            <th>246880</th>
+            <th>227729</th>
+            <th>226896</th>
+            <th>223060</th>
+        </tr>
+        <tr>
+            <th>average</th>
+            <th>14.69</th>
+            <th>13.55</th>
+            <th>13.50</th>
+            <th>13.28</th>
+        </tr>
+    </tfoot>
+</table>
+
+<h3>Knuth</h3>
+
+<table style="text-align: center">
+    <thead>
+        <tr>
+            <th>turns</th>
+            <th><a href="#knuth1">Knuth 1</a></th>
+            <th><a href="#knuth2">Knuth 2</a></th>
+            <th><a href="#knuth3">Knuth 3</a></th>
+            <th><a href="#knuth4">Knuth 4</a></th>
+            <th><a href="#knuth5">Knuth 5</a></th>
+            <th><a href="#knuth6">Knuth 6</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>19</td>
+            <td>17</td>
+            <td>29</td>
+            <td>29</td>
+            <td>17</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>260</td>
+            <td>420</td>
+            <td>463</td>
+            <td>491</td>
+            <td>387</td>
+            <td>423</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>1337</td>
+            <td>4053</td>
+            <td>4656</td>
+            <td>6149</td>
+            <td>6429</td>
+            <td>7324</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>6975</td>
+            <td>8935</td>
+            <td>8740</td>
+            <td>9534</td>
+            <td>9839</td>
+            <td>8980</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>5812</td>
+            <td>3208</td>
+            <td>2752</td>
+            <td>597</td>
+            <td>134</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>2052</td>
+            <td>171</td>
+            <td>166</td>
+            <td>6</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>336</td>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>9</th>
+            <td>13</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>10</th>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>total</th>
+            <th>93103</th>
+            <th>82643</th>
+            <th>81446</th>
+            <th>77422</th>
+            <th>76911</th>
+            <th>75864</th>
+        </tr>
+        <tr>
+            <th>average</th>
+            <th>5.54</th>
+            <th>4.92</th>
+            <th>4.85</th>
+            <th>4.61</th>
+            <th>4.58</th>
+            <th>4.51</th>
+        </tr>
+    </tfoot>
+</table>
+
+<h3>Breadth</h3>
+
+<table style="text-align: center">
+    <thead>
+        <tr>
+            <th>turns</th>
+            <th><a href="#breadth1">Breadth 1</a></th>
+            <th><a href="#breadth2">Breadth 2</a></th>
+            <th><a href="#breadth3">Breadth 3</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>33</td>
+            <td>41</td>
+            <td>40</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>653</td>
+            <td>838</td>
+            <td>846</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>7215</td>
+            <td>8608</td>
+            <td>8770</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>8288</td>
+            <td>7140</td>
+            <td>6977</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>607</td>
+            <td>179</td>
+            <td>173</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>10</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>total</th>
+            <th>76038</th>
+            <th>73803</th>
+            <th>73622</th>
+        </tr>
+        <tr>
+            <th>average</th>
+            <th>4.52</th>
+            <th>4.39</th>
+            <th>4.38</th>
+        </tr>
+    </tfoot>
+</table>
